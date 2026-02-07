@@ -7,10 +7,27 @@ export const metadata: Metadata = {
   description: "ClarityScalesoftware.io",
   openGraph: {
     title: "ClarityScalesoftware.io",
+    description: "ClarityScalesoftware.io",
+    images: [
+      {
+        url: '/titlelogo.png',
+        width: 800,
+        height: 600,
+        alt: 'ClarityScale Logo',
+      },
+    ],
   },
   twitter: {
+    card: 'summary_large_image',
     title: "ClarityScalesoftware.io",
+    description: "ClarityScalesoftware.io",
+    images: ['/titlelogo.png'],
   },
+  icons: {
+    icon: '/titlelogo.png',
+    shortcut: '/titlelogo.png',
+    apple: '/titlelogo.png',
+  }
 };
 
 export default function RootLayout({
@@ -24,9 +41,9 @@ export default function RootLayout({
         <link href="/assets/cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/css/clarityscalesoftware.webflow.shared.ed4b54830.css" rel="stylesheet" type="text/css" />
         <link href="https://fonts.googleapis.com" rel="preconnect" />
         <link href="https://fonts.gstatic.com" rel="preconnect" crossOrigin="anonymous" />
-        <link href="https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/68837077b60f5263fe4960cb_LogoClaritySclae.png" rel="shortcut icon" type="image/x-icon" />
-        <link href="https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/688370b5b15902eb4f2ba600_LogoClarityScale256px.png" rel="apple-touch-icon" />
-        <style dangerouslySetInnerHTML={{__html: `
+
+        <style dangerouslySetInnerHTML={{
+          __html: `
           .navbar, .section { display: block !important; visibility: visible !important; }
           .navbar { position: sticky !important; opacity: 1 !important; z-index: 1000 !important; filter: none !important; }
           .section { position: relative !important; opacity: 1 !important; filter: none !important; }

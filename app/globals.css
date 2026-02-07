@@ -10,13 +10,37 @@
   .w-container {
     @apply max-w-[940px] mx-auto px-4;
   }
-  
+
   .container {
-    @apply w-full max-w-[1200px] mx-auto px-5; /* Adjusted closer to standard modern widths, verifying specific width from old CSS next */
+    @apply w-full max-w-[1200px] mx-auto px-5;
+    /* Adjusted closer to standard modern widths, verifying specific width from old CSS next */
   }
 }
 
 body {
   font-family: var(--font-inter);
   @apply text-gray-900 antialiased;
+}
+
+/* Fix tooltip visibility - hide by default, show on hover */
+.bubble .tip-tool-holder {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.bubble:hover .tip-tool-holder {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.bubble:hover .tip-tool-container {
+  opacity: 1;
+}
+
+/* Fix header logo size */
+.brand-image {
+  max-height: 80px;
+  width: auto;
+  object-fit: contain;
 }

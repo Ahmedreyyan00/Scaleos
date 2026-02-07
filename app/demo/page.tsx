@@ -9,11 +9,9 @@ const Demo = () => {
                     <div className="navbar-holder">
                         <div className="navbar-container">
                             <div className="brand-holder"><a href="/" className="brand w-nav-brand"><img
-                                src="assets/cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6882b6970e9811a46c046296_ClarityScaleee.png"
+                                src="/logobg.png"
                                 loading="lazy"
-                                sizes="(max-width: 479px) 98vw, (max-width: 767px) 99vw, (max-width: 3133px) 100vw, 3133px"
-                                srcSet="https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6882b6970e9811a46c046296_ClarityScaleee-p-500.png 500w, https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6882b6970e9811a46c046296_ClarityScaleee-p-800.png 800w, https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6882b6970e9811a46c046296_ClarityScaleee-p-1080.png 1080w, https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6882b6970e9811a46c046296_ClarityScaleee-p-1600.png 1600w, https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6882b6970e9811a46c046296_ClarityScaleee-p-2000.png 2000w, https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6882b6970e9811a46c046296_ClarityScaleee-p-2600.png 2600w, https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6882b6970e9811a46c046296_ClarityScaleee.png 3133w"
-                                alt="" className="brand-image" /></a></div>
+                                alt="ClarityScale Logo" className="brand-image" /></a></div>
                             <nav role="navigation" className="nav-menu w-nav-menu">
                                 <div className="nav-menu-link-holder">
                                     <div className="nav-menu-link-container">
