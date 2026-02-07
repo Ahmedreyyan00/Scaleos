@@ -17,7 +17,7 @@ export default function Home() {
                       <a href="/" aria-current="page" className="nav-link w-nav-link w--current">Home</a>
                       <a href="/demo" className="nav-link w-nav-link">Demo</a>
                       <a href="/features" className="nav-link w-nav-link">Features</a>
-                      <a href="https://g1fmenklw87.typeform.com/to/nJkcvfiV" className="nav-link w-nav-link">Contact</a>
+                      <a href="https://form.typeform.com/to/rJ7fFgTY" className="nav-link w-nav-link">Contact</a>
                     </div>
                   </div>
                 </div>
@@ -27,7 +27,7 @@ export default function Home() {
                   <div className="w-icon-nav-menu"></div>
                 </div>
                 <div className="nav-menu-button-holder">
-                  <a href="https://g1fmenklw87.typeform.com/to/nJkcvfiV" className="button outline nav-btn w-button">Private launch access</a>
+                  <a href="https://form.typeform.com/to/rJ7fFgTY" className="button outline nav-btn w-button">Private launch access</a>
                 </div>
               </div>
             </div>
@@ -49,7 +49,7 @@ export default function Home() {
                 </div>
                 <div className="animate-on-load-03">
                   <div className="button-holder">
-                    <a href="https://g1fmenklw87.typeform.com/to/nJkcvfiV" className="button w-button">Private launch access</a>
+                    <a href="https://form.typeform.com/to/rJ7fFgTY" className="button w-button">Private launch access</a>
                     <a href="/demo" className="button outline w-button">View demo</a>
                   </div>
                 </div>
@@ -235,7 +235,7 @@ export default function Home() {
                 <h1>Stop Losing Time &amp; Money. <br />Scale based on Real Data.</h1>
               </div>
               <div className="form">
-                <a href="https://g1fmenklw87.typeform.com/to/nJkcvfiV" className="submit-button-url w-button">Private launch access</a>
+                <a href="https://form.typeform.com/to/rJ7fFgTY" className="submit-button-url w-button">Private launch access</a>
               </div>
             </div>
             <div data-w-id="916dc6f2-d45d-4fd6-0e2a-987e1ed31411" className="cta-dashboard-holer">

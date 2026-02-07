@@ -19,7 +19,7 @@ const Demo = () => {
                                             href="/demo" aria-current="page"
                                             className="nav-link w-nav-link w--current">Demo</a><a href="/features"
                                                 className="nav-link w-nav-link">Features</a><a
-                                                    href="https://g1fmenklw87.typeform.com/to/nJkcvfiV"
+                                                    href="https://form.typeform.com/to/rJ7fFgTY"
                                                     className="nav-link w-nav-link">Contact</a></div>
                                     </div>
                                 </div>
@@ -28,7 +28,7 @@ const Demo = () => {
                                 <div className="menu-button w-nav-button">
                                     <div className="w-icon-nav-menu"></div>
                                 </div>
-                                <div className="nav-menu-button-holder"><a href="https://g1fmenklw87.typeform.com/to/nJkcvfiV"
+                                <div className="nav-menu-button-holder"><a href="https://form.typeform.com/to/rJ7fFgTY"
                                     className="button outline nav-btn w-button">Private launch access</a></div>
                             </div>
                         </div>
@@ -67,7 +67,7 @@ const Demo = () => {
                                 allow="autoplay; encrypted-media" allowFullScreen={true}
                                 title="ClarityScale | The First All-In-One for High-Ticket Businesses"></iframe></div>
                         </div>
-                        <div className="button-holder-phone"><a href="https://g1fmenklw87.typeform.com/to/nJkcvfiV"
+                        <div className="button-holder-phone"><a href="https://form.typeform.com/to/rJ7fFgTY"
                             className="button w-button">Private launch access</a></div>
                     </div>
                     <section className="section-2">
@@ -243,7 +243,7 @@ const Demo = () => {
                             <div className="fade-in-on-scroll">
                                 <h1>Stop Losing Time &amp; Money. <br />Scale based on Real Data.</h1>
                             </div>
-                            <div className="form"><a href="https://g1fmenklw87.typeform.com/to/nJkcvfiV"
+                            <div className="form"><a href="https://form.typeform.com/to/rJ7fFgTY"
                                 className="submit-button-url w-button">Private launch access</a></div>
                         </div>
                         <div data-w-id="916dc6f2-d45d-4fd6-0e2a-987e1ed31411" className="cta-dashboard-holer">
