@@ -44,15 +44,25 @@ export default function RootLayout({
 
         <style dangerouslySetInnerHTML={{
           __html: `
-          .navbar, .section { display: block !important; visibility: visible !important; }
-          .navbar { position: sticky !important; opacity: 1 !important; z-index: 1000 !important; filter: none !important; }
-          .section { position: relative !important; opacity: 1 !important; filter: none !important; }
-          .navbar * { opacity: 1 !important; visibility: visible !important; filter: none !important; }
-          .hero-section-wrapper, .section * { opacity: 1 !important; visibility: visible !important; filter: none !important; }
-          .home-text-holder, .hero-dashboard-wrapper, .hero-icons-holder, .hero-text-holder { opacity: 1 !important; visibility: visible !important; filter: none !important; }
-          .animate-on-load-01, .animate-on-load-02, .animate-on-load-03, .animate-on-load-04 { opacity: 1 !important; visibility: visible !important; filter: none !important; }
-          .hero-title, .paragraph-l, .button-holder, .home-text-container, .home-pragraph-holder { filter: none !important; }
-          .cube-rotate-holder, .cube-image, .meeting-card, .card-holder { opacity: 1 !important; visibility: visible !important; filter: none !important; display: block !important; }
+            .navbar, .section { display: block !important; visibility: visible !important; }
+        .navbar {position: sticky !important; opacity: 1 !important; z-index: 1000 !important; filter: none !important; }
+        .section {position: relative !important; opacity: 1 !important; filter: none !important; }
+        .navbar * {opacity: 1 !important; visibility: visible !important; filter: none !important; }
+
+        /* Force visibility on everything EXCEPT our custom animated elements */
+        .hero-section-wrapper, .section *:not(.animate-me):not(.tip-tool-holder):not(.tip-tool-container) {opacity: 1 !important; visibility: visible !important; filter: none !important; }
+
+        /* Ensure explicit visibility for containers */
+        .home-text-holder, .hero-dashboard-wrapper, .hero-icons-holder, .hero-text-holder {opacity: 1 !important; visibility: visible !important; filter: none !important; }
+
+        /* Allow filters on animated elements, force off for others */
+        .hero-title:not(.animate-me), .paragraph-l:not(.animate-me), .button-holder:not(.animate-me), .home-text-container:not(.animate-me), .home-pragraph-holder:not(.animate-me) {filter: none !important; }
+
+        /* Force logo containers and static images to be visible */
+        .cube-rotate-holder, .cube-image, .meeting-card, .card-holder {opacity: 1 !important; visibility: visible !important; filter: none !important; display: block !important; }
+
+        /* Safe visibility for logo containers (preserving filters/flex) */
+        .hero-logo-container, .hero-logo {opacity: 1 !important; visibility: visible !important; }
         `}} />
         <Script src="/assets/ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js" strategy="beforeInteractive" />
         <Script id="webfont-load" strategy="beforeInteractive">

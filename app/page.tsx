@@ -1,94 +1,12 @@
+import Header from "../components/Header";
+import Hero from "../components/Hero";
+
 export default function Home() {
   return (
     <>
-      <div data-animation="default" data-collapse="medium" data-duration="400" data-easing="ease" data-easing2="ease" data-no-scroll="1" role="banner" className="navbar w-nav">
-        <div className="container navbar-container">
-          <div className="navbar-holder">
-            <div className="navbar-container">
-              <div className="brand-holder">
-                <a href="/" aria-current="page" className="brand w-nav-brand w--current">
-                  <img src="/logobg.png" loading="lazy" alt="ClarityScale Logo" className="brand-image" />
-                </a>
-              </div>
-              <nav role="navigation" className="nav-menu w-nav-menu">
-                <div className="nav-menu-link-holder">
-                  <div className="nav-menu-link-container">
-                    <div className="nav-links">
-                      <a href="/" aria-current="page" className="nav-link w-nav-link w--current">Home</a>
-                      <a href="/demo" className="nav-link w-nav-link">Demo</a>
-                      <a href="/features" className="nav-link w-nav-link">Features</a>
-                      <a href="https://form.typeform.com/to/rJ7fFgTY" className="nav-link w-nav-link">Contact</a>
-                    </div>
-                  </div>
-                </div>
-              </nav>
-              <div className="menu-cart-holder">
-                <div className="menu-button w-nav-button">
-                  <div className="w-icon-nav-menu"></div>
-                </div>
-                <div className="nav-menu-button-holder">
-                  <a href="https://form.typeform.com/to/rJ7fFgTY" className="button outline nav-btn w-button">Private launch access</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <Header />
       <div className="section">
-        <div data-w-id="39b80f7e-f18f-dad7-8c15-1a4ce38b91c9" className="hero-section-wrapper">
-          <div className="container">
-            <div className="home-text-holder">
-              <div className="home-text-container">
-                <div className="animate-on-load-01">
-                  <h1 className="hero-title">Stop Losing Time &amp; Money. <br />Scale based on Real Data.</h1>
-                </div>
-              </div>
-              <div className="home-pragraph-holder">
-                <div className="animate-on-load-02">
-                  <p className="paragraph-l">Everything centralized.<br />No more guesswork — just clarity.</p>
-                </div>
-                <div className="animate-on-load-03">
-                  <div className="button-holder">
-                    <a href="https://form.typeform.com/to/rJ7fFgTY" className="button w-button">Private launch access</a>
-                    <a href="/demo" className="button outline w-button">View demo</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="hero-dashboard-wrapper">
-              <div className="animate-on-load-04 center">
-                <div className="hero-dashbord-holder">
-                  <img sizes="(max-width: 1904px) 100vw, 1904px" alt="" src="https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/692dbc7b3a5c06985dfce7d4_Capture%20d%E2%80%99e%CC%81cran%202025-12-01%20a%CC%80%2015.24.13-p-1600.png" loading="lazy" className="hero-dashboard-image" />
-                </div>
-              </div>
-              <div className="blue-blur"></div>
-              <div className="hero-icons-holder">
-                <div className="hero-logo-container _01">
-                  <img loading="lazy" src="/assets/cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6882b349a4b61a45372a3ffb_Calendly.png" alt="" className="hero-logo-slack" />
-                  <img loading="lazy" src="/assets/cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6882b349a4b61a45372a3ffb_Calendly.png" alt="" className="hero-logo blured" />
-                </div>
-                <div className="hero-logo-container _02">
-                  <img sizes="(max-width: 561px) 100vw, 561px" alt="" src="/assets/cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6882b3242425dde5434b4301_Stripeimage%25202.png" loading="lazy" className="hero-logo" />
-                  <img loading="lazy" src="/assets/cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6882a9e95dcd0d3fa9826cd8_Logo%252002.svg" alt="" className="hero-logo blured" />
-                </div>
-                <div className="hero-logo-container _03">
-                  <img loading="lazy" src="/assets/cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6882b2f8d4b8f6d910498299_Group%252026.png" alt="" className="hero-logo" />
-                  <img loading="lazy" src="/assets/cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6882b2f8d4b8f6d910498299_Group%252026.png" alt="" className="hero-logo blured" />
-                </div>
-                <div className="hero-logo-container _04">
-                  <img sizes="(max-width: 588px) 100vw, 588px" loading="lazy" className="hero-logo" />
-                  <img sizes="(max-width: 588px) 100vw, 588px" loading="lazy" className="hero-logo blured" />
-                </div>
-              </div>
-            </div>
-            <div className="hero-text-holder">
-              <div className="hero-text-container">
-                <div className="blue-blur _02"></div>
-                <h2 className="title">Say goodbye to scattered spreadsheets, disconnected CRMs and guessing games. Say hello to clarity, control, and cash collected.</h2>
-              </div>
-            </div>
-          </div>
-        </div>
+        <Hero />
       </div>
       <div className="section grid-section">
         <div className="container">
