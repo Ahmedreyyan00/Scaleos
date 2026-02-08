@@ -24,28 +24,45 @@ body {
 
 /* Fix tooltip visibility - hide by default, show on hover */
 .bubble .tip-tool-holder {
-  opacity: 0 !important;
-  visibility: hidden !important;
+  opacity: 0;
+  visibility: hidden;
   pointer-events: none;
   transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
 .bubble .tip-tool-container {
-  opacity: 0 !important;
-  visibility: hidden !important;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
   transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
-/* Target only the circle hover, not the entire bubble/section */
-.bubble .circle:hover+.tip-tool-holder {
-  opacity: 1 !important;
-  visibility: visible !important;
+/* Show tooltip when hovering over the circle */
+.bubble .circle:hover~.tip-tool-holder {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: none;
+  /* Keep holder non-interactive */
+}
+
+.bubble .circle:hover~.tip-tool-holder .tip-tool-container {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  /* Make tooltip container interactive */
+}
+
+/* Keep tooltip visible when hovering over the tooltip container itself */
+.bubble .tip-tool-container:hover {
+  opacity: 1;
+  visibility: visible;
   pointer-events: auto;
 }
 
-.bubble .circle:hover+.tip-tool-holder .tip-tool-container {
-  opacity: 1 !important;
-  visibility: visible !important;
+.bubble .tip-tool-holder:has(.tip-tool-container:hover) {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: none;
 }
 
 /* Fix header logo size */
