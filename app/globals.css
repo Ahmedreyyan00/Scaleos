@@ -186,62 +186,12 @@ body {
   border-radius: 12px !important;
   overflow: hidden !important;
   background: #000000b3 !important;
-  border: 5px solid transparent !important;
-  box-shadow: 0 0 0 0 rgba(0, 138, 255, 0) !important;
-  animation: border-appear 0.5s ease-out 2s forwards !important;
+  border: 2px solid white !important; /* GSAP will animate the shadow */
+  /* box-shadow will be animated by GSAP */
 }
 
-/* Blue gradient border animation */
-@keyframes border-appear {
-  0% {
-    border-color: transparent;
-    box-shadow: 0 0 0 0 rgba(0, 138, 255, 0);
-  }
-  100% {
-    border-image: linear-gradient(135deg, #008aff, #00ffc6, #ba4aff) 1;
-    box-shadow: 0 0 30px rgba(0, 138, 255, 0.8), inset 0 0 20px rgba(0, 255, 198, 0.3);
-  }
-}
-
-/* Alternative approach using pseudo-element for gradient border */
-.hero-section-wrapper .hero-dashbord-holder::before {
-  content: '' !important;
-  position: absolute !important;
-  top: -5px !important;
-  left: -5px !important;
-  right: -5px !important;
-  bottom: -5px !important;
-  border-radius: 12px !important;
-  background: linear-gradient(135deg, #008aff, #00ffc6, #ba4aff) !important;
-  opacity: 0 !important;
-  z-index: 0 !important;
-  animation: border-gradient-appear 0.5s ease-out 2s forwards !important;
-  pointer-events: none !important;
-}
-
-.hero-section-wrapper .hero-dashbord-holder::after {
-  content: '' !important;
-  position: absolute !important;
-  inset: 0 !important;
-  border-radius: 7px !important;
-  background: #000000b3 !important;
-  z-index: -1 !important;
-}
-
-/* Ensure image stays above border */
-.hero-section-wrapper .hero-dashboard-image {
-  position: relative !important;
-  z-index: 1 !important;
-}
-
-@keyframes border-gradient-appear {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
+/* Border and shadow animations are now handled by GSAP */
+/* Removed CSS animations to let GSAP control the shadow effect */
 
 .hero-section-wrapper .hero-dashboard-image {
   width: 100% !important; /* Image stays 100% of its container */
