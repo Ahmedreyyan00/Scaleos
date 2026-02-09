@@ -150,6 +150,8 @@ body {
 .hero-section-wrapper .home-text-holder {
   grid-row-gap: 12px !important; /* Reduced from 24px - tighter spacing between title and paragraph */
   grid-column-gap: 64px !important; /* 80% of 80px */
+  background: transparent !important; /* Remove black background */
+  background-color: transparent !important;
 }
 
 .hero-section-wrapper .home-pragraph-holder {
@@ -362,4 +364,12 @@ body {
   width: 100%;
   display: flex;
   justify-content: center;
+}
+
+/* Blue blur animation - expands after loading */
+.hero-section-wrapper .blue-blur {
+  transform-origin: center center !important;
+  will-change: transform, opacity !important;
+  width: 1500px !important; /* Increased from 1330px */
+  height: 1300px !important; /* Increased from 940px */
 }

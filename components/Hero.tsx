@@ -100,7 +100,22 @@ export default function Hero() {
                             />
                         </motion.div>
                     </div>
-                    <div className="blue-blur"></div>
+                    <motion.div 
+                        className="blue-blur"
+                        initial={{ 
+                            scale: 0.3,
+                            opacity: 0
+                        }}
+                        animate={{ 
+                            scale: 1,
+                            opacity: 1
+                        }}
+                        transition={{ 
+                            duration: 2,
+                            delay: 2.0,
+                            ease: [0.16, 1, 0.3, 1]
+                        }}
+                    />
                     <div className="hero-icons-holder">
                         <div className="hero-logo-container _01">
                             <img loading="lazy" src="/assets/cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6882b349a4b61a45372a3ffb_Calendly.png" alt="" className="hero-logo-slack" />
