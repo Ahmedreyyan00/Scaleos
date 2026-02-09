@@ -1,40 +1,56 @@
+'use client';
 
-
+import { useEffect, useRef } from 'react';
+import { gsap } from 'gsap';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
+import CTASection from '@/components/CTASection';
 
 const Features = () => {
+    const featureSectionRef = useRef<HTMLDivElement>(null);
+    const featureImageContainerRef = useRef<HTMLDivElement>(null);
+    const featureImageRef = useRef<HTMLImageElement>(null);
+
+    useEffect(() => {
+        if (!featureSectionRef.current) return;
+
+        const ctx = gsap.context(() => {
+            // Create timeline
+            const tl = gsap.timeline({ delay: 0.5 });
+
+            // Set initial states
+            gsap.set(featureImageContainerRef.current, { opacity: 0, y: 200, boxShadow: '0 0 0px 0px rgba(16,90,201,0)' });
+            gsap.set(featureImageRef.current, { opacity: 0 });
+
+            // Timeline sequence
+            // 1. Image container comes from bottom
+            tl.to(featureImageContainerRef.current, {
+                opacity: 1,
+                y: 0,
+                duration: 0.8,
+                ease: 'power3.out',
+            });
+
+            // 2. Image fades in
+            tl.to(featureImageRef.current, {
+                opacity: 1,
+                duration: 0.3,
+                ease: 'power2.out',
+            }, '-=0.5');
+
+            // 3. Animate box shadow with smaller intensity (60px blur, 30px spread, 0.3 opacity)
+            tl.to(featureImageContainerRef.current, {
+                boxShadow: '0 0 60px 30px rgba(16,90,201,0.3)',
+                duration: 1,
+                ease: 'power2.out',
+            }, '-=0.4');
+        }, featureSectionRef);
+
+        return () => ctx.revert();
+    }, []);
     return (
-        <div>
-            <div data-animation="default" data-collapse="medium" data-duration="400" data-easing="ease" data-easing2="ease"
-                data-no-scroll="1" role="banner" className="navbar w-nav">
-                <div className="container navbar-container">
-                    <div className="navbar-holder">
-                        <div className="navbar-container">
-                            <div className="brand-holder"><a href="/" className="brand w-nav-brand"><img
-                                src="/logobg.png"
-                                loading="lazy"
-                                alt="ClarityScale Logo" className="brand-image" /></a></div>
-                            <nav role="navigation" className="nav-menu w-nav-menu">
-                                <div className="nav-menu-link-holder">
-                                    <div className="nav-menu-link-container">
-                                        <div className="nav-links"><a href="/" className="nav-link w-nav-link">Home</a><a href="/demo"
-                                            className="nav-link w-nav-link">Demo</a><a href="/features" aria-current="page"
-                                                className="nav-link w-nav-link w--current">Features</a><a
-                                                    href="https://g1fmenklw87.typeform.com/to/nJkcvfiV"
-                                                    className="nav-link w-nav-link">Contact</a></div>
-                                    </div>
-                                </div>
-                            </nav>
-                            <div className="menu-cart-holder">
-                                <div className="menu-button w-nav-button">
-                                    <div className="w-icon-nav-menu"></div>
-                                </div>
-                                <div className="nav-menu-button-holder"><a href="https://g1fmenklw87.typeform.com/to/nJkcvfiV"
-                                    className="button outline nav-btn w-button">Access to ScaleOS</a></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div ref={featureSectionRef}>
+            <Header />
             <div className="section overflow-hidden">
                 <div className="container">
                     <div className="feature-hero-section-holder">
@@ -62,11 +78,17 @@ const Features = () => {
                         <div className="feature-dashboard-holder">
                             <div className="hero-dashboard-wrapper feature-page">
                                 <div className="animate-on-load-04 center">
-                                    <div className="hero-dashbord-holder"><img sizes="(max-width: 1904px) 100vw, 1904px"
-                                        srcSet="https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/692dbc7b3a5c06985dfce7d4_Capture%20d%E2%80%99e%CC%81cran%202025-12-01%20a%CC%80%2015.24.13-p-500.png 500w, https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/692dbc7b3a5c06985dfce7d4_Capture%20d%E2%80%99e%CC%81cran%202025-12-01%20a%CC%80%2015.24.13-p-800.png 800w, https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/692dbc7b3a5c06985dfce7d4_Capture%20d%E2%80%99e%CC%81cran%202025-12-01%20a%CC%80%2015.24.13-p-1080.png 1080w, https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/692dbc7b3a5c06985dfce7d4_Capture%20d%E2%80%99e%CC%81cran%202025-12-01%20a%CC%80%2015.24.13-p-1600.png 1600w, https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/692dbc7b3a5c06985dfce7d4_Capture%20d%E2%80%99e%CC%81cran%202025-12-01%20a%CC%80%2015.24.13.png 1904w"
-                                        alt=""
-                                        src="assets/cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/692dbc7b3a5c06985dfce7d4_Capture%20d%E2%80%99e%CC%81cran%202025-12-01%20a%CC%80%2015.24.13.png"
-                                        loading="lazy" className="hero-dashboard-image" /></div>
+                                    <div ref={featureImageContainerRef} className="hero-dashbord-holder">
+                                        <img 
+                                            ref={featureImageRef}
+                                            sizes="(max-width: 1904px) 100vw, 1904px"
+                                            srcSet="https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/692dbc7b3a5c06985dfce7d4_Capture%20d%E2%80%99e%CC%81cran%202025-12-01%20a%CC%80%2015.24.13-p-500.png 500w, https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/692dbc7b3a5c06985dfce7d4_Capture%20d%E2%80%99e%CC%81cran%202025-12-01%20a%CC%80%2015.24.13-p-800.png 800w, https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/692dbc7b3a5c06985dfce7d4_Capture%20d%E2%80%99e%CC%81cran%202025-12-01%20a%CC%80%2015.24.13-p-1080.png 1080w, https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/692dbc7b3a5c06985dfce7d4_Capture%20d%E2%80%99e%CC%81cran%202025-12-01%20a%CC%80%2015.24.13-p-1600.png 1600w, https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/692dbc7b3a5c06985dfce7d4_Capture%20d%E2%80%99e%CC%81cran%202025-12-01%20a%CC%80%2015.24.13.png 1904w"
+                                            alt=""
+                                            src="assets/cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/692dbc7b3a5c06985dfce7d4_Capture%20d%E2%80%99e%CC%81cran%202025-12-01%20a%CC%80%2015.24.13.png"
+                                            loading="lazy" 
+                                            className="hero-dashboard-image" 
+                                        />
+                                    </div>
                                 </div>
                                 <div style={{ WebkitTransform: 'translate3d(120px, 0, 0) scale3d(0.5, 0.8, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)', MozTransform: 'translate3d(120px, 0, 0) scale3d(0.5, 0.8, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)', msTransform: 'translate3d(120px, 0, 0) scale3d(0.5, 0.8, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)', transform: 'translate3d(120px, 0, 0) scale3d(0.5, 0.8, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)', opacity: 0 }}
                                     className="blue-blur-feature"></div>
@@ -540,95 +562,10 @@ const Features = () => {
                             <div className="form"><a href="https://g1fmenklw87.typeform.com/to/nJkcvfiV"
                                 className="submit-button-url w-button">Access to ScaleOS</a></div>
                         </div>
-                        <div data-w-id="916dc6f2-d45d-4fd6-0e2a-987e1ed31411" className="cta-dashboard-holer">
-                            <div className="cta-dashboard">
-                                <div className="hero-dashbord-holder"><img sizes="(max-width: 1904px) 100vw, 1904px"
-                                    srcSet="https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/692dbc7b3a5c06985dfce7d4_Capture%20d%E2%80%99e%CC%81cran%202025-12-01%20a%CC%80%2015.24.13-p-500.png 500w, https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/692dbc7b3a5c06985dfce7d4_Capture%20d%E2%80%99e%CC%81cran%202025-12-01%20a%CC%80%2015.24.13-p-800.png 800w, https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/692dbc7b3a5c06985dfce7d4_Capture%20d%E2%80%99e%CC%81cran%202025-12-01%20a%CC%80%2015.24.13-p-1080.png 1080w, https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/692dbc7b3a5c06985dfce7d4_Capture%20d%E2%80%99e%CC%81cran%202025-12-01%20a%CC%80%2015.24.13-p-1600.png 1600w, https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/692dbc7b3a5c06985dfce7d4_Capture%20d%E2%80%99e%CC%81cran%202025-12-01%20a%CC%80%2015.24.13.png 1904w"
-                                    alt=""
-                                    src="assets/cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/692dbc7b3a5c06985dfce7d4_Capture%20d%E2%80%99e%CC%81cran%202025-12-01%20a%CC%80%2015.24.13.png"
-                                    loading="lazy" className="hero-dashboard-image" /></div>
-                            </div>
-                            <div className="blue-blur cta-blue-blur"></div>
-                        </div>
+                        <CTASection />
                     </div>
                 </div>
-                <div className="footer-holder">
-                    <div className="container">
-                        <div className="footer-wrapper">
-                            <div className="footer-brand-holder"><a href="/" className="footer-brand w-inline-block"><img
-                                src="assets/cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6882a9e95dcd0d3fa9826cd2_Logo.svg"
-                                loading="lazy" alt="" className="footer-brand-image" /></a>
-                                <div className="footer-paragraph-holder">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
-                                </div>
-                            </div>
-                            <div className="footer-content">
-                                <div id="w-node-e92bf484-a605-4132-f141-4518468af7e2-468af7d9" className="footer-block">
-                                    <div className="title-small">Main Pages</div>
-                                    <div className="menu-link-wrapper">
-                                        <div className="menu-links-holder"><a href="/" className="grey-link">Home</a><a href="/features"
-                                            aria-current="page" className="grey-link w--current">Features</a><a href="/demo"
-                                                className="grey-link">Blog</a></div>
-                                        <div className="menu-links-holder"><a
-                                            href="https://ovo-glossy.webflow.io/post/how-to-build-strong-relationships-in-a-digital-age"
-                                            className="grey-link">Blog Post</a><a href="/contact"
-                                                className="grey-link">Contact</a><a href="/pricing" className="grey-link">Pricing</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div id="w-node-e92bf484-a605-4132-f141-4518468af7ef-468af7d9" className="footer-block">
-                                    <div className="title-small">Social Media</div><a href="https://instagram.com" target="_blank"
-                                        className="grey-link">Instagram</a><a href="https://fb.com" target="_blank"
-                                            className="grey-link">Facebook</a><a href="https://linkedin.com" target="_blank"
-                                                className="grey-link">Linkedin</a><a href="https://twitter.com" target="_blank"
-                                                    className="grey-link">Twitter</a>
-                                </div>
-                                <div id="w-node-e92bf484-a605-4132-f141-4518468af7fa-468af7d9" className="footer-block">
-                                    <div className="title-small">Useful Stuff</div><a href="/template/style-guide"
-                                        className="grey-link">Style Guide</a><a href="/template/licensing"
-                                            className="grey-link">Licensing</a><a href="/template/instructions"
-                                                className="grey-link">Instructions</a><a href="/template/change-log"
-                                                    className="grey-link">Change Log</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="footer-form-holder">
-                            <div className="footer-heading">
-                                <h4 className="title">Join our newsletter</h4>
-                                <p>Keep up to date with everything Blues.</p>
-                            </div>
-                            <div className="form-block w-form">
-                                <form id="Early-Access-Emails" name="wf-form-Early-Access-Emails"
-                                    data-name="Early Access Emails" method="get" className="form-holder"
-                                    data-wf-page-id="6882a9e95dcd0d3fa9826b99"
-                                    data-wf-element-id="98dea2fc-9d9e-e04a-7263-f8b96a03e4e1">
-                                    <div className="form"><input className="text-field w-input" maxLength={256} name="email"
-                                        data-name="Email" placeholder="Enter email here" type="email"
-                                        id="Early-Access-Emails" required /><input type="submit" data-wait="..."
-                                            className="submit-button w-button" value="Get Started" />
-
-                                    </div>
-                                </form>
-                                <div className="thank-you-message w-form-done">
-                                    <div><span className="white-text">Thank you! </span><br />Your submission has been received!</div>
-                                </div>
-                                <div className="error-message w-form-fail">
-                                    <div><span className="white-text">Oops! <br /></span>Something went wrong! Try again later</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="footer-divider">
-                            <div className="footer-copyright-holder">
-                                <div className="footer-copyright-center">Created by <a href="http://madebyoversight.com/"
-                                    target="_blank" className="white-link">OVERSIGHT</a></div>
-                            </div>
-                            <div className="footer-copyright-holder">
-                                <div className="footer-copyright-center">Powered by <a href="https://webflow.com/" target="_blank"
-                                    className="white-link">WEBFLOW</a></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <Footer />
             </div>
         </div>
     );
