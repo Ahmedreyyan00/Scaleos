@@ -1,13 +1,32 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { useRef } from 'react';
 
 export default function Hero() {
+    const tagRef = useRef<HTMLDivElement>(null);
+    
     return (
         <div data-w-id="39b80f7e-f18f-dad7-8c15-1a4ce38b91c9" className="hero-section-wrapper">
             <div className="container">
                 <div className="home-text-holder">
                     <div className="home-text-container">
+                        {/* Premium Badge */}
+                        <div className="flex justify-center  cursor-pointer w-full mb-6">
+                            
+                            <div 
+                                ref={tagRef}
+                                className="glass-badge inline-flex items-center gap-2 px-4 py-2 rounded-full relative overflow-hidden"
+                            >
+                                {/* Glassy shine effect - moves left to right */}
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" className="text-white relative z-10">
+                                    <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                                    <path d="M2 17L12 22L22 17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                                    <path d="M2 12L12 17L22 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                                </svg>
+                                <span className="text-white text-sm font-medium relative z-10">#1 All-in-One System for Infopreneurs</span>
+                            </div>
+                        </div>
                         <div className="animate-on-load-01">
                             <motion.h1
                                 className="hero-title animate-me"
@@ -39,7 +58,7 @@ export default function Hero() {
                                     animate={{ opacity: 1 }}
                                     transition={{ duration: 0.3, delay: 0.8 }}
                                 >
-                                    Private launch access
+                                   Access to ScaleOS
                                 </motion.a>
                                 <motion.a
                                     href="/demo"
@@ -56,7 +75,19 @@ export default function Hero() {
                 </div>
                 <div className="hero-dashboard-wrapper">
                     <div className="animate-on-load-04 center">
-                        <div className="hero-dashbord-holder">
+                        <motion.div 
+                            className="hero-dashbord-holder"
+                            initial={{ opacity: 0, y: 200 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ 
+                                duration: 0.8, 
+                                delay: 1.2,
+                                ease: [0.25, 0.46, 0.45, 0.94]
+                            }}
+                            onAnimationComplete={() => {
+                                // Border animation will be handled by CSS
+                            }}
+                        >
                             <motion.img
                                 sizes="(max-width: 1904px) 100vw, 1904px"
                                 alt=""
@@ -65,9 +96,9 @@ export default function Hero() {
                                 className="hero-dashboard-image animate-me"
                                 initial={{ opacity: 0 }}
                                 animate={{ opacity: 1 }}
-                                transition={{ duration: 0.3, delay: 1.0 }}
+                                transition={{ duration: 0.3, delay: 1.2 }}
                             />
-                        </div>
+                        </motion.div>
                     </div>
                     <div className="blue-blur"></div>
                     <div className="hero-icons-holder">

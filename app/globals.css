@@ -12,8 +12,9 @@
   }
 
   .container {
-    @apply w-full max-w-[1200px] mx-auto px-5;
-    /* Adjusted closer to standard modern widths, verifying specific width from old CSS next */
+    @apply w-full max-w-[1400px] mx-auto;
+    padding-left: 3rem !important;
+    padding-right: 3rem !important;
   }
 }
 
@@ -70,4 +71,295 @@ body {
   max-height: 80px;
   width: auto;
   object-fit: contain;
+}
+
+/* Full-width transparent header */
+.navbar {
+  background: transparent !important;
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 1000;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border-bottom: none !important;
+  padding-top: 8px !important;
+  padding-bottom: 8px !important;
+}
+
+.navbar-container {
+  max-width: 1400px !important;
+  margin: 0 auto;
+  padding-left: 3rem !important;
+  padding-right: 3rem !important;
+}
+
+/* Make navbar container transparent */
+.container.navbar-container {
+  background-color: transparent !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border-radius: 0 !important;
+}
+
+/* Hero section container - 80% scale with increased side spacing */
+.hero-section-wrapper .container {
+  max-width: 1120px !important;
+  padding-left: 4rem !important;
+  padding-right: 4rem !important;
+}
+
+/* Scale hero section text, buttons, and images to 80% */
+.hero-section-wrapper .hero-title {
+  font-size: 56px !important; /* ~64% of 87px - more aggressive scaling */
+  line-height: 1.2 !important;
+  margin-bottom: 0 !important; /* Remove default margins */
+}
+
+.hero-section-wrapper .home-text-container {
+  margin-bottom: 0 !important; /* Reduce spacing */
+}
+
+.hero-section-wrapper .home-pragraph-holder {
+  margin-top: 0 !important; /* Reduce top margin */
+}
+
+.hero-section-wrapper .paragraph-l {
+  font-size: 18px !important; /* 72% of 25px */
+  line-height: 1.5 !important;
+}
+
+.hero-section-wrapper .button {
+  font-size: 12px !important; /* 75% of 16px */
+  padding: 10px  !important; /* ~71% of 14px 30px */
+}
+
+.hero-section-wrapper .title {
+  font-size: 32px !important; /* ~68% of 47px */
+  line-height: 1.4 !important;
+}
+
+/* Scale hero text container */
+.hero-section-wrapper .hero-text-container {
+  max-width: 832px !important; /* 80% of 1040px */
+}
+
+/* Scale spacing elements - reduced gaps to bring image up */
+.hero-section-wrapper .home-text-holder {
+  grid-row-gap: 12px !important; /* Reduced from 24px - tighter spacing between title and paragraph */
+  grid-column-gap: 64px !important; /* 80% of 80px */
+}
+
+.hero-section-wrapper .home-pragraph-holder {
+  grid-row-gap: 12px !important; /* Reduced from 20px - tighter spacing between paragraph and buttons */
+  grid-column-gap: 35px !important; /* 80% of 44px */
+}
+
+/* Additional spacing reduction for paragraph text */
+.hero-section-wrapper .paragraph-l {
+  margin-bottom: 0 !important; /* Remove bottom margin */
+}
+
+/* Reduce spacing on button holder */
+.hero-section-wrapper .button-holder {
+  margin-top: 0 !important; /* Remove top margin */
+}
+
+.hero-section-wrapper .button-holder {
+  grid-row-gap: 8px !important; /* Reduced from 10px */
+  grid-column-gap: 10px !important; /* 80% of 12px */
+}
+
+.hero-section-wrapper .hero-dashboard-wrapper {
+  margin-top: 40px !important; /* Reduced from 70px to bring image up */
+}
+
+.hero-section-wrapper .hero-dashbord-holder {
+  width: 100% !important; /* Match text section width - same as container */
+  padding: 22px !important; /* Restore original padding for bigger image */
+  margin: 0 auto !important;
+  position: relative !important;
+  border-radius: 12px !important;
+  overflow: hidden !important;
+  background: #000000b3 !important;
+  border: 5px solid transparent !important;
+  box-shadow: 0 0 0 0 rgba(0, 138, 255, 0) !important;
+  animation: border-appear 0.5s ease-out 2s forwards !important;
+}
+
+/* Blue gradient border animation */
+@keyframes border-appear {
+  0% {
+    border-color: transparent;
+    box-shadow: 0 0 0 0 rgba(0, 138, 255, 0);
+  }
+  100% {
+    border-image: linear-gradient(135deg, #008aff, #00ffc6, #ba4aff) 1;
+    box-shadow: 0 0 30px rgba(0, 138, 255, 0.8), inset 0 0 20px rgba(0, 255, 198, 0.3);
+  }
+}
+
+/* Alternative approach using pseudo-element for gradient border */
+.hero-section-wrapper .hero-dashbord-holder::before {
+  content: '' !important;
+  position: absolute !important;
+  top: -5px !important;
+  left: -5px !important;
+  right: -5px !important;
+  bottom: -5px !important;
+  border-radius: 12px !important;
+  background: linear-gradient(135deg, #008aff, #00ffc6, #ba4aff) !important;
+  opacity: 0 !important;
+  z-index: 0 !important;
+  animation: border-gradient-appear 0.5s ease-out 2s forwards !important;
+  pointer-events: none !important;
+}
+
+.hero-section-wrapper .hero-dashbord-holder::after {
+  content: '' !important;
+  position: absolute !important;
+  inset: 0 !important;
+  border-radius: 7px !important;
+  background: #000000b3 !important;
+  z-index: -1 !important;
+}
+
+/* Ensure image stays above border */
+.hero-section-wrapper .hero-dashboard-image {
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+@keyframes border-gradient-appear {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.hero-section-wrapper .hero-dashboard-image {
+  width: 100% !important; /* Image stays 100% of its container */
+}
+
+/* Scale hero icons and logo containers */
+.hero-section-wrapper .hero-logo-container {
+  width: 96px !important; /* 80% of 120px */
+  height: 96px !important; /* 80% of 120px */
+}
+
+/* Scale hero text holder height */
+.hero-section-wrapper .hero-text-holder {
+  height: 680px !important; /* 80% of 850px */
+  min-height: 680px !important;
+  max-height: 680px !important;
+}
+
+.hero-section-wrapper .hero-icons-holder {
+  height: 680px !important; /* 80% of 850px */
+  min-height: 680px !important;
+  max-height: 680px !important;
+}
+
+/* Adjust hero section for fixed header - reduced padding to bring content up */
+
+
+/* Ensure section doesn't have conflicting padding */
+.section {
+  width: 100%;
+}
+
+/* Premium Badge - using Tailwind classes from component */
+
+/* Test animation - pulsing effect */
+@keyframes test-pulse {
+  0%, 100% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+}
+
+/* Glass shine animation - continuous loop */
+@keyframes glass-shine {
+  0% {
+    left: -125%;
+  }
+  100% {
+    left: 150%;
+  }
+}
+
+/* Pure glass effect badge with looping shine */
+.glass-badge {
+  background: rgba(255, 255, 255, 0.05) !important;
+  backdrop-filter: blur(20px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  box-shadow: 
+    0 8px 32px 0 rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.1) !important;
+  position: relative !important;
+  overflow: hidden !important;
+  isolation: isolate !important;
+}
+
+/* Shine effect using actual div - high z-index for visibility */
+.glass-shine-effect {
+  content: '' !important;
+  display: block !important;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.1) 50%,
+    transparent 100%
+  ) !important;
+  width: 50% !important;
+  height: 100% !important;
+  top: 0 !important;
+  left: -125% !important;
+  transform: skewX(45deg) !important;
+  position: absolute !important;
+  animation: glass-shine 2.5s ease-in-out infinite !important;
+  pointer-events: none !important;
+  z-index: 100 !important;
+  will-change: left !important;
+  opacity: 1 !important;
+}
+
+.glass-badge::before {
+  display: none !important;
+}
+
+/* Ensure badge content stays above shine */
+.glass-badge svg,
+.glass-badge span {
+  position: relative !important;
+  z-index: 200 !important;
+}
+
+/* Ensure badge container allows overflow for animation */
+.hero-section-wrapper [class*="rounded-full"],
+.hero-section-wrapper .glass-badge {
+  overflow: hidden !important;
+}
+
+/* Badge positioning and styling */
+.hero-section-wrapper .home-text-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.hero-section-wrapper .home-text-container > div:first-child {
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }

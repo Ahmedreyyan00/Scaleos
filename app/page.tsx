@@ -145,15 +145,17 @@ export default function Home() {
           </div>
         </div>
       </div>
+      
       <div data-wf--footer--variant="base" className="section overflow-hidden">
         <div className="container">
-          <div className="cta-holder">
+          <div className="cta-holder ">
             <div className="cta-content">
               <div className="fade-in-on-scroll">
                 <h1>Stop Losing Time &amp; Money. <br />Scale based on Real Data.</h1>
               </div>
               <div className="form">
-                <a href="https://form.typeform.com/to/rJ7fFgTY" className="submit-button-url w-button">Private launch access</a>
+                <a href="https://form.typeform.com/to/rJ7fFgTY" className="submit-button-url w-button">Access to ScaleOS
+                </a>
               </div>
             </div>
             <div data-w-id="916dc6f2-d45d-4fd6-0e2a-987e1ed31411" className="cta-dashboard-holer">

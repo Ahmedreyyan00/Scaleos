@@ -42,7 +42,7 @@ export default function Header() {
                                 <div className="w-icon-nav-menu"></div>
                             </div>
                             <div className="nav-menu-button-holder">
-                                <a href="https://form.typeform.com/to/rJ7fFgTY" className="button outline nav-btn w-button">Private launch access</a>
+                                <a href="https://form.typeform.com/to/rJ7fFgTY" className="button outline nav-btn w-button">Access to ScaleOS</a>
                             </div>
                         </div>
                     </div>

@@ -29,7 +29,7 @@ const Demo = () => {
                                     <div className="w-icon-nav-menu"></div>
                                 </div>
                                 <div className="nav-menu-button-holder"><a href="https://form.typeform.com/to/rJ7fFgTY"
-                                    className="button outline nav-btn w-button">Private launch access</a></div>
+                                    className="button outline nav-btn w-button">Access to ScaleOS</a></div>
                             </div>
                         </div>
                     </div>
@@ -68,7 +68,7 @@ const Demo = () => {
                                 title="ClarityScale | The First All-In-One for High-Ticket Businesses"></iframe></div>
                         </div>
                         <div className="button-holder-phone"><a href="https://form.typeform.com/to/rJ7fFgTY"
-                            className="button w-button">Private launch access</a></div>
+                            className="button w-button">Access to ScaleOS</a></div>
                     </div>
                     <section className="section-2">
                         <div className="hero-section-center-holder-2">
@@ -244,7 +244,7 @@ const Demo = () => {
                                 <h1>Stop Losing Time &amp; Money. <br />Scale based on Real Data.</h1>
                             </div>
                             <div className="form"><a href="https://form.typeform.com/to/rJ7fFgTY"
-                                className="submit-button-url w-button">Private launch access</a></div>
+                                className="submit-button-url w-button">Access to ScaleOS</a></div>
                         </div>
                         <div data-w-id="916dc6f2-d45d-4fd6-0e2a-987e1ed31411" className="cta-dashboard-holer">
                             <div className="cta-dashboard">
