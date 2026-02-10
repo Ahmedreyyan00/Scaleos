@@ -39,7 +39,7 @@ const Demo = () => {
                                 allow="autoplay; encrypted-media" allowFullScreen={true}
                                 title="ClarityScale | The First All-In-One for High-Ticket Businesses"></iframe></div>
                         </div>
-                        <div className="button-holder-phone"><a href="https://form.typeform.com/to/rJ7fFgTY"
+                        <div className="button-holder-phone"><a href="https://app.youform.com/forms/esb5dhlr"
                             className="button w-button">Apply to ScaleOS</a></div>
                     </div>
                     <section className="section-2">
@@ -215,7 +215,7 @@ const Demo = () => {
                             <div className="fade-in-on-scroll">
                                 <h1>Stop Losing Time &amp; Money. <br />Scale based on Real Data.</h1>
                             </div>
-                            <div className="form"><a href="https://form.typeform.com/to/rJ7fFgTY"
+                            <div className="form"><a href="https://app.youform.com/forms/esb5dhlr"
                                 className="submit-button-url w-button">Apply to ScaleOS</a></div>
                         </div>
                         <CTASection />

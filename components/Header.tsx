@@ -5,9 +5,7 @@ import { usePathname } from 'next/navigation';
 
 export default function Header() {
     const pathname = usePathname();
-    const contactUrl = pathname === '/features' 
-        ? 'https://g1fmenklw87.typeform.com/to/nJkcvfiV' 
-        : 'https://form.typeform.com/to/rJ7fFgTY';
+    const contactUrl = 'https://app.youform.com/forms/esb5dhlr';
 
     return (
         <motion.div

@@ -171,7 +171,7 @@ The #1 All-in-One System for Infopreneurs.
                         <div className="animate-on-load-03">
                             <div ref={buttonsRef} className="button-holder">
                                 <a
-                                    href="https://form.typeform.com/to/rJ7fFgTY"
+                                    href="https://app.youform.com/forms/esb5dhlr"
                                     className="button w-button animate-me"
                                 >
                                    Apply to ScaleOS

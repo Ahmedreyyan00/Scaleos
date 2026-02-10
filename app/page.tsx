@@ -155,7 +155,7 @@ export default function Home() {
             <h1>Stop Losing Time &amp; Money. <br />Scale based on Real Data.</h1>
           </div>
           <div className="form">
-            <a href="https://form.typeform.com/to/rJ7fFgTY" className="submit-button-url w-button">Apply to ScaleOS
+            <a href="https://app.youform.com/forms/esb5dhlr" className="submit-button-url w-button">Apply to ScaleOS
             </a>
           </div>
         </div>

@@ -22,7 +22,7 @@ export default function Footer() {
                 </div>
                 <div className="menu-links-holder">
                   <a href="https://ovo-glossy.webflow.io/post/how-to-build-strong-relationships-in-a-digital-age" className="grey-link">Blog Post</a>
-                  <a href="/contact" className="grey-link">Contact</a>
+                  <a href="https://app.youform.com/forms/esb5dhlr" className="grey-link">Contact</a>
                   <a href="/pricing" className="grey-link">Pricing</a>
                 </div>
               </div>
