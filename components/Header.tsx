@@ -48,7 +48,7 @@ export default function Header() {
                                 <div className="w-icon-nav-menu"></div>
                             </div>
                             <div className="nav-menu-button-holder">
-                                <a href={contactUrl} className="button outline nav-btn w-button">Access to ScaleOS</a>
+                                <a href={contactUrl} className="button outline nav-btn w-button">Apply to ScaleOS</a>
                             </div>
                         </div>
                     </div>

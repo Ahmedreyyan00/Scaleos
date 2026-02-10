@@ -71,7 +71,7 @@ const Features = () => {
                             <div style={{ opacity: 0, WebkitTransform: 'translate3d(0, 30px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)', MozTransform: 'translate3d(0, 30px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)', msTransform: 'translate3d(0, 30px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)', transform: 'translate3d(0, 30px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)', filter: 'blur(11px)' }}
                                 className="animate-on-load-03">
                                 <div className="button-holder-features"><a href="https://g1fmenklw87.typeform.com/to/nJkcvfiV"
-                                    className="button w-button">Access to ScaleOS</a><a href="/demo"
+                                    className="button w-button">Apply to ScaleOS</a><a href="/demo"
                                         className="button outline w-button">View demo</a></div>
                             </div>
                         </div>
@@ -560,7 +560,7 @@ const Features = () => {
                                 <h1>Stop Losing Time &amp; Money. <br />Scale based on Real Data.</h1>
                             </div>
                             <div className="form"><a href="https://g1fmenklw87.typeform.com/to/nJkcvfiV"
-                                className="submit-button-url w-button">Access to ScaleOS</a></div>
+                                className="submit-button-url w-button">Apply to ScaleOS</a></div>
                         </div>
                         <CTASection />
                     </div>

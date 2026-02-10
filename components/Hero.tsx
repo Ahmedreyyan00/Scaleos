@@ -108,15 +108,38 @@ export default function Hero() {
                         <div className="flex justify-center cursor-pointer w-full mb-6">
                             <div 
                                 ref={tagRef}
-                                className="glass-badge inline-flex items-center gap-2 px-4 py-2 rounded-full relative overflow-hidden"
+                                className="glass-badge inline-flex items-center gap-3 px-4 py-2 rounded-full relative overflow-hidden"
                             >
+                                {/* Overlapping avatar circles for social proof */}
+                                <div className="flex items-center -space-x-2 relative z-10">
+                                    {[
+                                        'https://i.pravatar.cc/150?img=1',
+                                        'https://i.pravatar.cc/150?img=12',
+                                        'https://i.pravatar.cc/150?img=33',
+                                        'https://i.pravatar.cc/150?img=47',
+                                    ].map((avatarUrl, index) => (
+                                        <div
+                                            key={index}
+                                            className="w-7 h-7 rounded-full border-2 border-white/30 overflow-hidden shadow-sm bg-gray-200"
+                                            style={{
+                                                zIndex: 10 - index,
+                                            }}
+                                        >
+                                            <img
+                                                src={avatarUrl}
+                                                alt={`User ${index + 1}`}
+                                                className="w-full h-full object-cover"
+                                            />
+                                        </div>
+                                    ))}
+                                </div>
                                 {/* Glassy shine effect - moves left to right */}
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" className="text-white relative z-10">
+                                {/* <svg width="16" height="16" viewBox="0 0 24 24" fill="none" className="text-white relative z-10">
                                     <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                                     <path d="M2 17L12 22L22 17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                                     <path d="M2 12L12 17L22 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                                </svg>
-                                <span className="text-white text-sm font-medium relative z-10">#1 All-in-One System for Infopreneurs</span>
+                                </svg> */}
+                                <span className="text-white text-sm font-medium relative z-10">Trusted by +30 coaches, creators & infopreneurs</span>
                             </div>
                         </div>
                         <div className="animate-on-load-01">
@@ -124,8 +147,14 @@ export default function Hero() {
                                 ref={titleRef}
                                 className="hero-title animate-me"
                             >
+The #1 All-in-One System for Infopreneurs.
+</h1>
+                            {/* <h1
+                                ref={titleRef}
+                                className="hero-title animate-me"
+                            >
                                 Stop Losing Time &amp; Money. <br />Scale based on Real Data.
-                            </h1>
+                            </h1> */}
                         </div>
                     </div>
                     <div className="home-pragraph-holder">
@@ -134,7 +163,9 @@ export default function Hero() {
                                 ref={descriptionRef}
                                 className="paragraph-l animate-me"
                             >
-                                Everything centralized.<br />No more guesswork — just clarity.
+                                                                Stop Losing Time &amp; Money. <br />Scale based on Real Data.
+
+                                {/* Everything centralized.<br />No more guesswork — just clarity. */}
                             </p>
                         </div>
                         <div className="animate-on-load-03">
@@ -143,7 +174,7 @@ export default function Hero() {
                                     href="https://form.typeform.com/to/rJ7fFgTY"
                                     className="button w-button animate-me"
                                 >
-                                   Access to ScaleOS
+                                   Apply to ScaleOS
                                 </a>
                                 <a
                                     href="/demo"
