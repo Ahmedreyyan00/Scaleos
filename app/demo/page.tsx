@@ -1,40 +1,13 @@
 import React from 'react';
+import Header from '../../components/Header';
+import Footer from '../../components/Footer';
+import CTASection from '../../components/CTASection';
+import FOMOBadge from '../../components/FOMOBadge';
 
 const Demo = () => {
     return (
         <div className="wrapper">
-            <div data-animation="default" data-collapse="medium" data-duration="400" data-easing="ease" data-easing2="ease"
-                data-no-scroll="1" role="banner" className="navbar w-nav">
-                <div className="container navbar-container">
-                    <div className="navbar-holder">
-                        <div className="navbar-container">
-                            <div className="brand-holder"><a href="/" className="brand w-nav-brand"><img
-                                src="/logobg.png"
-                                loading="lazy"
-                                alt="ClarityScale Logo" className="brand-image" /></a></div>
-                            <nav role="navigation" className="nav-menu w-nav-menu">
-                                <div className="nav-menu-link-holder">
-                                    <div className="nav-menu-link-container">
-                                        <div className="nav-links"><a href="/" className="nav-link w-nav-link">Home</a><a
-                                            href="/demo" aria-current="page"
-                                            className="nav-link w-nav-link w--current">Demo</a><a href="/features"
-                                                className="nav-link w-nav-link">Features</a><a
-                                                    href="https://form.typeform.com/to/rJ7fFgTY"
-                                                    className="nav-link w-nav-link">Contact</a></div>
-                                    </div>
-                                </div>
-                            </nav>
-                            <div className="menu-cart-holder">
-                                <div className="menu-button w-nav-button">
-                                    <div className="w-icon-nav-menu"></div>
-                                </div>
-                                <div className="nav-menu-button-holder"><a href="https://form.typeform.com/to/rJ7fFgTY"
-                                    className="button outline nav-btn w-button">Access to ScaleOS</a></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <Header />
             <div className="section hero-section">
                 <div className="hero-section">
                     <div className="container">
@@ -42,15 +15,16 @@ const Demo = () => {
                             <div style={{ opacity: 0, WebkitTransform: 'translate3d(0, 30px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)', MozTransform: 'translate3d(0, 30px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)', msTransform: 'translate3d(0, 30px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)', transform: 'translate3d(0, 30px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)', filter: 'blur(11px)' }}
                                 className="animate-on-load-01">
                                 <div className="hero-center-text">
-                                    <h2 className="title"><strong>Data-Driven Scaling Starts Now</strong></h2>
+                                    <h2 className="title"><strong>Scaling With Real Data Starts Now
+                                    </strong></h2>
                                 </div>
                             </div>
                             <div style={{ WebkitTransform: 'translate3d(0, 30px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)', MozTransform: 'translate3d(0, 30px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)', msTransform: 'translate3d(0, 30px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)', transform: 'translate3d(0, 30px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)', opacity: 0, filter: 'blur(11px)' }}
                                 className="animate-on-load-02">
                                 <div className="center-hero-paragraph-holder">
                                     <div>
-                                        <p className="paragraph-2">Discover how top infopreneurs scale smarter – watch the demo.
-                                        </p>
+                                        <p className="paragraph-2">Discover how top infopreneurs scale faster with clarity.
+                     Watch the demo.</p>
                                     </div>
                                 </div>
                             </div>
@@ -67,24 +41,25 @@ const Demo = () => {
                                 allow="autoplay; encrypted-media" allowFullScreen={true}
                                 title="ClarityScale | The First All-In-One for High-Ticket Businesses"></iframe></div>
                         </div>
-                        <div className="button-holder-phone"><a href="https://form.typeform.com/to/rJ7fFgTY"
-                            className="button w-button">Access to ScaleOS</a></div>
+                        <div className="button-holder-phone"><a href="https://app.youform.com/forms/esb5dhlr"
+                            className="button w-button">Apply to ScaleOS</a></div>
                     </div>
                     <section className="section-2">
                         <div className="hero-section-center-holder-2">
                             <div style={{ opacity: 0, WebkitTransform: 'translate3d(0, 30px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)', MozTransform: 'translate3d(0, 30px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)', msTransform: 'translate3d(0, 30px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)', transform: 'translate3d(0, 30px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)', filter: 'blur(11px)' }}
                                 className="animate-on-load-01">
-                                <div className="hero-center-text">
-                                    <h2 className="title"><strong className="bold-text-2">Join the Private Launch</strong></h2>
+                                <div className="hero-cnter-text">
+                                    <h2 className="title"><strong className="bold-text-2">Apply to ScaleOS Now</strong></h2>
                                 </div>
                             </div>
                             <div style={{ WebkitTransform: 'translate3d(0, 30px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)', MozTransform: 'translate3d(0, 30px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)', msTransform: 'translate3d(0, 30px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)', transform: 'translate3d(0, 30px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)', opacity: 0, filter: 'blur(11px)' }}
                                 className="animate-on-load-02">
                                 <div className="center-hero-paragraph-holder">
                                     <div>
-                                        <p className="paragraph-3">Get early access before public release.</p>
+                                        <p className="paragraph-3">We only onboard a few businesses per month.</p>
                                     </div>
                                 </div>
+                                <FOMOBadge />
                             </div>
                             <div style={{ opacity: 0, WebkitTransform: 'translate3d(0, 30px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)', MozTransform: 'translate3d(0, 30px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)', msTransform: 'translate3d(0, 30px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)', transform: 'translate3d(0, 30px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)', filter: 'blur(11px)' }}
                                 className="animate-on-load-03">
@@ -228,9 +203,16 @@ const Demo = () => {
                             </div>
                         </div>
                         <div className="w-layout-blockcontainer container-2 w-container">
-                            <div className="code-embed w-embed w-script">
-                                <div data-tf-live="01K145QE7JD5KW2VFC6PQMZEYX"></div>
-                                <script src="assets/embed.typeform.com/next/embed.js"></script>
+                            <div className="youform-embed-container" style={{ width: '100%', minHeight: '600px', borderRadius: '12px', overflow: 'hidden', border: '1px solid rgba(255, 255, 255, 0.1)' }}>
+                                <iframe
+                                    src="https://app.youform.com/forms/esb5dhlr"
+                                    width="100%"
+                                    height="600"
+                                    frameBorder="0"
+                                    style={{ border: 'none', width: '100%', minHeight: '600px' }}
+                                    title="Apply to ScaleOS"
+                                    allow="clipboard-read; clipboard-write"
+                                ></iframe>
                             </div>
                         </div>
                     </section>
@@ -241,100 +223,18 @@ const Demo = () => {
                     <div className="cta-holder">
                         <div className="cta-content">
                             <div className="fade-in-on-scroll">
-                                <h1>Stop Losing Time &amp; Money. <br />Scale based on Real Data.</h1>
+                                <h1>The #1 All-in-One System <br/> for Infopreneurs.
+                                </h1>
                             </div>
-                            <div className="form"><a href="https://form.typeform.com/to/rJ7fFgTY"
-                                className="submit-button-url w-button">Access to ScaleOS</a></div>
+                            <div className="form"><a href="https://app.youform.com/forms/esb5dhlr"
+                                className="submit-button-url w-button">Apply to ScaleOS</a></div>
+                            
+                            
                         </div>
-                        <div data-w-id="916dc6f2-d45d-4fd6-0e2a-987e1ed31411" className="cta-dashboard-holer">
-                            <div className="cta-dashboard">
-                                <div className="hero-dashbord-holder"><img sizes="(max-width: 1904px) 100vw, 1904px"
-                                    srcSet="https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/692dbc7b3a5c06985dfce7d4_Capture%20d%E2%80%99e%CC%81cran%202025-12-01%20a%CC%80%2015.24.13-p-500.png 500w, https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/692dbc7b3a5c06985dfce7d4_Capture%20d%E2%80%99e%CC%81cran%202025-12-01%20a%CC%80%2015.24.13-p-800.png 800w, https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/692dbc7b3a5c06985dfce7d4_Capture%20d%E2%80%99e%CC%81cran%202025-12-01%20a%CC%80%2015.24.13-p-1080.png 1080w, https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/692dbc7b3a5c06985dfce7d4_Capture%20d%E2%80%99e%CC%81cran%202025-12-01%20a%CC%80%2015.24.13-p-1600.png 1600w, https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/692dbc7b3a5c06985dfce7d4_Capture%20d%E2%80%99e%CC%81cran%202025-12-01%20a%CC%80%2015.24.13.png 1904w"
-                                    alt=""
-                                    src="assets/cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/692dbc7b3a5c06985dfce7d4_Capture%20d%E2%80%99e%CC%81cran%202025-12-01%20a%CC%80%2015.24.13.png"
-                                    loading="lazy" className="hero-dashboard-image" /></div>
-                            </div>
-                            <div className="blue-blur cta-blue-blur"></div>
-                        </div>
+                        <CTASection />
                     </div>
                 </div>
-                <div className="footer-holder">
-                    <div className="container">
-                        <div className="footer-wrapper">
-                            <div className="footer-brand-holder"><a href="/" className="footer-brand w-inline-block"><img
-                                src="assets/cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6882a9e95dcd0d3fa9826cd2_Logo.svg"
-                                loading="lazy" alt="" className="footer-brand-image" /></a>
-                                <div className="footer-paragraph-holder">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
-                                </div>
-                            </div>
-                            <div className="footer-content">
-                                <div id="w-node-e92bf484-a605-4132-f141-4518468af7e2-468af7d9" className="footer-block">
-                                    <div className="title-small">Main Pages</div>
-                                    <div className="menu-link-wrapper">
-                                        <div className="menu-links-holder"><a href="/" className="grey-link">Home</a><a
-                                            href="/features" className="grey-link">Features</a><a href="/demo"
-                                                aria-current="page" className="grey-link w--current">Blog</a></div>
-                                        <div className="menu-links-holder"><a
-                                            href="https://ovo-glossy.webflow.io/post/how-to-build-strong-relationships-in-a-digital-age"
-                                            className="grey-link">Blog Post</a><a href="/contact"
-                                                className="grey-link">Contact</a><a href="/pricing"
-                                                    className="grey-link">Pricing</a></div>
-                                    </div>
-                                </div>
-                                <div id="w-node-e92bf484-a605-4132-f141-4518468af7ef-468af7d9" className="footer-block">
-                                    <div className="title-small">Social Media</div><a href="https://instagram.com"
-                                        target="_blank" className="grey-link">Instagram</a><a href="https://fb.com"
-                                            target="_blank" className="grey-link">Facebook</a><a href="https://linkedin.com"
-                                                target="_blank" className="grey-link">Linkedin</a><a href="https://twitter.com"
-                                                    target="_blank" className="grey-link">Twitter</a>
-                                </div>
-                                <div id="w-node-e92bf484-a605-4132-f141-4518468af7fa-468af7d9" className="footer-block">
-                                    <div className="title-small">Useful Stuff</div><a href="/template/style-guide"
-                                        className="grey-link">Style Guide</a><a href="/template/licensing"
-                                            className="grey-link">Licensing</a><a href="/template/instructions"
-                                                className="grey-link">Instructions</a><a href="/template/change-log"
-                                                    className="grey-link">Change Log</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="footer-form-holder">
-                            <div className="footer-heading">
-                                <h4 className="title">Join our newsletter</h4>
-                                <p>Keep up to date with everything Blues.</p>
-                            </div>
-                            <div className="form-block w-form">
-                                <form id="Early-Access-Emails" name="wf-form-Early-Access-Emails"
-                                    data-name="Early Access Emails" method="get" className="form-holder"
-                                    data-wf-page-id="6882a9e95dcd0d3fa9826b9a"
-                                    data-wf-element-id="98dea2fc-9d9e-e04a-7263-f8b96a03e4e1">
-                                    <div className="form"><input className="text-field w-input" maxLength={256} name="email"
-                                        data-name="Email" placeholder="Enter email here" type="email"
-                                        id="Early-Access-Emails" required={true} /><input type="submit" data-wait="..."
-                                            className="submit-button w-button" value="Get Started" /></div>
-                                </form>
-                                <div className="thank-you-message w-form-done">
-                                    <div><span className="white-text">Thank you! </span><br />Your submission has been received!
-                                    </div>
-                                </div>
-                                <div className="error-message w-form-fail">
-                                    <div><span className="white-text">Oops! <br /></span>Something went wrong! Try again later
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="footer-divider">
-                        <div className="footer-copyright-holder">
-                            <div className="footer-copyright-center">Created by <a href="http://madebyoversight.com/"
-                                target="_blank" className="white-link">OVERSIGHT</a></div>
-                        </div>
-                        <div className="footer-copyright-holder">
-                            <div className="footer-copyright-center">Powered by <a href="https://webflow.com/"
-                                target="_blank" className="white-link">WEBFLOW</a></div>
-                        </div>
-                    </div>
-                </div>
+                <Footer />
             </div>
         </div>
     );

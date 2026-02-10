@@ -186,62 +186,12 @@ body {
   border-radius: 12px !important;
   overflow: hidden !important;
   background: #000000b3 !important;
-  border: 5px solid transparent !important;
-  box-shadow: 0 0 0 0 rgba(0, 138, 255, 0) !important;
-  animation: border-appear 0.5s ease-out 2s forwards !important;
+  border: 2px solid white !important; /* GSAP will animate the shadow */
+  /* box-shadow will be animated by GSAP */
 }
 
-/* Blue gradient border animation */
-@keyframes border-appear {
-  0% {
-    border-color: transparent;
-    box-shadow: 0 0 0 0 rgba(0, 138, 255, 0);
-  }
-  100% {
-    border-image: linear-gradient(135deg, #008aff, #00ffc6, #ba4aff) 1;
-    box-shadow: 0 0 30px rgba(0, 138, 255, 0.8), inset 0 0 20px rgba(0, 255, 198, 0.3);
-  }
-}
-
-/* Alternative approach using pseudo-element for gradient border */
-.hero-section-wrapper .hero-dashbord-holder::before {
-  content: '' !important;
-  position: absolute !important;
-  top: -5px !important;
-  left: -5px !important;
-  right: -5px !important;
-  bottom: -5px !important;
-  border-radius: 12px !important;
-  background: linear-gradient(135deg, #008aff, #00ffc6, #ba4aff) !important;
-  opacity: 0 !important;
-  z-index: 0 !important;
-  animation: border-gradient-appear 0.5s ease-out 2s forwards !important;
-  pointer-events: none !important;
-}
-
-.hero-section-wrapper .hero-dashbord-holder::after {
-  content: '' !important;
-  position: absolute !important;
-  inset: 0 !important;
-  border-radius: 7px !important;
-  background: #000000b3 !important;
-  z-index: -1 !important;
-}
-
-/* Ensure image stays above border */
-.hero-section-wrapper .hero-dashboard-image {
-  position: relative !important;
-  z-index: 1 !important;
-}
-
-@keyframes border-gradient-appear {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
+/* Border and shadow animations are now handled by GSAP */
+/* Removed CSS animations to let GSAP control the shadow effect */
 
 .hero-section-wrapper .hero-dashboard-image {
   width: 100% !important; /* Image stays 100% of its container */
@@ -372,4 +322,253 @@ body {
   will-change: transform, opacity !important;
   width: 1500px !important; /* Increased from 1330px */
   height: 1300px !important; /* Increased from 940px */
+}
+
+/* Feature slider - blue light transitions */
+.w-slider .blue-line-wrapper,
+.w-slider .blur-image-holder,
+.w-slider .blue-line,
+.w-slider .feature-blur-image {
+  transition: opacity 0.5s ease-in-out;
+}
+
+/* Premium Feature Cards Styling */
+.feature-item {
+  position: relative;
+  background: rgba(255, 255, 255, 0.03) !important;
+  backdrop-filter: blur(20px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 16px !important;
+  padding: 35px !important;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  overflow: hidden !important;
+  isolation: isolate !important;
+  box-shadow: 
+    0 4px 20px rgba(0, 0, 0, 0.15),
+    0 0 0 1px rgba(255, 255, 255, 0.05) inset,
+    0 1px 0 rgba(255, 255, 255, 0.1) inset !important;
+}
+
+/* Premium hover effect */
+.feature-item:hover {
+  transform: translateY(-4px) !important;
+  border-color: rgba(255, 255, 255, 0.2) !important;
+  box-shadow: 
+    0 12px 40px rgba(0, 0, 0, 0.25),
+    0 0 0 1px rgba(255, 255, 255, 0.1) inset,
+    0 1px 0 rgba(255, 255, 255, 0.15) inset,
+    0 0 60px rgba(16, 90, 201, 0.15) !important;
+  background: rgba(255, 255, 255, 0.05) !important;
+}
+
+/* Premium icon container */
+.fetaure-icon-container {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05)) !important;
+  backdrop-filter: blur(10px) saturate(150%) !important;
+  -webkit-backdrop-filter: blur(10px) saturate(150%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  box-shadow: 
+    0 4px 15px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.feature-item:hover .fetaure-icon-container {
+  transform: scale(1.05) !important;
+  box-shadow: 
+    0 6px 20px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3),
+    0 0 20px rgba(16, 90, 201, 0.2) !important;
+  border-color: rgba(255, 255, 255, 0.25) !important;
+}
+
+/* Premium shine effect on cards */
+.feature-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.1) 50%,
+    transparent 100%
+  );
+  transform: skewX(-20deg);
+  transition: left 0.6s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.feature-item:hover::before {
+  left: 150%;
+  transition: left 0.6s ease;
+}
+
+/* Ensure content stays above shine */
+.feature-item > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* Premium text styling */
+.feature-content-holder .title {
+  color: #fff !important;
+  font-weight: 600 !important;
+  letter-spacing: -0.02em !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2) !important;
+}
+
+.feature-content-holder p {
+  color: rgba(255, 255, 255, 0.8) !important;
+  line-height: 1.6 !important;
+}
+
+.feature-item:hover .feature-content-holder p {
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+
+/* FOMO Badge - Premium Live Status Indicator */
+.fomo-badge-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+.fomo-badge {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 50px;
+  box-shadow: 
+    0 4px 20px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1),
+    0 0 0 1px rgba(255, 255, 255, 0.05);
+  overflow: hidden;
+  animation: fomo-breathe 3s ease-in-out infinite;
+  isolation: isolate;
+}
+
+/* Breathing/floating animation */
+@keyframes fomo-breathe {
+  0%, 100% {
+    transform: translateY(0px) scale(1);
+  }
+  50% {
+    transform: translateY(-3px) scale(1.02);
+  }
+}
+
+/* Live dot container */
+.fomo-live-dot {
+  position: relative;
+  width: 10px;
+  height: 10px;
+  flex-shrink: 0;
+}
+
+/* Red pulsing dot */
+.fomo-live-dot::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 8px;
+  height: 8px;
+  background: #ff4444;
+  border-radius: 50%;
+  box-shadow: 0 0 8px rgba(255, 68, 68, 0.6);
+  animation: fomo-pulse 2s ease-in-out infinite;
+  z-index: 2;
+}
+
+/* Pulse animation for dot */
+@keyframes fomo-pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: translate(-50%, -50%) scale(1.2);
+  }
+}
+
+/* Outer pulse ring */
+.fomo-dot-pulse {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 8px;
+  height: 8px;
+  border: 2px solid rgba(255, 68, 68, 0.6);
+  border-radius: 50%;
+  animation: fomo-pulse-ring 2s ease-out infinite;
+}
+
+@keyframes fomo-pulse-ring {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(2.5);
+    opacity: 0;
+  }
+}
+
+/* Badge text */
+.fomo-badge-text {
+  position: relative;
+  z-index: 1;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  white-space: nowrap;
+}
+
+/* Shine effect */
+.fomo-shine {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.15) 50%,
+    transparent 100%
+  );
+  transform: skewX(-20deg);
+  animation: fomo-shine 3s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+
+@keyframes fomo-shine {
+  0% {
+    left: -100%;
+  }
+  50% {
+    left: 150%;
+  }
+  100% {
+    left: 150%;
+  }
 }

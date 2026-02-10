@@ -1,8 +1,12 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { usePathname } from 'next/navigation';
 
 export default function Header() {
+    const pathname = usePathname();
+    const contactUrl = 'https://app.youform.com/forms/esb5dhlr';
+
     return (
         <motion.div
             data-animation="default"
@@ -21,7 +25,7 @@ export default function Header() {
                 <div className="navbar-holder">
                     <div className="navbar-container">
                         <div className="brand-holder">
-                            <a href="/" aria-current="page" className="brand w-nav-brand w--current">
+                            <a href="/" className={`brand w-nav-brand ${pathname === '/' ? 'w--current' : ''}`}>
                                 <img src="/logobg.png" loading="lazy" alt="ClarityScale Logo" className="brand-image" />
                             </a>
                         </div>
@@ -29,10 +33,10 @@ export default function Header() {
                             <div className="nav-menu-link-holder">
                                 <div className="nav-menu-link-container">
                                     <div className="nav-links">
-                                        <a href="/" aria-current="page" className="nav-link w-nav-link w--current">Home</a>
-                                        <a href="/demo" className="nav-link w-nav-link">Demo</a>
-                                        <a href="/features" className="nav-link w-nav-link">Features</a>
-                                        <a href="https://form.typeform.com/to/rJ7fFgTY" className="nav-link w-nav-link">Contact</a>
+                                        <a href="/" className={`nav-link w-nav-link ${pathname === '/' ? 'w--current' : ''}`}>Home</a>
+                                        <a href="/demo" className={`nav-link w-nav-link ${pathname === '/demo' ? 'w--current' : ''}`}>Demo</a>
+                                        <a href="/features" className={`nav-link w-nav-link ${pathname === '/features' ? 'w--current' : ''}`}>Features</a>
+                                        <a href={contactUrl} className="nav-link w-nav-link">Contact</a>
                                     </div>
                                 </div>
                             </div>
@@ -42,7 +46,7 @@ export default function Header() {
                                 <div className="w-icon-nav-menu"></div>
                             </div>
                             <div className="nav-menu-button-holder">
-                                <a href="https://form.typeform.com/to/rJ7fFgTY" className="button outline nav-btn w-button">Access to ScaleOS</a>
+                                <a href={contactUrl} className="button outline nav-btn w-button">Apply to ScaleOS</a>
                             </div>
                         </div>
                     </div>
