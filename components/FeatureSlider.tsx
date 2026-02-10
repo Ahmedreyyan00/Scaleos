@@ -24,7 +24,8 @@ export default function FeatureSlider() {
             let leftmostDistance = Infinity;
             
             slides.forEach((slide) => {
-                const slideRect = slide.getBoundingClientRect();
+                const slideElement = slide as HTMLElement;
+                const slideRect = slideElement.getBoundingClientRect();
                 const slideLeft = slideRect.left;
                 const slideRight = slideRect.right;
                 
@@ -36,17 +37,18 @@ export default function FeatureSlider() {
                     // If this slide is closer to the left edge, it's the leftmost
                     if (distance >= -50 && distance < leftmostDistance) {
                         leftmostDistance = distance;
-                        leftmostSlide = slide as HTMLElement;
+                        leftmostSlide = slideElement;
                     }
                 }
             });
             
             // Hide all blue lights first
             slides.forEach((slide) => {
-                const blueLineWrapper = slide.querySelector('.blue-line-wrapper') as HTMLElement;
-                const blurImageHolder = slide.querySelector('.blur-image-holder') as HTMLElement;
-                const blueLines = slide.querySelectorAll('.blue-line') as NodeListOf<HTMLElement>;
-                const blurImages = slide.querySelectorAll('.feature-blur-image') as NodeListOf<HTMLElement>;
+                const slideElement = slide as HTMLElement;
+                const blueLineWrapper = slideElement.querySelector('.blue-line-wrapper') as HTMLElement;
+                const blurImageHolder = slideElement.querySelector('.blur-image-holder') as HTMLElement;
+                const blueLines = slideElement.querySelectorAll('.blue-line') as NodeListOf<HTMLElement>;
+                const blurImages = slideElement.querySelectorAll('.feature-blur-image') as NodeListOf<HTMLElement>;
                 
                 if (blueLineWrapper) blueLineWrapper.style.opacity = '0';
                 if (blurImageHolder) blurImageHolder.style.opacity = '0';
@@ -55,11 +57,12 @@ export default function FeatureSlider() {
             });
             
             // Show blue light only on the leftmost slide
-            if (leftmostSlide) {
-                const blueLineWrapper = leftmostSlide.querySelector('.blue-line-wrapper') as HTMLElement;
-                const blurImageHolder = leftmostSlide.querySelector('.blur-image-holder') as HTMLElement;
-                const blueLines = leftmostSlide.querySelectorAll('.blue-line') as NodeListOf<HTMLElement>;
-                const blurImages = leftmostSlide.querySelectorAll('.feature-blur-image') as NodeListOf<HTMLElement>;
+            if (leftmostSlide !== null) {
+                const slideElement: HTMLElement = leftmostSlide;
+                const blueLineWrapper = slideElement.querySelector('.blue-line-wrapper') as HTMLElement;
+                const blurImageHolder = slideElement.querySelector('.blur-image-holder') as HTMLElement;
+                const blueLines = slideElement.querySelectorAll('.blue-line') as NodeListOf<HTMLElement>;
+                const blurImages = slideElement.querySelectorAll('.feature-blur-image') as NodeListOf<HTMLElement>;
                 
                 if (blueLineWrapper) blueLineWrapper.style.opacity = '1';
                 if (blurImageHolder) blurImageHolder.style.opacity = '1';

@@ -332,6 +332,105 @@ body {
   transition: opacity 0.5s ease-in-out;
 }
 
+/* Premium Feature Cards Styling */
+.feature-item {
+  position: relative;
+  background: rgba(255, 255, 255, 0.03) !important;
+  backdrop-filter: blur(20px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 16px !important;
+  padding: 35px !important;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  overflow: hidden !important;
+  isolation: isolate !important;
+  box-shadow: 
+    0 4px 20px rgba(0, 0, 0, 0.15),
+    0 0 0 1px rgba(255, 255, 255, 0.05) inset,
+    0 1px 0 rgba(255, 255, 255, 0.1) inset !important;
+}
+
+/* Premium hover effect */
+.feature-item:hover {
+  transform: translateY(-4px) !important;
+  border-color: rgba(255, 255, 255, 0.2) !important;
+  box-shadow: 
+    0 12px 40px rgba(0, 0, 0, 0.25),
+    0 0 0 1px rgba(255, 255, 255, 0.1) inset,
+    0 1px 0 rgba(255, 255, 255, 0.15) inset,
+    0 0 60px rgba(16, 90, 201, 0.15) !important;
+  background: rgba(255, 255, 255, 0.05) !important;
+}
+
+/* Premium icon container */
+.fetaure-icon-container {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05)) !important;
+  backdrop-filter: blur(10px) saturate(150%) !important;
+  -webkit-backdrop-filter: blur(10px) saturate(150%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  box-shadow: 
+    0 4px 15px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.feature-item:hover .fetaure-icon-container {
+  transform: scale(1.05) !important;
+  box-shadow: 
+    0 6px 20px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3),
+    0 0 20px rgba(16, 90, 201, 0.2) !important;
+  border-color: rgba(255, 255, 255, 0.25) !important;
+}
+
+/* Premium shine effect on cards */
+.feature-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.1) 50%,
+    transparent 100%
+  );
+  transform: skewX(-20deg);
+  transition: left 0.6s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.feature-item:hover::before {
+  left: 150%;
+  transition: left 0.6s ease;
+}
+
+/* Ensure content stays above shine */
+.feature-item > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* Premium text styling */
+.feature-content-holder .title {
+  color: #fff !important;
+  font-weight: 600 !important;
+  letter-spacing: -0.02em !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2) !important;
+}
+
+.feature-content-holder p {
+  color: rgba(255, 255, 255, 0.8) !important;
+  line-height: 1.6 !important;
+}
+
+.feature-item:hover .feature-content-holder p {
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+
 /* FOMO Badge - Premium Live Status Indicator */
 .fomo-badge-container {
   display: flex;

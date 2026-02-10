@@ -18,15 +18,15 @@ const Features = () => {
             // Create timeline
             const tl = gsap.timeline({ delay: 0.5 });
 
-            // Set initial states
-            gsap.set(featureImageContainerRef.current, { opacity: 0, y: 200, boxShadow: '0 0 0px 0px rgba(16,90,201,0)' });
+            // Set initial states - image starts from right side of screen
+            gsap.set(featureImageContainerRef.current, { opacity: 0, x: '100%', boxShadow: '0 0 0px 0px rgba(16,90,201,0)' });
             gsap.set(featureImageRef.current, { opacity: 0 });
 
             // Timeline sequence
-            // 1. Image container comes from bottom
+            // 1. Image container slides in from right
             tl.to(featureImageContainerRef.current, {
                 opacity: 1,
-                y: 0,
+                x: 0,
                 duration: 0.8,
                 ease: 'power3.out',
             });
@@ -64,8 +64,8 @@ const Features = () => {
                             <div style={{ WebkitTransform: 'translate3d(0, 30px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)', MozTransform: 'translate3d(0, 30px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)', msTransform: 'translate3d(0, 30px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)', transform: 'translate3d(0, 30px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)', opacity: 0, filter: 'blur(11px)' }}
                                 className="animate-on-load-02">
                                 <div className="feature-paragraph-holder">
-                                    <p>ClarityScale turns raw business data into actionable insights. Track revenue, optimize
-                                        your sales team, and make every decision count.</p>
+                                    <p>ScaleOS turns raw business data into clear decisions. Track revenue, optimize your sales team, and scale with clarity.
+                                    </p>
                                 </div>
                             </div>
                             <div style={{ opacity: 0, WebkitTransform: 'translate3d(0, 30px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)', MozTransform: 'translate3d(0, 30px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)', msTransform: 'translate3d(0, 30px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)', transform: 'translate3d(0, 30px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)', filter: 'blur(11px)' }}
@@ -90,8 +90,7 @@ const Features = () => {
                                         />
                                     </div>
                                 </div>
-                                <div style={{ WebkitTransform: 'translate3d(120px, 0, 0) scale3d(0.5, 0.8, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)', MozTransform: 'translate3d(120px, 0, 0) scale3d(0.5, 0.8, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)', msTransform: 'translate3d(120px, 0, 0) scale3d(0.5, 0.8, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)', transform: 'translate3d(120px, 0, 0) scale3d(0.5, 0.8, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)', opacity: 0 }}
-                                    className="blue-blur-feature"></div>
+                                
                             </div>
                         </div>
                     </div>
@@ -102,12 +101,11 @@ const Features = () => {
                     <div className="bubbles-holder">
                         <div className="left-content">
                             <div className="heading-holder">
-                                <h2 className="title">Track Every Single Data of Your Info-Business.</h2>
+                                <h2 className="title">Track Every Key Metric of Your Info-Business.
+                                </h2>
                             </div>
                             <div className="paragraph-holder">
-                                <p>Visualize every key metric of your info-business in real time: client value (LTV, AOV), sales
-                                    performance, show-up and closing rates, call sources, and more.No more guesswork — just data
-                                    clarity.</p>
+                                <p>Visualize every key metric of your info-business in one unified view: client value (LTV, AOV), sales performance, show-up and closing rates, call sources, and more. </p>
                             </div>
                         </div>
                         <div data-w-id="04241158-ad09-068c-06fc-285cb2a27ade" className="bubble-grid-holder">
@@ -345,7 +343,7 @@ const Features = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className="w-layout-grid _2x-grid">
+                        <div className="w-layout-grid _3x-grid">
                             <div className="feature-item">
                                 <div className="fetaure-icon-container"><img
                                     src="assets/cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6882a9e95dcd0d3fa9826cef_White%20Icon%20(1).png"
@@ -366,6 +364,15 @@ const Features = () => {
                                     <h5 className="title">Slack notifications</h5>
                                     <p><strong>Stay in the loop, automatically. </strong>Get notified instantly when a lead
                                         books a call, makes a payment, or changes status.</p>
+                                </div>
+                            </div>
+                            <div className="feature-item">
+                                <div className="fetaure-icon-container"><img
+                                    src="assets/cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6882a9e95dcd0d3fa9826cee_White%20Icon%20(5).png"
+                                    loading="lazy" alt="" className="fetaure-icon" /></div>
+                                <div className="feature-content-holder">
+                                    <h5 className="title">Content Performance</h5>
+                                    <p>Track every content metric that matters.<br /><strong>‍</strong>See exactly which posts and YouTube videos generate the most leads, calls, and cash — so you can double down on what works and scale faster.</p>
                                 </div>
                             </div>
                         </div>
