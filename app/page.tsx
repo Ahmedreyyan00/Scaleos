@@ -2,6 +2,7 @@ import Header from "../components/Header";
 import Hero from "../components/Hero";
 import CTASection from "../components/CTASection";
 import Footer from "@/components/Footer";
+import FeatureSlider from "@/components/FeatureSlider";
 
 export default function Home() {
   return (
@@ -18,7 +19,7 @@ export default function Home() {
             <img className="grid-image" src="/assets/cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6882c313e39f8fa5d927656c_Asset1.png" alt="" sizes="(max-width: 1710px) 100vw, 1710px" data-w-id="489ae30c-d1da-3634-9042-73948da8383a" loading="lazy" />
             <div className="grid-content">
               <div className="grid-title">Become a real CEO</div>
-              <p className="no-margins-2">Follow your cash collected, calls booked, team KPIs, leads and client LTV in real-time.</p>
+              <p className="no-margins-2">Track cash collected, calls booked, leads, team KPIs, client LTV, and revenue per YouTube video — all in real time.</p>
             </div>
           </div>
           <div className="grid-item">
@@ -47,10 +48,11 @@ export default function Home() {
           <div id="w-node-_0f6e4690-5961-adb5-bb42-4dc31a841c5d-a9826b02" className="feature-grid-content">
             <div className="feature-grid-content-holder-2">
               <div className="fade-in-on-scroll">
-                <h3 className="title">Follow your Cashflow in Real Time</h3>
+                <h3 className="title">Track Your Cashflow in Real Time
+                </h3>
               </div>
               <div className="fade-in-on-scroll">
-                <p>Easily track every dollar that enters your business — from low-ticket payments to high-ticket sales. ClarityScale gives you a live view of your revenue flow, so you always know what&apos;s working and where to optimize.</p>
+                <p>See every dollar entering your business — from low-ticket payments to high-ticket sales. ScaleOS gives you a live view of your revenue, so you always know what’s working and what to optimize.</p>
               </div>
             </div>
           </div>
@@ -111,38 +113,7 @@ export default function Home() {
             <h2 className="title"><strong>Your entire business.<br />Crystal clear.</strong></h2>
           </div>
         </div>
-        <div data-delay="4000" data-animation="slide" className="slider w-slider" data-autoplay="false" data-easing="ease-out-expo" data-hide-arrows="false" data-disable-swipe="false" data-autoplay-limit="0" data-nav-spacing="3" data-duration="1250" data-infinite="true">
-          <div className="mask w-slider-mask">
-            <div className="slide w-slide">
-              <div id="w-node-_9eed4757-86a4-f7d5-b099-f9f1459df6a9-a9826b02" className="feature-item-center">
-                <div className="feautre-content">
-                  <div className="fetaure-icon-holder">
-                    <img sizes="(max-width: 792px) 100vw, 792px" alt="" src="/assets/cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6882a9e95dcd0d3fa9826cee_White%2520Icon%2520(5).png" loading="lazy" className="ease-feature-icon" />
-                  </div>
-                  <div className="feature-heading-small">Unified View</div>
-                  <p><strong>‍</strong>From content to cashflow, ClarityScale centralizes your entire business backend</p>
-                </div>
-                <div className="blue-line-wrapper">
-                  <div className="blue-line _01"></div>
-                </div>
-                <div className="blur-image-holder">
-                  <img sizes="(max-width: 844px) 100vw, 844px" alt='' src="/assets/cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6882a9e95dcd0d3fa9826cf0_Blur%2520Image.avif" loading="lazy" className="feature-blur-image _01" />
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="slider-arrow w-slider-arrow-left">
-            <div className="slider-arrow-holder">
-              <img src="/assets/cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6882a9e95dcd0d3fa9826cf3_Arrows%2520(1).svg" loading="lazy" alt="" className="arrow-icon" />
-            </div>
-          </div>
-          <div className="slider-arrow right w-slider-arrow-right">
-            <div className="slider-arrow-holder">
-              <img src="/assets/cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6882a9e95dcd0d3fa9826cf2_Arrows%2520(2).svg" loading="lazy" alt="" className="arrow-icon" />
-            </div>
-          </div>
-          <div className="hide w-slider-nav w-round w-num"></div>
-        </div>
+        <FeatureSlider />
       </div>
     </div>
   </div>
@@ -152,7 +123,8 @@ export default function Home() {
       <div className="cta-holder ">
         <div className="cta-content">
           <div className="fade-in-on-scroll">
-            <h1>Stop Losing Time &amp; Money. <br />Scale based on Real Data.</h1>
+            <h1>The #1 All-in-One System <br/> for Infopreneurs.
+            </h1>
           </div>
           <div className="form">
             <a href="https://app.youform.com/forms/esb5dhlr" className="submit-button-url w-button">Apply to ScaleOS

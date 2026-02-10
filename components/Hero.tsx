@@ -133,12 +133,8 @@ export default function Hero() {
                                         </div>
                                     ))}
                                 </div>
-                                {/* Glassy shine effect - moves left to right */}
-                                {/* <svg width="16" height="16" viewBox="0 0 24 24" fill="none" className="text-white relative z-10">
-                                    <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                                    <path d="M2 17L12 22L22 17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                                    <path d="M2 12L12 17L22 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                                </svg> */}
+                                {/* Shine effect - same as FOMOBadge */}
+                                <div className="fomo-shine"></div>
                                 <span className="text-white text-sm font-medium relative z-10">Trusted by +30 coaches, creators & infopreneurs</span>
                             </div>
                         </div>
@@ -163,7 +159,8 @@ The #1 All-in-One System for Infopreneurs.
                                 ref={descriptionRef}
                                 className="paragraph-l animate-me"
                             >
-                                                                Stop Losing Time &amp; Money. <br />Scale based on Real Data.
+                                                                The #1 All-in-One System for Infopreneurs.
+
 
                                 {/* Everything centralized.<br />No more guesswork — just clarity. */}
                             </p>

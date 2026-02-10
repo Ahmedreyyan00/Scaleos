@@ -557,7 +557,8 @@ const Features = () => {
                     <div className="cta-holder">
                         <div className="cta-content">
                             <div className="fade-in-on-scroll">
-                                <h1>Stop Losing Time &amp; Money. <br />Scale based on Real Data.</h1>
+                                <h1>The #1 All-in-One System <br/> for Infopreneurs.
+                                </h1>
                             </div>
                             <div className="form"><a href="https://app.youform.com/forms/esb5dhlr"
                                 className="submit-button-url w-button">Apply to ScaleOS</a></div>

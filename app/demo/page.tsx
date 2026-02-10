@@ -2,6 +2,7 @@ import React from 'react';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import CTASection from '../../components/CTASection';
+import FOMOBadge from '../../components/FOMOBadge';
 
 const Demo = () => {
     return (
@@ -14,15 +15,16 @@ const Demo = () => {
                             <div style={{ opacity: 0, WebkitTransform: 'translate3d(0, 30px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)', MozTransform: 'translate3d(0, 30px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)', msTransform: 'translate3d(0, 30px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)', transform: 'translate3d(0, 30px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)', filter: 'blur(11px)' }}
                                 className="animate-on-load-01">
                                 <div className="hero-center-text">
-                                    <h2 className="title"><strong>Data-Driven Scaling Starts Now</strong></h2>
+                                    <h2 className="title"><strong>Scaling With Real Data Starts Now
+                                    </strong></h2>
                                 </div>
                             </div>
                             <div style={{ WebkitTransform: 'translate3d(0, 30px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)', MozTransform: 'translate3d(0, 30px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)', msTransform: 'translate3d(0, 30px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)', transform: 'translate3d(0, 30px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)', opacity: 0, filter: 'blur(11px)' }}
                                 className="animate-on-load-02">
                                 <div className="center-hero-paragraph-holder">
                                     <div>
-                                        <p className="paragraph-2">Discover how top infopreneurs scale smarter – watch the demo.
-                                        </p>
+                                        <p className="paragraph-2">Discover how top infopreneurs scale faster with clarity.
+                     Watch the demo.</p>
                                     </div>
                                 </div>
                             </div>
@@ -46,17 +48,18 @@ const Demo = () => {
                         <div className="hero-section-center-holder-2">
                             <div style={{ opacity: 0, WebkitTransform: 'translate3d(0, 30px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)', MozTransform: 'translate3d(0, 30px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)', msTransform: 'translate3d(0, 30px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)', transform: 'translate3d(0, 30px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)', filter: 'blur(11px)' }}
                                 className="animate-on-load-01">
-                                <div className="hero-center-text">
-                                    <h2 className="title"><strong className="bold-text-2">Join the Private Launch</strong></h2>
+                                <div className="hero-cnter-text">
+                                    <h2 className="title"><strong className="bold-text-2">Apply to ScaleOS Now</strong></h2>
                                 </div>
                             </div>
                             <div style={{ WebkitTransform: 'translate3d(0, 30px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)', MozTransform: 'translate3d(0, 30px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)', msTransform: 'translate3d(0, 30px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)', transform: 'translate3d(0, 30px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)', opacity: 0, filter: 'blur(11px)' }}
                                 className="animate-on-load-02">
                                 <div className="center-hero-paragraph-holder">
                                     <div>
-                                        <p className="paragraph-3">Get early access before public release.</p>
+                                        <p className="paragraph-3">We only onboard a few businesses per month.</p>
                                     </div>
                                 </div>
+                                <FOMOBadge />
                             </div>
                             <div style={{ opacity: 0, WebkitTransform: 'translate3d(0, 30px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)', MozTransform: 'translate3d(0, 30px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)', msTransform: 'translate3d(0, 30px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)', transform: 'translate3d(0, 30px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)', filter: 'blur(11px)' }}
                                 className="animate-on-load-03">
@@ -200,9 +203,16 @@ const Demo = () => {
                             </div>
                         </div>
                         <div className="w-layout-blockcontainer container-2 w-container">
-                            <div className="code-embed w-embed w-script">
-                                <div data-tf-live="01K145QE7JD5KW2VFC6PQMZEYX"></div>
-                                <script src="assets/embed.typeform.com/next/embed.js"></script>
+                            <div className="youform-embed-container" style={{ width: '100%', minHeight: '600px', borderRadius: '12px', overflow: 'hidden', border: '1px solid rgba(255, 255, 255, 0.1)' }}>
+                                <iframe
+                                    src="https://app.youform.com/forms/esb5dhlr"
+                                    width="100%"
+                                    height="600"
+                                    frameBorder="0"
+                                    style={{ border: 'none', width: '100%', minHeight: '600px' }}
+                                    title="Apply to ScaleOS"
+                                    allow="clipboard-read; clipboard-write"
+                                ></iframe>
                             </div>
                         </div>
                     </section>
@@ -213,10 +223,13 @@ const Demo = () => {
                     <div className="cta-holder">
                         <div className="cta-content">
                             <div className="fade-in-on-scroll">
-                                <h1>Stop Losing Time &amp; Money. <br />Scale based on Real Data.</h1>
+                                <h1>The #1 All-in-One System <br/> for Infopreneurs.
+                                </h1>
                             </div>
                             <div className="form"><a href="https://app.youform.com/forms/esb5dhlr"
                                 className="submit-button-url w-button">Apply to ScaleOS</a></div>
+                            
+                            
                         </div>
                         <CTASection />
                     </div>
