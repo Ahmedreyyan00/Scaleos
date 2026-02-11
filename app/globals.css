@@ -66,6 +66,15 @@ body {
   pointer-events: none;
 }
 
+/* Blue circle animation on hover - expands to fill the outer circle */
+.bubble .circle-active {
+  transition: transform 0.3s ease;
+}
+
+.bubble .circle:hover .circle-active {
+  transform: scale(1);
+}
+
 /* Fix header logo size */
 .brand-image {
   max-height: 80px;
