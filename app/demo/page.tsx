@@ -61,7 +61,7 @@ const Demo = () => {
                                 </div>
                                 <FOMOBadge />
                             </div>
-                            <div style={{ opacity: 0, WebkitTransform: 'translate3d(0, 30px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)', MozTransform: 'translate3d(0, 30px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)', msTransform: 'translate3d(0, 30px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)', transform: 'translate3d(0, 30px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)', filter: 'blur(11px)' }}
+                            {/* <div style={{ opacity: 0, WebkitTransform: 'translate3d(0, 30px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)', MozTransform: 'translate3d(0, 30px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)', msTransform: 'translate3d(0, 30px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)', transform: 'translate3d(0, 30px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)', filter: 'blur(11px)' }}
                                 className="animate-on-load-03">
                                 <div className="hero-blog-holder">
                                     <div className="blog-grid-twos-wrapper w-dyn-list">
@@ -196,7 +196,7 @@ const Demo = () => {
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> */}
                             <div data-w-id="dbfaa4a9-8465-0ef6-1fa3-d86a70928ffa" style={{ opacity: 0 }}
                                 className="blue-blur-holder">
                                 <div className="blue-blur-blog"></div>

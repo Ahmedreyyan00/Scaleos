@@ -66,6 +66,222 @@ body {
   pointer-events: none;
 }
 
+/* Blue circle animation on hover - expands to fill the outer circle */
+.bubble .circle-active {
+  transition: transform 0.3s ease;
+}
+
+.bubble .circle:hover .circle-active {
+  transform: scale(1);
+}
+
+/* Allow feature card icons to overflow outside the card */
+.feature-item {
+  overflow: visible !important;
+}
+
+.feature-grid-holder {
+  overflow: visible !important;
+}
+
+.w-layout-grid._3x-grid {
+  overflow: visible !important;
+}
+
+/* Ensure icon container and icon are fully visible */
+.feature-grid-holder,
+.w-layout-grid._3x-grid {
+  overflow: visible !important;
+}
+
+.fetaure-icon-container {
+  overflow: visible !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 0 !important;
+  position: relative !important;
+  z-index: 10 !important;
+}
+
+.fetaure-icon {
+  max-width: 90px !important;
+  max-height: 90px !important;
+  width: auto !important;
+  height: auto !important;
+  object-fit: contain !important;
+  display: block !important;
+  position: relative !important;
+}
+
+/* Hide blog section on smaller and medium screens on demo page */
+@media (max-width: 991px) {
+  .hero-blog-holder {
+    display: none !important;
+  }
+}
+
+/* Center hero text on medium and mobile screens */
+@media (max-width: 991px) {
+  .home-text-holder {
+    text-align: center !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  .home-text-container {
+    text-align: center !important;
+    align-items: center !important;
+  }
+
+  .hero-title {
+    text-align: center !important;
+  }
+
+  .paragraph-l {
+    text-align: center !important;
+  }
+
+  .home-pragraph-holder {
+    text-align: center !important;
+    align-items: center !important;
+  }
+
+  .button-holder {
+    justify-content: center !important;
+    align-items: center !important;
+    display: flex !important;
+    flex-direction: row !important;
+    text-align: center !important;
+  }
+
+  .button-holder-features {
+    justify-content: center !important;
+    align-items: center !important;
+    display: flex !important;
+    text-align: center !important;
+  }
+
+  .button-holder-phone {
+    justify-content: center !important;
+    align-items: center !important;
+    display: flex !important;
+    text-align: center !important;
+  }
+
+  .button,
+  .w-button {
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  .hero-text-container {
+    text-align: center !important;
+  }
+
+  .hero-text-container .title {
+    text-align: center !important;
+  }
+}
+
+/* Additional mobile-specific centering for buttons */
+@media (max-width: 767px) {
+  .button-holder {
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+  }
+
+  .button-holder-features {
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+  }
+
+  .button-holder .button,
+  .button-holder .w-button,
+  .button-holder-features .button,
+  .button-holder-features .w-button {
+    width: 100% !important;
+    max-width: 300px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+}
+
+/* Fix tagline and text sizing on small and medium screens for features page */
+@media (max-width: 991px) {
+  .feature-hero-content {
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+
+  .feature-heading-holder {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .feature-heading-holder .title {
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+    hyphens: auto !important;
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+
+  .feature-paragraph-holder {
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+
+  .feature-paragraph-holder p {
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .feature-hero-content {
+    max-width: 100% !important;
+    width: 100% !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  .feature-heading-holder {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .feature-heading-holder .title {
+    font-size: 28px !important;
+    line-height: 1.3 !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+    hyphens: auto !important;
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+
+  .feature-paragraph-holder {
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+
+  .feature-paragraph-holder p {
+    font-size: 16px !important;
+    line-height: 1.5 !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+}
+
 /* Fix header logo size */
 .brand-image {
   max-height: 80px;

@@ -225,6 +225,21 @@ const Features = () => {
                                         </div>
                                     </div>
                                 </div>
+                                <div id="w-node-c3fa82c7-a524-52fd-3ef6-e6bcc7aad784-a9826b99" className="circle-holder">
+                                    <div className="circle-container _02">
+                                        <div className="bubble">
+                                            <div className="circle _06">
+                                                <div className="circle-active"></div>
+                                            </div>
+                                            <div className="tip-tool-holder">
+                                                <div className="tip-tool-container">
+                                                    <p className="no-margins">Let your content team know about every piece of
+                                                        content to edit.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div id="w-node-_4a0abaa9-2d7a-7a7c-c47a-51c73a0d905f-a9826b99" className="circle-holder">
                                     <div className="circle-container">
                                         <div className="bubble">
@@ -298,6 +313,32 @@ const Features = () => {
                                             <div className="tip-tool-holder">
                                                 <div className="tip-tool-container">
                                                     <p className="no-margins">Stock your teams docs in a single place</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {/* Main bubble: $ / Content */}
+                                <div className="circle-holder">
+                                    <div className="circle-container">
+                                        <div className="bubble">
+                                            <div className="circle _05">
+                                                <h1 className="title">$</h1>
+                                                <div className="circle-info">/ Content</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {/* Secondary bubble: $ / YouTube Video */}
+                                <div className="circle-holder">
+                                    <div className="circle-container">
+                                        <div className="bubble">
+                                            <div className="circle _02">
+                                                <div className="circle-active"></div>
+                                            </div>
+                                            <div className="tip-tool-holder">
+                                                <div className="tip-tool-container">
+                                                    <p className="no-margins">$ / Video - How much cash each YouTube video generates</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -389,9 +430,9 @@ const Features = () => {
                                         <h3 className="title">4 Dashboards</h3>
                                     </div>
                                     <div className="fade-in-on-scroll">
-                                        <p>Get a crystal-clear view of your business.Track your <strong>sales</strong>,
-                                            <strong>cashflow</strong>, <strong>traffic</strong> &amp; <strong>sales team
-                                                KPIs</strong> in real time — all in one place, with zero confusion and zero
+                                        <p>Get a complete view of your business.
+                                            Track your <strong>sales</strong>, <strong>cashflow</strong>, <strong>traffic</strong>, <strong>sales team
+                                                KPIs</strong>, and <strong>content performance</strong> in real time — all in one place, with zero confusion and zero
                                             spreadsheets.</p>
                                     </div>
                                 </div>
@@ -405,7 +446,7 @@ const Features = () => {
                                         srcSet="https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/692dbeddaa619febe5b15848_Dashboard-p-500.png 500w, https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/692dbeddaa619febe5b15848_Dashboard-p-800.png 800w, https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/692dbeddaa619febe5b15848_Dashboard.png 1068w" />
                                     </div>
                                     <div className="cube-rotate-holder"><img className="cube-image"
-                                        src="assets/cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6883fea00a351bcab0c9a0b4_LogoClarity%206.png"
+                                        src="/trackflow.png"
                                         alt=""
                                         style={{ WebkitTransform: 'translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0)', MozTransform: 'translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0)', msTransform: 'translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0)', transform: 'translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0)' }}
                                         sizes="(max-width: 2066px) 100vw, 2066px"
@@ -440,13 +481,11 @@ const Features = () => {
                             <div className="feature-grid-content">
                                 <div className="feature-grid-content-holder-2">
                                     <div className="fade-in-on-scroll">
-                                        <h3 className="title"><strong>Sales That Stay Organized</strong></h3>
+                                        <h3 className="title"><strong>Keep Your Sales Organized
+                                        </strong></h3>
                                     </div>
                                     <div className="fade-in-on-scroll">
-                                        <p>From first touch to payment—track every step of your sales process in one
-                                            place.Easily visualize your <strong>pipeline</strong>, manage all
-                                            <strong>appointments</strong>, track <strong>payments</strong> in real-time, and
-                                            keep every <strong>contact</strong> within reach.</p>
+                                        <p>From first touch to payment — track every step of your sales process in one place. Easily visualize your pipeline, manage appointments, track payments, and keep every contact within reach.</p>
                                     </div>
                                 </div>
                             </div>
@@ -455,12 +494,11 @@ const Features = () => {
                             <div id="w-node-_0c183a05-9162-9e2a-c293-ceaaabefc7ed-a9826b99" className="feature-grid-content">
                                 <div className="feature-grid-content-holder-2">
                                     <div className="fade-in-on-scroll">
-                                        <h3 className="title"><strong>Client Management, Finally Centralized</strong></h3>
+                                        <h3 className="title"><strong>CKnow What Your Content Really Generates.
+                                        </strong></h3>
                                     </div>
                                     <div className="fade-in-on-scroll">
-                                        <p>Keep all your clients in one place — organized, visual, and always up to date. Switch
-                                            between card view, <strong>CRM logic</strong>, or simple list mode depending on your
-                                            <strong>workflow</strong>.</p>
+                                        <p>Track the performance and revenue of every post in one dashboard. See views, leads, calls, and cash generated per piece of content — including exactly how much each YouTube video brings in. Scale by doubling down on what actually pays.</p>
                                     </div>
                                 </div>
                             </div>
@@ -508,13 +546,10 @@ const Features = () => {
                             <div id="w-node-_3849909d-7672-604f-4f6e-e1d39bdbca7a-a9826b99" className="feature-grid-content">
                                 <div className="feature-grid-content-holder-2">
                                     <div className="fade-in-on-scroll">
-                                        <h3 className="title"><strong> All Your Content Ops, In Sync.</strong></h3>
+                                        <h3 className="title"><strong>Your Content System — Fully Organized.</strong></h3>
                                     </div>
                                     <div className="fade-in-on-scroll">
-                                        <p>From planning to publishing—centralize your full content process. Map out ideas in
-                                            your <strong>calendar</strong>, move tasks through a <strong>Slack-integrated
-                                                pipeline</strong>, keep tabs on your <strong>competition</strong>, and never
-                                            lose a single <strong>file</strong> again.</p>
+                                        <p>From planning to publishing, centralize your entire content workflow. Manage your calendar, store ideas, track tasks in a Slack-integrated pipeline, monitor competitors, and keep every asset in one place.</p>
                                     </div>
                                 </div>
                             </div>
@@ -526,10 +561,7 @@ const Features = () => {
                                         <h3 className="title"><strong>Teamwork, Systemized.</strong></h3>
                                     </div>
                                     <div className="fade-in-on-scroll">
-                                        <p>Assign, track, and deliver—without the chaos.Plan tasks with the
-                                            <strong>calendar</strong>, move them through a <strong>team pipeline</strong>,
-                                            centralize key <strong>resources</strong>, and keep everyone aligned with dedicated
-                                            <strong>team member cards</strong>.</p>
+                                        <p>Assign, track, and deliver — without the chaos. Plan tasks in the calendar, move them through a team pipeline, centralize key resources, and keep everyone aligned. With Slack integration, your team gets instantly notified the moment a task is assigned or updated.</p>
                                     </div>
                                 </div>
                             </div>
