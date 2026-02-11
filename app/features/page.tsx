@@ -333,7 +333,7 @@ const Features = () => {
                                 <div className="circle-holder">
                                     <div className="circle-container">
                                         <div className="bubble">
-                                            <div className="circle _04">
+                                            <div className="circle _02">
                                                 <div className="circle-active"></div>
                                             </div>
                                             <div className="tip-tool-holder">
@@ -446,7 +446,7 @@ const Features = () => {
                                         srcSet="https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/692dbeddaa619febe5b15848_Dashboard-p-500.png 500w, https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/692dbeddaa619febe5b15848_Dashboard-p-800.png 800w, https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/692dbeddaa619febe5b15848_Dashboard.png 1068w" />
                                     </div>
                                     <div className="cube-rotate-holder"><img className="cube-image"
-                                        src="assets/cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6883fea00a351bcab0c9a0b4_LogoClarity%206.png"
+                                        src="/trackflow.png"
                                         alt=""
                                         style={{ WebkitTransform: 'translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0)', MozTransform: 'translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0)', msTransform: 'translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0)', transform: 'translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0)' }}
                                         sizes="(max-width: 2066px) 100vw, 2066px"
