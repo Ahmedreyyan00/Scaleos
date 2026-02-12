@@ -15,12 +15,21 @@ const Features = () => {
         if (!featureSectionRef.current) return;
 
         const ctx = gsap.context(() => {
+            // Set initial states IMMEDIATELY to prevent layout shift
+            gsap.set(featureImageContainerRef.current, { 
+                opacity: 0, 
+                x: '100%', 
+                boxShadow: '0 0 0px 0px rgba(16,90,201,0)',
+                immediateRender: true,
+                force3D: true
+            });
+            gsap.set(featureImageRef.current, { 
+                opacity: 0,
+                immediateRender: true
+            });
+
             // Create timeline
             const tl = gsap.timeline({ delay: 0.5 });
-
-            // Set initial states - image starts from right side of screen
-            gsap.set(featureImageContainerRef.current, { opacity: 0, x: '100%', boxShadow: '0 0 0px 0px rgba(16,90,201,0)' });
-            gsap.set(featureImageRef.current, { opacity: 0 });
 
             // Timeline sequence
             // 1. Image container slides in from right
@@ -29,6 +38,7 @@ const Features = () => {
                 x: 0,
                 duration: 0.8,
                 ease: 'power3.out',
+                force3D: true,
             });
 
             // 2. Image fades in
@@ -494,7 +504,7 @@ const Features = () => {
                             <div id="w-node-_0c183a05-9162-9e2a-c293-ceaaabefc7ed-a9826b99" className="feature-grid-content">
                                 <div className="feature-grid-content-holder-2">
                                     <div className="fade-in-on-scroll">
-                                        <h3 className="title"><strong>CKnow What Your Content Really Generates.
+                                        <h3 className="title"><strong>Know What Your Content Really Generates.
                                         </strong></h3>
                                     </div>
                                     <div className="fade-in-on-scroll">
@@ -526,11 +536,10 @@ const Features = () => {
                             <div id="w-node-_3849909d-7672-604f-4f6e-e1d39bdbca89-a9826b99" className="feature-graphic-holder">
                                 <div data-w-id="3849909d-7672-604f-4f6e-e1d39bdbca8a" className="feature-image-container _02">
                                     <div className="feature-image-wrapper"><img className="feature-image-full"
-                                        src="assets/cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/692dc0b15e4f323d9d91370b_Contentclarity.png"
-                                        alt=""
+                                        src="/content.png"
+                                        alt="Content System Dashboard"
                                         style={{ opacity: 0 }} sizes="(max-width: 1068px) 100vw, 1068px"
-                                        data-w-id="3849909d-7672-604f-4f6e-e1d39bdbca8c" loading="lazy"
-                                        srcSet="https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/692dc0b15e4f323d9d91370b_Contentclarity-p-500.png 500w, https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/692dc0b15e4f323d9d91370b_Contentclarity-p-800.png 800w, https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/692dc0b15e4f323d9d91370b_Contentclarity.png 1068w" />
+                                        data-w-id="3849909d-7672-604f-4f6e-e1d39bdbca8c" loading="lazy" />
                                     </div>
                                     <div className="cube-rotate-holder"><img className="cube-image"
                                         src="assets/cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6883fea00a351bcab0c9a0b4_LogoClarity%206.png"

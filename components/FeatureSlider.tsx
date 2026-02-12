@@ -1,9 +1,11 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
+import { gsap } from 'gsap';
 
 export default function FeatureSlider() {
     const sliderRef = useRef<HTMLDivElement>(null);
+    const maskRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
         // Function to update active slide blue light - only show on leftmost visible slide
@@ -156,8 +158,59 @@ export default function FeatureSlider() {
             }
         }, 100);
 
+        // Continuous smooth scrolling animation using GSAP
+        const startContinuousScroll = () => {
+            if (!maskRef.current || !sliderRef.current) return;
+            
+            const slides = sliderRef.current.querySelectorAll('.w-slide');
+            if (!slides || slides.length === 0) {
+                // Retry if slides aren't ready
+                setTimeout(startContinuousScroll, 200);
+                return;
+            }
+
+            // Wait a bit for layout to settle
+            setTimeout(() => {
+                if (!maskRef.current) return;
+
+                const firstSlide = slides[0] as HTMLElement;
+                const slideWidth = firstSlide.getBoundingClientRect().width || firstSlide.offsetWidth;
+                
+                if (slideWidth === 0) {
+                    setTimeout(startContinuousScroll, 200);
+                    return;
+                }
+
+                // Set initial transform
+                gsap.set(maskRef.current, { x: 0, force3D: true });
+
+                // Create continuous scroll animation - scroll one slide width every 3 seconds
+                const scrollAnimation = gsap.to(maskRef.current, {
+                    x: `-=${slideWidth}`,
+                    duration: 3,
+                    ease: 'none',
+                    repeat: -1,
+                    onRepeat: () => {
+                        // When we've scrolled all slides, reset to start
+                        const currentX = gsap.getProperty(maskRef.current, 'x') as number;
+                        const totalWidth = slideWidth * slides.length;
+                        
+                        if (Math.abs(currentX) >= totalWidth - slideWidth) {
+                            gsap.set(maskRef.current, { x: 0 });
+                        }
+                    }
+                });
+            }, 300);
+        };
+
+        // Start continuous scroll after slider is initialized
+        const scrollTimeout = setTimeout(() => {
+            startContinuousScroll();
+        }, 2000);
+
         return () => {
             clearTimeout(timeoutId);
+            clearTimeout(scrollTimeout);
             clearInterval(intervalId);
             if (observer) {
                 observer.disconnect();
@@ -166,12 +219,16 @@ export default function FeatureSlider() {
                 const $slider = (window as any).$(sliderRef.current);
                 $slider.off('change', updateActiveSlide);
             }
+            // Kill GSAP animations
+            if (maskRef.current) {
+                gsap.killTweensOf(maskRef.current);
+            }
         };
     }, []);
 
     return (
-        <div data-delay="4000" data-animation="slide" className="slider w-slider" data-autoplay="true" data-easing="ease-out-expo" data-hide-arrows="false" data-disable-swipe="false" data-autoplay-limit="0" data-nav-spacing="3" data-duration="1250" data-infinite="true" ref={sliderRef}>
-            <div className="mask w-slider-mask">
+        <div data-delay="3000" data-animation="slide" className="slider w-slider" data-autoplay="true" data-easing="linear" data-hide-arrows="false" data-disable-swipe="false" data-autoplay-limit="0" data-nav-spacing="3" data-duration="2000" data-infinite="true" ref={sliderRef}>
+            <div className="mask w-slider-mask" ref={maskRef}>
                 {/* Slide 1: Unified View - FIRST */}
                 <div className="slide w-slide">
                     <div id="w-node-_9eed4757-86a4-f7d5-b099-f9f1459df6a9-a9826b02" className="feature-item-center">

@@ -1,99 +1,105 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useLayoutEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 
 export default function Hero() {
     const heroRef = useRef<HTMLDivElement>(null);
     const tagRef = useRef<HTMLDivElement>(null);
+    const shineRef = useRef<HTMLDivElement>(null);
     const titleRef = useRef<HTMLHeadingElement>(null);
     const descriptionRef = useRef<HTMLParagraphElement>(null);
     const buttonsRef = useRef<HTMLDivElement>(null);
     const imageContainerRef = useRef<HTMLDivElement>(null);
     const imageRef = useRef<HTMLImageElement>(null);
     const subtitleRef = useRef<HTMLHeadingElement>(null);
+    const iconsHolderRef = useRef<HTMLDivElement>(null);
 
-    useEffect(() => {
+    useLayoutEffect(() => {
         if (!heroRef.current) return;
 
         const ctx = gsap.context(() => {
-            // Create timeline
-            const tl = gsap.timeline();
+            // First, ensure all elements are visible and in their final positions
+            // Then animate them from their starting positions
+            gsap.set(tagRef.current, { opacity: 1, scale: 1, force3D: true });
+            gsap.set(shineRef.current, { opacity: 1, x: '100%', force3D: true });
+            gsap.set(titleRef.current, { opacity: 1, y: 0, force3D: true });
+            gsap.set(descriptionRef.current, { opacity: 1, y: 0, force3D: true });
+            gsap.set(buttonsRef.current?.children || [], { opacity: 1, y: 0, force3D: true });
+            gsap.set(imageContainerRef.current, { opacity: 1, y: 0, boxShadow: '0 0 0px 0px rgba(16,90,201,0)', force3D: true });
+            gsap.set(imageRef.current, { opacity: 1 });
+            gsap.set(subtitleRef.current, { opacity: 1, y: 0, force3D: true });
+            gsap.set(iconsHolderRef.current?.children || [], { opacity: 1, scale: 1, y: 0, force3D: true });
 
-            // Set initial states
-            gsap.set(tagRef.current, { opacity: 0, scale: 0.8 });
-            gsap.set(titleRef.current, { opacity: 0, y: 20 });
-            gsap.set(descriptionRef.current, { opacity: 0, y: 20 });
-            gsap.set(buttonsRef.current?.children || [], { opacity: 0, y: 20 });
-            gsap.set(imageContainerRef.current, { opacity: 0, y: 200, boxShadow: '0 0 0px 0px rgba(16,90,201,0)' });
-            gsap.set(imageRef.current, { opacity: 0 });
-            gsap.set(subtitleRef.current, { opacity: 0, y: 20 });
+            // Now animate from starting positions to final positions
+            const tl = gsap.timeline({ delay: 0.1 });
 
-            // Timeline sequence
-            // 1. Badge shows up
-            tl.to(tagRef.current, {
-                opacity: 1,
-                scale: 1,
-                duration: 0.5,
-                ease: 'back.out(1.7)',
-            });
+            // Timeline sequence - smooth entrance animations
+            // 1. Badge scales in
+            tl.fromTo(tagRef.current, 
+                { scale: 0.8 },
+                { scale: 1, duration: 0.5, ease: 'back.out(1.7)', force3D: true }
+            );
 
-            // 2. Title
-            tl.to(titleRef.current, {
-                opacity: 1,
-                y: 0,
-                duration: 0.6,
-                ease: 'power3.out',
-            }, '-=0.2');
+            // 1.5. Shine effect sweeps across
+            tl.fromTo(shineRef.current,
+                { x: '-100%' },
+                { x: '100%', duration: 1.5, ease: 'power2.inOut', force3D: true },
+                '-=0.3'
+            );
 
-            // 3. Description
-            tl.to(descriptionRef.current, {
-                opacity: 1,
-                y: 0,
-                duration: 0.6,
-                ease: 'power3.out',
-            }, '-=0.3');
+            // 2. Title slides up
+            tl.fromTo(titleRef.current,
+                { y: 20 },
+                { y: 0, duration: 0.6, ease: 'power3.out', force3D: true },
+                '-=0.2'
+            );
 
-            // 4. Buttons
+            // 3. Description slides up
+            tl.fromTo(descriptionRef.current,
+                { y: 20 },
+                { y: 0, duration: 0.6, ease: 'power3.out', force3D: true },
+                '-=0.3'
+            );
+
+            // 4. Buttons slide up with stagger
             if (buttonsRef.current?.children) {
-                tl.to(buttonsRef.current.children, {
-                    opacity: 1,
-                    y: 0,
-                    duration: 0.5,
-                    stagger: 0.1,
-                    ease: 'power3.out',
-                }, '-=0.3');
+                tl.fromTo(buttonsRef.current.children,
+                    { y: 20 },
+                    { y: 0, duration: 0.5, stagger: 0.1, ease: 'power3.out', force3D: true },
+                    '-=0.3'
+                );
             }
 
-            // 5. Image container comes from bottom
-            tl.to(imageContainerRef.current, {
-                opacity: 1,
-                y: 0,
-                duration: 0.8,
-                ease: 'power3.out',
-            }, '-=0.2');
+            // 5. Image container slides up from bottom
+            tl.fromTo(imageContainerRef.current,
+                { y: 200, boxShadow: '0 0 0px 0px rgba(16,90,201,0)' },
+                { y: 0, duration: 0.8, ease: 'power3.out', force3D: true },
+                '-=0.2'
+            );
 
-            // 6. Image fades in
-            tl.to(imageRef.current, {
-                opacity: 1,
-                duration: 0.3,
-                ease: 'power2.out',
-            }, '-=0.5');
-
-            // 7. Animate box shadow after image appears (using theme blue color)
+            // 7. Animate box shadow after image appears
             tl.to(imageContainerRef.current, {
                 boxShadow: '0 0 60px 80px rgba(16,90,201,0.5)',
                 duration: 1,
                 ease: 'power2.out',
             }, '-=0.4');
 
-            // 8. Subtitle
-            tl.to(subtitleRef.current, {
-                opacity: 1,
-                y: 0,
-                duration: 0.6,
-                ease: 'power3.out',
-            }, '-=1.5');
+            // 8. Subtitle slides up
+            tl.fromTo(subtitleRef.current,
+                { y: 20 },
+                { y: 0, duration: 0.6, ease: 'power3.out', force3D: true },
+                '-=1.5'
+            );
+
+            // 9. Hero icons scale and slide up with stagger
+            if (iconsHolderRef.current?.children) {
+                tl.fromTo(iconsHolderRef.current.children,
+                    { scale: 0.8, y: 20 },
+                    { scale: 1, y: 0, duration: 0.5, stagger: 0.1, ease: 'back.out(1.4)', force3D: true },
+                    '-=1'
+                );
+            }
         }, heroRef);
 
         return () => ctx.revert();
@@ -134,7 +140,7 @@ export default function Hero() {
                                     ))}
                                 </div>
                                 {/* Shine effect - same as FOMOBadge */}
-                                <div className="fomo-shine"></div>
+                                <div ref={shineRef} className="fomo-shine"></div>
                                 <span className="text-white text-sm font-medium relative z-10">Trusted by +30 coaches, creators & infopreneurs</span>
                             </div>
                         </div>
@@ -200,7 +206,7 @@ The #1 All-in-One System for Infopreneurs.
                         </div>
                     </div>
                     
-                    <div className="hero-icons-holder">
+                    <div ref={iconsHolderRef} className="hero-icons-holder">
                         <div className="hero-logo-container _01">
                             <img loading="lazy" src="/assets/cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6882b349a4b61a45372a3ffb_Calendly.png" alt="" className="hero-logo-slack" />
                             <img loading="lazy" src="/assets/cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6882b349a4b61a45372a3ffb_Calendly.png" alt="" className="hero-logo blured" />

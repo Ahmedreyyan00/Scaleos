@@ -23,6 +23,51 @@ body {
   @apply text-gray-900 antialiased;
 }
 
+/* Elements are visible by default - GSAP will animate them smoothly */
+
+/* Prevent layout shift - use will-change for better performance */
+.hero-title,
+.paragraph-l,
+.button-holder,
+.home-text-container,
+.home-pragraph-holder,
+.hero-dashbord-holder,
+.feature-image-container {
+  will-change: opacity, transform, visibility;
+}
+
+/* Ensure containers maintain layout to prevent shift */
+.hero-section-wrapper,
+.feature-hero-section-holder {
+  min-height: 400px;
+}
+
+/* Maintain image dimensions to prevent layout shift */
+.hero-dashboard-image,
+.feature-image-full {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Smooth continuous carousel animation for feature slider */
+.w-slider-mask {
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform: translate3d(0, 0, 0);
+}
+
+/* Ensure smooth transitions for slides */
+.w-slide {
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  display: inline-block;
+  vertical-align: top;
+  white-space: normal;
+}
+
 /* Fix tooltip visibility - hide by default, show on hover */
 .bubble .tip-tool-holder {
   opacity: 0;
@@ -284,7 +329,7 @@ body {
 
 /* Fix header logo size */
 .brand-image {
-  max-height: 80px;
+  max-height: 40px;
   width: auto;
   object-fit: contain;
 }
@@ -293,7 +338,7 @@ body {
 .navbar {
   background: transparent !important;
   position: fixed !important;
-  top: 0;
+  top: -4px;
   left: 0;
   right: 0;
   width: 100%;
@@ -301,8 +346,8 @@ body {
   backdrop-filter: none !important;
   -webkit-backdrop-filter: none !important;
   border-bottom: none !important;
-  padding-top: 8px !important;
-  padding-bottom: 8px !important;
+  padding-top: 4px !important;
+  padding-bottom: 4px !important;
 }
 
 .navbar-container {
@@ -310,6 +355,7 @@ body {
   margin: 0 auto;
   padding-left: 3rem !important;
   padding-right: 3rem !important;
+  min-height: auto !important;
 }
 
 /* Make navbar container transparent */
@@ -321,6 +367,10 @@ body {
 }
 
 /* Hero section container - 80% scale with increased side spacing */
+.hero-section-wrapper {
+  padding-top: 0 !important; /* Further reduced to shift content up more */
+}
+
 .hero-section-wrapper .container {
   max-width: 1120px !important;
   padding-left: 4rem !important;
@@ -336,6 +386,7 @@ body {
 
 .hero-section-wrapper .home-text-container {
   margin-bottom: 0 !important; /* Reduce spacing */
+  margin-top: -10px !important; /* Negative margin to shift content up */
 }
 
 .hero-section-wrapper .home-pragraph-holder {
@@ -364,14 +415,14 @@ body {
 
 /* Scale spacing elements - reduced gaps to bring image up */
 .hero-section-wrapper .home-text-holder {
-  grid-row-gap: 12px !important; /* Reduced from 24px - tighter spacing between title and paragraph */
+  grid-row-gap: 8px !important; /* Further reduced for tighter spacing */
   grid-column-gap: 64px !important; /* 80% of 80px */
   background: transparent !important; /* Remove black background */
   background-color: transparent !important;
 }
 
 .hero-section-wrapper .home-pragraph-holder {
-  grid-row-gap: 12px !important; /* Reduced from 20px - tighter spacing between paragraph and buttons */
+  grid-row-gap: 8px !important; /* Further reduced for tighter spacing */
   grid-column-gap: 35px !important; /* 80% of 44px */
 }
 
@@ -391,7 +442,7 @@ body {
 }
 
 .hero-section-wrapper .hero-dashboard-wrapper {
-  margin-top: 40px !important; /* Reduced from 70px to bring image up */
+  margin-top: 10px !important; /* Further reduced to bring image up more */
 }
 
 .hero-section-wrapper .hero-dashbord-holder {
@@ -438,6 +489,18 @@ body {
 /* Ensure section doesn't have conflicting padding */
 .section {
   width: 100%;
+  padding-top: 0 !important; /* Remove default top padding to shift content up */
+}
+
+/* Reduce top spacing on first section after header */
+.section:first-of-type {
+  padding-top: 0 !important;
+  margin-top: 0 !important;
+}
+
+/* Reduce spacing between sections */
+.section + .section {
+  margin-top: -30px !important; /* Increased negative margin to bring sections closer */
 }
 
 /* Premium Badge - using Tailwind classes from component */
