@@ -36,6 +36,38 @@ body {
   will-change: opacity, transform, visibility;
 }
 
+/* Style for content images container - display two images side by side */
+.content-images-container {
+  display: flex !important;
+  gap: 16px !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 100% !important;
+}
+
+.content-image-main,
+.content-image-secondary {
+  flex: 1 !important;
+  max-width: calc(50% - 8px) !important;
+  width: auto !important;
+  height: auto !important;
+  object-fit: contain !important;
+  border-radius: 7px !important;
+}
+
+@media (max-width: 991px) {
+  .content-images-container {
+    flex-direction: column !important;
+    gap: 12px !important;
+  }
+  
+  .content-image-main,
+  .content-image-secondary {
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+}
+
 /* Ensure containers maintain layout to prevent shift */
 .hero-section-wrapper,
 .feature-hero-section-holder {

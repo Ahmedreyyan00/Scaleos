@@ -535,19 +535,17 @@ const Features = () => {
                         <div className="w-layout-grid new-features-grid-phone">
                             <div id="w-node-_3849909d-7672-604f-4f6e-e1d39bdbca89-a9826b99" className="feature-graphic-holder">
                                 <div data-w-id="3849909d-7672-604f-4f6e-e1d39bdbca8a" className="feature-image-container _02">
-                                    <div className="feature-image-wrapper"><img className="feature-image-full"
-                                        src="/content.png"
-                                        alt="Content System Dashboard"
-                                        style={{ opacity: 0 }} sizes="(max-width: 1068px) 100vw, 1068px"
-                                        data-w-id="3849909d-7672-604f-4f6e-e1d39bdbca8c" loading="lazy" />
-                                    </div>
-                                    <div className="cube-rotate-holder"><img className="cube-image"
-                                        src="assets/cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6883fea00a351bcab0c9a0b4_LogoClarity%206.png"
-                                        alt=""
-                                        style={{ WebkitTransform: 'translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0)', MozTransform: 'translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0)', msTransform: 'translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0)', transform: 'translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0)' }}
-                                        sizes="(max-width: 2066px) 100vw, 2066px"
-                                        data-w-id="3849909d-7672-604f-4f6e-e1d39bdbca8e" loading="lazy"
-                                        srcSet="https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6883fea00a351bcab0c9a0b4_LogoClarity%206-p-500.png 500w, https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6883fea00a351bcab0c9a0b4_LogoClarity%206-p-800.png 800w, https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6883fea00a351bcab0c9a0b4_LogoClarity%206-p-1080.png 1080w, https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6883fea00a351bcab0c9a0b4_LogoClarity%206-p-1600.png 1600w, https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6883fea00a351bcab0c9a0b4_LogoClarity%206-p-2000.png 2000w, https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6883fea00a351bcab0c9a0b4_LogoClarity%206.png 2066w" />
+                                    <div className="feature-image-wrapper content-images-container">
+                                        <img className="feature-image-full content-image-main"
+                                            src="/content.png"
+                                            alt="Content System Dashboard"
+                                            style={{ opacity: 0 }} sizes="(max-width: 1068px) 100vw, 1068px"
+                                            data-w-id="3849909d-7672-604f-4f6e-e1d39bdbca8c" loading="lazy" />
+                                        <img className="feature-image-full content-image-secondary"
+                                            src="/contentidea.png"
+                                            alt="Content Ideas Dashboard"
+                                            style={{ opacity: 0 }} sizes="(max-width: 1068px) 100vw, 1068px"
+                                            loading="lazy" />
                                     </div>
                                 </div>
                                 <div className="feature-image-blur"></div>
