@@ -111,7 +111,7 @@ const Features = () => {
                     <div className="bubbles-holder">
                         <div className="left-content">
                             <div className="heading-holder">
-                                <h2 className="title">Track Every Key Metric of Your Info-Business.
+                                <h2 className="title">Track Every Key Metric of <br /> Your Info-Business.
                                 </h2>
                             </div>
                             <div className="paragraph-holder">
@@ -339,11 +339,11 @@ const Features = () => {
                                         </div>
                                     </div>
                                 </div>
-                                {/* Secondary bubble: $ / YouTube Video */}
-                                <div className="circle-holder">
+                                {/* Secondary bubble: $ / YouTube Video - positioned in center */}
+                                <div className="circle-holder video-bubble-center">
                                     <div className="circle-container">
                                         <div className="bubble">
-                                            <div className="circle _02">
+                                            <div className="circle _04">
                                                 <div className="circle-active"></div>
                                             </div>
                                             <div className="tip-tool-holder">
@@ -365,7 +365,7 @@ const Features = () => {
                         <div className="w-layout-grid _3x-grid">
                             <div className="feature-item">
                                 <div className="fetaure-icon-container"><img
-                                    src="assets/cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6882a9e95dcd0d3fa9826cfc_Icons%2005.svg"
+                                    src="https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6882a9e95dcd0d3fa9826cfc_Icons%2005.svg"
                                     loading="lazy" alt="" className="fetaure-icon" /></div>
                                 <div className="feature-content-holder">
                                     <h5 className="title">Leads Overview</h5>
@@ -375,7 +375,7 @@ const Features = () => {
                             </div>
                             <div className="feature-item">
                                 <div className="fetaure-icon-container"><img
-                                    src="assets/cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6882a9e95dcd0d3fa9826cfe_Icons%2002.svg"
+                                    src="https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6882a9e95dcd0d3fa9826cfe_Icons%2002.svg"
                                     loading="lazy" alt="" className="fetaure-icon" /></div>
                                 <div className="feature-content-holder">
                                     <h5 className="title">Payments</h5>
@@ -385,7 +385,7 @@ const Features = () => {
                             </div>
                             <div className="feature-item">
                                 <div className="fetaure-icon-container"><img
-                                    src="assets/cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6882a9e95dcd0d3fa9826d09_Icons%20(2).png"
+                                    src="https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6882a9e95dcd0d3fa9826d09_Icons%20(2).png"
                                     loading="lazy" alt="" className="fetaure-icon" /></div>
                                 <div className="feature-content-holder">
                                     <h5 className="title">CRM</h5>
@@ -409,7 +409,7 @@ const Features = () => {
                             </div>
                             <div className="feature-item">
                                 <div className="fetaure-icon-container"><img
-                                    src="assets/cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6882a9e95dcd0d3fa9826d00_Icons%2003.svg"
+                                    src="https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6882a9e95dcd0d3fa9826d00_Icons%2003.svg"
                                     loading="lazy" alt="" className="fetaure-icon" /></div>
                                 <div className="feature-content-holder">
                                     <h5 className="title">Slack notifications</h5>
@@ -419,7 +419,7 @@ const Features = () => {
                             </div>
                             <div className="feature-item">
                                 <div className="fetaure-icon-container"><img
-                                    src="assets/cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6882a9e95dcd0d3fa9826cee_White%20Icon%20(5).png"
+                                    src="/assets/cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6882a9e95dcd0d3fa9826cee_White%20Icon%20(5).png"
                                     loading="lazy" alt="" className="fetaure-icon" /></div>
                                 <div className="feature-content-holder">
                                     <h5 className="title">Content Performance</h5>

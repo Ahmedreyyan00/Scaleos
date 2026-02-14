@@ -68,6 +68,59 @@ body {
   }
 }
 
+/* Position $ / Video bubble in the center of the grid without overlapping */
+.bubble-grid-holder {
+  position: relative !important;
+  overflow: visible !important;
+}
+
+.bubble-grid {
+  position: relative !important;
+  min-height: 700px !important;
+  padding: 40px 0 !important;
+}
+
+.video-bubble-center {
+  position: absolute !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  z-index: 10 !important;
+  pointer-events: auto !important;
+  margin: 0 !important;
+}
+
+/* Ensure other bubbles don't overlap with center bubble - add more spacing */
+.bubble-grid > .circle-holder:not(.video-bubble-center) {
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+/* Increase grid gaps to create more space around center */
+.bubble-grid {
+  grid-column-gap: 90px !important;
+  grid-row-gap: 90px !important;
+}
+
+@media (max-width: 991px) {
+  .bubble-grid {
+    min-height: auto !important;
+    padding: 0 !important;
+    grid-column-gap: 61px !important;
+    grid-row-gap: 61px !important;
+  }
+  
+  .video-bubble-center {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    transform: none !important;
+    margin: 30px auto 0 !important;
+    z-index: 1 !important;
+  }
+}
+
+
 /* Ensure containers maintain layout to prevent shift */
 .hero-section-wrapper,
 .feature-hero-section-holder {
@@ -152,6 +205,46 @@ body {
   transform: scale(1);
 }
 
+/* Make blue ball smaller by default, full size on hover for video bubble */
+.video-bubble-center .circle-active {
+  transform: scale(0.3) !important;
+  opacity: 1 !important;
+  transition: transform 0.3s ease !important;
+}
+
+.video-bubble-center .circle:hover .circle-active {
+  transform: scale(1) !important;
+}
+
+/* Fix tooltip for video bubble - single line on large screens */
+.video-bubble-center .tip-tool-container {
+  min-width: auto !important;
+  max-width: none !important;
+  width: auto !important;
+  white-space: nowrap !important;
+  text-align: center !important;
+  display: inline-block !important;
+}
+
+.video-bubble-center .tip-tool-container .no-margins {
+  margin: 0 !important;
+  display: inline !important;
+  white-space: nowrap !important;
+}
+
+/* Allow wrapping on smaller screens */
+@media (max-width: 991px) {
+  .video-bubble-center .tip-tool-container {
+    white-space: normal !important;
+    min-width: 200px !important;
+    max-width: 280px !important;
+  }
+  
+  .video-bubble-center .tip-tool-container .no-margins {
+    white-space: normal !important;
+  }
+}
+
 /* Allow feature card icons to overflow outside the card */
 .feature-item {
   overflow: visible !important;
@@ -171,24 +264,83 @@ body {
   overflow: visible !important;
 }
 
+/* Feature icon container - circular container at top of card, half in half out */
 .fetaure-icon-container {
   overflow: visible !important;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
   padding: 0 !important;
-  position: relative !important;
+  position: absolute !important;
+  top: 20px !important;
+  left: 15% !important;
+  transform: translateX(-50%) !important;
   z-index: 10 !important;
+  width: 90px !important;
+  height: 90px !important;
+  border-radius: 50% !important;
+  border: 1px solid var(--elements-stroke) !important;
+  background-color: var(--elements-stroke) !important;
+  -webkit-backdrop-filter: blur(2px) !important;
+  backdrop-filter: blur(2px) !important;
+}
+
+.fetaure-icon-container img,
+.fetaure-icon-container .fetaure-icon {
+  opacity: 1 !important;
+  visibility: visible !important;
+  display: block !important;
+  max-width: 50px !important;
+  max-height: 50px !important;
+  width: auto !important;
+  height: auto !important;
+  object-fit: contain !important;
+  position: relative !important;
+  z-index: 11 !important;
 }
 
 .fetaure-icon {
-  max-width: 90px !important;
-  max-height: 90px !important;
+  max-width: 50px !important;
+  max-height: 50px !important;
   width: auto !important;
   height: auto !important;
   object-fit: contain !important;
   display: block !important;
   position: relative !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  z-index: 11 !important;
+}
+
+/* Ensure all images inside icon containers are visible */
+.fetaure-icon-container * {
+  opacity: 1 !important;
+  visibility: visible !important;
+  display: block !important;
+}
+
+/* Ensure feature items allow overflow for icons - CRITICAL */
+.feature-item {
+  overflow: visible !important;
+  position: relative !important;
+  padding-top: 60px !important;
+}
+
+.feature-grid-holder {
+  overflow: visible !important;
+}
+
+.w-layout-grid._3x-grid {
+  overflow: visible !important;
+}
+
+/* Ensure container also allows overflow */
+.container {
+  overflow: visible !important;
+}
+
+.section {
+  overflow: visible !important;
 }
 
 /* Hide blog section on smaller and medium screens on demo page */
@@ -196,6 +348,85 @@ body {
   .hero-blog-holder {
     display: none !important;
   }
+}
+
+/* Demo page - shift first section up and reduce spacing */
+.demo .section.hero-section,
+.section.hero-section {
+  /* padding-top: 40px !important; */
+  margin-top: -20px !important;
+}
+
+.demo .hero-section-center-holder-phone,
+.hero-section-center-holder-phone {
+  margin-top: -30px !important;
+  padding-top: 0 !important;
+}
+
+.demo .hero-center-text,
+.hero-center-text {
+  margin-bottom: 4px !important;
+}
+
+.demo .center-hero-paragraph-holder,
+.center-hero-paragraph-holder {
+  margin-top: 0 !important;
+  margin-bottom: 20px !important;
+}
+
+/* Reduce gap between heading and subheading on demo page */
+.demo .animate-on-load-02 {
+  margin-top: -8px !important;
+}
+
+.demo .hero-center-text .title {
+  margin-bottom: 0 !important;
+}
+
+/* Apply to ScaleOS section - reduce gap and shift up */
+.demo .section-2 {
+  margin-top: -40px !important;
+  padding-top: 20px !important;
+}
+
+.demo .hero-section-center-holder-2 {
+  margin-top: -20px !important;
+  padding-top: 0 !important;
+  padding-bottom: 20px !important;
+}
+
+.demo .hero-cnter-text {
+  margin-bottom: 4px !important;
+}
+
+.demo .section-2 .animate-on-load-02 {
+  margin-top: -12px !important;
+}
+
+.demo .section-2 .center-hero-paragraph-holder {
+  margin-top: 0 !important;
+  margin-bottom: 12px !important;
+}
+
+/* Reduce animation speed for demo page */
+.demo .animate-on-load-01,
+.demo .animate-on-load-02 {
+  transition-duration: 1.2s !important;
+  transition-delay: 0.1s !important;
+}
+
+/* Reduce spacing for YouTube video container */
+.demo .w-layout-blockcontainer.container-4,
+.w-layout-blockcontainer.container-4 {
+  margin-top: 20px !important;
+  margin-bottom: 20px !important;
+}
+
+/* Reduce button holder spacing */
+.demo .button-holder-phone,
+.button-holder-phone {
+  margin-top: 20px !important;
+  margin-bottom: 0 !important;
 }
 
 /* Center hero text on medium and mobile screens */
@@ -652,8 +883,9 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.1) !important;
   border-radius: 16px !important;
   padding: 35px !important;
+  padding-top: 60px !important;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
-  overflow: hidden !important;
+  overflow: visible !important;
   isolation: isolate !important;
   box-shadow: 
     0 4px 20px rgba(0, 0, 0, 0.15),

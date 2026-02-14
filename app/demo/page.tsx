@@ -6,7 +6,7 @@ import FOMOBadge from '../../components/FOMOBadge';
 
 const Demo = () => {
     return (
-        <div className="wrapper">
+        <div className="wrapper demo">
             <Header />
             <div className="section hero-section">
                 <div className="hero-section">

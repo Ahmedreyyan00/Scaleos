@@ -220,8 +220,8 @@ The #1 All-in-One System for Infopreneurs.
                             <img loading="lazy" src="/assets/cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6882b2f8d4b8f6d910498299_Group%252026.png" alt="" className="hero-logo blured" />
                         </div>
                         <div className="hero-logo-container _04">
-                            <img sizes="(max-width: 588px) 100vw, 588px" loading="lazy" className="hero-logo" />
-                            <img sizes="(max-width: 588px) 100vw, 588px" loading="lazy" className="hero-logo blured" />
+                            <img sizes="(max-width: 588px) 100vw, 588px" src="https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6882b3b81b43f2a0372751f8_Slackimage%201.png" alt="Slack" loading="lazy" className="hero-logo" />
+                            <img sizes="(max-width: 588px) 100vw, 588px" src="https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6882b3b81b43f2a0372751f8_Slackimage%201.png" alt="Slack" loading="lazy" className="hero-logo blured" />
                         </div>
                     </div>
                 </div>
