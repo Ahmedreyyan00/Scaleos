@@ -116,6 +116,7 @@ const Features = () => {
                             </div>
                             <div className="paragraph-holder">
                                 <p>Visualize every key metric of your info-business in one unified view: client value (LTV, AOV), sales performance, show-up and closing rates, call sources, and more. </p>
+                                <p style={{ marginTop: '16px' }}>Track exactly how much cash each YouTube video (and every piece of content) generates — including revenue per view — so you always know what to double down on. No more guesswork — just clarity.</p>
                             </div>
                         </div>
                         <div data-w-id="04241158-ad09-068c-06fc-285cb2a27ade" className="bubble-grid-holder">
@@ -419,7 +420,7 @@ const Features = () => {
                             </div>
                             <div className="feature-item">
                                 <div className="fetaure-icon-container"><img
-                                    src="/assets/cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6882a9e95dcd0d3fa9826cee_White%20Icon%20(5).png"
+                                    src="https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6882a9e95dcd0d3fa9826cee_White%20Icon%20(5).png"
                                     loading="lazy" alt="" className="fetaure-icon" /></div>
                                 <div className="feature-content-holder">
                                     <h5 className="title">Content Performance</h5>
@@ -447,21 +448,23 @@ const Features = () => {
                                     </div>
                                 </div>
                             </div>
+                            
                             <div id="w-node-aff8d657-c26a-b880-f10a-62c9ad718d63-a9826b99" className="feature-graphic-holder">
                                 <div data-w-id="aff8d657-c26a-b880-f10a-62c9ad718d64" className="feature-image-container _02">
                                     <div className="feature-image-wrapper"><img className="feature-image-full"
-                                        src="assets/cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/692dbeddaa619febe5b15848_Dashboard.png"
+                                        src="/scalefeature3.png"
                                         alt="" style={{ opacity: 0 }} sizes="(max-width: 1068px) 100vw, 1068px"
                                         data-w-id="aff8d657-c26a-b880-f10a-62c9ad718d65" loading="lazy"
-                                        srcSet="https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/692dbeddaa619febe5b15848_Dashboard-p-500.png 500w, https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/692dbeddaa619febe5b15848_Dashboard-p-800.png 800w, https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/692dbeddaa619febe5b15848_Dashboard.png 1068w" />
+                                        srcSet="/scalefeature3.png 500w, /scalefeature3.png 800w, /scalefeature3.png 1068w" />
                                     </div>
-                                    <div className="cube-rotate-holder"><img className="cube-image"
-                                        src="/trackflow.png"
-                                        alt=""
-                                        style={{ WebkitTransform: 'translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0)', MozTransform: 'translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0)', msTransform: 'translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0)', transform: 'translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0)' }}
-                                        sizes="(max-width: 2066px) 100vw, 2066px"
-                                        data-w-id="6a80a126-dd78-85da-5898-50e6e4619731" loading="lazy"
-                                        srcSet="https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6883fea00a351bcab0c9a0b4_LogoClarity%206-p-500.png 500w, https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6883fea00a351bcab0c9a0b4_LogoClarity%206-p-800.png 800w, https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6883fea00a351bcab0c9a0b4_LogoClarity%206-p-1080.png 1080w, https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6883fea00a351bcab0c9a0b4_LogoClarity%206-p-1600.png 1600w, https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6883fea00a351bcab0c9a0b4_LogoClarity%206-p-2000.png 2000w, https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6883fea00a351bcab0c9a0b4_LogoClarity%206.png 2066w" />
+                                    <div className="cube-rotate-holder">
+                                        <img className="cube-image"
+                                            src="assets/cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6883fea00a351bcab0c9a0b4_LogoClarity%206.png"
+                                            alt=""
+                                            style={{ WebkitTransform: 'translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0)', MozTransform: 'translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0)', msTransform: 'translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0)', transform: 'translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0)' }}
+                                            sizes="(max-width: 2066px) 100vw, 2066px"
+                                            data-w-id="6a80a126-dd78-85da-5898-50e6e4619731" loading="lazy"
+                                            srcSet="https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6883fea00a351bcab0c9a0b4_LogoClarity%206-p-500.png 500w, https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6883fea00a351bcab0c9a0b4_LogoClarity%206-p-800.png 800w, https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6883fea00a351bcab0c9a0b4_LogoClarity%206-p-1080.png 1080w, https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6883fea00a351bcab0c9a0b4_LogoClarity%206-p-1600.png 1600w, https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6883fea00a351bcab0c9a0b4_LogoClarity%206-p-2000.png 2000w, https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6883fea00a351bcab0c9a0b4_LogoClarity%206.png 2066w" />
                                     </div>
                                 </div>
                                 <div className="feature-image-blur"></div>
@@ -471,10 +474,10 @@ const Features = () => {
                             <div id="w-node-_66bfc9f7-cc07-eb22-9e88-5737a113d2dd-a9826b99" className="feature-graphic-holder">
                                 <div data-w-id="66bfc9f7-cc07-eb22-9e88-5737a113d2de" className="feature-image-container _02">
                                     <div className="feature-image-wrapper"><img className="feature-image-full"
-                                        src="assets/cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/692dbf8749c14d911a66fbc1_Pipeline.png"
+                                        src="/scalefeature5.png"
                                         alt="" style={{ opacity: 0 }} sizes="(max-width: 1068px) 100vw, 1068px"
                                         data-w-id="66bfc9f7-cc07-eb22-9e88-5737a113d2e0" loading="lazy"
-                                        srcSet="https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/692dbf8749c14d911a66fbc1_Pipeline-p-500.png 500w, https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/692dbf8749c14d911a66fbc1_Pipeline-p-800.png 800w, https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/692dbf8749c14d911a66fbc1_Pipeline.png 1068w" />
+                                        srcSet="/scalefeature5.png 500w, /scalefeature5.png 800w, /scalefeature5.png 1068w" />
                                     </div>
                                     <div className="cube-rotate-holder">
                                         <img className="cube-image"
@@ -515,10 +518,33 @@ const Features = () => {
                             <div id="w-node-_0c183a05-9162-9e2a-c293-ceaaabefc7f5-a9826b99" className="feature-graphic-holder">
                                 <div data-w-id="0c183a05-9162-9e2a-c293-ceaaabefc7f6" className="feature-image-container _02">
                                     <div className="feature-image-wrapper"><img className="feature-image-full"
-                                        src="assets/cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/692dbff8a0e7b8ab0122da87_Clients.png"
+                                        src="/scalefeature2.png"
                                         alt="" style={{ opacity: 0 }} sizes="(max-width: 1068px) 100vw, 1068px"
                                         data-w-id="0c183a05-9162-9e2a-c293-ceaaabefc7f8" loading="lazy"
-                                        srcSet="https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/692dbff8a0e7b8ab0122da87_Clients-p-500.png 500w, https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/692dbff8a0e7b8ab0122da87_Clients-p-800.png 800w, https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/692dbff8a0e7b8ab0122da87_Clients.png 1068w" />
+                                        srcSet="/scalefeature2.png 500w, /scalefeature2.png 800w, /scalefeature2.png 1068w" />
+                                    </div>
+                                    <div className="cube-rotate-holder">
+                                        <img className="cube-image"
+                                        src="assets/cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6883fea00a351bcab0c9a0b4_LogoClarity%206.png"
+                                        alt=""
+                                        style={{ WebkitTransform: 'translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0)', MozTransform: 'translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0)', msTransform: 'translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0)', transform: 'translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0)' }}
+                                        sizes="(max-width: 2066px) 100vw, 2066px"
+                                        data-w-id="0c183a05-9162-9e2a-c293-ceaaabefc7fa" loading="lazy"
+                                        srcSet="https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6883fea00a351bcab0c9a0b4_LogoClarity%206-p-500.png 500w, https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6883fea00a351bcab0c9a0b4_LogoClarity%206-p-800.png 800w, https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6883fea00a351bcab0c9a0b4_LogoClarity%206-p-1080.png 1080w, https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6883fea00a351bcab0c9a0b4_LogoClarity%206-p-1600.png 1600w, https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6883fea00a351bcab0c9a0b4_LogoClarity%206-p-2000.png 2000w, https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6883fea00a351bcab0c9a0b4_LogoClarity%206.png 2066w" />
+                                   
+                                    </div>
+                                </div>
+                                <div className="feature-image-blur"></div>
+                            </div>
+                        </div>
+                        <div className="w-layout-grid new-features-grid-phone">
+                        <div id="w-node-_0c183a05-9162-9e2a-c293-ceaaabefc7f5-a9826b99" className="feature-graphic-holder">
+                                <div data-w-id="0c183a05-9162-9e2a-c293-ceaaabefc7f6" className="feature-image-container _02">
+                                    <div className="feature-image-wrapper"><img className="feature-image-full"
+                                        src="/scalefeature2.png"
+                                        alt="" style={{ opacity: 0 }} sizes="(max-width: 1068px) 100vw, 1068px"
+                                        data-w-id="0c183a05-9162-9e2a-c293-ceaaabefc7f8" loading="lazy"
+                                        srcSet="/content.png 500w, /content.png 800w, /content.png 1068w" />
                                     </div>
                                     <div className="cube-rotate-holder"><img className="cube-image"
                                         src="assets/cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6883fea00a351bcab0c9a0b4_LogoClarity%206.png"
@@ -527,25 +553,6 @@ const Features = () => {
                                         sizes="(max-width: 2066px) 100vw, 2066px"
                                         data-w-id="0c183a05-9162-9e2a-c293-ceaaabefc7fa" loading="lazy"
                                         srcSet="https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6883fea00a351bcab0c9a0b4_LogoClarity%206-p-500.png 500w, https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6883fea00a351bcab0c9a0b4_LogoClarity%206-p-800.png 800w, https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6883fea00a351bcab0c9a0b4_LogoClarity%206-p-1080.png 1080w, https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6883fea00a351bcab0c9a0b4_LogoClarity%206-p-1600.png 1600w, https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6883fea00a351bcab0c9a0b4_LogoClarity%206-p-2000.png 2000w, https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6883fea00a351bcab0c9a0b4_LogoClarity%206.png 2066w" />
-                                    </div>
-                                </div>
-                                <div className="feature-image-blur"></div>
-                            </div>
-                        </div>
-                        <div className="w-layout-grid new-features-grid-phone">
-                            <div id="w-node-_3849909d-7672-604f-4f6e-e1d39bdbca89-a9826b99" className="feature-graphic-holder">
-                                <div data-w-id="3849909d-7672-604f-4f6e-e1d39bdbca8a" className="feature-image-container _02">
-                                    <div className="feature-image-wrapper content-images-container">
-                                        <img className="feature-image-full content-image-main"
-                                            src="/content.png"
-                                            alt="Content System Dashboard"
-                                            style={{ opacity: 0 }} sizes="(max-width: 1068px) 100vw, 1068px"
-                                            data-w-id="3849909d-7672-604f-4f6e-e1d39bdbca8c" loading="lazy" />
-                                        <img className="feature-image-full content-image-secondary"
-                                            src="/contentidea.png"
-                                            alt="Content Ideas Dashboard"
-                                            style={{ opacity: 0 }} sizes="(max-width: 1068px) 100vw, 1068px"
-                                            loading="lazy" />
                                     </div>
                                 </div>
                                 <div className="feature-image-blur"></div>

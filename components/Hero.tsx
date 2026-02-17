@@ -19,85 +19,81 @@ export default function Hero() {
         if (!heroRef.current) return;
 
         const ctx = gsap.context(() => {
-            // First, ensure all elements are visible and in their final positions
-            // Then animate them from their starting positions
-            gsap.set(tagRef.current, { opacity: 1, scale: 1, force3D: true });
-            gsap.set(shineRef.current, { opacity: 1, x: '100%', force3D: true });
-            gsap.set(titleRef.current, { opacity: 1, y: 0, force3D: true });
-            gsap.set(descriptionRef.current, { opacity: 1, y: 0, force3D: true });
-            gsap.set(buttonsRef.current?.children || [], { opacity: 1, y: 0, force3D: true });
-            gsap.set(imageContainerRef.current, { opacity: 1, y: 0, boxShadow: '0 0 0px 0px rgba(16,90,201,0)', force3D: true });
-            gsap.set(imageRef.current, { opacity: 1 });
-            gsap.set(subtitleRef.current, { opacity: 1, y: 0, force3D: true });
-            gsap.set(iconsHolderRef.current?.children || [], { opacity: 1, scale: 1, y: 0, force3D: true });
+            // Set all elements to be hidden initially
+            gsap.set(tagRef.current, { opacity: 0, scale: 0.8, force3D: true });
+            gsap.set(shineRef.current, { opacity: 1, x: '-100%', force3D: true });
+            gsap.set(titleRef.current, { opacity: 0, y: 20, force3D: true });
+            gsap.set(descriptionRef.current, { opacity: 0, y: 20, force3D: true });
+            gsap.set(buttonsRef.current?.children || [], { opacity: 0, y: 20, force3D: true });
+            gsap.set(imageContainerRef.current, { opacity: 0, y: 0, boxShadow: '0 0 0px 0px rgba(16,90,201,0)', force3D: true });
+            gsap.set(imageRef.current, { opacity: 0 });
+            gsap.set(subtitleRef.current, { opacity: 0, y: 20, force3D: true });
+            gsap.set(iconsHolderRef.current?.children || [], { opacity: 0, scale: 0.8, y: 20, force3D: true });
 
-            // Now animate from starting positions to final positions
-            const tl = gsap.timeline({ delay: 0.1 });
+            // Now animate them in one by one sequentially
+            const tl = gsap.timeline({ delay: 0.2 });
 
-            // Timeline sequence - smooth entrance animations
-            // 1. Badge scales in
-            tl.fromTo(tagRef.current, 
-                { scale: 0.8 },
-                { scale: 1, duration: 0.5, ease: 'back.out(1.7)', force3D: true }
+            // 1. Badge scales in and fades in
+            tl.to(tagRef.current, 
+                { opacity: 1, scale: 1, duration: 0.6, ease: 'back.out(1.7)', force3D: true }
             );
 
             // 1.5. Shine effect sweeps across
-            tl.fromTo(shineRef.current,
-                { x: '-100%' },
+            tl.to(shineRef.current,
                 { x: '100%', duration: 1.5, ease: 'power2.inOut', force3D: true },
                 '-=0.3'
             );
 
-            // 2. Title slides up
-            tl.fromTo(titleRef.current,
-                { y: 20 },
-                { y: 0, duration: 0.6, ease: 'power3.out', force3D: true },
-                '-=0.2'
+            // 2. Title slides up and fades in
+            tl.to(titleRef.current,
+                { opacity: 1, y: 0, duration: 0.7, ease: 'power3.out', force3D: true },
+                '+=0.1'
             );
 
-            // 3. Description slides up
-            tl.fromTo(descriptionRef.current,
-                { y: 20 },
-                { y: 0, duration: 0.6, ease: 'power3.out', force3D: true },
-                '-=0.3'
+            // 3. Description slides up and fades in
+            tl.to(descriptionRef.current,
+                { opacity: 1, y: 0, duration: 0.7, ease: 'power3.out', force3D: true },
+                '+=0.1'
             );
 
-            // 4. Buttons slide up with stagger
+            // 4. Buttons slide up and fade in with stagger
             if (buttonsRef.current?.children) {
-                tl.fromTo(buttonsRef.current.children,
-                    { y: 20 },
-                    { y: 0, duration: 0.5, stagger: 0.1, ease: 'power3.out', force3D: true },
-                    '-=0.3'
+                tl.to(buttonsRef.current.children,
+                    { opacity: 1, y: 0, duration: 0.6, stagger: 0.15, ease: 'power3.out', force3D: true },
+                    '+=0.1'
                 );
             }
 
-            // 5. Image container slides up from bottom
-            tl.fromTo(imageContainerRef.current,
-                { y: 200, boxShadow: '0 0 0px 0px rgba(16,90,201,0)' },
-                { y: 0, duration: 0.8, ease: 'power3.out', force3D: true },
-                '-=0.2'
+            // 5. Image container fades in at current position
+            tl.to(imageContainerRef.current,
+                { opacity: 1, duration: 0.9, ease: 'power3.out', force3D: true },
+                '+=0.1'
             );
 
-            // 7. Animate box shadow after image appears
+            // 5.5. Image fades in
+            tl.to(imageRef.current,
+                { opacity: 1, duration: 0.6, ease: 'power2.out' },
+                '-=0.4'
+            );
+
+            // 6. Animate box shadow after image appears
             tl.to(imageContainerRef.current, {
                 boxShadow: '0 0 60px 80px rgba(16,90,201,0.5)',
                 duration: 1,
                 ease: 'power2.out',
-            }, '-=0.4');
+            }, '-=0.3');
 
-            // 8. Subtitle slides up
-            tl.fromTo(subtitleRef.current,
-                { y: 20 },
-                { y: 0, duration: 0.6, ease: 'power3.out', force3D: true },
-                '-=1.5'
+            // 7. Subtitle slides up and fades in
+            tl.to(subtitleRef.current,
+                { opacity: 1, y: 0, duration: 0.7, ease: 'power3.out', force3D: true },
+                '+=0.1'
             );
 
-            // 9. Hero icons scale and slide up with stagger
+            // 8. Hero icons scale, slide up and fade in with stagger
             if (iconsHolderRef.current?.children) {
-                tl.fromTo(iconsHolderRef.current.children,
-                    { scale: 0.8, y: 20 },
-                    { scale: 1, y: 0, duration: 0.5, stagger: 0.1, ease: 'back.out(1.4)', force3D: true },
-                    '-=1'
+                tl.to(iconsHolderRef.current.children,
+                    { opacity: 1, scale: 1, y: 0, duration: 0.6, stagger: 0.1, ease: 'back.out(1.4)', force3D: true },
+                    '+=0.1'
                 );
             }
         }, heroRef);
@@ -111,18 +107,18 @@ export default function Hero() {
                 <div className="home-text-holder">
                     <div className="home-text-container">
                         {/* Premium Badge */}
-                        <div className="flex justify-center cursor-pointer w-full mb-6">
+                        <div className="flex justify-center cursor-pointer w-full mb-2">
                             <div 
                                 ref={tagRef}
                                 className="glass-badge inline-flex items-center gap-3 px-4 py-2 rounded-full relative overflow-hidden"
                             >
                                 {/* Overlapping avatar circles for social proof */}
-                                <div className="flex items-center -space-x-2 relative z-10">
+                                <div className="flex items-center -space-x-2 relative z-10" style={{ marginTop: '2px' }}>
                                     {[
-                                        'https://i.pravatar.cc/150?img=1',
-                                        'https://i.pravatar.cc/150?img=12',
-                                        'https://i.pravatar.cc/150?img=33',
-                                        'https://i.pravatar.cc/150?img=47',
+                                        '/image6.png',
+                                        '/image10.png',
+                                        '/image13.png',
+                                        '/image15.png',
                                     ].map((avatarUrl, index) => (
                                         <div
                                             key={index}
@@ -230,7 +226,7 @@ The #1 All-in-One System for Infopreneurs.
                         <div className="blue-blur _02"></div>
                         <h2
                             ref={subtitleRef}
-                            className="title animate-me"
+                            className="title animate-me hero-subtitle-text"
                         >
                             Say goodbye to scattered spreadsheets, disconnected CRMs and guessing games. Say hello to clarity, control, and cash collected.
                         </h2>
