@@ -33,8 +33,8 @@ export default function Home() {
       </div>
     </div>
   </div>
-  <div className="section overflow-hidden">
-    <div className="container">
+  <div className="section overflow-hidden allow-shadow-overflow" style={{ overflow: 'visible', overflowX: 'visible', overflowY: 'visible' }}>
+    <div className="container allow-shadow-overflow-container" style={{ overflow: 'visible' }}>
       <div className="new-features-holder">
         <div className="w-layout-grid new-features-grid">
           <div id="w-node-_0f6e4690-5961-adb5-bb42-4dc31a841c65-a9826b02" className="cubes-holder">

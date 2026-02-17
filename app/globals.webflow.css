@@ -6202,11 +6202,44 @@ figcaption {
   padding-bottom: 30px;
 }
 
+.bubbles-header {
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+  align-items: flex-start;
+  width: 100%;
+}
+
 .left-content {
   grid-column-gap: 12px;
   grid-row-gap: 12px;
   flex-flow: column;
   display: flex;
+  flex: 1;
+  width: 50%;
+  min-width: 0;
+}
+
+.right-content {
+  flex: 1;
+  width: 50%;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+@media screen and (max-width: 991px) {
+  .bubbles-header {
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .left-content,
+  .right-content {
+    width: 100%;
+    flex: none;
+  }
 }
 
 .bubble-grid-holder {
