@@ -179,6 +179,46 @@ body {
   transition: opacity 0.3s ease !important;
 }
 
+/* Hide blue light/shine lines from cards */
+.slider.w-slider .blue-line-wrapper {
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+}
+
+.slider.w-slider .blue-line {
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+}
+
+/* Hide blur image holder by default - only show on hover */
+.slider.w-slider .blur-image-holder,
+.w-slider .blur-image-holder {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  display: block !important;
+}
+
+.slider.w-slider .feature-blur-image,
+.w-slider .feature-blur-image {
+  opacity: 0 !important;
+  visibility: hidden !important;
+}
+
+/* Show blur images only on hover */
+.slider.w-slider .slide:hover .blur-image-holder,
+.w-slider .slide:hover .blur-image-holder {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+.slider.w-slider .slide:hover .feature-blur-image,
+.w-slider .slide:hover .feature-blur-image {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
 /* Hover effect - just make cards lighter */
 .slider.w-slider .slide:hover .feature-item-center {
   opacity: 0.7 !important;
@@ -215,6 +255,57 @@ body {
   position: relative;
   transform: translateZ(0);
   -webkit-transform: translateZ(0);
+  width: 100vw !important;
+  max-width: 100vw !important;
+  margin-left: calc(-50vw + 50%) !important;
+  margin-right: calc(-50vw + 50%) !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+/* Sections with blue shadows - allow overflow using specific class */
+.section.overflow-hidden.allow-shadow-overflow {
+  overflow: visible !important;
+  overflow-x: visible !important;
+  overflow-y: visible !important;
+  width: 100% !important;
+  max-width: 100vw !important;
+}
+
+.section.overflow-hidden.allow-shadow-overflow .container.allow-shadow-overflow-container {
+  overflow: visible !important;
+  overflow-x: visible !important;
+  overflow-y: visible !important;
+}
+
+.section.overflow-hidden .new-features-holder,
+.section.overflow-hidden .blue-blur-2-copy {
+  overflow: visible !important;
+}
+
+/* Ensure section with slider allows full width */
+.section.overflow-hidden:has(.section-inside) {
+  overflow-x: hidden !important;
+  overflow-y: visible !important;
+  width: 100% !important;
+  max-width: 100vw !important;
+}
+
+/* Container should not constrain slider - allow full width */
+.section.overflow-hidden:has(.section-inside) .container {
+  max-width: 100% !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  width: 100% !important;
+}
+
+
+/* Section inside should also allow full width */
+.section.overflow-hidden .section-inside {
+  width: 100% !important;
+  max-width: 100% !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
 }
 
 /* Fix tooltip visibility - hide by default, show on hover */
@@ -398,13 +489,103 @@ body {
   overflow: visible !important;
 }
 
-/* Ensure container also allows overflow */
+/* Container overflow - allow overflow for sections with shadows */
 .container {
-  overflow: hidden !important;
+  overflow: visible !important;
 }
 
 .section {
   overflow: visible !important;
+}
+
+/* Hero section - prevent scrollbars but allow blue blur to extend */
+.hero-section-wrapper {
+  overflow: hidden !important; /* Prevent scrollbars at wrapper level */
+  overflow-x: hidden !important;
+  overflow-y: hidden !important;
+  width: 100% !important;
+  max-width: 100vw !important;
+}
+
+.hero-section-wrapper .container {
+  overflow: visible !important; /* Allow blur to extend */
+  overflow-x: visible !important;
+  overflow-y: visible !important;
+}
+
+/* Hero text holder and container - allow blue blur to overflow without scrollbars */
+.hero-text-holder {
+  overflow: visible !important; /* Allow blur to extend */
+  overflow-x: visible !important;
+  overflow-y: visible !important;
+}
+
+.hero-text-container {
+  overflow: visible !important; /* Allow blur to extend */
+  overflow-x: visible !important;
+  overflow-y: visible !important;
+  position: relative !important;
+}
+
+/* Grid section with blue shadows - allow overflow */
+.section.grid-section {
+  overflow: visible !important;
+}
+
+.section.grid-section .container {
+  overflow: visible !important;
+}
+
+/* Section with blue-blur-2-copy - allow overflow */
+.section.overflow-hidden .blue-blur-2-copy {
+  overflow: visible !important;
+}
+
+/* Ensure blue blur elements can extend beyond containers */
+.blue-blur,
+.blue-blur-2-copy {
+  overflow: visible !important;
+  position: absolute !important;
+}
+
+/* Hero blue blur specifically - ensure it can extend beyond hero-text-container */
+.hero-text-container .blue-blur {
+  overflow: visible !important;
+  /* Don't override positioning - let original CSS handle it */
+}
+
+/* Section with new-features-holder and blue-blur-2-copy - allow overflow for shadows */
+.section.overflow-hidden .new-features-holder,
+.section.overflow-hidden .hero-text-container-2 {
+  overflow: visible !important;
+}
+
+
+/* Fallback - allow overflow for sections with blue-blur-2-copy */
+.section.overflow-hidden .blue-blur-2-copy {
+  overflow: visible !important;
+  position: absolute !important;
+}
+
+/* Ensure new-features-holder allows overflow */
+.new-features-holder {
+  overflow: visible !important;
+}
+
+.hero-text-container-2 {
+  overflow: visible !important;
+  position: relative !important;
+}
+
+/* Only the slider section container should have overflow hidden */
+.section.overflow-hidden:has(.section-inside) {
+  overflow-x: hidden !important;
+  overflow-y: visible !important;
+}
+
+.section.overflow-hidden:has(.section-inside) .container {
+  overflow-x: hidden !important;
+  overflow-y: visible !important;
 }
 
 /* Hide blog section on smaller and medium screens on demo page */
@@ -940,12 +1121,42 @@ body {
   z-index: 10 !important;
 }
 
+/* Blue blur wrapper - allows shadow to overflow while keeping container size fixed */
+.blue-blur-wrapper {
+  position: absolute !important;
+  left: 0 !important;
+  top: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  pointer-events: none !important;
+  z-index: -5 !important;
+  overflow: visible !important;
+  /* Container size remains fixed, but shadow can overflow */
+}
+
 .hero-text-container .blue-blur._02 {
   z-index: -5 !important; /* Much lower z-index to keep it far back */
   position: absolute !important;
-  opacity: 0.12 !important; /* Much darker - reduced from 0.25 to make it less intense */
-  filter: blur(70px) !important; /* Increased blur from 50px to soften the effect more */
-  transform: translateY(40px) scale(0.85) !important; /* Move it further down and scale down more to create more distance */
+  left: 50% !important;
+  top: 50% !important;
+  transform: translate(-50%, -50%) translateY(40px) !important; /* Centered, no scale */
+  width: 800px !important; /* Smaller, centered width */
+  height: 600px !important; /* Smaller, centered height */
+  opacity: 0.08 !important; /* Very subtle opacity */
+  filter: blur(80px) !important; /* More blur for smoother effect */
+  margin: 0 !important;
+  padding: 0 !important;
+  pointer-events: none !important; /* Don't block interactions */
+  /* Subtle gradient - mostly black with very light blue center */
+  background-image: radial-gradient(circle at 50% 50%, 
+    rgba(59, 130, 246, 0.2) 0%, 
+    rgba(59, 130, 246, 0.1) 20%, 
+    rgba(59, 130, 246, 0.05) 40%, 
+    rgba(0, 0, 0, 0.3) 70%, 
+    transparent 100%) !important;
+  border-radius: 50% !important; /* Circular for smoother effect */
 }
 
 .hero-subtitle-text {

@@ -49,28 +49,21 @@ export default function FeatureSlider() {
             slides.forEach((slide) => {
                 const slideElement = slide as HTMLElement;
                 const blueLineWrapper = slideElement.querySelector('.blue-line-wrapper') as HTMLElement;
-                const blurImageHolder = slideElement.querySelector('.blur-image-holder') as HTMLElement;
                 const blueLines = slideElement.querySelectorAll('.blue-line') as NodeListOf<HTMLElement>;
-                const blurImages = slideElement.querySelectorAll('.feature-blur-image') as NodeListOf<HTMLElement>;
                 
                 if (blueLineWrapper) blueLineWrapper.style.opacity = '0';
-                if (blurImageHolder) blurImageHolder.style.opacity = '0';
                 blueLines.forEach(line => line.style.opacity = '0');
-                blurImages.forEach(img => img.style.opacity = '0');
             });
             
-            // Show blue light only on the leftmost slide
+            // Show blue light only on the leftmost slide (but NOT blur image holder)
             if (leftmostSlide !== null) {
                 const slideElement: HTMLElement = leftmostSlide;
                 const blueLineWrapper = slideElement.querySelector('.blue-line-wrapper') as HTMLElement;
-                const blurImageHolder = slideElement.querySelector('.blur-image-holder') as HTMLElement;
                 const blueLines = slideElement.querySelectorAll('.blue-line') as NodeListOf<HTMLElement>;
-                const blurImages = slideElement.querySelectorAll('.feature-blur-image') as NodeListOf<HTMLElement>;
                 
                 if (blueLineWrapper) blueLineWrapper.style.opacity = '1';
-                if (blurImageHolder) blurImageHolder.style.opacity = '1';
                 blueLines.forEach(line => line.style.opacity = '1');
-                blurImages.forEach(img => img.style.opacity = '1');
+                // Don't show blur image holder here - only on hover
             }
         };
 
@@ -170,14 +163,15 @@ export default function FeatureSlider() {
         };
     }, []);
 
-
     return (
         <div 
             className="slider w-slider" 
             ref={sliderRef}
             style={{
                 position: 'relative',
-                overflow: 'hidden'
+                overflow: 'hidden',
+                width: '100vw',
+                maxWidth: '100vw'
             }}
         >
             <div 
@@ -192,7 +186,9 @@ export default function FeatureSlider() {
                 }}
             >
                 {/* Slide 1: Unified View - FIRST */}
-                <div className="slide w-slide">
+                <div 
+                    className="slide w-slide"
+                >
                     <div id="w-node-_9eed4757-86a4-f7d5-b099-f9f1459df6a9-a9826b02" className="feature-item-center">
                         <div className="feautre-content">
                             <div className="fetaure-icon-holder">
@@ -203,9 +199,6 @@ export default function FeatureSlider() {
                         </div>
                         <div className="blue-line-wrapper">
                             <div className="blue-line _01"></div>
-                        </div>
-                        <div className="blur-image-holder">
-                            <img sizes="(max-width: 844px) 100vw, 844px" alt='' src="/assets/cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6882a9e95dcd0d3fa9826cf0_Blur%2520Image.avif" loading="lazy" className="feature-blur-image _01" />
                         </div>
                     </div>
                 </div>
@@ -225,9 +218,6 @@ export default function FeatureSlider() {
                         <div className="blue-line-wrapper">
                             <div className="blue-line _01"></div>
                         </div>
-                        <div className="blur-image-holder">
-                            <img sizes="(max-width: 844px) 100vw, 844px" alt='' src="/assets/cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6882a9e95dcd0d3fa9826cf0_Blur%2520Image.avif" loading="lazy" className="feature-blur-image _01" />
-                        </div>
                     </div>
                 </div>
 
@@ -243,14 +233,14 @@ export default function FeatureSlider() {
                             <div className="feature-heading-small">Smart Revenue Analytics</div>
                             <p>Make decisions based on data, not gut feeling.<strong> </strong>Know exactly what&apos;s working</p>
                         </div>
-                        <div className="blue-line-wrapper">
+                        {/* <div className="blue-line-wrapper">
                             <div className="blue-line _01"></div>
                             <div className="blue-line _02"></div>
                         </div>
                         <div className="blur-image-holder">
                             <img sizes="(max-width: 844px) 100vw, 844px" alt='' src="/assets/cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6882a9e95dcd0d3fa9826cf0_Blur%2520Image.avif" loading="lazy" className="feature-blur-image _01" />
                             <img sizes="(max-width: 844px) 100vw, 844px" alt='' src="/assets/cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6882a9e95dcd0d3fa9826cf0_Blur%2520Image.avif" loading="lazy" className="feature-blur-image _02" />
-                        </div>
+                        </div> */}
                     </div>
                 </div>
 
@@ -266,12 +256,9 @@ export default function FeatureSlider() {
                             <div className="feature-heading-small">Know What Each Video Makes You</div>
                             <p>Track the exact revenue generated by every YouTube video in real time. ScaleOS shows you what content brings in the most money, so you can replicate winners and scale with clarity.</p>
                         </div>
-                        <div className="blue-line-wrapper">
+                        {/* <div className="blue-line-wrapper">
                             <div className="blue-line _01"></div>
-                        </div>
-                        <div className="blur-image-holder">
-                            <img sizes="(max-width: 844px) 100vw, 844px" alt='' src="/assets/cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6882a9e95dcd0d3fa9826cf0_Blur%2520Image.avif" loading="lazy" className="feature-blur-image _01" />
-                        </div>
+                        </div> */}
                     </div>
                 </div>
 
@@ -287,14 +274,14 @@ export default function FeatureSlider() {
                             <div className="feature-heading-small">Live Sales Tracking</div>
                             <p>Real-time view of your pipeline.<strong> </strong>From call booked to deal closed, follow your leads and sales activity live.</p>
                         </div>
-                        <div className="blue-line-wrapper">
+                        {/* <div className="blue-line-wrapper">
                             <div className="blue-line _01"></div>
                             <div className="blue-line _02"></div>
                         </div>
                         <div className="blur-image-holder">
                             <img sizes="(max-width: 844px) 100vw, 844px" alt='' src="/assets/cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6882a9e95dcd0d3fa9826cf0_Blur%2520Image.avif" loading="lazy" className="feature-blur-image _01" />
                             <img sizes="(max-width: 844px) 100vw, 844px" alt='' src="/assets/cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6882a9e95dcd0d3fa9826cf0_Blur%2520Image.avif" loading="lazy" className="feature-blur-image _02" />
-                        </div>
+                        </div> */}
                     </div>
                 </div>
 
@@ -310,14 +297,14 @@ export default function FeatureSlider() {
                             <div className="feature-heading-small">Team Productivity Sync</div>
                             <p>Streamline your setters &amp; closers<strong>. </strong>Assign leads, monitor follow-ups, and track performance.</p>
                         </div>
-                        <div className="blue-line-wrapper">
+                        {/* <div className="blue-line-wrapper">
                             <div className="blue-line _01"></div>
                             <div className="blue-line _02"></div>
                         </div>
                         <div className="blur-image-holder">
                             <img sizes="(max-width: 844px) 100vw, 844px" alt='' src="/assets/cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6882a9e95dcd0d3fa9826cf0_Blur%2520Image.avif" loading="lazy" className="feature-blur-image _01" />
                             <img sizes="(max-width: 844px) 100vw, 844px" alt='' src="/assets/cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6882a9e95dcd0d3fa9826cf0_Blur%2520Image.avif" loading="lazy" className="feature-blur-image _02" />
-                        </div>
+                        </div> */}
                     </div>
                 </div>
 
@@ -333,14 +320,14 @@ export default function FeatureSlider() {
                             <div className="feature-heading-small">Auto Data Sync</div>
                             <p>Connect Stripe, Whop, Slack &amp; more<strong><br />‍</strong>Built to integrate with your stack.</p>
                         </div>
-                        <div className="blue-line-wrapper">
+                        {/* <div className="blue-line-wrapper">
                             <div className="blue-line _01"></div>
                             <div className="blue-line _02"></div>
                         </div>
                         <div className="blur-image-holder">
                             <img sizes="(max-width: 844px) 100vw, 844px" alt='' src="/assets/cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6882a9e95dcd0d3fa9826cf0_Blur%2520Image.avif" loading="lazy" className="feature-blur-image _01" />
                             <img sizes="(max-width: 844px) 100vw, 844px" alt='' src="/assets/cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6882a9e95dcd0d3fa9826cf0_Blur%2520Image.avif" loading="lazy" className="feature-blur-image _02" />
-                        </div>
+                        </div> */}
                     </div>
                 </div>
 
@@ -356,14 +343,14 @@ export default function FeatureSlider() {
                             <div className="feature-heading-small">AOV / LTV Optimization</div>
                             <p>Scale without guessing.<strong> </strong>Track client value and purchase behavior over time to spot high-value offers</p>
                         </div>
-                        <div className="blue-line-wrapper">
+                        {/* <div className="blue-line-wrapper">
                             <div className="blue-line _01"></div>
                             <div className="blue-line _02"></div>
                         </div>
                         <div className="blur-image-holder">
                             <img sizes="(max-width: 844px) 100vw, 844px" alt='' src="/assets/cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6882a9e95dcd0d3fa9826cf0_Blur%2520Image.avif" loading="lazy" className="feature-blur-image _01" />
                             <img sizes="(max-width: 844px) 100vw, 844px" alt='' src="/assets/cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6882a9e95dcd0d3fa9826cf0_Blur%2520Image.avif" loading="lazy" className="feature-blur-image _02" />
-                        </div>
+                        </div> */}
                     </div>
                 </div>
 
@@ -380,12 +367,9 @@ export default function FeatureSlider() {
                             <div className="feature-heading-small">Unified View</div>
                             <p><strong>‍</strong>From content to cashflow, ScaleOS centralizes your entire business backend</p>
                         </div>
-                        <div className="blue-line-wrapper">
+                        {/* <div className="blue-line-wrapper">
                             <div className="blue-line _01"></div>
-                        </div>
-                        <div className="blur-image-holder">
-                            <img sizes="(max-width: 844px) 100vw, 844px" alt='' src="/assets/cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6882a9e95dcd0d3fa9826cf0_Blur%2520Image.avif" loading="lazy" className="feature-blur-image _01" />
-                        </div>
+                        </div> */}
                     </div>
                 </div>
 
@@ -401,12 +385,9 @@ export default function FeatureSlider() {
                             <div className="feature-heading-small">Track Your Content Performance — For Real</div>
                             <p>See which posts generate the most leads, calls, and cash. ScaleOS connects your content to real business results, so you scale based on data, not views.</p>
                         </div>
-                        <div className="blue-line-wrapper">
+                        {/* <div className="blue-line-wrapper">
                             <div className="blue-line _01"></div>
-                        </div>
-                        <div className="blur-image-holder">
-                            <img sizes="(max-width: 844px) 100vw, 844px" alt='' src="/assets/cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6882a9e95dcd0d3fa9826cf0_Blur%2520Image.avif" loading="lazy" className="feature-blur-image _01" />
-                        </div>
+                        </div> */}
                     </div>
                 </div>
 
@@ -422,14 +403,14 @@ export default function FeatureSlider() {
                             <div className="feature-heading-small">Smart Revenue Analytics</div>
                             <p>Make decisions based on data, not gut feeling.<strong> </strong>Know exactly what&apos;s working</p>
                         </div>
-                        <div className="blue-line-wrapper">
+                        {/* <div className="blue-line-wrapper">
                             <div className="blue-line _01"></div>
                             <div className="blue-line _02"></div>
-                        </div>
-                        <div className="blur-image-holder">
+                        </div> */}
+                        {/* <div className="blur-image-holder">
                             <img sizes="(max-width: 844px) 100vw, 844px" alt='' src="/assets/cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6882a9e95dcd0d3fa9826cf0_Blur%2520Image.avif" loading="lazy" className="feature-blur-image _01" />
                             <img sizes="(max-width: 844px) 100vw, 844px" alt='' src="/assets/cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6882a9e95dcd0d3fa9826cf0_Blur%2520Image.avif" loading="lazy" className="feature-blur-image _02" />
-                        </div>
+                        </div> */}
                     </div>
                 </div>
 
@@ -445,12 +426,9 @@ export default function FeatureSlider() {
                             <div className="feature-heading-small">Know What Each Video Makes You</div>
                             <p>Track the exact revenue generated by every YouTube video in real time. ScaleOS shows you what content brings in the most money, so you can replicate winners and scale with clarity.</p>
                         </div>
-                        <div className="blue-line-wrapper">
+                        {/* <div className="blue-line-wrapper">
                             <div className="blue-line _01"></div>
-                        </div>
-                        <div className="blur-image-holder">
-                            <img sizes="(max-width: 844px) 100vw, 844px" alt='' src="/assets/cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6882a9e95dcd0d3fa9826cf0_Blur%2520Image.avif" loading="lazy" className="feature-blur-image _01" />
-                        </div>
+                        </div> */}
                     </div>
                 </div>
 
@@ -466,14 +444,14 @@ export default function FeatureSlider() {
                             <div className="feature-heading-small">Live Sales Tracking</div>
                             <p>Real-time view of your pipeline.<strong> </strong>From call booked to deal closed, follow your leads and sales activity live.</p>
                         </div>
-                        <div className="blue-line-wrapper">
+                        {/* <div className="blue-line-wrapper">
                             <div className="blue-line _01"></div>
                             <div className="blue-line _02"></div>
-                        </div>
-                        <div className="blur-image-holder">
+                        </div> */}
+                        {/* <div className="blur-image-holder">
                             <img sizes="(max-width: 844px) 100vw, 844px" alt='' src="/assets/cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6882a9e95dcd0d3fa9826cf0_Blur%2520Image.avif" loading="lazy" className="feature-blur-image _01" />
                             <img sizes="(max-width: 844px) 100vw, 844px" alt='' src="/assets/cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6882a9e95dcd0d3fa9826cf0_Blur%2520Image.avif" loading="lazy" className="feature-blur-image _02" />
-                        </div>
+                        </div> */}
                     </div>
                 </div>
 
@@ -489,14 +467,14 @@ export default function FeatureSlider() {
                             <div className="feature-heading-small">Team Productivity Sync</div>
                             <p>Streamline your setters &amp; closers<strong>. </strong>Assign leads, monitor follow-ups, and track performance.</p>
                         </div>
-                        <div className="blue-line-wrapper">
+                        {/* <div className="blue-line-wrapper">
                             <div className="blue-line _01"></div>
                             <div className="blue-line _02"></div>
-                        </div>
-                        <div className="blur-image-holder">
+                        </div> */}
+                        {/* <div className="blur-image-holder">
                             <img sizes="(max-width: 844px) 100vw, 844px" alt='' src="/assets/cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6882a9e95dcd0d3fa9826cf0_Blur%2520Image.avif" loading="lazy" className="feature-blur-image _01" />
                             <img sizes="(max-width: 844px) 100vw, 844px" alt='' src="/assets/cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6882a9e95dcd0d3fa9826cf0_Blur%2520Image.avif" loading="lazy" className="feature-blur-image _02" />
-                        </div>
+                        </div> */}
                     </div>
                 </div>
 
@@ -512,14 +490,14 @@ export default function FeatureSlider() {
                             <div className="feature-heading-small">Auto Data Sync</div>
                             <p>Connect Stripe, Whop, Slack &amp; more<strong><br />‍</strong>Built to integrate with your stack.</p>
                         </div>
-                        <div className="blue-line-wrapper">
+                        {/* <div className="blue-line-wrapper">
                             <div className="blue-line _01"></div>
                             <div className="blue-line _02"></div>
-                        </div>
-                        <div className="blur-image-holder">
+                        </div> */}
+                        {/* <div className="blur-image-holder">
                             <img sizes="(max-width: 844px) 100vw, 844px" alt='' src="/assets/cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6882a9e95dcd0d3fa9826cf0_Blur%2520Image.avif" loading="lazy" className="feature-blur-image _01" />
                             <img sizes="(max-width: 844px) 100vw, 844px" alt='' src="/assets/cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6882a9e95dcd0d3fa9826cf0_Blur%2520Image.avif" loading="lazy" className="feature-blur-image _02" />
-                        </div>
+                        </div> */}
                     </div>
                 </div>
 
@@ -535,14 +513,14 @@ export default function FeatureSlider() {
                             <div className="feature-heading-small">AOV / LTV Optimization</div>
                             <p>Scale without guessing.<strong> </strong>Track client value and purchase behavior over time to spot high-value offers</p>
                         </div>
-                        <div className="blue-line-wrapper">
+                        {/* <div className="blue-line-wrapper">
                             <div className="blue-line _01"></div>
                             <div className="blue-line _02"></div>
-                        </div>
-                        <div className="blur-image-holder">
+                        </div> */}
+                        {/* <div className="blur-image-holder">
                             <img sizes="(max-width: 844px) 100vw, 844px" alt='' src="/assets/cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6882a9e95dcd0d3fa9826cf0_Blur%2520Image.avif" loading="lazy" className="feature-blur-image _01" />
                             <img sizes="(max-width: 844px) 100vw, 844px" alt='' src="/assets/cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6882a9e95dcd0d3fa9826cf0_Blur%2520Image.avif" loading="lazy" className="feature-blur-image _02" />
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             </div>

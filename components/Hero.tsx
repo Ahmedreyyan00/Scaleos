@@ -223,7 +223,9 @@ The #1 All-in-One System for Infopreneurs.
                 </div>
                 <div className="hero-text-holder">
                     <div className="hero-text-container">
-                        <div className="blue-blur _02"></div>
+                        <div className="blue-blur-wrapper">
+                            <div className="blue-blur _02"></div>
+                        </div>
                         <h2
                             ref={subtitleRef}
                             className="title animate-me hero-subtitle-text"
