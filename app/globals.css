@@ -148,6 +148,8 @@ body {
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
   transform: translate3d(0, 0, 0);
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
 }
 
 /* Ensure smooth transitions for slides */
@@ -158,6 +160,61 @@ body {
   display: inline-block;
   vertical-align: top;
   white-space: normal;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+}
+
+/* Feature slider card width - 270px fixed */
+.slider.w-slider .slide {
+  width: 270px !important;
+  min-width: 270px !important;
+  max-width: 270px !important;
+  flex-shrink: 0 !important;
+  height: auto !important;
+}
+
+.slider.w-slider .feature-item-center {
+  width: 100% !important;
+  height: auto !important;
+  transition: opacity 0.3s ease !important;
+}
+
+/* Hover effect - just make cards lighter */
+.slider.w-slider .slide:hover .feature-item-center {
+  opacity: 0.7 !important;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 991px) {
+  .slider.w-slider .slide {
+    width: 270px !important;
+    min-width: 270px !important;
+    max-width: 270px !important;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .slider.w-slider .slide {
+    width: 250px !important;
+    min-width: 250px !important;
+    max-width: 250px !important;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .slider.w-slider .slide {
+    width: 230px !important;
+    min-width: 230px !important;
+    max-width: 230px !important;
+  }
+}
+
+/* Smooth carousel container */
+.slider.w-slider {
+  overflow: hidden;
+  position: relative;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
 }
 
 /* Fix tooltip visibility - hide by default, show on hover */

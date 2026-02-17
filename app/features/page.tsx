@@ -16,14 +16,14 @@ const Features = () => {
 
         const ctx = gsap.context(() => {
             // Set initial states IMMEDIATELY to prevent layout shift
-            gsap.set(featureImageContainerRef.current, { 
-                opacity: 0, 
-                x: '100%', 
+            gsap.set(featureImageContainerRef.current, {
+                opacity: 0,
+                x: '100%',
                 boxShadow: '0 0 0px 0px rgba(16,90,201,0)',
                 immediateRender: true,
                 force3D: true
             });
-            gsap.set(featureImageRef.current, { 
+            gsap.set(featureImageRef.current, {
                 opacity: 0,
                 immediateRender: true
             });
@@ -89,18 +89,18 @@ const Features = () => {
                             <div className="hero-dashboard-wrapper feature-page">
                                 <div className="animate-on-load-04 center">
                                     <div ref={featureImageContainerRef} className="hero-dashbord-holder">
-                                        <img 
+                                        <img
                                             ref={featureImageRef}
                                             sizes="(max-width: 1904px) 100vw, 1904px"
                                             srcSet="https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/692dbc7b3a5c06985dfce7d4_Capture%20d%E2%80%99e%CC%81cran%202025-12-01%20a%CC%80%2015.24.13-p-500.png 500w, https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/692dbc7b3a5c06985dfce7d4_Capture%20d%E2%80%99e%CC%81cran%202025-12-01%20a%CC%80%2015.24.13-p-800.png 800w, https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/692dbc7b3a5c06985dfce7d4_Capture%20d%E2%80%99e%CC%81cran%202025-12-01%20a%CC%80%2015.24.13-p-1080.png 1080w, https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/692dbc7b3a5c06985dfce7d4_Capture%20d%E2%80%99e%CC%81cran%202025-12-01%20a%CC%80%2015.24.13-p-1600.png 1600w, https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/692dbc7b3a5c06985dfce7d4_Capture%20d%E2%80%99e%CC%81cran%202025-12-01%20a%CC%80%2015.24.13.png 1904w"
                                             alt=""
                                             src="assets/cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/692dbc7b3a5c06985dfce7d4_Capture%20d%E2%80%99e%CC%81cran%202025-12-01%20a%CC%80%2015.24.13.png"
-                                            loading="lazy" 
-                                            className="hero-dashboard-image" 
+                                            loading="lazy"
+                                            className="hero-dashboard-image"
                                         />
                                     </div>
                                 </div>
-                                
+
                             </div>
                         </div>
                     </div>
@@ -109,14 +109,18 @@ const Features = () => {
             <div className="section">
                 <div className="container">
                     <div className="bubbles-holder">
-                        <div className="left-content">
-                            <div className="heading-holder">
-                                <h2 className="title">Track Every Key Metric of <br /> Your Info-Business.
-                                </h2>
+                        <div className="bubbles-header">
+                            <div className="left-content">
+                                <div className="heading-holder">
+                                    <h2 className="title2">Track Every Key Metric<br />  of Your Info-Business.
+                                    </h2>
+                                </div>
+                                <div className="paragraph-holder">
+                                    <p>Visualize every key metric of your info-business in one unified view: client value (LTV, AOV), sales performance, show-up and closing rates, call sources, and more. </p>
+                                </div>
                             </div>
-                            <div className="paragraph-holder">
-                                <p>Visualize every key metric of your info-business in one unified view: client value (LTV, AOV), sales performance, show-up and closing rates, call sources, and more. </p>
-                                <p style={{ marginTop: '16px' }}>Track exactly how much cash each YouTube video (and every piece of content) generates — including revenue per view — so you always know what to double down on. No more guesswork — just clarity.</p>
+                            <div className="right-content">
+                                <p>Track exactly how much cash each YouTube video (and every piece of content) generates — including revenue per view — so you always know what to double down on. No more guesswork — just clarity.</p>
                             </div>
                         </div>
                         <div data-w-id="04241158-ad09-068c-06fc-285cb2a27ade" className="bubble-grid-holder">
@@ -448,15 +452,15 @@ const Features = () => {
                                     </div>
                                 </div>
                             </div>
-                            
+
                             <div id="w-node-aff8d657-c26a-b880-f10a-62c9ad718d63-a9826b99" className="feature-graphic-holder">
                                 <div data-w-id="aff8d657-c26a-b880-f10a-62c9ad718d64" className="feature-image-container _02">
                                     <div className="feature-image-wrapper">
                                         <img className="feature-image-full"
-                                        src="/scalefeature3.png"
-                                        alt="" style={{ opacity: 0 }} sizes="(max-width: 1068px) 100vw, 1068px"
-                                        data-w-id="aff8d657-c26a-b880-f10a-62c9ad718d65" loading="lazy"
-                                        srcSet="/scalefeature3.png 500w, /scalefeature3.png 800w, /scalefeature3.png 1068w" />
+                                            src="/scalefeature3.png"
+                                            alt="" style={{ opacity: 0 }} sizes="(max-width: 1068px) 100vw, 1068px"
+                                            data-w-id="aff8d657-c26a-b880-f10a-62c9ad718d65" loading="lazy"
+                                            srcSet="/scalefeature3.png 500w, /scalefeature3.png 800w, /scalefeature3.png 1068w" />
                                     </div>
                                     <div className="cube-rotate-holder">
                                         <img className="cube-image"
@@ -526,28 +530,28 @@ const Features = () => {
                                     </div>
                                     <div className="cube-rotate-holder">
                                         <img className="cube-image"
-                                        src="assets/cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6883fea00a351bcab0c9a0b4_LogoClarity%206.png"
-                                        alt=""
-                                        style={{ WebkitTransform: 'translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0)', MozTransform: 'translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0)', msTransform: 'translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0)', transform: 'translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0)' }}
-                                        sizes="(max-width: 2066px) 100vw, 2066px"
-                                        data-w-id="0c183a05-9162-9e2a-c293-ceaaabefc7fa" loading="lazy"
-                                        srcSet="https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6883fea00a351bcab0c9a0b4_LogoClarity%206-p-500.png 500w, https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6883fea00a351bcab0c9a0b4_LogoClarity%206-p-800.png 800w, https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6883fea00a351bcab0c9a0b4_LogoClarity%206-p-1080.png 1080w, https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6883fea00a351bcab0c9a0b4_LogoClarity%206-p-1600.png 1600w, https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6883fea00a351bcab0c9a0b4_LogoClarity%206-p-2000.png 2000w, https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6883fea00a351bcab0c9a0b4_LogoClarity%206.png 2066w" />
-                                   
+                                            src="assets/cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6883fea00a351bcab0c9a0b4_LogoClarity%206.png"
+                                            alt=""
+                                            style={{ WebkitTransform: 'translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0)', MozTransform: 'translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0)', msTransform: 'translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0)', transform: 'translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0)' }}
+                                            sizes="(max-width: 2066px) 100vw, 2066px"
+                                            data-w-id="0c183a05-9162-9e2a-c293-ceaaabefc7fa" loading="lazy"
+                                            srcSet="https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6883fea00a351bcab0c9a0b4_LogoClarity%206-p-500.png 500w, https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6883fea00a351bcab0c9a0b4_LogoClarity%206-p-800.png 800w, https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6883fea00a351bcab0c9a0b4_LogoClarity%206-p-1080.png 1080w, https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6883fea00a351bcab0c9a0b4_LogoClarity%206-p-1600.png 1600w, https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6883fea00a351bcab0c9a0b4_LogoClarity%206-p-2000.png 2000w, https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6883fea00a351bcab0c9a0b4_LogoClarity%206.png 2066w" />
+
                                     </div>
                                 </div>
                                 <div className="feature-image-blur"></div>
                             </div>
                         </div>
                         <div className="w-layout-grid new-features-grid-phone">
-                        <div id="w-node-_0c183a05-9162-9e2a-c293-ceaaabefc7f5-a9826b99" className="feature-graphic-holder">
+                            <div id="w-node-_0c183a05-9162-9e2a-c293-ceaaabefc7f5-a9826b99" className="feature-graphic-holder">
                                 <div data-w-id="0c183a05-9162-9e2a-c293-ceaaabefc7f6" className="feature-image-container _02">
                                     <div className="feature-image-wrapper">
                                         <img className="feature-image-full"
                                             src="/content.png"
-                                            alt="" 
-                                            style={{ opacity: 0 }} 
+                                            alt=""
+                                            style={{ opacity: 0 }}
                                             sizes="(max-width: 1068px) 100vw, 1068px"
-                                            data-w-id="0c183a05-9162-9e2a-c293-ceaaabefc7f8" 
+                                            data-w-id="0c183a05-9162-9e2a-c293-ceaaabefc7f8"
                                             loading="lazy"
                                             srcSet="/content.png 500w, /content.png 800w, /content.png 1068w" />
                                     </div>
@@ -615,7 +619,7 @@ const Features = () => {
                     <div className="cta-holder">
                         <div className="cta-content">
                             <div className="fade-in-on-scroll">
-                                <h1>The #1 All-in-One System <br/> for Infopreneurs.
+                                <h1>The #1 All-in-One System <br /> for Infopreneurs.
                                 </h1>
                             </div>
                             <div className="form"><a href="https://app.youform.com/forms/esb5dhlr"
