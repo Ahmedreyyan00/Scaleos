@@ -5714,7 +5714,7 @@ figcaption {
 }
 
 .mask {
-  width: 270px;
+  width: 380px;
   height: auto;
   overflow: visible;
 }
@@ -5735,9 +5735,38 @@ figcaption {
   flex-flow: column;
   justify-content: center;
   align-items: center;
-  padding: 25px;
+  padding: 35px;
   display: block;
   position: relative;
+  transition: transform 0.3s ease;
+}
+
+.feature-item-center:hover {
+  transform: scale(1.05);
+}
+
+.feature-item-center:hover .blue-line-wrapper {
+  opacity: 1;
+}
+
+.feature-item-center:hover .blur-image-holder {
+  opacity: 1;
+}
+
+.feature-item-center:hover .blue-line._01,
+.feature-item-center:hover .blue-line._02 {
+  opacity: 1;
+}
+
+.feature-item-center:hover .feature-blur-image._01,
+.feature-item-center:hover .feature-blur-image._02 {
+  opacity: 1;
+}
+
+.blue-line-wrapper,
+.blur-image-holder {
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
 .blue-line {
@@ -5753,7 +5782,7 @@ figcaption {
 }
 
 .feature-blur-image {
-  width: 310px;
+  width: 420px;
   position: relative;
   top: -132px;
 }
@@ -6262,7 +6291,10 @@ figcaption {
   -webkit-backdrop-filter: blur(7px);
   backdrop-filter: blur(7px);
   border-radius: 7px;
-  width: 100%;
+  width: 120%;
+  max-width: none;
+  margin-left: -10%;
+  margin-right: -10%;
 }
 
 .feature-graphic-holder {
@@ -6287,7 +6319,7 @@ figcaption {
   z-index: 3;
   justify-content: center;
   align-items: center;
-  padding: 40px;
+  padding: 20px;
   display: flex;
   position: absolute;
   inset: 0%;

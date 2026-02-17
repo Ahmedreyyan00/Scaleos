@@ -1165,3 +1165,52 @@ body {
     left: 150%;
   }
 }
+
+/* Ensure proper layering: cube image behind, feature image on top */
+.feature-image-container._02 {
+  position: relative !important;
+  overflow: visible !important;
+  width: 460px !important;
+  height: 460px !important;
+  padding: 24px !important;
+  margin: 0 auto !important;
+}
+
+.cube-rotate-holder {
+  position: absolute !important;
+  inset: 0% !important;
+  z-index: 1 !important;
+  width: 100% !important;
+  height: 100% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  overflow: visible !important;
+}
+
+.cube-image {
+  width: 100% !important;
+  height: auto !important;
+  object-fit: contain !important;
+  max-width: 100% !important;
+  max-height: 100% !important;
+  display: block !important;
+}
+
+.feature-image-wrapper {
+  position: relative !important;
+  z-index: 3 !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.feature-image-full {
+  position: relative !important;
+  z-index: 4 !important;
+  width: 180% !important;
+  height: auto !important;
+  object-fit: contain !important;
+  scale: 1.2 !important;
+  transform: scale(1.1) !important;
+  transform-origin: center center !important;
+}

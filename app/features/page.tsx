@@ -451,7 +451,8 @@ const Features = () => {
                             
                             <div id="w-node-aff8d657-c26a-b880-f10a-62c9ad718d63-a9826b99" className="feature-graphic-holder">
                                 <div data-w-id="aff8d657-c26a-b880-f10a-62c9ad718d64" className="feature-image-container _02">
-                                    <div className="feature-image-wrapper"><img className="feature-image-full"
+                                    <div className="feature-image-wrapper">
+                                        <img className="feature-image-full"
                                         src="/scalefeature3.png"
                                         alt="" style={{ opacity: 0 }} sizes="(max-width: 1068px) 100vw, 1068px"
                                         data-w-id="aff8d657-c26a-b880-f10a-62c9ad718d65" loading="lazy"
@@ -540,11 +541,15 @@ const Features = () => {
                         <div className="w-layout-grid new-features-grid-phone">
                         <div id="w-node-_0c183a05-9162-9e2a-c293-ceaaabefc7f5-a9826b99" className="feature-graphic-holder">
                                 <div data-w-id="0c183a05-9162-9e2a-c293-ceaaabefc7f6" className="feature-image-container _02">
-                                    <div className="feature-image-wrapper"><img className="feature-image-full"
-                                        src="/scalefeature2.png"
-                                        alt="" style={{ opacity: 0 }} sizes="(max-width: 1068px) 100vw, 1068px"
-                                        data-w-id="0c183a05-9162-9e2a-c293-ceaaabefc7f8" loading="lazy"
-                                        srcSet="/content.png 500w, /content.png 800w, /content.png 1068w" />
+                                    <div className="feature-image-wrapper">
+                                        <img className="feature-image-full"
+                                            src="/content.png"
+                                            alt="" 
+                                            style={{ opacity: 0 }} 
+                                            sizes="(max-width: 1068px) 100vw, 1068px"
+                                            data-w-id="0c183a05-9162-9e2a-c293-ceaaabefc7f8" 
+                                            loading="lazy"
+                                            srcSet="/content.png 500w, /content.png 800w, /content.png 1068w" />
                                     </div>
                                     <div className="cube-rotate-holder"><img className="cube-image"
                                         src="assets/cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6883fea00a351bcab0c9a0b4_LogoClarity%206.png"
