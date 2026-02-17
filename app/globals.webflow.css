@@ -2,10 +2,37 @@ html {
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
   font-family: sans-serif;
+  overflow-x: hidden;
+  overflow-y: auto;
+  width: 100%;
+  max-width: 100vw;
 }
 
 body {
   margin: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  width: 100%;
+  max-width: 100vw;
+}
+
+/* Global overflow-x hidden for all elements */
+* {
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* Prevent horizontal overflow on main containers - but allow vertical scrolling */
+section, main, header, footer {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+/* Ensure all wrapper elements prevent horizontal overflow only */
+.wrapper, .container, .section, .content, .main, .page {
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100%;
 }
 
 article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
@@ -217,6 +244,9 @@ td, th {
 
 html {
   height: 100%;
+  overflow-x: hidden !important;
+  width: 100% !important;
+  max-width: 100vw !important;
 }
 
 body {
@@ -227,6 +257,9 @@ body {
   font-family: Arial, sans-serif;
   font-size: 14px;
   line-height: 20px;
+  overflow-x: hidden !important;
+  width: 100% !important;
+  max-width: 100vw !important;
 }
 
 img {
@@ -1191,6 +1224,10 @@ textarea.w-input, textarea.w-select {
   background: #ddd;
   height: 300px;
   position: relative;
+  overflow-x: hidden;
+  overflow-y: visible;
+  width: 100%;
+  max-width: 100%;
 }
 
 .w-slider-mask {
@@ -1202,6 +1239,9 @@ textarea.w-input, textarea.w-select {
   left: 0;
   right: 0;
   overflow: hidden;
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100%;
 }
 
 .w-slide {
@@ -1212,6 +1252,8 @@ textarea.w-input, textarea.w-select {
   height: 100%;
   display: inline-block;
   position: relative;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .w-slider-nav {
@@ -2967,6 +3009,9 @@ body {
   color: #fff;
   font-size: 14px;
   line-height: 1.2;
+  overflow-x: hidden !important;
+  width: 100% !important;
+  max-width: 100vw !important;
 }
 
 h1 {
@@ -3137,6 +3182,7 @@ figcaption {
   margin-right: auto;
   padding: 2em;
   position: relative;
+  overflow-x: hidden;
 }
 
 .container.navbar-container {
@@ -3242,10 +3288,15 @@ figcaption {
 .section {
   z-index: 2;
   position: relative;
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100%;
 }
 
 .section.hero-section, .section.overflow-hidden {
   overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: visible;
 }
 
 .section.extra-paddings {
@@ -3473,6 +3524,9 @@ figcaption {
   text-align: center;
   flex-direction: column;
   justify-content: flex-start;
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100%;
   align-items: center;
   display: flex;
 }
@@ -5369,6 +5423,8 @@ figcaption {
   align-items: center;
   width: 100%;
   margin-top: 88px;
+  overflow-x: hidden;
+  max-width: 100%;
   display: flex;
   position: relative;
 }
@@ -5703,6 +5759,7 @@ figcaption {
   border-bottom: 1px solid var(--elements-stroke);
   flex-flow: column;
   padding-top: 81px;
+  overflow-x: hidden;
   padding-bottom: 60px;
   display: flex;
 }
@@ -5714,15 +5771,18 @@ figcaption {
 }
 
 .mask {
-  width: 270px;
+  width: 380px;
   height: auto;
-  overflow: visible;
+  overflow-x: hidden;
+  overflow-y: visible;
 }
 
 .slider {
   background-color: #ddd0;
   height: auto;
   padding-bottom: 90px;
+  overflow-x: hidden;
+  overflow-y: visible;
 }
 
 .feature-item-center {
@@ -5735,9 +5795,38 @@ figcaption {
   flex-flow: column;
   justify-content: center;
   align-items: center;
-  padding: 25px;
+  padding: 35px;
   display: block;
   position: relative;
+  transition: transform 0.3s ease;
+}
+
+.feature-item-center:hover {
+  transform: scale(1.05);
+}
+
+.feature-item-center:hover .blue-line-wrapper {
+  opacity: 1;
+}
+
+.feature-item-center:hover .blur-image-holder {
+  opacity: 1;
+}
+
+.feature-item-center:hover .blue-line._01,
+.feature-item-center:hover .blue-line._02 {
+  opacity: 1;
+}
+
+.feature-item-center:hover .feature-blur-image._01,
+.feature-item-center:hover .feature-blur-image._02 {
+  opacity: 1;
+}
+
+.blue-line-wrapper,
+.blur-image-holder {
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
 .blue-line {
@@ -5753,7 +5842,7 @@ figcaption {
 }
 
 .feature-blur-image {
-  width: 310px;
+  width: 420px;
   position: relative;
   top: -132px;
 }
@@ -6019,6 +6108,9 @@ figcaption {
   padding-top: 61px;
   padding-bottom: 61px;
   display: flex;
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100%;
 }
 
 .feature-hero-content {
@@ -6028,6 +6120,8 @@ figcaption {
   flex: none;
   max-width: 550px;
   display: flex;
+  overflow-x: hidden;
+  width: 100%;
 }
 
 .feature-paragraph-holder {
@@ -6037,6 +6131,8 @@ figcaption {
 .feature-dashboard-holder {
   flex: none;
   width: 60vw;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 .feature-grid-holder {
@@ -6262,7 +6358,10 @@ figcaption {
   -webkit-backdrop-filter: blur(7px);
   backdrop-filter: blur(7px);
   border-radius: 7px;
-  width: 100%;
+  width: 120%;
+  max-width: none;
+  margin-left: -10%;
+  margin-right: -10%;
 }
 
 .feature-graphic-holder {
@@ -6287,7 +6386,7 @@ figcaption {
   z-index: 3;
   justify-content: center;
   align-items: center;
-  padding: 40px;
+  padding: 20px;
   display: flex;
   position: absolute;
   inset: 0%;

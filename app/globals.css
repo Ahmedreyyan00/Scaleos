@@ -21,6 +21,143 @@
 body {
   font-family: var(--font-inter);
   @apply text-gray-900 antialiased;
+  overflow-x: hidden;
+  overflow-y: auto;
+  width: 100%;
+  max-width: 100vw;
+}
+
+/* Elements are visible by default - GSAP will animate them smoothly */
+
+/* Prevent layout shift - use will-change for better performance */
+.hero-title,
+.paragraph-l,
+.button-holder,
+.home-text-container,
+.home-pragraph-holder,
+.hero-dashbord-holder,
+.feature-image-container {
+  will-change: opacity, transform, visibility;
+}
+
+/* Style for content images container - display two images side by side */
+.content-images-container {
+  display: flex !important;
+  gap: 16px !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 100% !important;
+}
+
+.content-image-main,
+.content-image-secondary {
+  flex: 1 !important;
+  max-width: calc(50% - 8px) !important;
+  width: auto !important;
+  height: auto !important;
+  object-fit: contain !important;
+  border-radius: 7px !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  display: block !important;
+}
+
+@media (max-width: 991px) {
+  .content-images-container {
+    flex-direction: column !important;
+    gap: 12px !important;
+  }
+  
+  .content-image-main,
+  .content-image-secondary {
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+}
+
+/* Position $ / Video bubble in the center of the grid without overlapping */
+.bubble-grid-holder {
+  position: relative !important;
+  overflow: visible !important;
+}
+
+.bubble-grid {
+  position: relative !important;
+  min-height: 700px !important;
+  padding: 40px 0 !important;
+}
+
+.video-bubble-center {
+  position: absolute !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  z-index: 10 !important;
+  pointer-events: auto !important;
+  margin: 0 !important;
+}
+
+/* Ensure other bubbles don't overlap with center bubble - add more spacing */
+.bubble-grid > .circle-holder:not(.video-bubble-center) {
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+/* Increase grid gaps to create more space around center */
+.bubble-grid {
+  grid-column-gap: 90px !important;
+  grid-row-gap: 90px !important;
+}
+
+@media (max-width: 991px) {
+  .bubble-grid {
+    min-height: auto !important;
+    padding: 0 !important;
+    grid-column-gap: 61px !important;
+    grid-row-gap: 61px !important;
+  }
+  
+  .video-bubble-center {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    transform: none !important;
+    margin: 30px auto 0 !important;
+    z-index: 1 !important;
+  }
+}
+
+
+/* Ensure containers maintain layout to prevent shift */
+.hero-section-wrapper,
+.feature-hero-section-holder {
+  min-height: 400px;
+}
+
+/* Maintain image dimensions to prevent layout shift */
+.hero-dashboard-image,
+.feature-image-full {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Smooth continuous carousel animation for feature slider */
+.w-slider-mask {
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform: translate3d(0, 0, 0);
+}
+
+/* Ensure smooth transitions for slides */
+.w-slide {
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  display: inline-block;
+  vertical-align: top;
+  white-space: normal;
 }
 
 /* Fix tooltip visibility - hide by default, show on hover */
@@ -75,6 +212,46 @@ body {
   transform: scale(1);
 }
 
+/* Make blue ball smaller by default, full size on hover for video bubble */
+.video-bubble-center .circle-active {
+  transform: scale(0.3) !important;
+  opacity: 1 !important;
+  transition: transform 0.3s ease !important;
+}
+
+.video-bubble-center .circle:hover .circle-active {
+  transform: scale(1) !important;
+}
+
+/* Fix tooltip for video bubble - single line on large screens */
+.video-bubble-center .tip-tool-container {
+  min-width: auto !important;
+  max-width: none !important;
+  width: auto !important;
+  white-space: nowrap !important;
+  text-align: center !important;
+  display: inline-block !important;
+}
+
+.video-bubble-center .tip-tool-container .no-margins {
+  margin: 0 !important;
+  display: inline !important;
+  white-space: nowrap !important;
+}
+
+/* Allow wrapping on smaller screens */
+@media (max-width: 991px) {
+  .video-bubble-center .tip-tool-container {
+    white-space: normal !important;
+    min-width: 200px !important;
+    max-width: 280px !important;
+  }
+  
+  .video-bubble-center .tip-tool-container .no-margins {
+    white-space: normal !important;
+  }
+}
+
 /* Allow feature card icons to overflow outside the card */
 .feature-item {
   overflow: visible !important;
@@ -94,24 +271,83 @@ body {
   overflow: visible !important;
 }
 
+/* Feature icon container - circular container at top of card, half in half out */
 .fetaure-icon-container {
   overflow: visible !important;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
   padding: 0 !important;
-  position: relative !important;
+  position: absolute !important;
+  top: 20px !important;
+  left: 15% !important;
+  transform: translateX(-50%) !important;
   z-index: 10 !important;
+  width: 90px !important;
+  height: 90px !important;
+  border-radius: 50% !important;
+  border: 1px solid var(--elements-stroke) !important;
+  background-color: var(--elements-stroke) !important;
+  -webkit-backdrop-filter: blur(2px) !important;
+  backdrop-filter: blur(2px) !important;
+}
+
+.fetaure-icon-container img,
+.fetaure-icon-container .fetaure-icon {
+  opacity: 1 !important;
+  visibility: visible !important;
+  display: block !important;
+  max-width: 50px !important;
+  max-height: 50px !important;
+  width: auto !important;
+  height: auto !important;
+  object-fit: contain !important;
+  position: relative !important;
+  z-index: 11 !important;
 }
 
 .fetaure-icon {
-  max-width: 90px !important;
-  max-height: 90px !important;
+  max-width: 50px !important;
+  max-height: 50px !important;
   width: auto !important;
   height: auto !important;
   object-fit: contain !important;
   display: block !important;
   position: relative !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  z-index: 11 !important;
+}
+
+/* Ensure all images inside icon containers are visible */
+.fetaure-icon-container * {
+  opacity: 1 !important;
+  visibility: visible !important;
+  display: block !important;
+}
+
+/* Ensure feature items allow overflow for icons - CRITICAL */
+.feature-item {
+  overflow: visible !important;
+  position: relative !important;
+  padding-top: 60px !important;
+}
+
+.feature-grid-holder {
+  overflow: visible !important;
+}
+
+.w-layout-grid._3x-grid {
+  overflow: visible !important;
+}
+
+/* Ensure container also allows overflow */
+.container {
+  overflow: hidden !important;
+}
+
+.section {
+  overflow: visible !important;
 }
 
 /* Hide blog section on smaller and medium screens on demo page */
@@ -119,6 +355,85 @@ body {
   .hero-blog-holder {
     display: none !important;
   }
+}
+
+/* Demo page - shift first section up and reduce spacing */
+.demo .section.hero-section,
+.section.hero-section {
+  /* padding-top: 40px !important; */
+  margin-top: -20px !important;
+}
+
+.demo .hero-section-center-holder-phone,
+.hero-section-center-holder-phone {
+  margin-top: -30px !important;
+  padding-top: 0 !important;
+}
+
+.demo .hero-center-text,
+.hero-center-text {
+  margin-bottom: 4px !important;
+}
+
+.demo .center-hero-paragraph-holder,
+.center-hero-paragraph-holder {
+  margin-top: 0 !important;
+  margin-bottom: 20px !important;
+}
+
+/* Reduce gap between heading and subheading on demo page */
+.demo .animate-on-load-02 {
+  margin-top: -8px !important;
+}
+
+.demo .hero-center-text .title {
+  margin-bottom: 0 !important;
+}
+
+/* Apply to ScaleOS section - reduce gap and shift up */
+.demo .section-2 {
+  margin-top: -40px !important;
+  padding-top: 20px !important;
+}
+
+.demo .hero-section-center-holder-2 {
+  margin-top: -20px !important;
+  padding-top: 0 !important;
+  padding-bottom: 20px !important;
+}
+
+.demo .hero-cnter-text {
+  margin-bottom: 4px !important;
+}
+
+.demo .section-2 .animate-on-load-02 {
+  margin-top: -12px !important;
+}
+
+.demo .section-2 .center-hero-paragraph-holder {
+  margin-top: 0 !important;
+  margin-bottom: 12px !important;
+}
+
+/* Reduce animation speed for demo page */
+.demo .animate-on-load-01,
+.demo .animate-on-load-02 {
+  transition-duration: 1.2s !important;
+  transition-delay: 0.1s !important;
+}
+
+/* Reduce spacing for YouTube video container */
+.demo .w-layout-blockcontainer.container-4,
+.w-layout-blockcontainer.container-4 {
+  margin-top: 20px !important;
+  margin-bottom: 20px !important;
+}
+
+/* Reduce button holder spacing */
+.demo .button-holder-phone,
+.button-holder-phone {
+  margin-top: 20px !important;
+  margin-bottom: 0 !important;
 }
 
 /* Center hero text on medium and mobile screens */
@@ -284,7 +599,7 @@ body {
 
 /* Fix header logo size */
 .brand-image {
-  max-height: 80px;
+  max-height: 40px;
   width: auto;
   object-fit: contain;
 }
@@ -293,7 +608,7 @@ body {
 .navbar {
   background: transparent !important;
   position: fixed !important;
-  top: 0;
+  top: -4px;
   left: 0;
   right: 0;
   width: 100%;
@@ -301,8 +616,8 @@ body {
   backdrop-filter: none !important;
   -webkit-backdrop-filter: none !important;
   border-bottom: none !important;
-  padding-top: 8px !important;
-  padding-bottom: 8px !important;
+  padding-top: 4px !important;
+  padding-bottom: 4px !important;
 }
 
 .navbar-container {
@@ -310,6 +625,7 @@ body {
   margin: 0 auto;
   padding-left: 3rem !important;
   padding-right: 3rem !important;
+  min-height: auto !important;
 }
 
 /* Make navbar container transparent */
@@ -321,6 +637,10 @@ body {
 }
 
 /* Hero section container - 80% scale with increased side spacing */
+.hero-section-wrapper {
+  padding-top: 0 !important; /* Further reduced to shift content up more */
+}
+
 .hero-section-wrapper .container {
   max-width: 1120px !important;
   padding-left: 4rem !important;
@@ -336,6 +656,9 @@ body {
 
 .hero-section-wrapper .home-text-container {
   margin-bottom: 0 !important; /* Reduce spacing */
+  margin-top: -10px !important; /* Negative margin to shift content up */
+  position: relative !important;
+  z-index: 15 !important; /* Higher z-index to be above image */
 }
 
 .hero-section-wrapper .home-pragraph-holder {
@@ -364,15 +687,19 @@ body {
 
 /* Scale spacing elements - reduced gaps to bring image up */
 .hero-section-wrapper .home-text-holder {
-  grid-row-gap: 12px !important; /* Reduced from 24px - tighter spacing between title and paragraph */
+  grid-row-gap: 8px !important; /* Further reduced for tighter spacing */
   grid-column-gap: 64px !important; /* 80% of 80px */
   background: transparent !important; /* Remove black background */
   background-color: transparent !important;
+  position: relative !important;
+  z-index: 10 !important; /* Higher z-index to be above image */
 }
 
 .hero-section-wrapper .home-pragraph-holder {
-  grid-row-gap: 12px !important; /* Reduced from 20px - tighter spacing between paragraph and buttons */
+  grid-row-gap: 8px !important; /* Further reduced for tighter spacing */
   grid-column-gap: 35px !important; /* 80% of 44px */
+  position: relative !important;
+  z-index: 15 !important; /* Higher z-index to be above image */
 }
 
 /* Additional spacing reduction for paragraph text */
@@ -383,6 +710,9 @@ body {
 /* Reduce spacing on button holder */
 .hero-section-wrapper .button-holder {
   margin-top: 0 !important; /* Remove top margin */
+  position: relative !important;
+  z-index: 20 !important; /* Higher z-index to be above image and clickable */
+  pointer-events: auto !important; /* Ensure buttons are clickable */
 }
 
 .hero-section-wrapper .button-holder {
@@ -390,8 +720,18 @@ body {
   grid-column-gap: 10px !important; /* 80% of 12px */
 }
 
+/* Ensure buttons themselves are clickable */
+.hero-section-wrapper .button-holder .button,
+.hero-section-wrapper .button-holder .w-button {
+  position: relative !important;
+  z-index: 21 !important;
+  pointer-events: auto !important;
+}
+
 .hero-section-wrapper .hero-dashboard-wrapper {
-  margin-top: 40px !important; /* Reduced from 70px to bring image up */
+  margin-top: 10px !important; /* Further reduced to bring image up more */
+  position: relative !important;
+  z-index: 1 !important; /* Lower z-index so text is above */
 }
 
 .hero-section-wrapper .hero-dashbord-holder {
@@ -403,7 +743,14 @@ body {
   overflow: hidden !important;
   background: #000000b3 !important;
   border: 2px solid white !important; /* GSAP will animate the shadow */
+  z-index: 1 !important; /* Lower z-index so text is above */
+  pointer-events: none !important; /* Don't block clicks on elements above */
   /* box-shadow will be animated by GSAP */
+}
+
+/* But allow pointer events on the image itself for any interactions */
+.hero-section-wrapper .hero-dashbord-holder .hero-dashboard-image {
+  pointer-events: auto !important;
 }
 
 /* Border and shadow animations are now handled by GSAP */
@@ -438,6 +785,18 @@ body {
 /* Ensure section doesn't have conflicting padding */
 .section {
   width: 100%;
+  padding-top: 0 !important; /* Remove default top padding to shift content up */
+}
+
+/* Reduce top spacing on first section after header */
+.section:first-of-type {
+  padding-top: 0 !important;
+  margin-top: 0 !important;
+}
+
+/* Reduce spacing between sections */
+.section + .section {
+  margin-top: -30px !important; /* Increased negative margin to bring sections closer */
 }
 
 /* Premium Badge - using Tailwind classes from component */
@@ -518,6 +877,27 @@ body {
   overflow: hidden !important;
 }
 
+/* Fix hero subtitle text visibility and color */
+.hero-text-container {
+  position: relative !important;
+  z-index: 10 !important;
+}
+
+.hero-text-container .blue-blur._02 {
+  z-index: -5 !important; /* Much lower z-index to keep it far back */
+  position: absolute !important;
+  opacity: 0.12 !important; /* Much darker - reduced from 0.25 to make it less intense */
+  filter: blur(70px) !important; /* Increased blur from 50px to soften the effect more */
+  transform: translateY(40px) scale(0.85) !important; /* Move it further down and scale down more to create more distance */
+}
+
+.hero-subtitle-text {
+  position: relative !important;
+  z-index: 25 !important; /* Higher z-index to ensure it's above everything */
+  color: #e8e8e8 !important; /* Slightly brighter for better visibility */
+  text-shadow: 0 3px 8px rgba(0, 0, 0, 0.6), 0 1px 2px rgba(0, 0, 0, 0.4) !important; /* Stronger text shadow for better contrast */
+}
+
 /* Badge positioning and styling */
 .hero-section-wrapper .home-text-container {
   display: flex;
@@ -557,8 +937,9 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.1) !important;
   border-radius: 16px !important;
   padding: 35px !important;
+  padding-top: 60px !important;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
-  overflow: hidden !important;
+  overflow: visible !important;
   isolation: isolate !important;
   box-shadow: 
     0 4px 20px rgba(0, 0, 0, 0.15),
@@ -787,4 +1168,53 @@ body {
   100% {
     left: 150%;
   }
+}
+
+/* Ensure proper layering: cube image behind, feature image on top */
+.feature-image-container._02 {
+  position: relative !important;
+  overflow: visible !important;
+  width: 460px !important;
+  height: 460px !important;
+  padding: 24px !important;
+  margin: 0 auto !important;
+}
+
+.cube-rotate-holder {
+  position: absolute !important;
+  inset: 0% !important;
+  z-index: 1 !important;
+  width: 100% !important;
+  height: 100% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  overflow: visible !important;
+}
+
+.cube-image {
+  width: 100% !important;
+  height: auto !important;
+  object-fit: contain !important;
+  max-width: 100% !important;
+  max-height: 100% !important;
+  display: block !important;
+}
+
+.feature-image-wrapper {
+  position: relative !important;
+  z-index: 3 !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.feature-image-full {
+  position: relative !important;
+  z-index: 4 !important;
+  width: 180% !important;
+  height: auto !important;
+  object-fit: contain !important;
+  scale: 1.2 !important;
+  transform: scale(1.1) !important;
+  transform-origin: center center !important;
 }

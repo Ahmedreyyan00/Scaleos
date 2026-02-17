@@ -12,12 +12,21 @@ export default function CTASection() {
         if (!ctaRef.current) return;
 
         const ctx = gsap.context(() => {
+            // Set initial states IMMEDIATELY to prevent layout shift
+            gsap.set(imageContainerRef.current, { 
+                opacity: 0, 
+                y: 200, 
+                boxShadow: '0 0 0px 0px rgba(16,90,201,0)',
+                immediateRender: true,
+                force3D: true
+            });
+            gsap.set(imageRef.current, { 
+                opacity: 0,
+                immediateRender: true
+            });
+
             // Create timeline
             const tl = gsap.timeline({ delay: 0.5 });
-
-            // Set initial states
-            gsap.set(imageContainerRef.current, { opacity: 0, y: 200, boxShadow: '0 0 0px 0px rgba(16,90,201,0)' });
-            gsap.set(imageRef.current, { opacity: 0 });
 
             // Timeline sequence
             // 1. Image container comes from bottom
@@ -26,6 +35,7 @@ export default function CTASection() {
                 y: 0,
                 duration: 0.8,
                 ease: 'power3.out',
+                force3D: true,
             });
 
             // 2. Image fades in

@@ -44,9 +44,14 @@ export default function RootLayout({
 
         <style dangerouslySetInnerHTML={{
           __html: `
+            /* Prevent horizontal scrolling globally - but allow vertical scrolling */
+            html, body { overflow-x: hidden !important; overflow-y: auto !important; width: 100% !important; max-width: 100vw !important; }
+            * { max-width: 100%; box-sizing: border-box; }
+            section, main, header, footer { overflow-x: hidden !important; }
+            
             .navbar, .section { display: block !important; visibility: visible !important; }
         .navbar {position: sticky !important; opacity: 1 !important; z-index: 1000 !important; filter: none !important; }
-        .section {position: relative !important; opacity: 1 !important; filter: none !important; }
+        .section {position: relative !important; opacity: 1 !important; filter: none !important; overflow-x: hidden !important; }
         .navbar * {opacity: 1 !important; visibility: visible !important; filter: none !important; }
 
         /* Force visibility on everything EXCEPT our custom animated elements */
