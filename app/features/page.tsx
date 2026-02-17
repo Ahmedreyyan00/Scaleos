@@ -62,7 +62,7 @@ const Features = () => {
         <div ref={featureSectionRef}>
             <Header />
             <div className="section overflow-hidden">
-                <div className="container">
+                <div className="container overflow-hidden">
                     <div className="feature-hero-section-holder">
                         <div className="feature-hero-content">
                             <div style={{ opacity: 0, WebkitTransform: 'translate3d(0, 30px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)', MozTransform: 'translate3d(0, 30px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)', msTransform: 'translate3d(0, 30px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)', transform: 'translate3d(0, 30px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)', filter: 'blur(11px)' }}

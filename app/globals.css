@@ -21,6 +21,10 @@
 body {
   font-family: var(--font-inter);
   @apply text-gray-900 antialiased;
+  overflow-x: hidden;
+  overflow-y: auto;
+  width: 100%;
+  max-width: 100vw;
 }
 
 /* Elements are visible by default - GSAP will animate them smoothly */
@@ -339,7 +343,7 @@ body {
 
 /* Ensure container also allows overflow */
 .container {
-  overflow: visible !important;
+  overflow: hidden !important;
 }
 
 .section {
