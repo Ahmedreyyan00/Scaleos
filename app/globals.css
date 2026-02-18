@@ -753,7 +753,7 @@ body {
 
 /* Push content below the fixed header (~80px tall) */
 .demo .section.hero-section {
-  padding-top: 90px !important;
+  padding-top: 70px !important;
   margin-top: 0 !important;
 }
 

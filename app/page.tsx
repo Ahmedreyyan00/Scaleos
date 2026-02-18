@@ -23,7 +23,7 @@ export default function Home() {
             </div>
           </div>
           <div className="grid-item">
-            <img className="grid-image" src="/fea-removebg-preview.png" alt="" sizes="(max-width: 1710px) 100vw, 1710px" data-w-id="489ae30c-d1da-3634-9042-73948da83841" loading="lazy" />
+            <img className="grid-image" src="/fin.png" alt="" sizes="(max-width: 1710px) 100vw, 1710px" data-w-id="489ae30c-d1da-3634-9042-73948da83841" loading="lazy" />
             <div className="grid-content">
               <div className="grid-title">Built-in automations</div>
               <p className="no-margins-2">Sales pipeline automation : automated onboading, slack &amp; payments notifications</p>
