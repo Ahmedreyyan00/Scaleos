@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <>
       <Header />
-      <div className="section">
+      <div className="section" style={{ paddingTop: '90px' }}>
         <Hero />
       </div>
   <div className="section grid-section">

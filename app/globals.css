@@ -67,7 +67,7 @@ body {
     flex-direction: column !important;
     gap: 12px !important;
   }
-  
+
   .content-image-main,
   .content-image-secondary {
     max-width: 100% !important;
@@ -79,26 +79,29 @@ body {
 .bubble-grid-holder {
   position: relative !important;
   overflow: visible !important;
+  z-index: 1 !important;
 }
 
 .bubble-grid {
   position: relative !important;
   min-height: 700px !important;
   padding: 40px 0 !important;
+  z-index: 1 !important;
 }
 
-.video-bubble-center {
+.video-bubble-center,
+.circle-holder.video-bubble-center {
   position: absolute !important;
   top: 50% !important;
   left: 50% !important;
   transform: translate(-50%, -50%) !important;
-  z-index: 10 !important;
+  z-index: 5 !important;
   pointer-events: auto !important;
   margin: 0 !important;
 }
 
 /* Ensure other bubbles don't overlap with center bubble - add more spacing */
-.bubble-grid > .circle-holder:not(.video-bubble-center) {
+.bubble-grid>.circle-holder:not(.video-bubble-center) {
   position: relative !important;
   z-index: 1 !important;
 }
@@ -116,7 +119,7 @@ body {
     grid-column-gap: 61px !important;
     grid-row-gap: 61px !important;
   }
-  
+
   .video-bubble-center {
     position: relative !important;
     top: auto !important;
@@ -309,46 +312,146 @@ body {
 }
 
 /* Fix tooltip visibility - hide by default, show on hover */
-.bubble .tip-tool-holder {
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-  transition: opacity 0.3s ease, visibility 0.3s ease;
+/* Ensure bubble has relative positioning for tooltip */
+.bubble {
+  position: relative !important;
+  z-index: 1 !important;
 }
 
-.bubble .tip-tool-container {
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-  transition: opacity 0.3s ease, visibility 0.3s ease;
+/* Ensure circles have lower z-index than tooltips */
+.bubble .circle {
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+/* Circle holders should also have lower z-index */
+.circle-holder:not(.video-bubble-center) {
+  z-index: 1 !important;
+  position: relative !important;
+}
+
+/* Video bubble center must stay absolutely positioned in center - override circle-holder */
+.circle-holder.video-bubble-center {
+  position: absolute !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  z-index: 5 !important;
+  margin: 0 !important;
+}
+
+/* Video bubble center circle should also have lower z-index than tooltips */
+.circle-holder.video-bubble-center .bubble,
+.circle-holder.video-bubble-center .circle {
+  z-index: 5 !important;
+}
+
+/* On large screens: position tooltip relative to each bubble */
+/* Tooltips must have highest z-index to appear above all bubbles */
+.bubble .tip-tool-holder,
+.circle-container .bubble .tip-tool-holder,
+.circle-container._02 .bubble .tip-tool-holder {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+  transition: opacity 0.3s ease, visibility 0.3s ease !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: flex-start !important;
+  z-index: 99999 !important;
+  width: auto !important;
+  height: auto !important;
+}
+
+.bubble .tip-tool-container,
+.circle-container .bubble .tip-tool-container,
+.circle-container._02 .bubble .tip-tool-container {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+  transition: opacity 0.3s ease, visibility 0.3s ease !important;
+  position: relative !important;
+  transform: translateY(-100%) translateX(-50%) !important;
+  margin-bottom: 15px !important;
+  text-align: center !important;
+  white-space: normal !important;
+  word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
+  min-width: 150px !important;
+  max-width: 300px !important;
+  width: auto !important;
+  left: 0 !important;
+  top: 0 !important;
+  z-index: 100000 !important;
+}
+
+.bubble .tip-tool-container p,
+.bubble .tip-tool-container .no-margins {
+  white-space: normal !important;
+  word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
+  margin: 0 !important;
+  display: block !important;
 }
 
 /* Show tooltip when hovering over the circle */
-.bubble .circle:hover~.tip-tool-holder {
-  opacity: 1;
-  visibility: visible;
-  pointer-events: none;
+.bubble .circle:hover~.tip-tool-holder,
+.bubble:hover .tip-tool-holder {
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: none !important;
   /* Keep holder non-interactive */
+  z-index: 99999 !important;
 }
 
-.bubble .circle:hover~.tip-tool-holder .tip-tool-container {
-  opacity: 1;
-  visibility: visible;
-  pointer-events: auto;
+.bubble .circle:hover~.tip-tool-holder .tip-tool-container,
+.bubble:hover .tip-tool-holder .tip-tool-container {
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
   /* Make tooltip container interactive */
+  transform: translateY(-100%) translateX(-50%) !important;
+  margin-bottom: 15px !important;
+  left: 0 !important;
+  top: 0 !important;
+  white-space: normal !important;
+  word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
+  z-index: 100000 !important;
 }
 
 /* Keep tooltip visible when hovering over the tooltip container itself */
 .bubble .tip-tool-container:hover {
-  opacity: 1;
-  visibility: visible;
-  pointer-events: auto;
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+  z-index: 100000 !important;
 }
 
 .bubble .tip-tool-holder:has(.tip-tool-container:hover) {
-  opacity: 1;
-  visibility: visible;
-  pointer-events: none;
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: none !important;
+  z-index: 99999 !important;
+}
+
+/* Ensure all tooltip holders are properly positioned and visible when hovered */
+.circle-container .bubble:hover .tip-tool-holder,
+.circle-container._02 .bubble:hover .tip-tool-holder {
+  opacity: 1 !important;
+  visibility: visible !important;
+  z-index: 99999 !important;
+}
+
+.circle-container .bubble:hover .tip-tool-container,
+.circle-container._02 .bubble:hover .tip-tool-container {
+  opacity: 1 !important;
+  visibility: visible !important;
+  z-index: 100000 !important;
 }
 
 /* Blue circle animation on hover - expands to fill the outer circle */
@@ -394,9 +497,30 @@ body {
     min-width: 200px !important;
     max-width: 280px !important;
   }
-  
+
   .video-bubble-center .tip-tool-container .no-margins {
     white-space: normal !important;
+  }
+
+  /* On medium/small screens, position tooltip above the bubble */
+  .bubble .tip-tool-holder {
+    position: absolute !important;
+    inset: 0 !important;
+    justify-content: center !important;
+    align-items: flex-start !important;
+  }
+
+  .bubble .tip-tool-container {
+    transform: none !important;
+    margin-top: 0 !important;
+    top: 130% !important;
+    position: relative !important;
+  }
+
+  .bubble .circle:hover~.tip-tool-holder .tip-tool-container {
+    transform: none !important;
+    margin-top: 0 !important;
+    top: 130% !important;
   }
 }
 
@@ -500,7 +624,8 @@ body {
 
 /* Hero section - prevent scrollbars but allow blue blur to extend */
 .hero-section-wrapper {
-  overflow: hidden !important; /* Prevent scrollbars at wrapper level */
+  overflow: hidden !important;
+  /* Prevent scrollbars at wrapper level */
   overflow-x: hidden !important;
   overflow-y: hidden !important;
   width: 100% !important;
@@ -508,20 +633,23 @@ body {
 }
 
 .hero-section-wrapper .container {
-  overflow: visible !important; /* Allow blur to extend */
+  overflow: visible !important;
+  /* Allow blur to extend */
   overflow-x: visible !important;
   overflow-y: visible !important;
 }
 
 /* Hero text holder and container - allow blue blur to overflow without scrollbars */
 .hero-text-holder {
-  overflow: visible !important; /* Allow blur to extend */
+  overflow: visible !important;
+  /* Allow blur to extend */
   overflow-x: visible !important;
   overflow-y: visible !important;
 }
 
 .hero-text-container {
-  overflow: visible !important; /* Allow blur to extend */
+  overflow: visible !important;
+  /* Allow blur to extend */
   overflow-x: visible !important;
   overflow-y: visible !important;
   position: relative !important;
@@ -575,26 +703,34 @@ body {
 .hero-text-container-2 {
   overflow: visible !important;
   position: relative !important;
-  z-index: 10 !important; /* Ensure text container is above blur */
+  z-index: 10 !important;
+  /* Ensure text container is above blur */
 }
 
 /* Reduce brightness of blue-blur-2-copy to make text visible */
 .blue-blur-2-copy._022-phone {
-  opacity: 0.15 !important; /* Reduced from default 0.4 */
-  z-index: -1 !important; /* Keep behind text */
-  filter: blur(50px) !important; /* More blur to soften the light */
+  opacity: 0.15 !important;
+  /* Reduced from default 0.4 */
+  z-index: -1 !important;
+  /* Keep behind text */
+  filter: blur(50px) !important;
+  /* More blur to soften the light */
 }
 
 /* Ensure text is clearly visible over the blur */
 .hero-text-container-2 .title {
   position: relative !important;
-  z-index: 20 !important; /* High z-index to be above blur */
-  color: #ffffff !important; /* Ensure white text */
-  text-shadow: 
+  z-index: 20 !important;
+  /* High z-index to be above blur */
+  color: #ffffff !important;
+  /* Ensure white text */
+  text-shadow:
     0 2px 8px rgba(0, 0, 0, 0.8),
     0 4px 16px rgba(0, 0, 0, 0.6),
-    0 1px 2px rgba(0, 0, 0, 0.9) !important; /* Strong text shadow for readability */
-  font-weight: 600 !important; /* Bolder text for better visibility */
+    0 1px 2px rgba(0, 0, 0, 0.9) !important;
+  /* Strong text shadow for readability */
+  font-weight: 600 !important;
+  /* Bolder text for better visibility */
 }
 
 /* Only the slider section container should have overflow hidden */
@@ -615,16 +751,16 @@ body {
   }
 }
 
-/* Demo page - shift first section up and reduce spacing */
-.demo .section.hero-section,
-.section.hero-section {
-  /* padding-top: 40px !important; */
-  margin-top: -20px !important;
+/* Push content below the fixed header (~80px tall) */
+.demo .section.hero-section {
+  padding-top: 90px !important;
+  margin-top: 0 !important;
 }
+
 
 .demo .hero-section-center-holder-phone,
 .hero-section-center-holder-phone {
-  margin-top: -30px !important;
+  margin-top: 0 !important;
   padding-top: 0 !important;
 }
 
@@ -896,7 +1032,33 @@ body {
 
 /* Hero section container - 80% scale with increased side spacing */
 .hero-section-wrapper {
-  padding-top: 0 !important; /* Further reduced to shift content up more */
+  padding-top: 90px !important;
+  /* Push content down below fixed navbar */
+}
+
+/* Mobile-specific padding for hero section */
+@media (max-width: 991px) {
+  .hero-section-wrapper {
+    padding-top: 100px !important;
+    /* Extra padding on mobile for navbar */
+  }
+  
+  /* Override first section padding on mobile */
+  .section:first-of-type .hero-section-wrapper {
+    padding-top: 100px !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .hero-section-wrapper {
+    padding-top: 110px !important;
+    /* Extra padding on small mobile screens */
+  }
+  
+  /* Override first section padding on small mobile */
+  .section:first-of-type .hero-section-wrapper {
+    padding-top: 110px !important;
+  }
 }
 
 .hero-section-wrapper .container {
@@ -907,75 +1069,99 @@ body {
 
 /* Scale hero section text, buttons, and images to 80% */
 .hero-section-wrapper .hero-title {
-  font-size: 56px !important; /* ~64% of 87px - more aggressive scaling */
+  font-size: 56px !important;
+  /* ~64% of 87px - more aggressive scaling */
   line-height: 1.2 !important;
-  margin-bottom: 0 !important; /* Remove default margins */
+  margin-bottom: 0 !important;
+  /* Remove default margins */
 }
 
 .hero-section-wrapper .home-text-container {
-  margin-bottom: 0 !important; /* Reduce spacing */
-  margin-top: -10px !important; /* Negative margin to shift content up */
+  margin-bottom: 0 !important;
+  /* Reduce spacing */
+  margin-top: -10px !important;
+  /* Negative margin to shift content up */
   position: relative !important;
-  z-index: 15 !important; /* Higher z-index to be above image */
+  z-index: 15 !important;
+  /* Higher z-index to be above image */
 }
 
 .hero-section-wrapper .home-pragraph-holder {
-  margin-top: 0 !important; /* Reduce top margin */
+  margin-top: 0 !important;
+  /* Reduce top margin */
 }
 
 .hero-section-wrapper .paragraph-l {
-  font-size: 18px !important; /* 72% of 25px */
+  font-size: 18px !important;
+  /* 72% of 25px */
   line-height: 1.5 !important;
 }
 
 .hero-section-wrapper .button {
-  font-size: 12px !important; /* 75% of 16px */
-  padding: 10px  !important; /* ~71% of 14px 30px */
+  font-size: 12px !important;
+  /* 75% of 16px */
+  padding: 10px !important;
+  /* ~71% of 14px 30px */
 }
 
 .hero-section-wrapper .title {
-  font-size: 32px !important; /* ~68% of 47px */
+  font-size: 32px !important;
+  /* ~68% of 47px */
   line-height: 1.4 !important;
 }
 
 /* Scale hero text container */
 .hero-section-wrapper .hero-text-container {
-  max-width: 832px !important; /* 80% of 1040px */
+  max-width: 832px !important;
+  /* 80% of 1040px */
 }
 
 /* Scale spacing elements - reduced gaps to bring image up */
 .hero-section-wrapper .home-text-holder {
-  grid-row-gap: 8px !important; /* Further reduced for tighter spacing */
-  grid-column-gap: 64px !important; /* 80% of 80px */
-  background: transparent !important; /* Remove black background */
+  grid-row-gap: 8px !important;
+  /* Further reduced for tighter spacing */
+  grid-column-gap: 64px !important;
+  /* 80% of 80px */
+  background: transparent !important;
+  /* Remove black background */
   background-color: transparent !important;
   position: relative !important;
-  z-index: 10 !important; /* Higher z-index to be above image */
+  z-index: 10 !important;
+  /* Higher z-index to be above image */
 }
 
 .hero-section-wrapper .home-pragraph-holder {
-  grid-row-gap: 8px !important; /* Further reduced for tighter spacing */
-  grid-column-gap: 35px !important; /* 80% of 44px */
+  grid-row-gap: 8px !important;
+  /* Further reduced for tighter spacing */
+  grid-column-gap: 35px !important;
+  /* 80% of 44px */
   position: relative !important;
-  z-index: 15 !important; /* Higher z-index to be above image */
+  z-index: 15 !important;
+  /* Higher z-index to be above image */
 }
 
 /* Additional spacing reduction for paragraph text */
 .hero-section-wrapper .paragraph-l {
-  margin-bottom: 0 !important; /* Remove bottom margin */
+  margin-bottom: 0 !important;
+  /* Remove bottom margin */
 }
 
 /* Reduce spacing on button holder */
 .hero-section-wrapper .button-holder {
-  margin-top: 0 !important; /* Remove top margin */
+  margin-top: 0 !important;
+  /* Remove top margin */
   position: relative !important;
-  z-index: 20 !important; /* Higher z-index to be above image and clickable */
-  pointer-events: auto !important; /* Ensure buttons are clickable */
+  z-index: 20 !important;
+  /* Higher z-index to be above image and clickable */
+  pointer-events: auto !important;
+  /* Ensure buttons are clickable */
 }
 
 .hero-section-wrapper .button-holder {
-  grid-row-gap: 8px !important; /* Reduced from 10px */
-  grid-column-gap: 10px !important; /* 80% of 12px */
+  grid-row-gap: 8px !important;
+  /* Reduced from 10px */
+  grid-column-gap: 10px !important;
+  /* 80% of 12px */
 }
 
 /* Ensure buttons themselves are clickable */
@@ -987,22 +1173,29 @@ body {
 }
 
 .hero-section-wrapper .hero-dashboard-wrapper {
-  margin-top: 10px !important; /* Further reduced to bring image up more */
+  margin-top: 10px !important;
+  /* Further reduced to bring image up more */
   position: relative !important;
-  z-index: 1 !important; /* Lower z-index so text is above */
+  z-index: 1 !important;
+  /* Lower z-index so text is above */
 }
 
 .hero-section-wrapper .hero-dashbord-holder {
-  width: 100% !important; /* Match text section width - same as container */
-  padding: 22px !important; /* Restore original padding for bigger image */
+  width: 100% !important;
+  /* Match text section width - same as container */
+  padding: 22px !important;
+  /* Restore original padding for bigger image */
   margin: 0 auto !important;
   position: relative !important;
   border-radius: 12px !important;
   overflow: hidden !important;
   background: #000000b3 !important;
-  border: 2px solid white !important; /* GSAP will animate the shadow */
-  z-index: 1 !important; /* Lower z-index so text is above */
-  pointer-events: none !important; /* Don't block clicks on elements above */
+  border: 2px solid white !important;
+  /* GSAP will animate the shadow */
+  z-index: 1 !important;
+  /* Lower z-index so text is above */
+  pointer-events: none !important;
+  /* Don't block clicks on elements above */
   /* box-shadow will be animated by GSAP */
 }
 
@@ -1015,24 +1208,29 @@ body {
 /* Removed CSS animations to let GSAP control the shadow effect */
 
 .hero-section-wrapper .hero-dashboard-image {
-  width: 100% !important; /* Image stays 100% of its container */
+  width: 100% !important;
+  /* Image stays 100% of its container */
 }
 
 /* Scale hero icons and logo containers */
 .hero-section-wrapper .hero-logo-container {
-  width: 96px !important; /* 80% of 120px */
-  height: 96px !important; /* 80% of 120px */
+  width: 96px !important;
+  /* 80% of 120px */
+  height: 96px !important;
+  /* 80% of 120px */
 }
 
 /* Scale hero text holder height */
 .hero-section-wrapper .hero-text-holder {
-  height: 680px !important; /* 80% of 850px */
+  height: 680px !important;
+  /* 80% of 850px */
   min-height: 680px !important;
   max-height: 680px !important;
 }
 
 .hero-section-wrapper .hero-icons-holder {
-  height: 680px !important; /* 80% of 850px */
+  height: 680px !important;
+  /* 80% of 850px */
   min-height: 680px !important;
   max-height: 680px !important;
 }
@@ -1043,7 +1241,8 @@ body {
 /* Ensure section doesn't have conflicting padding */
 .section {
   width: 100%;
-  padding-top: 0 !important; /* Remove default top padding to shift content up */
+  padding-top: 0 !important;
+  /* Remove default top padding to shift content up */
 }
 
 /* Reduce top spacing on first section after header */
@@ -1053,18 +1252,22 @@ body {
 }
 
 /* Reduce spacing between sections */
-.section + .section {
-  margin-top: -30px !important; /* Increased negative margin to bring sections closer */
+.section+.section {
+  margin-top: -30px !important;
+  /* Increased negative margin to bring sections closer */
 }
 
 /* Premium Badge - using Tailwind classes from component */
 
 /* Test animation - pulsing effect */
 @keyframes test-pulse {
-  0%, 100% {
+
+  0%,
+  100% {
     opacity: 0.5;
     transform: scale(1);
   }
+
   50% {
     opacity: 1;
     transform: scale(1.05);
@@ -1076,6 +1279,7 @@ body {
   0% {
     left: -125%;
   }
+
   100% {
     left: 150%;
   }
@@ -1087,7 +1291,7 @@ body {
   backdrop-filter: blur(20px) saturate(180%) !important;
   -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
   border: 1px solid rgba(255, 255, 255, 0.2) !important;
-  box-shadow: 
+  box-shadow:
     0 8px 32px 0 rgba(0, 0, 0, 0.2),
     inset 0 1px 0 0 rgba(255, 255, 255, 0.1) !important;
   position: relative !important;
@@ -1099,12 +1303,10 @@ body {
 .glass-shine-effect {
   content: '' !important;
   display: block !important;
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    rgba(255, 255, 255, 0.1) 50%,
-    transparent 100%
-  ) !important;
+  background: linear-gradient(90deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.1) 50%,
+      transparent 100%) !important;
   width: 50% !important;
   height: 100% !important;
   top: 0 !important;
@@ -1158,11 +1360,14 @@ body {
 
 /* Animation for blue blur - smooth breathing/pulsing effect */
 @keyframes blueBlurPulse {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translate(-50%, -50%) translateY(40px) scale(1);
     opacity: 0.25;
     filter: blur(70px);
   }
+
   50% {
     transform: translate(-50%, -50%) translateY(40px) scale(1.4);
     opacity: 0.35;
@@ -1176,11 +1381,13 @@ body {
     height: 600px;
     opacity: 0.06;
   }
+
   50% {
     width: 1200px;
     height: 900px;
     opacity: 0.1;
   }
+
   100% {
     width: 800px;
     height: 600px;
@@ -1189,28 +1396,36 @@ body {
 }
 
 .hero-text-container .blue-blur._02 {
-  z-index: -5 !important; /* Much lower z-index to keep it far back */
+  z-index: -5 !important;
+  /* Much lower z-index to keep it far back */
   position: absolute !important;
   left: 50% !important;
   top: 50% !important;
-  transform: translate(-50%, -50%) translateY(40px) !important; /* Centered */
-  width: 1000px !important; /* Larger starting width for more visibility */
-  height: 800px !important; /* Larger starting height */
-  opacity: 0.25 !important; /* More visible opacity */
-  filter: blur(70px) !important; /* Less blur to see color more clearly */
+  transform: translate(-50%, -50%) translateY(40px) !important;
+  /* Centered */
+  width: 1000px !important;
+  /* Larger starting width for more visibility */
+  height: 800px !important;
+  /* Larger starting height */
+  opacity: 0.25 !important;
+  /* More visible opacity */
+  filter: blur(70px) !important;
+  /* Less blur to see color more clearly */
   margin: 0 !important;
   padding: 0 !important;
-  pointer-events: none !important; /* Don't block interactions */
+  pointer-events: none !important;
+  /* Don't block interactions */
   /* More vibrant gradient with clear color fade */
-  background-image: radial-gradient(circle at 50% 50%, 
-    rgba(59, 130, 246, 0.6) 0%, 
-    rgba(59, 130, 246, 0.4) 15%, 
-    rgba(59, 130, 246, 0.25) 30%, 
-    rgba(59, 130, 246, 0.15) 50%, 
-    rgba(59, 130, 246, 0.08) 70%, 
-    rgba(0, 0, 0, 0.2) 85%, 
-    transparent 100%) !important;
-  border-radius: 50% !important; /* Circular for smoother effect */
+  background-image: radial-gradient(circle at 50% 50%,
+      rgba(59, 130, 246, 0.6) 0%,
+      rgba(59, 130, 246, 0.4) 15%,
+      rgba(59, 130, 246, 0.25) 30%,
+      rgba(59, 130, 246, 0.15) 50%,
+      rgba(59, 130, 246, 0.08) 70%,
+      rgba(0, 0, 0, 0.2) 85%,
+      transparent 100%) !important;
+  border-radius: 50% !important;
+  /* Circular for smoother effect */
   /* Smooth animation - using pulse effect */
   animation: blueBlurPulse 6s ease-in-out infinite !important;
   will-change: transform, opacity, filter !important;
@@ -1218,9 +1433,12 @@ body {
 
 .hero-subtitle-text {
   position: relative !important;
-  z-index: 25 !important; /* Higher z-index to ensure it's above everything */
-  color: #e8e8e8 !important; /* Slightly brighter for better visibility */
-  text-shadow: 0 3px 8px rgba(0, 0, 0, 0.6), 0 1px 2px rgba(0, 0, 0, 0.4) !important; /* Stronger text shadow for better contrast */
+  z-index: 25 !important;
+  /* Higher z-index to ensure it's above everything */
+  color: #e8e8e8 !important;
+  /* Slightly brighter for better visibility */
+  text-shadow: 0 3px 8px rgba(0, 0, 0, 0.6), 0 1px 2px rgba(0, 0, 0, 0.4) !important;
+  /* Stronger text shadow for better contrast */
 }
 
 /* Badge positioning and styling */
@@ -1231,7 +1449,7 @@ body {
   width: 100%;
 }
 
-.hero-section-wrapper .home-text-container > div:first-child {
+.hero-section-wrapper .home-text-container>div:first-child {
   width: 100%;
   display: flex;
   justify-content: center;
@@ -1241,8 +1459,10 @@ body {
 .hero-section-wrapper .blue-blur {
   transform-origin: center center !important;
   will-change: transform, opacity !important;
-  width: 1500px !important; /* Increased from 1330px */
-  height: 1300px !important; /* Increased from 940px */
+  width: 1500px !important;
+  /* Increased from 1330px */
+  height: 1300px !important;
+  /* Increased from 940px */
 }
 
 /* Feature slider - blue light transitions */
@@ -1266,7 +1486,7 @@ body {
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
   overflow: visible !important;
   isolation: isolate !important;
-  box-shadow: 
+  box-shadow:
     0 4px 20px rgba(0, 0, 0, 0.15),
     0 0 0 1px rgba(255, 255, 255, 0.05) inset,
     0 1px 0 rgba(255, 255, 255, 0.1) inset !important;
@@ -1276,7 +1496,7 @@ body {
 .feature-item:hover {
   transform: translateY(-4px) !important;
   border-color: rgba(255, 255, 255, 0.2) !important;
-  box-shadow: 
+  box-shadow:
     0 12px 40px rgba(0, 0, 0, 0.25),
     0 0 0 1px rgba(255, 255, 255, 0.1) inset,
     0 1px 0 rgba(255, 255, 255, 0.15) inset,
@@ -1290,7 +1510,7 @@ body {
   backdrop-filter: blur(10px) saturate(150%) !important;
   -webkit-backdrop-filter: blur(10px) saturate(150%) !important;
   border: 1px solid rgba(255, 255, 255, 0.15) !important;
-  box-shadow: 
+  box-shadow:
     0 4px 15px rgba(0, 0, 0, 0.2),
     inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
@@ -1298,7 +1518,7 @@ body {
 
 .feature-item:hover .fetaure-icon-container {
   transform: scale(1.05) !important;
-  box-shadow: 
+  box-shadow:
     0 6px 20px rgba(0, 0, 0, 0.3),
     inset 0 1px 0 rgba(255, 255, 255, 0.3),
     0 0 20px rgba(16, 90, 201, 0.2) !important;
@@ -1313,12 +1533,10 @@ body {
   left: -100%;
   width: 50%;
   height: 100%;
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    rgba(255, 255, 255, 0.1) 50%,
-    transparent 100%
-  );
+  background: linear-gradient(90deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.1) 50%,
+      transparent 100%);
   transform: skewX(-20deg);
   transition: left 0.6s ease;
   pointer-events: none;
@@ -1331,7 +1549,7 @@ body {
 }
 
 /* Ensure content stays above shine */
-.feature-item > * {
+.feature-item>* {
   position: relative;
   z-index: 2;
 }
@@ -1425,7 +1643,7 @@ body {
   -webkit-backdrop-filter: blur(20px) saturate(180%);
   border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 50px;
-  box-shadow: 
+  box-shadow:
     0 4px 20px rgba(0, 0, 0, 0.2),
     inset 0 1px 0 rgba(255, 255, 255, 0.1),
     0 0 0 1px rgba(255, 255, 255, 0.05);
@@ -1436,9 +1654,12 @@ body {
 
 /* Breathing/floating animation */
 @keyframes fomo-breathe {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateY(0px) scale(1);
   }
+
   50% {
     transform: translateY(-3px) scale(1.02);
   }
@@ -1470,10 +1691,13 @@ body {
 
 /* Pulse animation for dot */
 @keyframes fomo-pulse {
-  0%, 100% {
+
+  0%,
+  100% {
     opacity: 1;
     transform: translate(-50%, -50%) scale(1);
   }
+
   50% {
     opacity: 0.7;
     transform: translate(-50%, -50%) scale(1.2);
@@ -1498,6 +1722,7 @@ body {
     transform: translate(-50%, -50%) scale(1);
     opacity: 1;
   }
+
   100% {
     transform: translate(-50%, -50%) scale(2.5);
     opacity: 0;
@@ -1523,12 +1748,10 @@ body {
   left: -100%;
   width: 50%;
   height: 100%;
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    rgba(255, 255, 255, 0.15) 50%,
-    transparent 100%
-  );
+  background: linear-gradient(90deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.15) 50%,
+      transparent 100%);
   transform: skewX(-20deg);
   animation: fomo-shine 3s ease-in-out infinite;
   pointer-events: none;
@@ -1539,9 +1762,11 @@ body {
   0% {
     left: -100%;
   }
+
   50% {
     left: 150%;
   }
+
   100% {
     left: 150%;
   }

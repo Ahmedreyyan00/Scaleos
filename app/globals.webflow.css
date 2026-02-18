@@ -7401,6 +7401,7 @@ figcaption {
 
   .tip-tool-holder {
     position: absolute;
+    z-index: 9999;
     inset: 0%;
   }
 
