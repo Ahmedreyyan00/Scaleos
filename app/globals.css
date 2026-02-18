@@ -575,6 +575,26 @@ body {
 .hero-text-container-2 {
   overflow: visible !important;
   position: relative !important;
+  z-index: 10 !important; /* Ensure text container is above blur */
+}
+
+/* Reduce brightness of blue-blur-2-copy to make text visible */
+.blue-blur-2-copy._022-phone {
+  opacity: 0.15 !important; /* Reduced from default 0.4 */
+  z-index: -1 !important; /* Keep behind text */
+  filter: blur(50px) !important; /* More blur to soften the light */
+}
+
+/* Ensure text is clearly visible over the blur */
+.hero-text-container-2 .title {
+  position: relative !important;
+  z-index: 20 !important; /* High z-index to be above blur */
+  color: #ffffff !important; /* Ensure white text */
+  text-shadow: 
+    0 2px 8px rgba(0, 0, 0, 0.8),
+    0 4px 16px rgba(0, 0, 0, 0.6),
+    0 1px 2px rgba(0, 0, 0, 0.9) !important; /* Strong text shadow for readability */
+  font-weight: 600 !important; /* Bolder text for better visibility */
 }
 
 /* Only the slider section container should have overflow hidden */
@@ -1136,27 +1156,64 @@ body {
   /* Container size remains fixed, but shadow can overflow */
 }
 
+/* Animation for blue blur - smooth breathing/pulsing effect */
+@keyframes blueBlurPulse {
+  0%, 100% {
+    transform: translate(-50%, -50%) translateY(40px) scale(1);
+    opacity: 0.25;
+    filter: blur(70px);
+  }
+  50% {
+    transform: translate(-50%, -50%) translateY(40px) scale(1.4);
+    opacity: 0.35;
+    filter: blur(90px);
+  }
+}
+
+@keyframes blueBlurFill {
+  0% {
+    width: 800px;
+    height: 600px;
+    opacity: 0.06;
+  }
+  50% {
+    width: 1200px;
+    height: 900px;
+    opacity: 0.1;
+  }
+  100% {
+    width: 800px;
+    height: 600px;
+    opacity: 0.06;
+  }
+}
+
 .hero-text-container .blue-blur._02 {
   z-index: -5 !important; /* Much lower z-index to keep it far back */
   position: absolute !important;
   left: 50% !important;
   top: 50% !important;
-  transform: translate(-50%, -50%) translateY(40px) !important; /* Centered, no scale */
-  width: 800px !important; /* Smaller, centered width */
-  height: 600px !important; /* Smaller, centered height */
-  opacity: 0.08 !important; /* Very subtle opacity */
-  filter: blur(80px) !important; /* More blur for smoother effect */
+  transform: translate(-50%, -50%) translateY(40px) !important; /* Centered */
+  width: 1000px !important; /* Larger starting width for more visibility */
+  height: 800px !important; /* Larger starting height */
+  opacity: 0.25 !important; /* More visible opacity */
+  filter: blur(70px) !important; /* Less blur to see color more clearly */
   margin: 0 !important;
   padding: 0 !important;
   pointer-events: none !important; /* Don't block interactions */
-  /* Subtle gradient - mostly black with very light blue center */
+  /* More vibrant gradient with clear color fade */
   background-image: radial-gradient(circle at 50% 50%, 
-    rgba(59, 130, 246, 0.2) 0%, 
-    rgba(59, 130, 246, 0.1) 20%, 
-    rgba(59, 130, 246, 0.05) 40%, 
-    rgba(0, 0, 0, 0.3) 70%, 
+    rgba(59, 130, 246, 0.6) 0%, 
+    rgba(59, 130, 246, 0.4) 15%, 
+    rgba(59, 130, 246, 0.25) 30%, 
+    rgba(59, 130, 246, 0.15) 50%, 
+    rgba(59, 130, 246, 0.08) 70%, 
+    rgba(0, 0, 0, 0.2) 85%, 
     transparent 100%) !important;
   border-radius: 50% !important; /* Circular for smoother effect */
+  /* Smooth animation - using pulse effect */
+  animation: blueBlurPulse 6s ease-in-out infinite !important;
+  will-change: transform, opacity, filter !important;
 }
 
 .hero-subtitle-text {

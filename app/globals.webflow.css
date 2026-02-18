@@ -5447,6 +5447,12 @@ figcaption {
   width: 100%;
 }
 
+.blue-blur-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
 .blue-blur {
   z-index: -1;
   box-sizing: border-box;
@@ -5585,7 +5591,7 @@ figcaption {
 }
 
 .grid-item {
-  background-color: #15161a;
+  background-color: transparent;
   border: 1px solid #5a5a5a;
   border-radius: 12px;
 }
@@ -5593,6 +5599,9 @@ figcaption {
 .grid-image {
   width: 100%;
   transform: rotate(0);
+  background-color: transparent;
+  background: transparent;
+  mix-blend-mode: normal;
 }
 
 .no-margins-2 {
@@ -5798,11 +5807,14 @@ figcaption {
   padding: 35px;
   display: block;
   position: relative;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, z-index 0.3s ease, box-shadow 0.3s ease;
+  z-index: 1;
 }
 
 .feature-item-center:hover {
-  transform: scale(1.05);
+  transform: scale(1.08) translateY(-8px);
+  z-index: 10;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
 }
 
 .feature-item-center:hover .blue-line-wrapper {
