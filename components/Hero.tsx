@@ -3,6 +3,9 @@
 import { useLayoutEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 
+// Blue blur opacity - easily editable (0.0 to 1.0)
+const BLUE_BLUR_OPACITY = 0.25; // 25% opacity - adjust this value to change blur intensity
+
 export default function Hero() {
     const heroRef = useRef<HTMLDivElement>(null);
     const tagRef = useRef<HTMLDivElement>(null);
@@ -14,6 +17,9 @@ export default function Hero() {
     const imageRef = useRef<HTMLImageElement>(null);
     const subtitleRef = useRef<HTMLHeadingElement>(null);
     const iconsHolderRef = useRef<HTMLDivElement>(null);
+    const blueBlurRef = useRef<HTMLDivElement>(null);
+    const heroTextContainerRef = useRef<HTMLDivElement>(null);
+    const textSectionBackgroundRef = useRef<HTMLDivElement>(null);
 
     useLayoutEffect(() => {
         if (!heroRef.current) return;
@@ -25,16 +31,52 @@ export default function Hero() {
             gsap.set(titleRef.current, { opacity: 0, y: 20, force3D: true });
             gsap.set(descriptionRef.current, { opacity: 0, y: 20, force3D: true });
             gsap.set(buttonsRef.current?.children || [], { opacity: 0, y: 20, force3D: true });
-            gsap.set(imageContainerRef.current, { opacity: 0, y: 0, boxShadow: '0 0 0px 0px rgba(16,90,201,0)', force3D: true });
-            gsap.set(imageRef.current, { opacity: 0 });
+            gsap.set(imageContainerRef.current, {
+                opacity: 0,
+                y: 0,
+                boxShadow: '0 0 0px 0px rgba(16,90,201,0)',
+                filter: 'blur(0px)', // No blur on container
+                force3D: true
+            });
+            gsap.set(imageRef.current, {
+                opacity: 0,
+                filter: 'blur(0px)', // Start with no blur
+                scale: 1, // Start at normal scale
+                force3D: true
+            });
             gsap.set(subtitleRef.current, { opacity: 0, y: 20, force3D: true });
             gsap.set(iconsHolderRef.current?.children || [], { opacity: 0, scale: 0.8, y: 20, force3D: true });
+            // Set initial state for dark background overlay
+            gsap.set(textSectionBackgroundRef.current, {
+                opacity: 0,
+                y: '100%',
+                force3D: true
+            });
+            // Set initial state for hero-text-container
+            gsap.set(heroTextContainerRef.current, {
+                filter: 'blur(0px)',
+                opacity: 1,
+                transform: 'translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg)',
+                force3D: true,
+                willChange: 'filter, opacity, transform'
+            });
+            // Set initial state for blue blur
+            // Since CSS has left: 50% and top: 50%, we use xPercent and yPercent to center
+            gsap.set(blueBlurRef.current, {
+                opacity: 0,
+                xPercent: -50,
+                yPercent: -50,
+                scaleX: 1,
+                scaleY: 0.5,
+                force3D: true,
+                transformStyle: 'preserve-3d'
+            });
 
             // Now animate them in one by one sequentially
             const tl = gsap.timeline({ delay: 0.2 });
 
             // 1. Badge scales in and fades in
-            tl.to(tagRef.current, 
+            tl.to(tagRef.current,
                 { opacity: 1, scale: 1, duration: 0.6, ease: 'back.out(1.7)', force3D: true }
             );
 
@@ -64,15 +106,28 @@ export default function Hero() {
                 );
             }
 
-            // 5. Image container fades in at current position
+            // 5. Image container fades in at current position - no blur
             tl.to(imageContainerRef.current,
-                { opacity: 1, duration: 0.9, ease: 'power3.out', force3D: true },
+                {
+                    opacity: 1,
+                    filter: 'blur(0px)', // Ensure no blur on container
+                    duration: 0.9,
+                    ease: 'power3.out',
+                    force3D: true
+                },
                 '+=0.1'
             );
 
-            // 5.5. Image fades in
+            // 5.5. Image fades in - clear and sharp
             tl.to(imageRef.current,
-                { opacity: 1, duration: 0.6, ease: 'power2.out' },
+                {
+                    opacity: 1,
+                    filter: 'blur(0px)', // Ensure no blur
+                    scale: 1, // Normal scale
+                    duration: 0.6,
+                    ease: 'power2.out',
+                    force3D: true
+                },
                 '-=0.4'
             );
 
@@ -83,10 +138,53 @@ export default function Hero() {
                 ease: 'power2.out',
             }, '-=0.3');
 
-            // 7. Subtitle slides up and fades in
-            tl.to(subtitleRef.current,
-                { opacity: 1, y: 0, duration: 0.7, ease: 'power3.out', force3D: true },
+            // 6.5. Slightly push the dashboard and floating logos "back" as we transition focus to the text
+            tl.to(
+                [imageContainerRef.current, iconsHolderRef.current],
+                {
+                    scale: 0.94,
+                    opacity: 0.6,
+                    y: 20,
+                    duration: 1.2,
+                    ease: 'power2.out',
+                    force3D: true,
+                },
                 '+=0.1'
+            );
+
+            // 7. Translucent background overlay slides up and covers the image above
+            tl.to(textSectionBackgroundRef.current,
+                {
+                    opacity: 1,
+                    y: 0,
+                    duration: 1.2,
+                    ease: 'power3.out',
+                    force3D: true
+                },
+                '+=0.1'
+            );
+
+            // 7.1. Subtitle slides up and fades in on top of the translucent background
+            // Image and icons stay clear, just pushed slightly back
+            tl.to(subtitleRef.current,
+                { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out', force3D: true },
+                '-=0.8' // Overlap with background animation
+            );
+
+            // 7.5. Blue blur animates in with the subtitle
+            tl.to(blueBlurRef.current,
+                {
+                    opacity: BLUE_BLUR_OPACITY, // Editable via BLUE_BLUR_OPACITY constant at top of file
+                    xPercent: -50,
+                    yPercent: -50,
+                    scaleX: 1.3613,
+                    scaleY: 0.7785,
+                    duration: 1.2,
+                    ease: 'power2.out',
+                    force3D: true,
+                    transformStyle: 'preserve-3d'
+                },
+                '-=0.7'
             );
 
             // 8. Hero icons scale, slide up and fade in with stagger
@@ -108,7 +206,7 @@ export default function Hero() {
                     <div className="home-text-container">
                         {/* Premium Badge */}
                         <div className="flex justify-center cursor-pointer w-full mb-2">
-                            <div 
+                            <div
                                 ref={tagRef}
                                 className="glass-badge inline-flex items-center gap-3 px-4 py-2 rounded-full relative overflow-hidden"
                             >
@@ -145,8 +243,8 @@ export default function Hero() {
                                 ref={titleRef}
                                 className="hero-title animate-me"
                             >
-The #1 All-in-One System for Infopreneurs.
-</h1>
+                                The #1 All-in-One System for Infopreneurs.
+                            </h1>
                             {/* <h1
                                 ref={titleRef}
                                 className="hero-title animate-me"
@@ -161,8 +259,7 @@ The #1 All-in-One System for Infopreneurs.
                                 ref={descriptionRef}
                                 className="paragraph-l animate-me"
                             >
-                                                                The #1 All-in-One System for Infopreneurs.
-
+Stop losing time & money. Everything centralized. Scale with real data.
 
                                 {/* Everything centralized.<br />No more guesswork — just clarity. */}
                             </p>
@@ -173,7 +270,7 @@ The #1 All-in-One System for Infopreneurs.
                                     href="https://app.youform.com/forms/esb5dhlr"
                                     className="button w-button animate-me"
                                 >
-                                   Apply to ScaleOS
+                                    Apply to ScaleOS
                                 </a>
                                 <a
                                     href="/demo"
@@ -187,7 +284,7 @@ The #1 All-in-One System for Infopreneurs.
                 </div>
                 <div className="hero-dashboard-wrapper">
                     <div className="animate-on-load-04 center">
-                        <div 
+                        <div
                             ref={imageContainerRef}
                             className="hero-dashbord-holder"
                         >
@@ -201,7 +298,7 @@ The #1 All-in-One System for Infopreneurs.
                             />
                         </div>
                     </div>
-                    
+
                     <div ref={iconsHolderRef} className="hero-icons-holder">
                         <div className="hero-logo-container _01">
                             <img loading="lazy" src="/assets/cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6882b349a4b61a45372a3ffb_Calendly.png" alt="" className="hero-logo-slack" />
@@ -221,19 +318,16 @@ The #1 All-in-One System for Infopreneurs.
                         </div>
                     </div>
                 </div>
+
+
                 <div className="hero-text-holder">
-                    <div className="hero-text-container">
-                        <div className="blue-blur-wrapper">
-                            <div className="blue-blur _02"></div>
+                    <div className="hero-text-container" style={{ willChange: 'filter, opacity, transform', filter: 'blur(0px)', opacity: 1, transform: 'translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg)', transformStyle: 'preserve-3d' }}>
+                        <div className="blue-blur _02" style={{ opacity: 0.255717, transform: 'translate3d(0px, 0px, 0px) scale3d(1.35239, 0.77355, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg)', transformStyle: 'preserve-3d', willChange: 'opacity, transform' }}></div>
+                        
+                        <h2 className="title">Say goodbye to scattered spreadsheets, disconnected CRMs and guessing games. Say hello to clarity, control, and cash collected.</h2>
                         </div>
-                        <h2
-                            ref={subtitleRef}
-                            className="title animate-me hero-subtitle-text"
-                        >
-                            Say goodbye to scattered spreadsheets, disconnected CRMs and guessing games. Say hello to clarity, control, and cash collected.
-                        </h2>
-                    </div>
-                </div>
+                        
+                        </div>
             </div>
         </div>
     );
