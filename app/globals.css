@@ -686,7 +686,7 @@ body {
   }
   
   .hero-section-wrapper .hero-text-holder {
-    margin-top: 40px !important; /* Smaller gap on tablet */
+    margin-top: 50px !important; /* More distance from image on tablet */
   }
 }
 
@@ -696,7 +696,7 @@ body {
   }
   
   .hero-section-wrapper .hero-text-holder {
-    margin-top: 30px !important; /* Smaller gap on mobile */
+    margin-top: 40px !important; /* More distance from image on mobile */
   }
 }
 
@@ -706,7 +706,7 @@ body {
   }
   
   .hero-section-wrapper .hero-text-holder {
-    margin-top: 20px !important; /* Smaller gap on small mobile */
+    margin-top: 30px !important; /* More distance from image on small mobile */
   }
 }
 
@@ -1115,12 +1115,24 @@ body {
 @media (max-width: 767px) {
   .hero-section-wrapper {
     padding-top: 110px !important;
+    padding-bottom: 40px !important; /* Reduced bottom gap on mobile */
     /* Extra padding on small mobile screens */
   }
   
   /* Override first section padding on small mobile */
   .section:first-of-type .hero-section-wrapper {
     padding-top: 110px !important;
+    padding-bottom: 40px !important;
+  }
+}
+
+@media (max-width: 479px) {
+  .hero-section-wrapper {
+    padding-bottom: 30px !important; /* Even less bottom gap on small mobile */
+  }
+  
+  .section:first-of-type .hero-section-wrapper {
+    padding-bottom: 30px !important;
   }
 }
 
@@ -1137,6 +1149,28 @@ body {
   line-height: 1.2 !important;
   margin-bottom: 0 !important;
   /* Remove default margins */
+}
+
+/* Make hero title smaller on mobile screens */
+@media (max-width: 991px) {
+  .hero-section-wrapper .hero-title {
+    font-size: 42px !important; /* Smaller on tablet */
+    line-height: 1.3 !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .hero-section-wrapper .hero-title {
+    font-size: 28px !important; /* Smaller on mobile */
+    line-height: 1.3 !important;
+  }
+}
+
+@media (max-width: 479px) {
+  .hero-section-wrapper .hero-title {
+    font-size: 24px !important; /* Even smaller on small mobile */
+    line-height: 1.4 !important;
+  }
 }
 
 .hero-section-wrapper .home-text-container {
@@ -1156,8 +1190,30 @@ body {
 
 .hero-section-wrapper .paragraph-l {
   font-size: 18px !important;
-  /* 72% of 25px */
+  /* Smaller than title - proportionally sized */
   line-height: 1.5 !important;
+}
+
+/* Make paragraph smaller on mobile screens - always smaller than title */
+@media (max-width: 991px) {
+  .hero-section-wrapper .paragraph-l {
+    font-size: 16px !important; /* Smaller than title (42px) */
+    line-height: 1.5 !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .hero-section-wrapper .paragraph-l {
+    font-size: 14px !important; /* Smaller than title (28px) */
+    line-height: 1.5 !important;
+  }
+}
+
+@media (max-width: 479px) {
+  .hero-section-wrapper .paragraph-l {
+    font-size: 13px !important; /* Smaller than title (24px) */
+    line-height: 1.5 !important;
+  }
 }
 
 .hero-section-wrapper .button {
@@ -1167,10 +1223,34 @@ body {
   /* ~71% of 14px 30px */
 }
 
+/* Base size for large screens - larger text */
 .hero-section-wrapper .title {
-  font-size: 32px !important;
-  /* ~68% of 47px */
-  line-height: 1.4 !important;
+  font-size: 40px !important; /* Larger on desktop */
+  line-height: 1.3 !important;
+}
+
+/* Tablet - slightly smaller */
+@media (max-width: 991px) {
+  .hero-section-wrapper .title {
+    font-size: 32px !important;
+    line-height: 1.4 !important;
+  }
+}
+
+/* Mobile - smaller text */
+@media (max-width: 767px) {
+  .hero-section-wrapper .title {
+    font-size: 18px !important; /* Smaller for mobile */
+    line-height: 1.4 !important;
+  }
+}
+
+/* Small mobile - keep small */
+@media (max-width: 479px) {
+  .hero-section-wrapper .title {
+    font-size: 18px !important; /* Keep 18px on small mobile */
+    line-height: 1.4 !important;
+  }
 }
 
 /* Scale hero text container */
@@ -1301,6 +1381,25 @@ body {
   /* 80% of 850px */
   min-height: 680px !important;
   max-height: 680px !important;
+}
+
+/* Reduce bottom gap on mobile screens */
+@media (max-width: 767px) {
+  .hero-section-wrapper .hero-text-holder {
+    height: auto !important;
+    min-height: 400px !important;
+    max-height: none !important;
+    padding-bottom: 40px !important;
+  }
+}
+
+@media (max-width: 479px) {
+  .hero-section-wrapper .hero-text-holder {
+    height: auto !important;
+    min-height: 350px !important;
+    max-height: none !important;
+    padding-bottom: 30px !important;
+  }
 }
 
 .hero-section-wrapper .hero-icons-holder {
@@ -1566,9 +1665,9 @@ body {
 /* Make hero subtitle more compact and readable on smaller screens */
 @media (max-width: 991px) {
   .hero-subtitle-text {
-    font-size: 26px !important;
+    font-size: 18px !important; /* Smaller on tablet */
     line-height: 1.4 !important;
-    max-width: 26rem !important;
+    max-width: 24rem !important;
     margin-left: auto !important;
     margin-right: auto !important;
   }
@@ -1576,17 +1675,19 @@ body {
 
 @media (max-width: 767px) {
   .hero-subtitle-text {
-    font-size: 22px !important;
-    line-height: 1.45 !important;
-    max-width: 22rem !important;
+    font-size: 15px !important; /* Smaller on mobile - fits 3-4 lines */
+    line-height: 1.4 !important;
+    max-width: 90% !important;
+    padding: 0 1rem !important;
   }
 }
 
 @media (max-width: 479px) {
   .hero-subtitle-text {
-    font-size: 20px !important;
-    line-height: 1.5 !important;
-    max-width: 20rem !important;
+    font-size: 14px !important; /* Fixed - was too small at 10px */
+    line-height: 1.4 !important;
+    max-width: 90% !important;
+    padding: 0 0.75rem !important;
   }
 }
 
@@ -1921,51 +2022,166 @@ body {
   }
 }
 
-/* Ensure proper layering: cube image behind, feature image on top */
-.feature-image-container._02 {
+/* Premium animation container - blur to sharp with glowing border */
+.feature-image-container._02.premium-animation {
   position: relative !important;
-  overflow: visible !important;
-  width: 460px !important;
-  height: 460px !important;
-  padding: 24px !important;
+  overflow: hidden !important;
+  width: 420px !important;
+  height: 360px !important;
+  padding: 0 !important;
   margin: 0 auto !important;
-}
-
-.cube-rotate-holder {
-  position: absolute !important;
-  inset: 0% !important;
-  z-index: 1 !important;
-  width: 100% !important;
-  height: 100% !important;
+  border-radius: 12px !important;
+  /* Card background matching theme */
+  background-color: #15161A !important;
+  /* Initial state: light blur */
+  filter: blur(3px) !important;
+  transition: filter 1.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  /* Thicker glowing border matching theme */
+  border: 3px solid rgba(12, 72, 161, 0.4) !important;
+  box-shadow: 0 0 25px rgba(12, 72, 161, 0.2), inset 0 0 20px rgba(0, 0, 0, 0.3) !important;
   display: flex !important;
   align-items: center !important;
-  justify-content: center !important;
-  overflow: visible !important;
+  justify-content: flex-start !important;
 }
 
-.cube-image {
-  width: 100% !important;
-  height: auto !important;
-  object-fit: contain !important;
-  max-width: 100% !important;
-  max-height: 100% !important;
-  display: block !important;
+/* When visible (on scroll), remove blur and enhance border */
+.feature-image-container._02.premium-animation.is-visible {
+  filter: blur(0px) !important;
+  border-color: rgba(12, 72, 161, 0.6) !important;
+  box-shadow: 0 0 40px rgba(12, 72, 161, 0.3), inset 0 0 30px rgba(0, 0, 0, 0.2) !important;
 }
 
 .feature-image-wrapper {
   position: relative !important;
-  z-index: 3 !important;
+  z-index: 2 !important;
   width: 100% !important;
   height: 100% !important;
+  border-radius: 8px !important;
+  overflow: hidden !important;
 }
 
 .feature-image-full {
   position: relative !important;
-  z-index: 4 !important;
+  z-index: 2 !important;
   width: 180% !important;
   height: auto !important;
   object-fit: contain !important;
   scale: 1.2 !important;
   transform: scale(1.1) !important;
   transform-origin: center center !important;
+  opacity: 1 !important;
+  transition: opacity 0.6s ease 0.3s !important;
+}
+
+/* Moving shine effect on border */
+.premium-border-shine {
+  position: absolute !important;
+  top: -3px !important;
+  left: -3px !important;
+  right: -3px !important;
+  bottom: -3px !important;
+  z-index: 3 !important;
+  border-radius: 12px !important;
+  pointer-events: none !important;
+  overflow: visible !important;
+  opacity: 1 !important;
+}
+
+.premium-border-shine::before {
+  content: '' !important;
+  position: absolute !important;
+  width: 120px !important;
+  height: 4px !important;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(12, 72, 161, 0.5) 20%,
+    rgba(12, 72, 161, 1) 50%,
+    rgba(12, 72, 161, 0.5) 80%,
+    transparent 100%
+  ) !important;
+  box-shadow: 0 0 15px rgba(12, 72, 161, 1), 0 0 25px rgba(12, 72, 161, 0.8) !important;
+  border-radius: 2px !important;
+  animation: border-line-move 3s linear infinite !important;
+}
+
+.premium-border-shine::after {
+  content: '' !important;
+  position: absolute !important;
+  inset: -3px !important;
+  border-radius: 12px !important;
+  padding: 3px !important;
+  background: conic-gradient(
+    from 0deg,
+    rgba(12, 72, 161, 0.2) 0deg,
+    rgba(12, 72, 161, 0.2) 340deg,
+    rgba(12, 72, 161, 0.4) 345deg,
+    rgba(12, 72, 161, 0.7) 350deg,
+    rgba(12, 72, 161, 0.9) 355deg,
+    rgba(12, 72, 161, 0.7) 360deg,
+    rgba(12, 72, 161, 0.4) 365deg,
+    rgba(12, 72, 161, 0.2) 370deg,
+    rgba(12, 72, 161, 0.2) 720deg
+  ) !important;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0) !important;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0) !important;
+  -webkit-mask-composite: xor !important;
+  mask-composite: exclude !important;
+  animation: border-rotate 3s linear infinite !important;
+}
+
+@keyframes border-line-move {
+  0% {
+    top: -3px !important;
+    left: -120px !important;
+  }
+  25% {
+    top: -3px !important;
+    left: calc(100% + 120px) !important;
+  }
+  25.01% {
+    top: -3px !important;
+    left: calc(100% + 120px) !important;
+    transform: rotate(90deg) !important;
+    transform-origin: center !important;
+  }
+  50% {
+    top: calc(100% + 120px) !important;
+    left: calc(100% + 120px) !important;
+    transform: rotate(90deg) !important;
+    transform-origin: center !important;
+  }
+  50.01% {
+    top: calc(100% + 120px) !important;
+    left: calc(100% + 120px) !important;
+    transform: rotate(180deg) !important;
+    transform-origin: center !important;
+  }
+  75% {
+    top: calc(100% + 120px) !important;
+    left: -120px !important;
+    transform: rotate(180deg) !important;
+    transform-origin: center !important;
+  }
+  75.01% {
+    top: calc(100% + 120px) !important;
+    left: -120px !important;
+    transform: rotate(270deg) !important;
+    transform-origin: center !important;
+  }
+  100% {
+    top: -3px !important;
+    left: -120px !important;
+    transform: rotate(270deg) !important;
+    transform-origin: center !important;
+  }
+}
+
+@keyframes border-rotate {
+  0% {
+    transform: rotate(0deg) !important;
+  }
+  100% {
+    transform: rotate(360deg) !important;
+  }
 }
