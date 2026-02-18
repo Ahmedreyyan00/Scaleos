@@ -50,7 +50,7 @@ export default function RootLayout({
             section, main, header, footer { overflow-x: hidden !important; }
             
             .navbar, .section { display: block !important; visibility: visible !important; }
-        .navbar {position: sticky !important; opacity: 1 !important; z-index: 1000 !important; filter: none !important; }
+        .navbar {position: fixed !important; top: 0 !important; opacity: 1 !important; z-index: 1000 !important; filter: none !important; }
         .section {position: relative !important; opacity: 1 !important; filter: none !important; overflow-x: hidden !important; }
         .navbar * {opacity: 1 !important; visibility: visible !important; filter: none !important; }
 

@@ -1353,6 +1353,16 @@ body {
   color: rgba(255, 255, 255, 0.9) !important;
 }
 
+/* Add top padding to feature cards section to prevent icon cutoff */
+.section:has(.feature-grid-holder) {
+  padding-top: 30px !important;
+}
+
+/* Add padding to feature grid holder container */
+.section:has(.feature-grid-holder) .feature-grid-holder {
+  padding-top: 20px !important;
+}
+
 /* FOMO Badge - Premium Live Status Indicator */
 .fomo-badge-container {
   display: flex;
