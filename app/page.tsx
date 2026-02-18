@@ -37,13 +37,22 @@ export default function Home() {
     <div className="container allow-shadow-overflow-container" style={{ overflow: 'visible' }}>
       <div className="new-features-holder">
         <div className="w-layout-grid new-features-grid">
-          <div id="w-node-_0f6e4690-5961-adb5-bb42-4dc31a841c65-a9826b02" className="cubes-holder">
-            <div data-w-id="639747d7-0671-e4e3-a159-8254f321ed2c" style={{ WebkitTransform: "translate3d(0, 60px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", MozTransform: "translate3d(0, 60px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", msTransform: "translate3d(0, 60px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", transform: "translate3d(0, 60px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", filter: "blur(15px)", opacity: 0 }} className="cube-rotate-holder">
-              <img className="cube-image" src="/assets/cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6883fea00a351bcab0c9a0b4_LogoClarity%25206.png" alt="" style={{ WebkitTransform: "translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0)", MozTransform: "translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0)", msTransform: "translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0)", transform: "translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0)" }} sizes="(max-width: 2066px) 100vw, 2066px" data-w-id="d11d9d8f-72de-9228-03be-cc55d45d98a9" loading="lazy" />
+          <div id="w-node-_0f6e4690-5961-adb5-bb42-4dc31a841c65-a9826b02" className="feature-graphic-holder">
+            <div data-w-id="639747d7-0671-e4e3-a159-8254f321ed2c" className="feature-image-container _02">
+              <div className="feature-image-wrapper">
+                <img className="feature-image-full" src="/trackflow.png" alt="" style={{ opacity: 0 }} sizes="(max-width: 1068px) 100vw, 1068px" data-w-id="cbaa7d5c-4c57-c18b-0453-b641d1bfe125" loading="lazy" srcSet="/trackflow.png 500w, /trackflow.png 800w, /trackflow.png 1068w" />
+              </div>
+              <div className="cube-rotate-holder">
+                <img className="cube-image"
+                  src="assets/cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6883fea00a351bcab0c9a0b4_LogoClarity%206.png"
+                  alt=""
+                  style={{ WebkitTransform: 'translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0)', MozTransform: 'translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0)', msTransform: 'translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0)', transform: 'translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0)' }}
+                  sizes="(max-width: 2066px) 100vw, 2066px"
+                  data-w-id="d11d9d8f-72de-9228-03be-cc55d45d98a9" loading="lazy"
+                  srcSet="https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6883fea00a351bcab0c9a0b4_LogoClarity%206-p-500.png 500w, https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6883fea00a351bcab0c9a0b4_LogoClarity%206-p-800.png 800w, https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6883fea00a351bcab0c9a0b4_LogoClarity%206-p-1080.png 1080w, https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6883fea00a351bcab0c9a0b4_LogoClarity%206-p-1600.png 1600w, https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6883fea00a351bcab0c9a0b4_LogoClarity%206-p-2000.png 2000w, https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6883fea00a351bcab0c9a0b4_LogoClarity%206.png 2066w" />
+              </div>
             </div>
-            <div className="card-holder">
-              <img className="meeting-card" src="/trackflow.png" alt="" style={{ WebkitTransform: "translate3d(0, 60px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", MozTransform: "translate3d(0, 60px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", msTransform: "translate3d(0, 60px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", transform: "translate3d(0, 60px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", filter: "blur(15px)", opacity: 0 }} sizes="(max-width: 1068px) 100vw, 1068px" data-w-id="cbaa7d5c-4c57-c18b-0453-b641d1bfe125" loading="lazy" />
-            </div>
+            <div className="feature-image-blur"></div>
           </div>
           <div id="w-node-_0f6e4690-5961-adb5-bb42-4dc31a841c5d-a9826b02" className="feature-grid-content">
             <div className="feature-grid-content-holder-2">
