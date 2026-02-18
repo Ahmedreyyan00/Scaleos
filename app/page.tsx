@@ -16,14 +16,14 @@ export default function Home() {
       <div className="grid-holder">
         <div className="w-layout-grid grid">
           <div className="grid-item">
-            <img className="grid-image" src="/assets/cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6882c313e39f8fa5d927656c_Asset1.png" alt="" sizes="(max-width: 1710px) 100vw, 1710px" data-w-id="489ae30c-d1da-3634-9042-73948da8383a" loading="lazy" />
+            <img className="grid-image" src="/feat_fur-removebg-preview.png" alt="" sizes="(max-width: 1710px) 100vw, 1710px" data-w-id="489ae30c-d1da-3634-9042-73948da8383a" loading="lazy" />
             <div className="grid-content">
               <div className="grid-title">Become a real CEO</div>
               <p className="no-margins-2">Track cash collected, calls booked, leads, team KPIs, client LTV, and revenue per YouTube video — all in real time.</p>
             </div>
           </div>
           <div className="grid-item">
-            <img className="grid-image" src="/assets/cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6882c543f9fe0246ed23a5fc_Asset2.png" alt="" sizes="(max-width: 1710px) 100vw, 1710px" data-w-id="489ae30c-d1da-3634-9042-73948da83841" loading="lazy" />
+            <img className="grid-image" src="/fea-removebg-preview.png" alt="" sizes="(max-width: 1710px) 100vw, 1710px" data-w-id="489ae30c-d1da-3634-9042-73948da83841" loading="lazy" />
             <div className="grid-content">
               <div className="grid-title">Built-in automations</div>
               <p className="no-margins-2">Sales pipeline automation : automated onboading, slack &amp; payments notifications</p>
@@ -91,10 +91,12 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div className="home-pragraph-holder">
-          <div className="hero-text-container-2">
-            <div className="blue-blur-2-copy _022-phone"></div>
-            <h2 className="title">More than a dashboard.<br />Your entire info business, centralized.</h2>
+        <div className="hero-text-holder">
+          <div className="hero-text-container">
+            <div className="blue-blur-wrapper">
+              <div className="blue-blur _02"></div>
+            </div>
+            <h2 className="title animate-me hero-subtitle-text">More than a dashboard.<br />Your entire info business, centralized.</h2>
             <div className="animate-on-load-03">
               <div className="button-holder">
                 <a href="/features" className="button w-button">Explore more features</a>
