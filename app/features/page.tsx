@@ -364,7 +364,7 @@ const Features = () => {
                     </div>
                 </div>
             </div>
-            <div className="section">
+            <div className="section mt-10">
                 <div className="container">
                     <div className="feature-grid-holder">
                         <div className="w-layout-grid _3x-grid">
