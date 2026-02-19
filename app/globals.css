@@ -27,7 +27,69 @@ body {
   max-width: 100vw;
 }
 
-/* Elements are visible by default - GSAP will animate them smoothly */
+/* ── Hide ALL scrollbars globally ──────────────────────────────────────────
+   No scrollbar is visible anywhere on the page or in any component.
+   The page remains fully scrollable via mouse wheel / touch / keyboard. */
+
+/* Firefox */
+* {
+  scrollbar-width: none !important;
+}
+
+/* Chrome / Safari / Edge (Chromium) */
+*::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+/* IE / Edge Legacy */
+* {
+  -ms-overflow-style: none !important;
+}
+
+/* ── Overflow strategy ──────────────────────────────────────────────────────
+   ONLY html/body prevent horizontal scroll. Everything else is visible so
+   the hero blue shadow is never clipped on any side. Section-level scrollbars
+   are prevented by keeping overflow-y:auto only on html/body. */
+html,
+body {
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+}
+
+/* All containers/sections/wrappers: fully visible, no clipping */
+.section,
+.wrapper,
+.container,
+.page {
+  overflow: visible !important;
+}
+
+/* Navbar must never be clipped */
+.navbar,
+.w-nav,
+.navbar *,
+.w-nav * {
+  overflow: visible !important;
+}
+
+/* iframes keep their own overflow */
+.youform-embed-container,
+.youform-embed-container iframe,
+.w-embed-youtubevideo {
+  overflow: hidden !important;
+}
+
+/* ── Scroll blur-to-sharp animation (GSAP controlled) ───────────────────────
+   Elements get this class added by the useBlurFadeIn hook right before GSAP
+   sets their initial state. The layout.tsx forced-visibility rules exclude
+   this class so GSAP's inline style values always win. */
+.gsap-blur-reveal {
+  will-change: filter, opacity, transform;
+  /* GSAP inline styles override everything below — no !important needed */
+}
+
 
 /* Prevent layout shift - use will-change for better performance */
 .hero-title,
@@ -143,7 +205,8 @@ body {
   display: block;
   width: 100%;
   height: auto;
-  filter: blur(0px) !important; /* Never blur the dashboard image */
+  filter: blur(0px) !important;
+  /* Never blur the dashboard image */
   -webkit-filter: blur(0px) !important;
   backdrop-filter: blur(0px) !important;
   -webkit-backdrop-filter: blur(0px) !important;
@@ -655,19 +718,19 @@ body {
 /* Translucent background overlay that covers the image above */
 .hero-text-section-background {
   position: absolute !important;
-  top: -220px !important; /* Extend upward to cover more of the image */
+  top: -220px !important;
+  /* Extend upward to cover more of the image */
   left: 0 !important;
   right: 0 !important;
   bottom: 0 !important;
   width: 100% !important;
   /* Darker, soft overlay so text pops but blue blur is still visible */
-  background: radial-gradient(
-    ellipse at center,
-    rgba(0, 0, 0, 0.7) 0%,
-    rgba(0, 0, 0, 0.82) 45%,
-    rgba(0, 0, 0, 0.9) 100%
-  ) !important;
-  z-index: 2 !important; /* Above image (z-index: 1), below text container (z-index: 10) */
+  background: radial-gradient(ellipse at center,
+      rgba(0, 0, 0, 0.7) 0%,
+      rgba(0, 0, 0, 0.82) 45%,
+      rgba(0, 0, 0, 0.9) 100%) !important;
+  z-index: 2 !important;
+  /* Above image (z-index: 1), below text container (z-index: 10) */
   pointer-events: none !important;
   /* Let underlying blue blur color show through (no extra blur here) */
   backdrop-filter: none !important;
@@ -676,37 +739,44 @@ body {
 
 /* Add gap between image and text section */
 .hero-section-wrapper .hero-text-holder {
-  margin-top: 60px !important; /* Gap between image and text section */
+  margin-top: 60px !important;
+  /* Gap between image and text section */
 }
 
 /* Mobile adjustments for background overlay and gap */
 @media (max-width: 991px) {
   .hero-text-section-background {
-    top: -150px !important; /* Less extension on tablet */
+    top: -150px !important;
+    /* Less extension on tablet */
   }
-  
+
   .hero-section-wrapper .hero-text-holder {
-    margin-top: 50px !important; /* More distance from image on tablet */
+    margin-top: 50px !important;
+    /* More distance from image on tablet */
   }
 }
 
 @media (max-width: 767px) {
   .hero-text-section-background {
-    top: -120px !important; /* Less extension on mobile */
+    top: -120px !important;
+    /* Less extension on mobile */
   }
-  
+
   .hero-section-wrapper .hero-text-holder {
-    margin-top: 40px !important; /* More distance from image on mobile */
+    margin-top: 40px !important;
+    /* More distance from image on mobile */
   }
 }
 
 @media (max-width: 479px) {
   .hero-text-section-background {
-    top: -100px !important; /* Minimal extension on small mobile */
+    top: -100px !important;
+    /* Minimal extension on small mobile */
   }
-  
+
   .hero-section-wrapper .hero-text-holder {
-    margin-top: 30px !important; /* More distance from image on small mobile */
+    margin-top: 30px !important;
+    /* More distance from image on small mobile */
   }
 }
 
@@ -1135,6 +1205,61 @@ body {
   border-radius: 0 !important;
 }
 
+/* ── Mobile navbar: logo LEFT, hamburger RIGHT ──────────────────────────── */
+@media (max-width: 991px) {
+
+  /* The inner navbar-holder must be a flex row spanning full width */
+  .navbar-holder {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    width: 100% !important;
+  }
+
+  /* Inner navbar-container mirrors this */
+  .navbar-holder>.navbar-container,
+  .navbar-holder .navbar-container {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    width: 100% !important;
+  }
+
+  /* Logo stays left */
+  .brand-holder {
+    flex: 0 0 auto !important;
+    margin-right: auto !important;
+  }
+
+  /* Hide desktop nav links on mobile */
+  .nav-menu.w-nav-menu {
+    display: none !important;
+  }
+
+  /* Hamburger button goes to the far right */
+  .menu-cart-holder {
+    flex: 0 0 auto !important;
+    margin-left: auto !important;
+    display: flex !important;
+    align-items: center !important;
+  }
+
+  /* Hide the "Apply to ScaleOS" button on mobile — keep only hamburger */
+  .nav-menu-button-holder {
+    display: none !important;
+  }
+
+  /* Hamburger button visible and right-aligned */
+  .menu-button.w-nav-button {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 8px !important;
+  }
+}
+
 /* Hero section container - 80% scale with increased side spacing */
 .hero-section-wrapper {
   padding-top: 90px !important;
@@ -1147,7 +1272,7 @@ body {
     padding-top: 100px !important;
     /* Extra padding on mobile for navbar */
   }
-  
+
   /* Override first section padding on mobile */
   .section:first-of-type .hero-section-wrapper {
     padding-top: 100px !important;
@@ -1157,10 +1282,11 @@ body {
 @media (max-width: 767px) {
   .hero-section-wrapper {
     padding-top: 110px !important;
-    padding-bottom: 40px !important; /* Reduced bottom gap on mobile */
+    padding-bottom: 40px !important;
+    /* Reduced bottom gap on mobile */
     /* Extra padding on small mobile screens */
   }
-  
+
   /* Override first section padding on small mobile */
   .section:first-of-type .hero-section-wrapper {
     padding-top: 110px !important;
@@ -1170,9 +1296,10 @@ body {
 
 @media (max-width: 479px) {
   .hero-section-wrapper {
-    padding-bottom: 30px !important; /* Even less bottom gap on small mobile */
+    padding-bottom: 30px !important;
+    /* Even less bottom gap on small mobile */
   }
-  
+
   .section:first-of-type .hero-section-wrapper {
     padding-bottom: 30px !important;
   }
@@ -1196,21 +1323,24 @@ body {
 /* Make hero title smaller on mobile screens */
 @media (max-width: 991px) {
   .hero-section-wrapper .hero-title {
-    font-size: 42px !important; /* Smaller on tablet */
+    font-size: 42px !important;
+    /* Smaller on tablet */
     line-height: 1.3 !important;
   }
 }
 
 @media (max-width: 767px) {
   .hero-section-wrapper .hero-title {
-    font-size: 28px !important; /* Smaller on mobile */
+    font-size: 28px !important;
+    /* Smaller on mobile */
     line-height: 1.3 !important;
   }
 }
 
 @media (max-width: 479px) {
   .hero-section-wrapper .hero-title {
-    font-size: 24px !important; /* Even smaller on small mobile */
+    font-size: 24px !important;
+    /* Even smaller on small mobile */
     line-height: 1.4 !important;
   }
 }
@@ -1239,21 +1369,24 @@ body {
 /* Make paragraph smaller on mobile screens - always smaller than title */
 @media (max-width: 991px) {
   .hero-section-wrapper .paragraph-l {
-    font-size: 16px !important; /* Smaller than title (42px) */
+    font-size: 16px !important;
+    /* Smaller than title (42px) */
     line-height: 1.5 !important;
   }
 }
 
 @media (max-width: 767px) {
   .hero-section-wrapper .paragraph-l {
-    font-size: 14px !important; /* Smaller than title (28px) */
+    font-size: 14px !important;
+    /* Smaller than title (28px) */
     line-height: 1.5 !important;
   }
 }
 
 @media (max-width: 479px) {
   .hero-section-wrapper .paragraph-l {
-    font-size: 13px !important; /* Smaller than title (24px) */
+    font-size: 13px !important;
+    /* Smaller than title (24px) */
     line-height: 1.5 !important;
   }
 }
@@ -1267,7 +1400,8 @@ body {
 
 /* Base size for large screens - larger text */
 .hero-section-wrapper .title {
-  font-size: 40px !important; /* Larger on desktop */
+  font-size: 40px !important;
+  /* Larger on desktop */
   line-height: 1.3 !important;
 }
 
@@ -1282,7 +1416,8 @@ body {
 /* Mobile - smaller text */
 @media (max-width: 767px) {
   .hero-section-wrapper .title {
-    font-size: 18px !important; /* Smaller for mobile */
+    font-size: 18px !important;
+    /* Smaller for mobile */
     line-height: 1.4 !important;
   }
 }
@@ -1290,7 +1425,8 @@ body {
 /* Small mobile - keep small */
 @media (max-width: 479px) {
   .hero-section-wrapper .title {
-    font-size: 18px !important; /* Keep 18px on small mobile */
+    font-size: 18px !important;
+    /* Keep 18px on small mobile */
     line-height: 1.4 !important;
   }
 }
@@ -1363,7 +1499,8 @@ body {
   position: relative !important;
   z-index: 1 !important;
   /* Lower z-index so text is above */
-  filter: blur(0px) !important; /* No blur on wrapper */
+  filter: blur(0px) !important;
+  /* No blur on wrapper */
   -webkit-filter: blur(0px) !important;
   backdrop-filter: blur(0px) !important;
   -webkit-backdrop-filter: blur(0px) !important;
@@ -1386,7 +1523,8 @@ body {
   pointer-events: none !important;
   /* Don't block clicks on elements above */
   /* box-shadow will be animated by GSAP */
-  filter: blur(0px) !important; /* No blur on container */
+  filter: blur(0px) !important;
+  /* No blur on container */
   -webkit-filter: blur(0px) !important;
   backdrop-filter: blur(0px) !important;
   -webkit-backdrop-filter: blur(0px) !important;
@@ -1395,7 +1533,8 @@ body {
 /* But allow pointer events on the image itself for any interactions */
 .hero-section-wrapper .hero-dashbord-holder .hero-dashboard-image {
   pointer-events: auto !important;
-  filter: blur(0px) !important; /* Never blur */
+  filter: blur(0px) !important;
+  /* Never blur */
   -webkit-filter: blur(0px) !important;
 }
 
@@ -1405,7 +1544,8 @@ body {
 .hero-section-wrapper .hero-dashboard-image {
   width: 100% !important;
   /* Image stays 100% of its container */
-  filter: blur(0px) !important; /* Ensure image is never blurred */
+  filter: blur(0px) !important;
+  /* Ensure image is never blurred */
   -webkit-filter: blur(0px) !important;
 }
 
@@ -1420,7 +1560,8 @@ body {
 /* Make hero logo containers smaller on mobile screens */
 @media (max-width: 991px) {
   .hero-section-wrapper .hero-logo-container {
-    width: 70px !important; /* Smaller on tablet */
+    width: 70px !important;
+    /* Smaller on tablet */
     height: 70px !important;
     border-radius: 16px !important;
   }
@@ -1428,7 +1569,8 @@ body {
 
 @media (max-width: 767px) {
   .hero-section-wrapper .hero-logo-container {
-    width: 60px !important; /* Smaller on mobile */
+    width: 60px !important;
+    /* Smaller on mobile */
     height: 60px !important;
     border-radius: 14px !important;
   }
@@ -1436,7 +1578,8 @@ body {
 
 @media (max-width: 479px) {
   .hero-section-wrapper .hero-logo-container {
-    width: 50px !important; /* Even smaller on small mobile */
+    width: 50px !important;
+    /* Even smaller on small mobile */
     height: 50px !important;
     border-radius: 12px !important;
   }
@@ -1453,12 +1596,14 @@ body {
 
 /* Prevent logos from going below text section on scroll */
 .hero-section-wrapper .hero-icons-holder {
-  position: relative !important; /* Change from absolute to prevent scroll issues */
+  position: relative !important;
+  /* Change from absolute to prevent scroll issues */
 }
 
 @media (min-width: 768px) {
   .hero-section-wrapper .hero-icons-holder {
-    position: absolute !important; /* Keep absolute on larger screens */
+    position: absolute !important;
+    /* Keep absolute on larger screens */
   }
 }
 
@@ -1494,7 +1639,8 @@ body {
   /* 80% of 850px */
   min-height: 680px !important;
   max-height: 680px !important;
-  z-index: 5 !important; /* Ensure logos stay above other elements */
+  z-index: 5 !important;
+  /* Ensure logos stay above other elements */
 }
 
 /* Fix icons holder on mobile to prevent going below text after scrolling */
@@ -1503,8 +1649,10 @@ body {
     height: auto !important;
     min-height: auto !important;
     max-height: none !important;
-    position: relative !important; /* Change positioning on mobile */
-    z-index: 3 !important; /* Lower z-index so text section can be above */
+    position: relative !important;
+    /* Change positioning on mobile */
+    z-index: 3 !important;
+    /* Lower z-index so text section can be above */
     margin-top: 20px !important;
   }
 }
@@ -1644,7 +1792,7 @@ body {
     text-align: center !important;
     position: relative !important;
   }
-  
+
   .blue-blur-wrapper {
     position: absolute !important;
     left: 0 !important;
@@ -1765,7 +1913,8 @@ body {
 /* Make hero subtitle more compact and readable on smaller screens */
 @media (max-width: 991px) {
   .hero-subtitle-text {
-    font-size: 18px !important; /* Smaller on tablet */
+    font-size: 18px !important;
+    /* Smaller on tablet */
     line-height: 1.4 !important;
     max-width: 24rem !important;
     margin-left: auto !important;
@@ -1775,7 +1924,8 @@ body {
 
 @media (max-width: 767px) {
   .hero-subtitle-text {
-    font-size: 15px !important; /* Smaller on mobile - fits 3-4 lines */
+    font-size: 15px !important;
+    /* Smaller on mobile - fits 3-4 lines */
     line-height: 1.4 !important;
     max-width: 90% !important;
     padding: 0 1rem !important;
@@ -1784,7 +1934,8 @@ body {
 
 @media (max-width: 479px) {
   .hero-subtitle-text {
-    font-size: 14px !important; /* Fixed - was too small at 10px */
+    font-size: 14px !important;
+    /* Fixed - was too small at 10px */
     line-height: 1.4 !important;
     max-width: 90% !important;
     padding: 0 0.75rem !important;
@@ -2192,14 +2343,12 @@ body {
   position: absolute !important;
   width: 120px !important;
   height: 4px !important;
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    rgba(12, 72, 161, 0.5) 20%,
-    rgba(12, 72, 161, 1) 50%,
-    rgba(12, 72, 161, 0.5) 80%,
-    transparent 100%
-  ) !important;
+  background: linear-gradient(90deg,
+      transparent 0%,
+      rgba(12, 72, 161, 0.5) 20%,
+      rgba(12, 72, 161, 1) 50%,
+      rgba(12, 72, 161, 0.5) 80%,
+      transparent 100%) !important;
   box-shadow: 0 0 15px rgba(12, 72, 161, 1), 0 0 25px rgba(12, 72, 161, 0.8) !important;
   border-radius: 2px !important;
   animation: border-line-move 3s linear infinite !important;
@@ -2211,18 +2360,16 @@ body {
   inset: -3px !important;
   border-radius: 12px !important;
   padding: 3px !important;
-  background: conic-gradient(
-    from 0deg,
-    rgba(12, 72, 161, 0.2) 0deg,
-    rgba(12, 72, 161, 0.2) 340deg,
-    rgba(12, 72, 161, 0.4) 345deg,
-    rgba(12, 72, 161, 0.7) 350deg,
-    rgba(12, 72, 161, 0.9) 355deg,
-    rgba(12, 72, 161, 0.7) 360deg,
-    rgba(12, 72, 161, 0.4) 365deg,
-    rgba(12, 72, 161, 0.2) 370deg,
-    rgba(12, 72, 161, 0.2) 720deg
-  ) !important;
+  background: conic-gradient(from 0deg,
+      rgba(12, 72, 161, 0.2) 0deg,
+      rgba(12, 72, 161, 0.2) 340deg,
+      rgba(12, 72, 161, 0.4) 345deg,
+      rgba(12, 72, 161, 0.7) 350deg,
+      rgba(12, 72, 161, 0.9) 355deg,
+      rgba(12, 72, 161, 0.7) 360deg,
+      rgba(12, 72, 161, 0.4) 365deg,
+      rgba(12, 72, 161, 0.2) 370deg,
+      rgba(12, 72, 161, 0.2) 720deg) !important;
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0) !important;
   mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0) !important;
   -webkit-mask-composite: xor !important;
@@ -2235,40 +2382,47 @@ body {
     top: -3px !important;
     left: -120px !important;
   }
+
   25% {
     top: -3px !important;
     left: calc(100% + 120px) !important;
   }
+
   25.01% {
     top: -3px !important;
     left: calc(100% + 120px) !important;
     transform: rotate(90deg) !important;
     transform-origin: center !important;
   }
+
   50% {
     top: calc(100% + 120px) !important;
     left: calc(100% + 120px) !important;
     transform: rotate(90deg) !important;
     transform-origin: center !important;
   }
+
   50.01% {
     top: calc(100% + 120px) !important;
     left: calc(100% + 120px) !important;
     transform: rotate(180deg) !important;
     transform-origin: center !important;
   }
+
   75% {
     top: calc(100% + 120px) !important;
     left: -120px !important;
     transform: rotate(180deg) !important;
     transform-origin: center !important;
   }
+
   75.01% {
     top: calc(100% + 120px) !important;
     left: -120px !important;
     transform: rotate(270deg) !important;
     transform-origin: center !important;
   }
+
   100% {
     top: -3px !important;
     left: -120px !important;
@@ -2281,6 +2435,7 @@ body {
   0% {
     transform: rotate(0deg) !important;
   }
+
   100% {
     transform: rotate(360deg) !important;
   }
@@ -2288,13 +2443,15 @@ body {
 
 /* Fix CTA heading overflow on mobile screens */
 @media (max-width: 767px) {
+
   /* Ensure CTA content container has proper padding and doesn't overflow */
   .cta-holder {
     padding-left: 20px !important;
     padding-right: 20px !important;
     padding-top: 30px !important;
     padding-bottom: 30px !important;
-    overflow-x: hidden !important; /* Prevent horizontal overflow */
+    overflow-x: hidden !important;
+    /* Prevent horizontal overflow */
   }
 
   .cta-content {
@@ -2308,8 +2465,10 @@ body {
   /* Fix heading overflow on mobile */
   .cta-content h1,
   .cta-holder h1 {
-    font-size: 28px !important; /* Smaller font size for mobile */
-    line-height: 1.3 !important; /* Tighter line height */
+    font-size: 28px !important;
+    /* Smaller font size for mobile */
+    line-height: 1.3 !important;
+    /* Tighter line height */
     padding-left: 10px !important;
     padding-right: 10px !important;
     margin-left: 0 !important;
@@ -2333,9 +2492,11 @@ body {
 
 /* Extra small mobile screens */
 @media (max-width: 479px) {
+
   .cta-content h1,
   .cta-holder h1 {
-    font-size: 24px !important; /* Even smaller for very small screens */
+    font-size: 24px !important;
+    /* Even smaller for very small screens */
     line-height: 1.2 !important;
     padding-left: 5px !important;
     padding-right: 5px !important;

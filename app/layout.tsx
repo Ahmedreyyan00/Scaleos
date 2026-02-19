@@ -51,11 +51,18 @@ export default function RootLayout({
             
             .navbar, .section { display: block !important; visibility: visible !important; }
         .navbar {position: fixed !important; top: 0 !important; opacity: 1 !important; z-index: 1000 !important; filter: none !important; }
-        .section {position: relative !important; opacity: 1 !important; filter: none !important; overflow-x: hidden !important; }
+        /* ONLY html/body control scroll — sections/wrappers are fully visible so hero blur is never clipped */
+        .section {position: relative !important; opacity: 1 !important; overflow: visible !important; }
+        .wrapper, .container { overflow: visible !important; }
+        /* Navbar: fixed, always on top, never clipped */
+        .navbar, .w-nav, .navbar *, .w-nav * { overflow: visible !important; }
         .navbar * {opacity: 1 !important; visibility: visible !important; filter: none !important; }
 
-        /* Force visibility on everything EXCEPT our custom animated elements */
-        .hero-section-wrapper, .section *:not(.animate-me):not(.tip-tool-holder):not(.tip-tool-container) {opacity: 1 !important; visibility: visible !important; filter: none !important; }
+        /* Force visibility on everything EXCEPT gsap-blur-reveal + other custom animated elements */
+        .hero-section-wrapper, .section *:not(.animate-me):not(.tip-tool-holder):not(.tip-tool-container):not(.gsap-blur-reveal) {opacity: 1 !important; visibility: visible !important; filter: none !important; }
+
+        /* gsap-blur-reveal elements: GSAP owns opacity, filter, visibility — no forced overrides */
+        .gsap-blur-reveal { /* intentionally left empty — GSAP controls these via inline style */ }
 
         /* Ensure explicit visibility for containers */
         .home-text-holder, .hero-dashboard-wrapper, .hero-icons-holder, .hero-text-holder {opacity: 1 !important; visibility: visible !important; filter: none !important; }

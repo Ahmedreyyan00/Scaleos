@@ -1,10 +1,15 @@
+'use client';
+
 import React from 'react';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import CTASection from '../../components/CTASection';
 import FOMOBadge from '../../components/FOMOBadge';
+import { useBlurFadeIn } from '../../hooks/useBlurFadeIn';
 
 const Demo = () => {
+    useBlurFadeIn();
+
     return (
         <div className="wrapper demo">
             <Header />
@@ -24,7 +29,7 @@ const Demo = () => {
                                 <div className="center-hero-paragraph-holder">
                                     <div>
                                         <p className="paragraph-2">Discover how top infopreneurs scale faster with clarity.
-                     Watch the demo.</p>
+                                            Watch the demo.</p>
                                     </div>
                                 </div>
                             </div>
@@ -223,13 +228,13 @@ const Demo = () => {
                     <div className="cta-holder">
                         <div className="cta-content">
                             <div className="fade-in-on-scroll">
-                                <h1>The #1 All-in-One System <br/> for Infopreneurs.
+                                <h1>The #1 All-in-One System <br /> for Infopreneurs.
                                 </h1>
                             </div>
                             <div className="form"><a href="https://app.youform.com/forms/esb5dhlr"
                                 className="submit-button-url w-button">Apply to ScaleOS</a></div>
-                            
-                            
+
+
                         </div>
                         <CTASection />
                     </div>

@@ -5,6 +5,7 @@ import { gsap } from 'gsap';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import CTASection from '@/components/CTASection';
+import { useBlurFadeIn } from '@/hooks/useBlurFadeIn';
 
 const Features = () => {
     const featureSectionRef = useRef<HTMLDivElement>(null);
@@ -17,6 +18,9 @@ const Features = () => {
     const featureCard3Ref = useRef<HTMLDivElement>(null);
     const featureCard4Ref = useRef<HTMLDivElement>(null);
     const featureCard5Ref = useRef<HTMLDivElement>(null);
+    
+    // Apply blur fade-in animation to all images and sections after hero
+    useBlurFadeIn();
 
     useEffect(() => {
         if (!featureSectionRef.current) return;

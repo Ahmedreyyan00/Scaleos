@@ -6,9 +6,13 @@ import Hero from "../components/Hero";
 import CTASection from "../components/CTASection";
 import Footer from "@/components/Footer";
 import FeatureSlider from "@/components/FeatureSlider";
+import { useBlurFadeIn } from "@/hooks/useBlurFadeIn";
 
 export default function Home() {
   const featureImageRef = useRef<HTMLDivElement>(null);
+  
+  // Apply blur fade-in animation to all images and sections after hero
+  useBlurFadeIn();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -119,7 +123,7 @@ export default function Home() {
                 </div>
               </div>
             </div>
-            <div className="home-pragraph-holder"><div className="hero-text-container-2"><div className="blue-blur-2-copy _022-phone"></div><h2 className="title">More than a dashboard.<br />Your entire info business, centralized.</h2><div style={{opacity: 1, transform: "translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg)", transformStyle: "preserve-3d", filter: "blur(0px)"}} className="animate-on-load-03"><div className="button-holder"><a href="/features" className="button w-button">Explore more features</a></div></div></div></div>
+            <div className="home-pragraph-holder"><div className="hero-text-container-2"><div className="blue-blur-2-copy _022-phone"></div><h2 className="title">More than a dashboard.<br />Your entire info business, centralized.</h2><div style={{ opacity: 1, transform: "translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg)", transformStyle: "preserve-3d", filter: "blur(0px)" }} className="animate-on-load-03"><div className="button-holder"><a href="/features" className="button w-button">Explore more features</a></div></div></div></div>
 
           </div>
         </div>
