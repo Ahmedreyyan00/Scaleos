@@ -13,14 +13,14 @@ export default function CTASection() {
 
         const ctx = gsap.context(() => {
             // Set initial states IMMEDIATELY to prevent layout shift
-            gsap.set(imageContainerRef.current, { 
-                opacity: 0, 
-                y: 200, 
+            gsap.set(imageContainerRef.current, {
+                opacity: 0,
+                y: 200,
                 boxShadow: '0 0 0px 0px rgba(16,90,201,0)',
                 immediateRender: true,
                 force3D: true
             });
-            gsap.set(imageRef.current, { 
+            gsap.set(imageRef.current, {
                 opacity: 0,
                 immediateRender: true
             });
@@ -64,7 +64,7 @@ export default function CTASection() {
                         ref={imageRef}
                         sizes="(max-width: 1904px) 100vw, 1904px"
                         alt=""
-                        src="https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/692dbc7b3a5c06985dfce7d4_Capture%20d%E2%80%99e%CC%81cran%202025-12-01%20a%CC%80%2015.24.13-p-1600.png"
+                        src="/saasDashboard.png"
                         loading="lazy"
                         className="hero-dashboard-image"
                     />
