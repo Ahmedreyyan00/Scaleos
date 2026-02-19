@@ -48,6 +48,15 @@ export default function RootLayout({
             html, body { overflow-x: hidden !important; overflow-y: auto !important; width: 100% !important; max-width: 100vw !important; }
             * { max-width: 100%; box-sizing: border-box; }
             section, main, header, footer { overflow-x: hidden !important; }
+
+            /* Fix: circles must keep equal width+height — max-width:100% on * was squashing them oval */
+            .circle, .circle._01, .circle._02, .circle._04, .circle._05,
+            .circle._06, .circle._07, .circle._08, .circle._09, .circle._10,
+            .circle._12, .circle._13, .circle._14, .circle._15, .circle._16 {
+              max-width: none !important;
+              aspect-ratio: 1 / 1 !important;
+              flex-shrink: 0 !important;
+            }
             
             .navbar, .section { display: block !important; visibility: visible !important; }
         .navbar {position: fixed !important; top: 0 !important; opacity: 1 !important; z-index: 1000 !important; filter: none !important; }

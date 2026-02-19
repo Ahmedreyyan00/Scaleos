@@ -259,7 +259,7 @@ export default function Hero() {
                                 ref={descriptionRef}
                                 className="paragraph-l animate-me"
                             >
-Stop losing time & money. Everything centralized. Scale with real data.
+                                Stop losing time & money. Everything centralized. Scale with real data.
 
                                 {/* Everything centralized.<br />No more guesswork — just clarity. */}
                             </p>
@@ -292,7 +292,7 @@ Stop losing time & money. Everything centralized. Scale with real data.
                                 ref={imageRef}
                                 sizes="(max-width: 1904px) 100vw, 1904px"
                                 alt=""
-                                src="https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/692dbc7b3a5c06985dfce7d4_Capture%20d%E2%80%99e%CC%81cran%202025-12-01%20a%CC%80%2015.24.13-p-1600.png"
+                                src="/saasDashboard.png"
                                 loading="lazy"
                                 className="hero-dashboard-image animate-me w-full h-auto rounded-lg"
                             />
@@ -323,11 +323,11 @@ Stop losing time & money. Everything centralized. Scale with real data.
                 <div className="hero-text-holder">
                     <div className="hero-text-container" style={{ willChange: 'filter, opacity, transform', filter: 'blur(0px)', opacity: 1, transform: 'translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg)', transformStyle: 'preserve-3d' }}>
                         <div className="blue-blur _02" style={{ opacity: 0.255717, transform: 'translate3d(0px, 0px, 0px) scale3d(1.35239, 0.77355, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg)', transformStyle: 'preserve-3d', willChange: 'opacity, transform' }}></div>
-                        
+
                         <h2 className="title">Say goodbye to scattered spreadsheets, disconnected CRMs and guessing games. Say hello to clarity, control, and cash collected.</h2>
-                        </div>
-                        
-                        </div>
+                    </div>
+
+                </div>
             </div>
         </div>
     );

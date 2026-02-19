@@ -11,7 +11,7 @@ const Features = () => {
     const featureSectionRef = useRef<HTMLDivElement>(null);
     const featureImageContainerRef = useRef<HTMLDivElement>(null);
     const featureImageRef = useRef<HTMLImageElement>(null);
-    
+
     // Refs for premium animation cards
     const featureCard1Ref = useRef<HTMLDivElement>(null);
     const featureCard2Ref = useRef<HTMLDivElement>(null);
@@ -139,9 +139,9 @@ const Features = () => {
                                         <img
                                             ref={featureImageRef}
                                             sizes="(max-width: 1904px) 100vw, 1904px"
-                                            srcSet="https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/692dbc7b3a5c06985dfce7d4_Capture%20d%E2%80%99e%CC%81cran%202025-12-01%20a%CC%80%2015.24.13-p-500.png 500w, https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/692dbc7b3a5c06985dfce7d4_Capture%20d%E2%80%99e%CC%81cran%202025-12-01%20a%CC%80%2015.24.13-p-800.png 800w, https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/692dbc7b3a5c06985dfce7d4_Capture%20d%E2%80%99e%CC%81cran%202025-12-01%20a%CC%80%2015.24.13-p-1080.png 1080w, https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/692dbc7b3a5c06985dfce7d4_Capture%20d%E2%80%99e%CC%81cran%202025-12-01%20a%CC%80%2015.24.13-p-1600.png 1600w, https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/692dbc7b3a5c06985dfce7d4_Capture%20d%E2%80%99e%CC%81cran%202025-12-01%20a%CC%80%2015.24.13.png 1904w"
+                                            srcSet="/saasDashboard.png"
                                             alt=""
-                                            src="assets/cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/692dbc7b3a5c06985dfce7d4_Capture%20d%E2%80%99e%CC%81cran%202025-12-01%20a%CC%80%2015.24.13.png"
+                                            src="/saasDashboard.png"
                                             loading="lazy"
                                             className="hero-dashboard-image"
                                         />
