@@ -321,10 +321,17 @@ export default function Hero() {
 
 
                 <div className="hero-text-holder">
-                    <div className="hero-text-container" style={{ willChange: 'filter, opacity, transform', filter: 'blur(0px)', opacity: 1, transform: 'translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg)', transformStyle: 'preserve-3d' }}>
-                        <div className="blue-blur _02" style={{ opacity: 0.255717, transform: 'translate3d(0px, 0px, 0px) scale3d(1.35239, 0.77355, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg)', transformStyle: 'preserve-3d', willChange: 'opacity, transform' }}></div>
-
-                        <h2 className="title">Say goodbye to scattered spreadsheets, disconnected CRMs and guessing games. Say hello to clarity, control, and cash collected.</h2>
+                    <div className="hero-text-container" style={{ willChange: 'filter, opacity, transform', filter: 'blur(0px)', opacity: 1, transform: 'translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg)', transformStyle: 'preserve-3d', position: 'relative' }}>
+                        {/* Dark overlay so text is readable over any background */}
+                        <div style={{
+                            position: 'absolute',
+                            inset: '-24px -32px',
+                            background: 'radial-gradient(ellipse at center, rgba(0,0,0,0.28) 0%, rgba(0,0,0,0.18) 60%, transparent 100%)',
+                            borderRadius: '24px',
+                            zIndex: 0,
+                            pointerEvents: 'none',
+                        }} />
+                        <h2 className="title" style={{ position: 'relative', zIndex: 1 }}>Say goodbye to scattered spreadsheets, disconnected CRMs and guessing games. Say hello to clarity, control, and cash collected.</h2>
                     </div>
 
                 </div>
