@@ -786,7 +786,49 @@ body {
   z-index: 20 !important;
   /* High z-index to be above blur */
   color: #ffffff !important;
+  color: white !important;
   /* Ensure white text */
+  -webkit-text-fill-color: #ffffff !important;
+  -webkit-text-fill-color: white !important;
+  /* Override gradient text fill */
+  background-image: none !important;
+  /* Remove gradient background */
+  -webkit-background-clip: unset !important;
+  background-clip: unset !important;
+  /* Disable background clipping */
+  text-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.8),
+    0 4px 16px rgba(0, 0, 0, 0.6),
+    0 1px 2px rgba(0, 0, 0, 0.9) !important;
+  /* Strong text shadow for readability */
+  font-weight: 600 !important;
+  /* Bolder text for better visibility */
+}
+
+/* Ensure only the title in home-pragraph-holder is white (not the button) */
+.home-pragraph-holder .hero-text-container-2 .title,
+.home-pragraph-holder .hero-text-container-2 h2.title,
+.home-pragraph-holder .hero-text-container-2 h2 {
+  color: #ffffff !important;
+  color: white !important;
+  -webkit-text-fill-color: #ffffff !important;
+  -webkit-text-fill-color: white !important;
+  background-image: none !important;
+  -webkit-background-clip: unset !important;
+  background-clip: unset !important;
+}
+
+/* Apply white text styles to title in hero-text-container (Hero component) */
+.hero-text-container .title,
+.hero-text-container h2.title,
+.hero-text-container h2 {
+  color: #ffffff !important;
+  color: white !important;
+  -webkit-text-fill-color: #ffffff !important;
+  -webkit-text-fill-color: white !important;
+  background-image: none !important;
+  -webkit-background-clip: unset !important;
+  background-clip: unset !important;
   text-shadow:
     0 2px 8px rgba(0, 0, 0, 0.8),
     0 4px 16px rgba(0, 0, 0, 0.6),
