@@ -1375,6 +1375,51 @@ body {
   /* 80% of 120px */
 }
 
+/* Make hero logo containers smaller on mobile screens */
+@media (max-width: 991px) {
+  .hero-section-wrapper .hero-logo-container {
+    width: 70px !important; /* Smaller on tablet */
+    height: 70px !important;
+    border-radius: 16px !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .hero-section-wrapper .hero-logo-container {
+    width: 60px !important; /* Smaller on mobile */
+    height: 60px !important;
+    border-radius: 14px !important;
+  }
+}
+
+@media (max-width: 479px) {
+  .hero-section-wrapper .hero-logo-container {
+    width: 50px !important; /* Even smaller on small mobile */
+    height: 50px !important;
+    border-radius: 12px !important;
+  }
+}
+
+/* Ensure logo images scale with containers */
+.hero-section-wrapper .hero-logo-container .hero-logo,
+.hero-section-wrapper .hero-logo-container .hero-logo-slack,
+.hero-section-wrapper .hero-logo-container .hero-logo.blured {
+  width: 60% !important;
+  height: 60% !important;
+  object-fit: contain !important;
+}
+
+/* Prevent logos from going below text section on scroll */
+.hero-section-wrapper .hero-icons-holder {
+  position: relative !important; /* Change from absolute to prevent scroll issues */
+}
+
+@media (min-width: 768px) {
+  .hero-section-wrapper .hero-icons-holder {
+    position: absolute !important; /* Keep absolute on larger screens */
+  }
+}
+
 /* Scale hero text holder height */
 .hero-section-wrapper .hero-text-holder {
   height: 680px !important;
@@ -1407,6 +1452,19 @@ body {
   /* 80% of 850px */
   min-height: 680px !important;
   max-height: 680px !important;
+  z-index: 5 !important; /* Ensure logos stay above other elements */
+}
+
+/* Fix icons holder on mobile to prevent going below text after scrolling */
+@media (max-width: 767px) {
+  .hero-section-wrapper .hero-icons-holder {
+    height: auto !important;
+    min-height: auto !important;
+    max-height: none !important;
+    position: relative !important; /* Change positioning on mobile */
+    z-index: 3 !important; /* Lower z-index so text section can be above */
+    margin-top: 20px !important;
+  }
 }
 
 /* Adjust hero section for fixed header - reduced padding to bring content up */
@@ -2183,5 +2241,71 @@ body {
   }
   100% {
     transform: rotate(360deg) !important;
+  }
+}
+
+/* Fix CTA heading overflow on mobile screens */
+@media (max-width: 767px) {
+  /* Ensure CTA content container has proper padding and doesn't overflow */
+  .cta-holder {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    padding-top: 30px !important;
+    padding-bottom: 30px !important;
+    overflow-x: hidden !important; /* Prevent horizontal overflow */
+  }
+
+  .cta-content {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Fix heading overflow on mobile */
+  .cta-content h1,
+  .cta-holder h1 {
+    font-size: 28px !important; /* Smaller font size for mobile */
+    line-height: 1.3 !important; /* Tighter line height */
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+    hyphens: auto !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Ensure the fade-in-on-scroll container doesn't cause overflow */
+  .cta-content .fade-in-on-scroll {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    box-sizing: border-box !important;
+  }
+}
+
+/* Extra small mobile screens */
+@media (max-width: 479px) {
+  .cta-content h1,
+  .cta-holder h1 {
+    font-size: 24px !important; /* Even smaller for very small screens */
+    line-height: 1.2 !important;
+    padding-left: 5px !important;
+    padding-right: 5px !important;
+  }
+
+  .cta-holder {
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+  }
+
+  .cta-content {
+    padding-left: 5px !important;
+    padding-right: 5px !important;
   }
 }
