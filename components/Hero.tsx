@@ -72,126 +72,125 @@ export default function Hero() {
                 transformStyle: 'preserve-3d'
             });
 
-            // Now animate them in one by one sequentially
-            const tl = gsap.timeline({ delay: 0.2 });
+            // Now animate them in — fast, premium feel
+            const tl = gsap.timeline({ delay: 0.05 });
 
-            // 1. Badge scales in and fades in
+            // 1. Badge scales in
             tl.to(tagRef.current,
-                { opacity: 1, scale: 1, duration: 0.6, ease: 'back.out(1.7)', force3D: true }
+                { opacity: 1, scale: 1, duration: 0.35, ease: 'back.out(1.7)', force3D: true }
             );
 
-            // 1.5. Shine effect sweeps across
+            // 1.5. Shine sweeps across badge
             tl.to(shineRef.current,
-                { x: '100%', duration: 1.5, ease: 'power2.inOut', force3D: true },
-                '-=0.3'
+                { x: '100%', duration: 0.7, ease: 'power2.inOut', force3D: true },
+                '-=0.2'
             );
 
-            // 2. Title slides up and fades in
+            // 2. Title slides up
             tl.to(titleRef.current,
-                { opacity: 1, y: 0, duration: 0.7, ease: 'power3.out', force3D: true },
-                '+=0.1'
+                { opacity: 1, y: 0, duration: 0.4, ease: 'power3.out', force3D: true },
+                '-=0.1'
             );
 
-            // 3. Description slides up and fades in
+            // 3. Description slides up
             tl.to(descriptionRef.current,
-                { opacity: 1, y: 0, duration: 0.7, ease: 'power3.out', force3D: true },
-                '+=0.1'
+                { opacity: 1, y: 0, duration: 0.4, ease: 'power3.out', force3D: true },
+                '-=0.05'
             );
 
-            // 4. Buttons slide up and fade in with stagger
+            // 4. Buttons stagger in
             if (buttonsRef.current?.children) {
                 tl.to(buttonsRef.current.children,
-                    { opacity: 1, y: 0, duration: 0.6, stagger: 0.15, ease: 'power3.out', force3D: true },
-                    '+=0.1'
+                    { opacity: 1, y: 0, duration: 0.35, stagger: 0.08, ease: 'power3.out', force3D: true },
+                    '-=0.05'
                 );
             }
 
-            // 5. Image container fades in at current position - no blur
+            // 5. Image container fades in
             tl.to(imageContainerRef.current,
                 {
                     opacity: 1,
-                    filter: 'blur(0px)', // Ensure no blur on container
-                    duration: 0.9,
+                    filter: 'blur(0px)',
+                    duration: 0.5,
                     ease: 'power3.out',
                     force3D: true
                 },
-                '+=0.1'
+                '-=0.1'
             );
 
-            // 5.5. Image fades in - clear and sharp
+            // 5.5. Image fades in sharp
             tl.to(imageRef.current,
                 {
                     opacity: 1,
-                    filter: 'blur(0px)', // Ensure no blur
-                    scale: 1, // Normal scale
-                    duration: 0.6,
+                    filter: 'blur(0px)',
+                    scale: 1,
+                    duration: 0.35,
                     ease: 'power2.out',
                     force3D: true
                 },
-                '-=0.4'
+                '-=0.3'
             );
 
-            // 6. Animate box shadow after image appears
+            // 6. Blue glow on image
             tl.to(imageContainerRef.current, {
                 boxShadow: '0 0 60px 80px rgba(16,90,201,0.5)',
-                duration: 1,
+                duration: 0.6,
                 ease: 'power2.out',
-            }, '-=0.3');
+            }, '-=0.2');
 
-            // 6.5. Slightly push the dashboard and floating logos "back" as we transition focus to the text
+            // 6.5. Gently push dashboard back
             tl.to(
                 [imageContainerRef.current, iconsHolderRef.current],
                 {
                     scale: 0.94,
                     opacity: 0.6,
                     y: 20,
-                    duration: 1.2,
+                    duration: 0.7,
                     ease: 'power2.out',
                     force3D: true,
                 },
-                '+=0.1'
+                '+=0.05'
             );
 
-            // 7. Translucent background overlay slides up and covers the image above
+            // 7. Translucent overlay slides up
             tl.to(textSectionBackgroundRef.current,
                 {
                     opacity: 1,
                     y: 0,
-                    duration: 1.2,
+                    duration: 0.7,
                     ease: 'power3.out',
                     force3D: true
                 },
-                '+=0.1'
+                '-=0.3'
             );
 
-            // 7.1. Subtitle slides up and fades in on top of the translucent background
-            // Image and icons stay clear, just pushed slightly back
+            // 7.1. Subtitle appears
             tl.to(subtitleRef.current,
-                { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out', force3D: true },
-                '-=0.8' // Overlap with background animation
+                { opacity: 1, y: 0, duration: 0.5, ease: 'power3.out', force3D: true },
+                '-=0.5'
             );
 
-            // 7.5. Blue blur animates in with the subtitle
+            // 7.5. Blue blur fades in
             tl.to(blueBlurRef.current,
                 {
-                    opacity: BLUE_BLUR_OPACITY, // Editable via BLUE_BLUR_OPACITY constant at top of file
+                    opacity: BLUE_BLUR_OPACITY,
                     xPercent: -50,
                     yPercent: -50,
                     scaleX: 1.3613,
                     scaleY: 0.7785,
-                    duration: 1.2,
+                    duration: 0.7,
                     ease: 'power2.out',
                     force3D: true,
                     transformStyle: 'preserve-3d'
                 },
-                '-=0.7'
+                '-=0.5'
             );
 
-            // 8. Hero icons scale, slide up and fade in with stagger
+            // 8. Floating icons pop in
             if (iconsHolderRef.current?.children) {
                 tl.to(iconsHolderRef.current.children,
-                    { opacity: 1, scale: 1, y: 0, duration: 0.6, stagger: 0.1, ease: 'back.out(1.4)', force3D: true },
-                    '+=0.1'
+                    { opacity: 1, scale: 1, y: 0, duration: 0.35, stagger: 0.06, ease: 'back.out(1.4)', force3D: true },
+                    '-=0.3'
                 );
             }
         }, heroRef);
@@ -322,15 +321,17 @@ export default function Hero() {
 
                 <div className="hero-text-holder">
                     <div className="hero-text-container" style={{ willChange: 'filter, opacity, transform', filter: 'blur(0px)', opacity: 1, transform: 'translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg)', transformStyle: 'preserve-3d', position: 'relative' }}>
-                        {/* Dark overlay so text is readable over any background */}
-                        <div style={{
+
+                        {/* Blue glow behind text */}
+                        <div className="blue-blur _02" style={{
+                            opacity: 0.6,
+                            transform: 'translate3d(0px, 0px, 0px) scale3d(1.35239, 0.77355, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg)',
+                            transformStyle: 'preserve-3d',
+                            willChange: 'opacity, transform',
+                            zIndex: -1,
                             position: 'absolute',
-                            inset: '-24px -32px',
-                            background: 'radial-gradient(ellipse at center, rgba(0,0,0,0.28) 0%, rgba(0,0,0,0.18) 60%, transparent 100%)',
-                            borderRadius: '24px',
-                            zIndex: 0,
-                            pointerEvents: 'none',
-                        }} />
+                        }}></div>
+
                         <h2 className="title" style={{ position: 'relative', zIndex: 1 }}>Say goodbye to scattered spreadsheets, disconnected CRMs and guessing games. Say hello to clarity, control, and cash collected.</h2>
                     </div>
 
