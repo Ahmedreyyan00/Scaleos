@@ -10,6 +10,13 @@ const Features = () => {
     const featureSectionRef = useRef<HTMLDivElement>(null);
     const featureImageContainerRef = useRef<HTMLDivElement>(null);
     const featureImageRef = useRef<HTMLImageElement>(null);
+    
+    // Refs for premium animation cards
+    const featureCard1Ref = useRef<HTMLDivElement>(null);
+    const featureCard2Ref = useRef<HTMLDivElement>(null);
+    const featureCard3Ref = useRef<HTMLDivElement>(null);
+    const featureCard4Ref = useRef<HTMLDivElement>(null);
+    const featureCard5Ref = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
         if (!featureSectionRef.current) return;
@@ -57,6 +64,42 @@ const Features = () => {
         }, featureSectionRef);
 
         return () => ctx.revert();
+    }, []);
+
+    // Intersection Observer for premium animation cards
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("is-visible");
+                    }
+                });
+            },
+            { threshold: 0.2 }
+        );
+
+        const cards = [
+            featureCard1Ref.current,
+            featureCard2Ref.current,
+            featureCard3Ref.current,
+            featureCard4Ref.current,
+            featureCard5Ref.current,
+        ];
+
+        cards.forEach((card) => {
+            if (card) {
+                observer.observe(card);
+            }
+        });
+
+        return () => {
+            cards.forEach((card) => {
+                if (card) {
+                    observer.unobserve(card);
+                }
+            });
+        };
     }, []);
     return (
         <div ref={featureSectionRef}>
@@ -454,45 +497,29 @@ const Features = () => {
                             </div>
 
                             <div id="w-node-aff8d657-c26a-b880-f10a-62c9ad718d63-a9826b99" className="feature-graphic-holder">
-                                <div data-w-id="aff8d657-c26a-b880-f10a-62c9ad718d64" className="feature-image-container _02">
+                                <div ref={featureCard1Ref} data-w-id="aff8d657-c26a-b880-f10a-62c9ad718d64" className="feature-image-container _02 premium-animation">
                                     <div className="feature-image-wrapper">
                                         <img className="feature-image-full"
                                             src="/scalefeature3.png"
-                                            alt="" style={{ opacity: 0 }} sizes="(max-width: 1068px) 100vw, 1068px"
+                                            alt="" sizes="(max-width: 1068px) 100vw, 1068px"
                                             data-w-id="aff8d657-c26a-b880-f10a-62c9ad718d65" loading="lazy"
                                             srcSet="/scalefeature3.png 500w, /scalefeature3.png 800w, /scalefeature3.png 1068w" />
                                     </div>
-                                    <div className="cube-rotate-holder">
-                                        <img className="cube-image"
-                                            src="assets/cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6883fea00a351bcab0c9a0b4_LogoClarity%206.png"
-                                            alt=""
-                                            style={{ WebkitTransform: 'translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0)', MozTransform: 'translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0)', msTransform: 'translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0)', transform: 'translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0)' }}
-                                            sizes="(max-width: 2066px) 100vw, 2066px"
-                                            data-w-id="6a80a126-dd78-85da-5898-50e6e4619731" loading="lazy"
-                                            srcSet="https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6883fea00a351bcab0c9a0b4_LogoClarity%206-p-500.png 500w, https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6883fea00a351bcab0c9a0b4_LogoClarity%206-p-800.png 800w, https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6883fea00a351bcab0c9a0b4_LogoClarity%206-p-1080.png 1080w, https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6883fea00a351bcab0c9a0b4_LogoClarity%206-p-1600.png 1600w, https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6883fea00a351bcab0c9a0b4_LogoClarity%206-p-2000.png 2000w, https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6883fea00a351bcab0c9a0b4_LogoClarity%206.png 2066w" />
-                                    </div>
+                                    <div className="premium-border-shine"></div>
                                 </div>
                                 <div className="feature-image-blur"></div>
                             </div>
                         </div>
                         <div className="w-layout-grid new-features-grid-phone">
                             <div id="w-node-_66bfc9f7-cc07-eb22-9e88-5737a113d2dd-a9826b99" className="feature-graphic-holder">
-                                <div data-w-id="66bfc9f7-cc07-eb22-9e88-5737a113d2de" className="feature-image-container _02">
+                                <div ref={featureCard2Ref} data-w-id="66bfc9f7-cc07-eb22-9e88-5737a113d2de" className="feature-image-container _02 premium-animation">
                                     <div className="feature-image-wrapper"><img className="feature-image-full"
                                         src="/scalefeature5.png"
-                                        alt="" style={{ opacity: 0 }} sizes="(max-width: 1068px) 100vw, 1068px"
+                                        alt="" sizes="(max-width: 1068px) 100vw, 1068px"
                                         data-w-id="66bfc9f7-cc07-eb22-9e88-5737a113d2e0" loading="lazy"
                                         srcSet="/scalefeature5.png 500w, /scalefeature5.png 800w, /scalefeature5.png 1068w" />
                                     </div>
-                                    <div className="cube-rotate-holder">
-                                        <img className="cube-image"
-                                            src="assets/cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6883fea00a351bcab0c9a0b4_LogoClarity%206.png"
-                                            alt=""
-                                            style={{ WebkitTransform: 'translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0)', MozTransform: 'translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0)', msTransform: 'translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0)', transform: 'translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0)' }}
-                                            sizes="(max-width: 2066px) 100vw, 2066px"
-                                            data-w-id="66bfc9f7-cc07-eb22-9e88-5737a113d2e2" loading="lazy"
-                                            srcSet="https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6883fea00a351bcab0c9a0b4_LogoClarity%206-p-500.png 500w, https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6883fea00a351bcab0c9a0b4_LogoClarity%206-p-800.png 800w, https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6883fea00a351bcab0c9a0b4_LogoClarity%206-p-1080.png 1080w, https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6883fea00a351bcab0c9a0b4_LogoClarity%206-p-1600.png 1600w, https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6883fea00a351bcab0c9a0b4_LogoClarity%206-p-2000.png 2000w, https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6883fea00a351bcab0c9a0b4_LogoClarity%206.png 2066w" />
-                                    </div>
+                                    <div className="premium-border-shine"></div>
                                 </div>
                                 <div className="feature-image-blur"></div>
                             </div>
@@ -521,48 +548,31 @@ const Features = () => {
                                 </div>
                             </div>
                             <div id="w-node-_0c183a05-9162-9e2a-c293-ceaaabefc7f5-a9826b99" className="feature-graphic-holder">
-                                <div data-w-id="0c183a05-9162-9e2a-c293-ceaaabefc7f6" className="feature-image-container _02">
+                                <div ref={featureCard3Ref} data-w-id="0c183a05-9162-9e2a-c293-ceaaabefc7f6" className="feature-image-container _02 premium-animation">
                                     <div className="feature-image-wrapper"><img className="feature-image-full"
                                         src="/scalefeature2.png"
-                                        alt="" style={{ opacity: 0 }} sizes="(max-width: 1068px) 100vw, 1068px"
+                                        alt="" sizes="(max-width: 1068px) 100vw, 1068px"
                                         data-w-id="0c183a05-9162-9e2a-c293-ceaaabefc7f8" loading="lazy"
                                         srcSet="/scalefeature2.png 500w, /scalefeature2.png 800w, /scalefeature2.png 1068w" />
                                     </div>
-                                    <div className="cube-rotate-holder">
-                                        <img className="cube-image"
-                                            src="assets/cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6883fea00a351bcab0c9a0b4_LogoClarity%206.png"
-                                            alt=""
-                                            style={{ WebkitTransform: 'translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0)', MozTransform: 'translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0)', msTransform: 'translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0)', transform: 'translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0)' }}
-                                            sizes="(max-width: 2066px) 100vw, 2066px"
-                                            data-w-id="0c183a05-9162-9e2a-c293-ceaaabefc7fa" loading="lazy"
-                                            srcSet="https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6883fea00a351bcab0c9a0b4_LogoClarity%206-p-500.png 500w, https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6883fea00a351bcab0c9a0b4_LogoClarity%206-p-800.png 800w, https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6883fea00a351bcab0c9a0b4_LogoClarity%206-p-1080.png 1080w, https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6883fea00a351bcab0c9a0b4_LogoClarity%206-p-1600.png 1600w, https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6883fea00a351bcab0c9a0b4_LogoClarity%206-p-2000.png 2000w, https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6883fea00a351bcab0c9a0b4_LogoClarity%206.png 2066w" />
-
-                                    </div>
+                                    <div className="premium-border-shine"></div>
                                 </div>
                                 <div className="feature-image-blur"></div>
                             </div>
                         </div>
                         <div className="w-layout-grid new-features-grid-phone">
                             <div id="w-node-_0c183a05-9162-9e2a-c293-ceaaabefc7f5-a9826b99" className="feature-graphic-holder">
-                                <div data-w-id="0c183a05-9162-9e2a-c293-ceaaabefc7f6" className="feature-image-container _02">
+                                <div ref={featureCard4Ref} data-w-id="0c183a05-9162-9e2a-c293-ceaaabefc7f6" className="feature-image-container _02 premium-animation">
                                     <div className="feature-image-wrapper">
                                         <img className="feature-image-full"
                                             src="/content.png"
                                             alt=""
-                                            style={{ opacity: 0 }}
                                             sizes="(max-width: 1068px) 100vw, 1068px"
                                             data-w-id="0c183a05-9162-9e2a-c293-ceaaabefc7f8"
                                             loading="lazy"
                                             srcSet="/content.png 500w, /content.png 800w, /content.png 1068w" />
                                     </div>
-                                    <div className="cube-rotate-holder"><img className="cube-image"
-                                        src="assets/cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6883fea00a351bcab0c9a0b4_LogoClarity%206.png"
-                                        alt=""
-                                        style={{ WebkitTransform: 'translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0)', MozTransform: 'translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0)', msTransform: 'translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0)', transform: 'translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0)' }}
-                                        sizes="(max-width: 2066px) 100vw, 2066px"
-                                        data-w-id="0c183a05-9162-9e2a-c293-ceaaabefc7fa" loading="lazy"
-                                        srcSet="https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6883fea00a351bcab0c9a0b4_LogoClarity%206-p-500.png 500w, https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6883fea00a351bcab0c9a0b4_LogoClarity%206-p-800.png 800w, https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6883fea00a351bcab0c9a0b4_LogoClarity%206-p-1080.png 1080w, https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6883fea00a351bcab0c9a0b4_LogoClarity%206-p-1600.png 1600w, https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6883fea00a351bcab0c9a0b4_LogoClarity%206-p-2000.png 2000w, https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6883fea00a351bcab0c9a0b4_LogoClarity%206.png 2066w" />
-                                    </div>
+                                    <div className="premium-border-shine"></div>
                                 </div>
                                 <div className="feature-image-blur"></div>
                             </div>
@@ -589,21 +599,14 @@ const Features = () => {
                                 </div>
                             </div>
                             <div id="w-node-f98726bf-3213-24ab-c75f-e87cb8a73745-a9826b99" className="feature-graphic-holder">
-                                <div data-w-id="f98726bf-3213-24ab-c75f-e87cb8a73746" className="feature-image-container _02">
+                                <div ref={featureCard5Ref} data-w-id="f98726bf-3213-24ab-c75f-e87cb8a73746" className="feature-image-container _02 premium-animation">
                                     <div className="feature-image-wrapper"><img className="feature-image-full"
                                         src="assets/cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/692dc15d800a6976045238c9_Teamclarity.png"
-                                        alt="" style={{ opacity: 0 }} sizes="(max-width: 1068px) 100vw, 1068px"
+                                        alt="" sizes="(max-width: 1068px) 100vw, 1068px"
                                         data-w-id="f98726bf-3213-24ab-c75f-e87cb8a73748" loading="lazy"
                                         srcSet="https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/692dc15d800a6976045238c9_Teamclarity-p-500.png 500w, https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/692dc15d800a6976045238c9_Teamclarity-p-800.png 800w, https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/692dc15d800a6976045238c9_Teamclarity.png 1068w" />
                                     </div>
-                                    <div className="cube-rotate-holder"><img className="cube-image"
-                                        src="assets/cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6883fea00a351bcab0c9a0b4_LogoClarity%206.png"
-                                        alt=""
-                                        style={{ WebkitTransform: 'translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0)', MozTransform: 'translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0)', msTransform: 'translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0)', transform: 'translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0)' }}
-                                        sizes="(max-width: 2066px) 100vw, 2066px"
-                                        data-w-id="f98726bf-3213-24ab-c75f-e87cb8a7374a" loading="lazy"
-                                        srcSet="https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6883fea00a351bcab0c9a0b4_LogoClarity%206-p-500.png 500w, https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6883fea00a351bcab0c9a0b4_LogoClarity%206-p-800.png 800w, https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6883fea00a351bcab0c9a0b4_LogoClarity%206-p-1080.png 1080w, https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6883fea00a351bcab0c9a0b4_LogoClarity%206-p-1600.png 1600w, https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6883fea00a351bcab0c9a0b4_LogoClarity%206-p-2000.png 2000w, https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/6883fea00a351bcab0c9a0b4_LogoClarity%206.png 2066w" />
-                                    </div>
+                                    <div className="premium-border-shine"></div>
                                 </div>
                                 <div className="feature-image-blur"></div>
                             </div>
