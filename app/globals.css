@@ -1538,6 +1538,54 @@ body {
   -webkit-filter: blur(0px) !important;
 }
 
+/* ── Feature cards: same dark glass frame + animated blue glow as Hero/CTA ─ */
+.feature-card-frame.hero-dashbord-holder {
+  width: 100% !important;
+  padding: 16px !important;
+  border-radius: 12px !important;
+  background: #000000b3 !important;
+  border: 1px solid rgba(255, 255, 255, 0.18) !important;
+  height: auto !important;
+  display: block !important;
+  position: relative !important;
+  overflow: hidden !important;
+  animation: featureCardGlow 3.5s ease-in-out infinite alternate !important;
+}
+
+@keyframes featureCardGlow {
+  0% {
+    box-shadow: 0 0 30px 20px rgba(16, 90, 201, 0.40);
+  }
+
+  100% {
+    box-shadow: 0 0 60px 40px rgba(16, 90, 201, 0.45);
+  }
+}
+
+/* Subtle glass shine overlay */
+.feature-card-frame.hero-dashbord-holder::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+  background: linear-gradient(135deg,
+      rgba(255, 255, 255, 0.06) 0%,
+      transparent 50%,
+      rgba(255, 255, 255, 0.03) 100%);
+  pointer-events: none;
+}
+
+.feature-card-frame.hero-dashbord-holder .hero-dashboard-image {
+  width: 100% !important;
+  height: auto !important;
+  border-radius: 8px !important;
+  display: block !important;
+  filter: blur(0px) !important;
+  -webkit-filter: blur(0px) !important;
+  position: relative !important;
+  z-index: 1 !important;
+}
+
 /* Border and shadow animations are now handled by GSAP */
 /* Removed CSS animations to let GSAP control the shadow effect */
 

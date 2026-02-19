@@ -18,7 +18,7 @@ const Features = () => {
     const featureCard3Ref = useRef<HTMLDivElement>(null);
     const featureCard4Ref = useRef<HTMLDivElement>(null);
     const featureCard5Ref = useRef<HTMLDivElement>(null);
-    
+
     // Apply blur fade-in animation to all images and sections after hero
     useBlurFadeIn();
 
@@ -501,31 +501,26 @@ const Features = () => {
                             </div>
 
                             <div id="w-node-aff8d657-c26a-b880-f10a-62c9ad718d63-a9826b99" className="feature-graphic-holder">
-                                <div ref={featureCard1Ref} data-w-id="aff8d657-c26a-b880-f10a-62c9ad718d64" className="feature-image-container _02 premium-animation">
-                                    <div className="feature-image-wrapper">
-                                        <img className="feature-image-full"
-                                            src="/scalefeature3.png"
-                                            alt="" sizes="(max-width: 1068px) 100vw, 1068px"
-                                            data-w-id="aff8d657-c26a-b880-f10a-62c9ad718d65" loading="lazy"
-                                            srcSet="/scalefeature3.png 500w, /scalefeature3.png 800w, /scalefeature3.png 1068w" />
-                                    </div>
-                                    <div className="premium-border-shine"></div>
+                                <div ref={featureCard1Ref} className="hero-dashbord-holder feature-card-frame">
+                                    <img
+                                        src="/scalefeature3.png"
+                                        alt=""
+                                        loading="lazy"
+                                        className="hero-dashboard-image"
+                                    />
                                 </div>
-                                <div className="feature-image-blur"></div>
                             </div>
                         </div>
                         <div className="w-layout-grid new-features-grid-phone">
                             <div id="w-node-_66bfc9f7-cc07-eb22-9e88-5737a113d2dd-a9826b99" className="feature-graphic-holder">
-                                <div ref={featureCard2Ref} data-w-id="66bfc9f7-cc07-eb22-9e88-5737a113d2de" className="feature-image-container _02 premium-animation">
-                                    <div className="feature-image-wrapper"><img className="feature-image-full"
+                                <div ref={featureCard2Ref} className="hero-dashbord-holder feature-card-frame">
+                                    <img
                                         src="/scalefeature5.png"
-                                        alt="" sizes="(max-width: 1068px) 100vw, 1068px"
-                                        data-w-id="66bfc9f7-cc07-eb22-9e88-5737a113d2e0" loading="lazy"
-                                        srcSet="/scalefeature5.png 500w, /scalefeature5.png 800w, /scalefeature5.png 1068w" />
-                                    </div>
-                                    <div className="premium-border-shine"></div>
+                                        alt=""
+                                        loading="lazy"
+                                        className="hero-dashboard-image"
+                                    />
                                 </div>
-                                <div className="feature-image-blur"></div>
                             </div>
                             <div className="feature-grid-content">
                                 <div className="feature-grid-content-holder-2">
@@ -552,33 +547,26 @@ const Features = () => {
                                 </div>
                             </div>
                             <div id="w-node-_0c183a05-9162-9e2a-c293-ceaaabefc7f5-a9826b99" className="feature-graphic-holder">
-                                <div ref={featureCard3Ref} data-w-id="0c183a05-9162-9e2a-c293-ceaaabefc7f6" className="feature-image-container _02 premium-animation">
-                                    <div className="feature-image-wrapper"><img className="feature-image-full"
+                                <div ref={featureCard3Ref} className="hero-dashbord-holder feature-card-frame">
+                                    <img
                                         src="/scalefeature2.png"
-                                        alt="" sizes="(max-width: 1068px) 100vw, 1068px"
-                                        data-w-id="0c183a05-9162-9e2a-c293-ceaaabefc7f8" loading="lazy"
-                                        srcSet="/scalefeature2.png 500w, /scalefeature2.png 800w, /scalefeature2.png 1068w" />
-                                    </div>
-                                    <div className="premium-border-shine"></div>
+                                        alt=""
+                                        loading="lazy"
+                                        className="hero-dashboard-image"
+                                    />
                                 </div>
-                                <div className="feature-image-blur"></div>
                             </div>
                         </div>
                         <div className="w-layout-grid new-features-grid-phone">
                             <div id="w-node-_0c183a05-9162-9e2a-c293-ceaaabefc7f5-a9826b99" className="feature-graphic-holder">
-                                <div ref={featureCard4Ref} data-w-id="0c183a05-9162-9e2a-c293-ceaaabefc7f6" className="feature-image-container _02 premium-animation">
-                                    <div className="feature-image-wrapper">
-                                        <img className="feature-image-full"
-                                            src="/content.png"
-                                            alt=""
-                                            sizes="(max-width: 1068px) 100vw, 1068px"
-                                            data-w-id="0c183a05-9162-9e2a-c293-ceaaabefc7f8"
-                                            loading="lazy"
-                                            srcSet="/content.png 500w, /content.png 800w, /content.png 1068w" />
-                                    </div>
-                                    <div className="premium-border-shine"></div>
+                                <div ref={featureCard4Ref} className="hero-dashbord-holder feature-card-frame">
+                                    <img
+                                        src="/content.png"
+                                        alt=""
+                                        loading="lazy"
+                                        className="hero-dashboard-image"
+                                    />
                                 </div>
-                                <div className="feature-image-blur"></div>
                             </div>
                             <div id="w-node-_3849909d-7672-604f-4f6e-e1d39bdbca7a-a9826b99" className="feature-grid-content">
                                 <div className="feature-grid-content-holder-2">
@@ -603,16 +591,14 @@ const Features = () => {
                                 </div>
                             </div>
                             <div id="w-node-f98726bf-3213-24ab-c75f-e87cb8a73745-a9826b99" className="feature-graphic-holder">
-                                <div ref={featureCard5Ref} data-w-id="f98726bf-3213-24ab-c75f-e87cb8a73746" className="feature-image-container _02 premium-animation">
-                                    <div className="feature-image-wrapper"><img className="feature-image-full"
-                                        src="assets/cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/692dc15d800a6976045238c9_Teamclarity.png"
-                                        alt="" sizes="(max-width: 1068px) 100vw, 1068px"
-                                        data-w-id="f98726bf-3213-24ab-c75f-e87cb8a73748" loading="lazy"
-                                        srcSet="https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/692dc15d800a6976045238c9_Teamclarity-p-500.png 500w, https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/692dc15d800a6976045238c9_Teamclarity-p-800.png 800w, https://cdn.prod.website-files.com/6882a9e95dcd0d3fa9826ac8/692dc15d800a6976045238c9_Teamclarity.png 1068w" />
-                                    </div>
-                                    <div className="premium-border-shine"></div>
+                                <div ref={featureCard5Ref} className="hero-dashbord-holder feature-card-frame">
+                                    <img
+                                        src="/scalefeature4.png"
+                                        alt=""
+                                        loading="lazy"
+                                        className="hero-dashboard-image"
+                                    />
                                 </div>
-                                <div className="feature-image-blur"></div>
                             </div>
                         </div>
                     </div>
