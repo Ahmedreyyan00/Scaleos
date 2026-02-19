@@ -10,30 +10,47 @@ import { useBlurFadeIn } from "@/hooks/useBlurFadeIn";
 
 export default function Home() {
   const featureImageRef = useRef<HTMLDivElement>(null);
-  
+
   // Apply blur fade-in animation to all images and sections after hero
   useBlurFadeIn();
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("is-visible");
-          }
-        });
-      },
-      { threshold: 0.2 }
-    );
+    // Small delay to ensure DOM is ready
+    const timer = setTimeout(() => {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-visible");
+            }
+          });
+        },
+        { threshold: 0.2 }
+      );
 
-    if (featureImageRef.current) {
-      observer.observe(featureImageRef.current);
-    }
+      // Observe the premium animation container
+      if (featureImageRef.current) {
+        observer.observe(featureImageRef.current);
+      }
+
+      // Also observe any other premium-animation elements
+      const premiumElements = document.querySelectorAll('.premium-animation');
+      premiumElements.forEach((el) => {
+        observer.observe(el);
+      });
+
+      return () => {
+        if (featureImageRef.current) {
+          observer.unobserve(featureImageRef.current);
+        }
+        premiumElements.forEach((el) => {
+          observer.unobserve(el);
+        });
+      };
+    }, 100);
 
     return () => {
-      if (featureImageRef.current) {
-        observer.unobserve(featureImageRef.current);
-      }
+      clearTimeout(timer);
     };
   }, []);
   return (
@@ -69,13 +86,14 @@ export default function Home() {
           <div className="new-features-holder">
             <div className="w-layout-grid new-features-grid">
               <div id="w-node-_0f6e4690-5961-adb5-bb42-4dc31a841c65-a9826b02" className="feature-graphic-holder">
-                <div ref={featureImageRef} data-w-id="639747d7-0671-e4e3-a159-8254f321ed2c" className="feature-image-container _02 premium-animation">
-                  <div className="feature-image-wrapper">
-                    <img className="feature-image-full" src="/trackflow.png" alt="" sizes="(max-width: 1068px) 100vw, 1068px" data-w-id="cbaa7d5c-4c57-c18b-0453-b641d1bfe125" loading="lazy" srcSet="/trackflow.png 500w, /trackflow.png 800w, /trackflow.png 1068w" />
-                  </div>
-                  <div className="premium-border-shine"></div>
+                <div ref={featureImageRef} className="hero-dashbord-holder feature-card-frame">
+                  <img
+                    src="/trackflow.png"
+                    alt=""
+                    loading="lazy"
+                    className="hero-dashboard-image"
+                  />
                 </div>
-                <div className="feature-image-blur"></div>
               </div>
               <div id="w-node-_0f6e4690-5961-adb5-bb42-4dc31a841c5d-a9826b02" className="feature-grid-content">
                 <div className="feature-grid-content-holder-2">

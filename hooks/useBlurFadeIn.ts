@@ -109,6 +109,8 @@ export function useBlurFadeIn() {
                     if (el === heroWrapper) return;
                     // Skip header / navbar
                     if (el.closest('.navbar') || el.closest('.w-nav')) return;
+                    // Skip premium-animation elements (they have their own IntersectionObserver animation)
+                    if (el.classList.contains('premium-animation') || el.closest('.premium-animation')) return;
                     seen.add(el);
                     targets.push(el);
                 });
