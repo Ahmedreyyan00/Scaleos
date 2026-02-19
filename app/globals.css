@@ -950,6 +950,13 @@ body {
   margin-bottom: 20px !important;
 }
 
+/* Prevent text wrapping in demo page paragraphs */
+.demo .center-hero-paragraph-holder .paragraph-2,
+.center-hero-paragraph-holder .paragraph-2 {
+  white-space: nowrap !important;
+  display: block !important;
+}
+
 /* Reduce gap between heading and subheading on demo page */
 .demo .animate-on-load-02 {
   margin-top: -8px !important;
