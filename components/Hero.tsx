@@ -28,7 +28,7 @@ export default function Hero() {
             // Set all elements to be hidden initially
             gsap.set(tagRef.current, { opacity: 0, scale: 0.8, force3D: true });
             gsap.set(shineRef.current, { opacity: 1, x: '-100%', force3D: true });
-            gsap.set(titleRef.current, { opacity: 0, y: 20, force3D: true });
+            gsap.set(titleRef.current, { opacity: 0, y: 0, force3D: true });
             gsap.set(descriptionRef.current, { opacity: 0, y: 20, force3D: true });
             gsap.set(buttonsRef.current?.children || [], { opacity: 0, y: 20, force3D: true });
             gsap.set(imageContainerRef.current, {
@@ -88,13 +88,13 @@ export default function Hero() {
 
             // 2. Title slides up
             tl.to(titleRef.current,
-                { opacity: 1, y: 0, duration: 0.4, ease: 'power3.out', force3D: true },
+                { opacity: 1, y: -15, duration: 0.4, ease: 'power3.out', force3D: true },
                 '-=0.1'
             );
 
             // 3. Description slides up
             tl.to(descriptionRef.current,
-                { opacity: 1, y: 0, duration: 0.4, ease: 'power3.out', force3D: true },
+                { opacity: 1, y: -10, duration: 0.4, ease: 'power3.out', force3D: true },
                 '-=0.05'
             );
 
@@ -204,7 +204,7 @@ export default function Hero() {
                 <div className="home-text-holder">
                     <div className="home-text-container">
                         {/* Premium Badge */}
-                        <div className="flex justify-center cursor-pointer w-full mb-2">
+                        <div className="flex justify-center cursor-pointer w-full mb-2 lg:mb-0">
                             <div
                                 ref={tagRef}
                                 className="glass-badge inline-flex items-center gap-3 px-4 py-2 rounded-full relative overflow-hidden"
@@ -237,10 +237,10 @@ export default function Hero() {
                                 <span className="text-white text-sm font-medium relative z-10">Trusted by +30 coaches, creators & infopreneurs</span>
                             </div>
                         </div>
-                        <div className="animate-on-load-01">
+                        <div className="animate-on-load-01 lg:mt-0">
                             <h1
                                 ref={titleRef}
-                                className="hero-title animate-me"
+                                className="hero-title animate-me lg:!mt-0"
                             >
                                 The #1 All-in-One System for Infopreneurs.
                             </h1>

@@ -1318,27 +1318,26 @@ body {
 /* Mobile-specific padding for hero section */
 @media (max-width: 991px) {
   .hero-section-wrapper {
-    padding-top: 100px !important;
+    padding-top: 120px !important;
     /* Extra padding on mobile for navbar */
   }
 
   /* Override first section padding on mobile */
   .section:first-of-type .hero-section-wrapper {
-    padding-top: 100px !important;
+    padding-top: 120px !important;
   }
 }
 
 @media (max-width: 767px) {
   .hero-section-wrapper {
-    padding-top: 110px !important;
+    padding-top: 130px !important;
     padding-bottom: 40px !important;
-    /* Reduced bottom gap on mobile */
-    /* Extra padding on small mobile screens */
+    /* Extra padding on small mobile to clear fixed navbar */
   }
 
   /* Override first section padding on small mobile */
   .section:first-of-type .hero-section-wrapper {
-    padding-top: 110px !important;
+    padding-top: 130px !important;
     padding-bottom: 40px !important;
   }
 }
