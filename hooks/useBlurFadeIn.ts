@@ -11,9 +11,9 @@ if (typeof window !== 'undefined') {
 
 /**
  * Animates every meaningful content block outside the Hero component.
- * Elements start blurry + slightly faded and become crystal-clear as they
- * reach the centre of the viewport. The effect is scrubbed (tied to scroll
- * position) so it feels natural.
+ * Elements start blurry + slightly faded and become crystal-clear when they
+ * reach 30% from the bottom of the viewport (so small screens don’t require
+ * scrolling the whole image up to see the text). The effect is scrubbed to scroll.
  */
 export function useBlurFadeIn() {
     useEffect(() => {
@@ -26,27 +26,36 @@ export function useBlurFadeIn() {
             const heroWrapper = document.querySelector('.hero-section-wrapper');
 
             // ── 2. Broad set of selectors that covers all non-hero content ────
+            // Grid: only .grid-holder is animated (single animation for both images/cards). No .grid-item or inner elements.
             const SELECTORS = [
-                // Section-level blocks
-                '.grid-section',
+                // Section-level blocks; grid gets one animation via .grid-holder only
+                '.grid-holder',
                 '.section-inside',
                 '.new-features-holder',
                 '.cta-holder',
 
                 // Individual semantic blocks
-                '.grid-item',
-                '.grid-title',
-                '.grid-content',
                 '.feature-grid-content',
                 '.feature-grid-content-holder-2',
+                '.feature-grid-content-holder-2 .fade-in-on-scroll',
+                '.feature-content-holder',
                 '.feature-graphic-holder',
 
-                // Headings & text
+                // Grid inner elements (only used when NOT inside .grid-item; grid-item children skipped below)
+                '.grid-title',
+                '.grid-content',
+
+                // Headings & text (all levels so headings and paragraphs behave the same)
                 'h1:not(.hero-section-wrapper h1)',
                 'h2:not(.hero-section-wrapper h2)',
                 'h3:not(.hero-section-wrapper h3)',
+                'h4:not(.hero-section-wrapper h4)',
+                'h5:not(.hero-section-wrapper h5)',
+                'h6:not(.hero-section-wrapper h6)',
                 '.title:not(.hero-section-wrapper .title)',
                 '.paragraph-2:not(.hero-section-wrapper .paragraph-2)',
+                '.feature-content-holder p',
+                '.feature-grid-content-holder-2 p',
                 '.no-margins-2',
                 '.center-text',
                 '.heading-holder',
@@ -111,6 +120,8 @@ export function useBlurFadeIn() {
                     if (el.closest('.navbar') || el.closest('.w-nav')) return;
                     // Skip premium-animation elements (they have their own IntersectionObserver animation)
                     if (el.classList.contains('premium-animation') || el.closest('.premium-animation')) return;
+                    // Skip any element inside .grid-holder except .grid-holder (single animation for whole grid + both images)
+                    if (el.closest('.grid-holder') && !el.classList.contains('grid-holder')) return;
                     seen.add(el);
                     targets.push(el);
                 });
@@ -163,15 +174,16 @@ export function useBlurFadeIn() {
                         });
                     } else {
                         // ── Mid-page elements: scrub tied to scroll ───────────
-                        // end: 'top 40%' is always reachable (even on mobile)
-                        // because it completes when the top of the element
-                        // reaches 40% from the top of the viewport.
+                        // end: 'top 70%' = animation completes when element is 30% from bottom,
+                        // so on small screens users see the text without scrolling the image fully up.
+                        // Grid section uses a longer scrub for one smooth animation on the whole block.
+                        const isGridHolder = el.classList.contains('grid-holder');
                         gsap.to(el, {
                             scrollTrigger: {
                                 trigger: el,
                                 start: 'top 88%',
-                                end: 'top 40%',
-                                scrub: 1.4,
+                                end: 'top 70%',
+                                scrub: isGridHolder ? 2.2 : 1.4,
                             },
                             autoAlpha: 1,
                             filter: 'blur(0px)',
