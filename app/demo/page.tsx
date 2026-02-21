@@ -28,8 +28,8 @@ const Demo = () => {
                                 className="animate-on-load-02">
                                 <div className="center-hero-paragraph-holder">
                                     <div>
-                                        <p className="paragraph-2" style={{ whiteSpace: 'nowrap' }}>Discover how top infopreneurs scale faster with clarity.</p>
-                                        <p className="paragraph-2" style={{ whiteSpace: 'nowrap' }}>Watch the demo.</p>
+                                        <p className="paragraph-2">Discover how top infopreneurs scale faster with clarity.</p>
+                                        <p className="paragraph-2">Watch the demo.</p>
                                     </div>
                                 </div>
                             </div>
