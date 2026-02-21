@@ -11,9 +11,9 @@ if (typeof window !== 'undefined') {
 
 /**
  * Animates every meaningful content block outside the Hero component.
- * Elements start blurry + slightly faded and become crystal-clear as they
- * reach the centre of the viewport. The effect is scrubbed (tied to scroll
- * position) so it feels natural.
+ * Elements start blurry + slightly faded and become crystal-clear when they
+ * reach 30% from the bottom of the viewport (so small screens don’t require
+ * scrolling the whole image up to see the text). The effect is scrubbed to scroll.
  */
 export function useBlurFadeIn() {
     useEffect(() => {
@@ -39,14 +39,21 @@ export function useBlurFadeIn() {
                 '.grid-content',
                 '.feature-grid-content',
                 '.feature-grid-content-holder-2',
+                '.feature-grid-content-holder-2 .fade-in-on-scroll',
+                '.feature-content-holder',
                 '.feature-graphic-holder',
 
-                // Headings & text
+                // Headings & text (all levels so headings and paragraphs behave the same)
                 'h1:not(.hero-section-wrapper h1)',
                 'h2:not(.hero-section-wrapper h2)',
                 'h3:not(.hero-section-wrapper h3)',
+                'h4:not(.hero-section-wrapper h4)',
+                'h5:not(.hero-section-wrapper h5)',
+                'h6:not(.hero-section-wrapper h6)',
                 '.title:not(.hero-section-wrapper .title)',
                 '.paragraph-2:not(.hero-section-wrapper .paragraph-2)',
+                '.feature-content-holder p',
+                '.feature-grid-content-holder-2 p',
                 '.no-margins-2',
                 '.center-text',
                 '.heading-holder',
@@ -163,14 +170,13 @@ export function useBlurFadeIn() {
                         });
                     } else {
                         // ── Mid-page elements: scrub tied to scroll ───────────
-                        // end: 'top 40%' is always reachable (even on mobile)
-                        // because it completes when the top of the element
-                        // reaches 40% from the top of the viewport.
+                        // end: 'top 70%' = animation completes when element is 30% from bottom,
+                        // so on small screens users see the text without scrolling the image fully up.
                         gsap.to(el, {
                             scrollTrigger: {
                                 trigger: el,
                                 start: 'top 88%',
-                                end: 'top 40%',
+                                end: 'top 70%',
                                 scrub: 1.4,
                             },
                             autoAlpha: 1,

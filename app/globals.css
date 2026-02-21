@@ -1180,28 +1180,28 @@ body {
   }
 }
 
-/* Fix header logo size */
+/* Fix header logo size - compact for shorter navbar */
 .brand-image {
-  max-height: 40px;
+  max-height: 34px;
   width: auto;
   object-fit: contain;
 }
 
-/* Full-width transparent header with blur */
+/* Full-width transparent header with blur - reduced height */
 .navbar {
   background: rgba(13, 13, 13, 0.5) !important;
   /* Fallback for browsers not supporting blur */
   position: fixed !important;
-  top: -4px;
+  top: -2px;
   left: 0;
   right: 0;
   width: 100%;
   z-index: 1000;
   backdrop-filter: blur(12px) !important;
   -webkit-backdrop-filter: blur(12px) !important;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
-  padding-top: 4px !important;
-  padding-bottom: 4px !important;
+  border-bottom: none !important;
+  padding-top: 2px !important;
+  padding-bottom: 2px !important;
 }
 
 .navbar-container {
@@ -1266,7 +1266,7 @@ body {
     background: rgba(13, 13, 13, 0.97) !important;
     backdrop-filter: blur(12px) !important;
     -webkit-backdrop-filter: blur(12px) !important;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+    /* border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important; */
     padding: 16px 24px 24px !important;
   }
 

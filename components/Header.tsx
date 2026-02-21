@@ -16,14 +16,13 @@ export default function Header() {
     const mobileMenu = menuOpen && mounted ? createPortal(
         <div style={{
             position: 'fixed',
-            top: '64px',
+            top: '52px',
             left: 0,
             right: 0,
             zIndex: 9999,
             background: 'rgba(13, 13, 13, 0.97)',
             backdropFilter: 'blur(12px)',
             WebkitBackdropFilter: 'blur(12px)',
-            borderBottom: '1px solid rgba(255,255,255,0.1)',
             padding: '16px 24px 24px',
             display: 'flex',
             flexDirection: 'column',

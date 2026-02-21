@@ -64,14 +64,14 @@ export default function Home() {
           <div className="grid-holder">
             <div className="w-layout-grid grid">
               <div className="grid-item">
-                <img className="grid-image" src="/feat_fur-removebg-preview.png" alt="" sizes="(max-width: 1710px) 100vw, 1710px" data-w-id="489ae30c-d1da-3634-9042-73948da8383a" loading="lazy" />
+                <img className="grid-image" src="/ChatGPTCEO.png" alt="" sizes="(max-width: 1710px) 100vw, 1710px" data-w-id="489ae30c-d1da-3634-9042-73948da8383a" loading="lazy" />
                 <div className="grid-content">
                   <div className="grid-title">Become a real CEO</div>
                   <p className="no-margins-2">Track cash collected, calls booked, leads, team KPIs, client LTV, and revenue per YouTube video — all in real time.</p>
                 </div>
               </div>
               <div className="grid-item">
-                <img className="grid-image" src="/fin.png" alt="" sizes="(max-width: 1710px) 100vw, 1710px" data-w-id="489ae30c-d1da-3634-9042-73948da83841" loading="lazy" />
+                <img className="grid-image" src="/ChatGPT21feb.png" alt="" sizes="(max-width: 1710px) 100vw, 1710px" data-w-id="489ae30c-d1da-3634-9042-73948da83841" loading="lazy" />
                 <div className="grid-content">
                   <div className="grid-title">Built-in automations</div>
                   <p className="no-margins-2">Sales pipeline automation : automated onboading, slack &amp; payments notifications</p>
