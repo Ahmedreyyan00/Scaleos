@@ -591,7 +591,7 @@ const Features = () => {
                                 </div>
                             </div>
                             <div id="w-node-f98726bf-3213-24ab-c75f-e87cb8a73745-a9826b99" className="feature-graphic-holder">
-                                <div ref={featureCard5Ref} className="hero-dashbord-holder feature-card-frame">
+                                <div ref={featureCard5Ref} id='lastcard' className="hero-dashbord-holder feature-card-frame">
                                     <img
                                         src="/scalefeature4.png"
                                         alt=""

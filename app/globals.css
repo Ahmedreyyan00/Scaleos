@@ -2657,6 +2657,11 @@ body {
     padding-right: 0 !important;
     box-sizing: border-box !important;
   }
+
+  /* Gap between last features block (e.g. Teamwork, Systemized) and CTA/footer section */
+  .section.overflow-hidden:has(.cta-holder) {
+    padding-top: 48px !important;
+  }
 }
 
 /* Extra small mobile screens – keep vw scaling so text always fits */
@@ -2678,5 +2683,9 @@ body {
   .cta-content {
     padding-left: 5px !important;
     padding-right: 5px !important;
+  }
+
+  .section.overflow-hidden:has(.cta-holder) {
+    padding-top: 40px !important;
   }
 }
