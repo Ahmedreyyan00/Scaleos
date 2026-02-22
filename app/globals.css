@@ -721,24 +721,23 @@ body {
   position: relative !important;
 }
 
-/* Translucent background overlay that covers the image above */
+/* Soft overlay that blends with blue blur: no visible partition line; very smooth transition */
 .hero-text-section-background {
   position: absolute !important;
   top: -220px !important;
-  /* Extend upward to cover more of the image */
   left: 0 !important;
   right: 0 !important;
   bottom: 0 !important;
   width: 100% !important;
-  /* Darker, soft overlay so text pops but blue blur is still visible */
-  background: radial-gradient(ellipse at center,
-      rgba(0, 0, 0, 0.7) 0%,
-      rgba(0, 0, 0, 0.82) 45%,
-      rgba(0, 0, 0, 0.9) 100%) !important;
+  /* Very large ellipse (wider than viewport) so gradient has no visible edge; smooth fade only */
+  background: radial-gradient(ellipse 160% 120% at 50% 50%,
+      transparent 0%,
+      rgba(0, 0, 0, 0.12) 40%,
+      rgba(0, 0, 0, 0.35) 65%,
+      rgba(0, 0, 0, 0.6) 85%,
+      rgba(0, 0, 0, 0.78) 100%) !important;
   z-index: 2 !important;
-  /* Above image (z-index: 1), below text container (z-index: 10) */
   pointer-events: none !important;
-  /* Let underlying blue blur color show through (no extra blur here) */
   backdrop-filter: none !important;
   -webkit-backdrop-filter: none !important;
 }
@@ -872,13 +871,8 @@ body {
   -webkit-background-clip: unset !important;
   background-clip: unset !important;
   /* Disable background clipping */
-  text-shadow:
-    0 2px 8px rgba(0, 0, 0, 0.8),
-    0 4px 16px rgba(0, 0, 0, 0.6),
-    0 1px 2px rgba(0, 0, 0, 0.9) !important;
-  /* Strong text shadow for readability */
+  text-shadow: none !important;
   font-weight: 600 !important;
-  /* Bolder text for better visibility */
 }
 
 /* Ensure only the title in home-pragraph-holder is white (not the button) */
@@ -905,13 +899,8 @@ body {
   background-image: none !important;
   -webkit-background-clip: unset !important;
   background-clip: unset !important;
-  text-shadow:
-    0 2px 8px rgba(0, 0, 0, 0.8),
-    0 4px 16px rgba(0, 0, 0, 0.6),
-    0 1px 2px rgba(0, 0, 0, 0.9) !important;
-  /* Strong text shadow for readability */
+  text-shadow: none !important;
   font-weight: 600 !important;
-  /* Bolder text for better visibility */
 }
 
 /* Only the slider section container should have overflow hidden */
@@ -1010,6 +999,25 @@ body {
 .w-layout-blockcontainer.container-4 {
   margin-top: 20px !important;
   margin-bottom: 20px !important;
+}
+
+/* Demo page: video full width on small screens with a little side padding */
+@media (max-width: 991px) {
+  .demo .w-layout-blockcontainer.container-4 {
+    width: 100vw !important;
+    max-width: 100vw !important;
+    margin-left: calc(-50vw + 50%) !important;
+    margin-right: 0 !important;
+    padding-left: 4px !important;
+    padding-right: 4px !important;
+    border-radius: 0 !important;
+    box-sizing: border-box !important;
+  }
+  .demo .w-layout-blockcontainer.container-4 .youtube,
+  .demo .w-layout-blockcontainer.container-4 .w-embed-youtubevideo {
+    width: 100% !important;
+    border-radius: 6px !important;
+  }
 }
 
 /* Reduce button holder spacing */
@@ -1949,57 +1957,47 @@ body {
 
 .hero-text-container .blue-blur._02 {
   z-index: -5 !important;
-  /* Much lower z-index to keep it far back */
   position: absolute !important;
   left: 50% !important;
   top: 50% !important;
   right: auto !important;
   bottom: auto !important;
-  /* Transform will be controlled by GSAP - centered using xPercent/yPercent */
-  /* Fallback centering transform - GSAP will override this */
   transform: translate(-50%, -50%) scale3d(1, 0.5, 1) !important;
-  width: 1330px !important;
-  height: 940px !important;
+  /* Wider and taller so blur extends past viewport - no visible partition line at bottom */
+  width: 1800px !important;
+  height: 1400px !important;
   margin: 0 !important;
   padding: 0 !important;
   pointer-events: none !important;
-  /* Don't block interactions */
-  /* More vibrant gradient with clear color fade */
-  background-image: radial-gradient(circle farthest-side at 50% 50%, var(--gradient-color-01) 5%, var(--gradient-color-02) 42%, var(--gradient-color-03) 74%) !important;
-  filter: blur(40px) !important;
+  /* Gradient fades to transparent at edge so blur softens into dark */
+  background-image: radial-gradient(circle farthest-side at 50% 50%, var(--gradient-color-01) 0%, var(--gradient-color-02) 35%, var(--gradient-color-03) 55%, transparent 78%) !important;
+  filter: blur(50px) !important;
   transform-style: preserve-3d !important;
   transform-origin: center center !important;
-  /* GSAP will control opacity and transform - ensure centered */
   will-change: opacity, transform !important;
 }
 
-/* Mobile-specific fixes for blue blur positioning */
+/* Mobile: keep blue blur wide/tall enough so no partition line shows */
 @media (max-width: 991px) {
   .hero-text-container .blue-blur._02 {
-    width: 800px !important;
-    height: 600px !important;
-    /* Smaller size for mobile */
-    /* Transform fallback - GSAP will override */
+    width: 1200px !important;
+    height: 1000px !important;
     transform: translate(-50%, -50%) scale3d(1, 0.5, 1) !important;
   }
 }
 
 @media (max-width: 767px) {
   .hero-text-container .blue-blur._02 {
-    width: 600px !important;
-    height: 450px !important;
-    /* Even smaller for small mobile */
-    /* Transform fallback - GSAP will override */
+    width: 1000px !important;
+    height: 900px !important;
     transform: translate(-50%, -50%) scale3d(1, 0.5, 1) !important;
   }
 }
 
 @media (max-width: 479px) {
   .hero-text-container .blue-blur._02 {
-    width: 500px !important;
-    height: 375px !important;
-    /* Smallest size for very small screens */
-    /* Transform fallback - GSAP will override */
+    width: 900px !important;
+    height: 800px !important;
     transform: translate(-50%, -50%) scale3d(1, 0.5, 1) !important;
   }
 }
@@ -2009,11 +2007,9 @@ body {
   z-index: 25 !important;
   /* Higher z-index to ensure it's above everything */
   color: #ffffff !important;
-  /* Pure white text for maximum visibility */
   font-size: 40px !important;
   line-height: 1.3 !important;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8), 0 4px 20px rgba(0, 0, 0, 0.6), 0 1px 3px rgba(0, 0, 0, 0.9) !important;
-  /* Strong text shadow for readability over translucent overlay and blue blur */
+  text-shadow: none !important;
 }
 
 /* Make hero subtitle more compact and readable on smaller screens */
@@ -2062,14 +2058,12 @@ body {
   justify-content: center;
 }
 
-/* Blue blur animation - expands after loading */
+/* Blue blur animation - large so no partition line visible */
 .hero-section-wrapper .blue-blur {
   transform-origin: center center !important;
   will-change: transform, opacity !important;
-  width: 1500px !important;
-  /* Increased from 1330px */
-  height: 1300px !important;
-  /* Increased from 940px */
+  width: 1800px !important;
+  height: 1400px !important;
 }
 
 /* Feature slider - blue light transitions */
@@ -2166,7 +2160,7 @@ body {
   color: #fff !important;
   font-weight: 600 !important;
   letter-spacing: -0.02em !important;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2) !important;
+  text-shadow: none !important;
 }
 
 .feature-content-holder p {
@@ -2344,7 +2338,7 @@ body {
   font-size: 13px;
   font-weight: 500;
   letter-spacing: 0.3px;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  text-shadow: none;
   white-space: nowrap;
 }
 

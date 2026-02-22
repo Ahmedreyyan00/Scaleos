@@ -152,38 +152,34 @@ export default function Hero() {
                 '+=0.05'
             );
 
-            // 7. Translucent overlay slides up
-            tl.to(textSectionBackgroundRef.current,
-                {
+            // 7. One unified reveal: dark overlay + blue blur in sync (smooth, no fighting)
+            const overlayEl = textSectionBackgroundRef.current;
+            const blueEl = blueBlurRef.current;
+            if (overlayEl && blueEl) {
+                tl.to(overlayEl, {
                     opacity: 1,
                     y: 0,
-                    duration: 0.7,
+                    duration: 0.65,
                     ease: 'power3.out',
-                    force3D: true
-                },
-                '-=0.3'
-            );
-
-            // 7.1. Subtitle appears
-            tl.to(subtitleRef.current,
-                { opacity: 1, y: 0, duration: 0.5, ease: 'power3.out', force3D: true },
-                '-=0.5'
-            );
-
-            // 7.5. Blue blur fades in
-            tl.to(blueBlurRef.current,
-                {
-                    opacity: BLUE_BLUR_OPACITY,
+                    force3D: true,
+                }, '-=0.35');
+                tl.to(blueEl, {
                     xPercent: -50,
                     yPercent: -50,
                     scaleX: 1.3613,
                     scaleY: 0.7785,
-                    duration: 0.7,
+                    opacity: BLUE_BLUR_OPACITY,
+                    duration: 0.65,
                     ease: 'power2.out',
                     force3D: true,
-                    transformStyle: 'preserve-3d'
-                },
-                '-=0.5'
+                    transformStyle: 'preserve-3d',
+                }, '<');
+            }
+
+            // 7.1. Subtitle appears
+            tl.to(subtitleRef.current,
+                { opacity: 1, y: 0, duration: 0.5, ease: 'power3.out', force3D: true },
+                '-=0.45'
             );
 
             // 8. Floating icons pop in
@@ -320,21 +316,18 @@ export default function Hero() {
 
 
                 <div className="hero-text-holder">
-                    <div className="hero-text-container" style={{ willChange: 'filter, opacity, transform', filter: 'blur(0px)', opacity: 1, transform: 'translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg)', transformStyle: 'preserve-3d', position: 'relative' }}>
-
-                        {/* Blue glow behind text */}
-                        <div className="blue-blur _02" style={{
-                            opacity: 0.6,
-                            transform: 'translate3d(0px, 0px, 0px) scale3d(1.35239, 0.77355, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg)',
-                            transformStyle: 'preserve-3d',
-                            willChange: 'opacity, transform',
-                            zIndex: -1,
-                            position: 'absolute',
-                        }}></div>
+                    <div ref={heroTextContainerRef} className="hero-text-container" style={{ position: 'relative' }}>
+                        {/* Dark overlay: soft gradient that blends with blue blur (animated with blue blur) */}
+                        <div
+                            ref={textSectionBackgroundRef}
+                            className="hero-text-section-background"
+                            aria-hidden
+                        />
+                        {/* Blue blur: one unified animation with overlay */}
+                        <div ref={blueBlurRef} className="blue-blur _02" aria-hidden />
 
                         <h2 className="title" style={{ position: 'relative', zIndex: 1 }}>Say goodbye to scattered spreadsheets, disconnected CRMs and guessing games. Say hello to clarity, control, and cash collected.</h2>
                     </div>
-
                 </div>
             </div>
         </div>
