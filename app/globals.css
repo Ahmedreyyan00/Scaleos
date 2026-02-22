@@ -1223,41 +1223,51 @@ body {
   object-fit: contain;
 }
 
-/* Full-width transparent header with blur - reduced height */
+/* Full-width transparent header - inner container is the pill with blur */
 .navbar {
-  background: rgba(13, 13, 13, 0.5) !important;
-  /* Fallback for browsers not supporting blur */
+  background: transparent !important;
   position: fixed !important;
-  top: -2px;
+  top: 0;
   left: 0;
   right: 0;
   width: 100%;
   z-index: 1000;
-  backdrop-filter: blur(12px) !important;
-  -webkit-backdrop-filter: blur(12px) !important;
+  padding: 12px 16px 12px !important;
   border-bottom: none !important;
-  padding-top: 2px !important;
-  padding-bottom: 2px !important;
 }
 
 .navbar-container {
-  max-width: 1400px !important;
   margin: 0 auto;
-  padding-left: 3rem !important;
-  padding-right: 3rem !important;
   min-height: auto !important;
 }
 
-/* Make navbar container transparent and allow blur */
+/* Pill-shaped navbar container: semi-transparent, blur, rounded border */
 .container.navbar-container {
-  background-color: transparent !important;
-  backdrop-filter: blur(12px) !important;
-  -webkit-backdrop-filter: blur(12px) !important;
-  border-radius: 0 !important;
+  background-color: #14141480 !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  backdrop-filter: blur(20px) !important;
+  border-radius: 60px !important;
+  max-width: 1145px !important;
+  padding: 11px 15px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  width: 100% !important;
+  height: 100% !important;
 }
 
 /* ── Mobile navbar: logo LEFT, hamburger RIGHT ──────────────────────────── */
 @media (max-width: 991px) {
+  .navbar {
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+  }
+
+  .container.navbar-container {
+    padding: 11px 15px !important;
+    border-radius: 60px !important;
+  }
+
   .navbar-container {
     padding-left: 0 !important;
     padding-right: 0 !important;
