@@ -16,7 +16,7 @@ export default function Header() {
     const mobileMenu = menuOpen && mounted ? createPortal(
         <div style={{
             position: 'fixed',
-            top: '52px',
+            top: '84px',
             left: 0,
             right: 0,
             zIndex: 9999,
