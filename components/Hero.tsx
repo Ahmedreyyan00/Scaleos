@@ -66,7 +66,7 @@ export default function Hero() {
                 opacity: 0,
                 xPercent: -50,
                 yPercent: -50,
-                scaleX: 1,
+                scaleX: 0.4,
                 scaleY: 0.5,
                 force3D: true,
                 transformStyle: 'preserve-3d'
@@ -166,7 +166,7 @@ export default function Hero() {
                 tl.to(blueEl, {
                     xPercent: -50,
                     yPercent: -50,
-                    scaleX: 1.3613,
+                    scaleX: 1,
                     scaleY: 0.7785,
                     opacity: BLUE_BLUR_OPACITY,
                     duration: 0.65,
@@ -326,7 +326,7 @@ export default function Hero() {
                         {/* Blue blur: one unified animation with overlay */}
                         <div ref={blueBlurRef} className="blue-blur _02" aria-hidden />
 
-                        <h2 className="title" style={{ position: 'relative', zIndex: 1 }}>Say goodbye to scattered spreadsheets, disconnected CRMs and guessing games. Say hello to clarity, control, and cash collected.</h2>
+                        <h2 className="title" style={{ position: 'relative', zIndex: 2 }}>Say goodbye to scattered spreadsheets, disconnected CRMs and guessing games. Say hello to clarity, control, and cash collected.</h2>
                     </div>
                 </div>
             </div>
