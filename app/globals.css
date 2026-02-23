@@ -811,7 +811,7 @@ body {
 .blue-blur,
 .blue-blur-2-copy {
   overflow: visible !important;
-  position: !important;
+  position: absolute !important;
 }
 
 /* Hero blue blur specifically - ensure it can extend beyond hero-text-container */
@@ -847,7 +847,7 @@ body {
 
 /* Reduce brightness of blue-blur-2-copy to make text visible */
 .blue-blur-2-copy._022-phone {
-  opacity: 0.15 !important;
+  opacity: 0.25 !important;
   /* Reduced from default 0.4 */
   z-index: -1 !important;
   /* Keep behind text */
@@ -875,10 +875,14 @@ body {
   }
 
   .new-features-holder .home-pragraph-holder .blue-blur-2-copy._022-phone {
-    width: 100% !important;
-    left: 0 !important;
-    right: 0 !important;
+    width: 100vw !important;
+    left: 50% !important;
+    margin-left: -50vw !important;
+    right: auto !important;
     max-width: none !important;
+    transform: scale3d(2.5, 1, 1) !important;
+    height: 300px !important;
+    top: -60px !important;
   }
 }
 
@@ -900,6 +904,13 @@ body {
   /* Disable background clipping */
   text-shadow: none !important;
   font-weight: 600 !important;
+}
+
+@media (max-width: 767px) {
+  .hero-text-container-2 .title {
+    font-size: 34px !important;
+    line-height: 1.2 !important;
+  }
 }
 
 /* Ensure only the title in home-pragraph-holder is white (not the button) */
