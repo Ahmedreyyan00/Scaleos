@@ -17,15 +17,13 @@ const Demo = () => {
                 <div className="hero-section">
                     <div className="container">
                         <div className="hero-section-center-holder-phone">
-                            <div style={{ opacity: 0, WebkitTransform: 'translate3d(0, 30px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)', MozTransform: 'translate3d(0, 30px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)', msTransform: 'translate3d(0, 30px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)', transform: 'translate3d(0, 30px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)', filter: 'blur(11px)' }}
-                                className="animate-on-load-01">
+                            <div className="animate-on-load-01">
                                 <div className="hero-center-text">
                                     <h2 className="title"><strong>Scaling With Real Data Starts Now
                                     </strong></h2>
                                 </div>
                             </div>
-                            <div style={{ WebkitTransform: 'translate3d(0, 30px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)', MozTransform: 'translate3d(0, 30px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)', msTransform: 'translate3d(0, 30px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)', transform: 'translate3d(0, 30px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)', opacity: 0, filter: 'blur(11px)' }}
-                                className="animate-on-load-02">
+                            <div className="animate-on-load-02">
                                 <div className="center-hero-paragraph-holder">
                                     <div>
                                         <p className="paragraph-2">Discover how top infopreneurs scale faster with clarity.</p>
@@ -51,14 +49,12 @@ const Demo = () => {
                     </div>
                     <section className="section-2">
                         <div className="hero-section-center-holder-2">
-                            <div style={{ opacity: 0, WebkitTransform: 'translate3d(0, 30px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)', MozTransform: 'translate3d(0, 30px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)', msTransform: 'translate3d(0, 30px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)', transform: 'translate3d(0, 30px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)', filter: 'blur(11px)' }}
-                                className="animate-on-load-01">
-                                <div className="hero-cnter-text">
+                            <div className="animate-on-load-01">
+                                <div className="hero-center-text">
                                     <h2 className="title"><strong className="bold-text-2">Apply to ScaleOS Now</strong></h2>
                                 </div>
                             </div>
-                            <div style={{ WebkitTransform: 'translate3d(0, 30px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)', MozTransform: 'translate3d(0, 30px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)', msTransform: 'translate3d(0, 30px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)', transform: 'translate3d(0, 30px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)', opacity: 0, filter: 'blur(11px)' }}
-                                className="animate-on-load-02">
+                            <div className="animate-on-load-02">
                                 <div className="center-hero-paragraph-holder">
                                     <div>
                                         <p className="paragraph-3">We only onboard a few businesses per month.</p>
