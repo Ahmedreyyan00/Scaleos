@@ -999,9 +999,15 @@ body {
   margin-top: -20px !important;
   padding-top: 0 !important;
   padding-bottom: 20px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  visibility: visible !important;
+  opacity: 1 !important;
 }
 
-.demo .hero-cnter-text {
+
+.demo .hero-center-text {
   margin-bottom: 4px !important;
 }
 
@@ -2621,9 +2627,9 @@ body {
   max-width: 100%;
   min-width: 0;
   box-sizing: border-box;
-  padding-left: 24px;
-  padding-right: 24px;
-  padding-bottom: 30px;
+  /* padding-left: 24px;
+  padding-right: 24px; */
+  /* padding-bottom: 30px; */
   overflow: hidden;
 }
 
@@ -2688,10 +2694,10 @@ body {
 
   /* Ensure CTA content container has proper padding and doesn't overflow */
   .cta-holder {
-    padding-left: 20px !important;
-    padding-right: 20px !important;
+    /* padding-left: 20px !important; */
+    /* padding-right: 20px !important; */
     padding-top: 30px !important;
-    padding-bottom: 30px !important;
+    /* padding-bottom: 30px !important; */
   }
 
   .cta-content {
@@ -2745,8 +2751,8 @@ body {
   }
 
   .cta-holder {
-    padding-left: 15px !important;
-    padding-right: 15px !important;
+    /* padding-left: 15px !important; */
+    /* padding-right: 15px !important; */
   }
 
   .cta-content {

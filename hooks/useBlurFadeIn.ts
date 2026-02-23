@@ -86,8 +86,6 @@ export function useBlurFadeIn() {
                 '.slide',
 
                 // Demo-page extras
-                '.hero-center-text',
-                '.center-hero-paragraph-holder',
                 '.button-holder-phone',
                 '.youtube',
                 '.youform-embed-container',
