@@ -51,13 +51,13 @@ const Demo = () => {
                         <div className="hero-section-center-holder-2">
                             <div className="animate-on-load-01">
                                 <div className="hero-center-text">
-                                    <h2 className="title"><strong className="bold-text-2">Apply to ScaleOS Now</strong></h2>
+                                    <h2 className="title"><strong>Apply to ScaleOS Now</strong></h2>
                                 </div>
                             </div>
                             <div className="animate-on-load-02">
                                 <div className="center-hero-paragraph-holder">
                                     <div>
-                                        <p className="paragraph-3">We only onboard a few businesses per month.</p>
+                                        <p className="paragraph-2">We only onboard a few businesses per month.</p>
                                     </div>
                                 </div>
                                 <FOMOBadge />

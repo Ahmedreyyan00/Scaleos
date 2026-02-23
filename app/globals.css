@@ -1429,7 +1429,7 @@ body {
 /* Make hero title smaller on mobile screens */
 @media (max-width: 991px) {
   .hero-section-wrapper .hero-title {
-    font-size: 42px !important;
+    font-size: 52px !important;
     /* Smaller on tablet */
     line-height: 1.3 !important;
   }
@@ -1437,17 +1437,17 @@ body {
 
 @media (max-width: 767px) {
   .hero-section-wrapper .hero-title {
-    font-size: 28px !important;
-    /* Smaller on mobile */
-    line-height: 1.3 !important;
+    font-size: 48px !important;
+    /* Much larger on mobile */
+    line-height: 1.2 !important;
   }
 }
 
 @media (max-width: 479px) {
   .hero-section-wrapper .hero-title {
-    font-size: 24px !important;
-    /* Even smaller on small mobile */
-    line-height: 1.4 !important;
+    font-size: 45px !important;
+    /* Much larger on small mobile */
+    line-height: 1.2 !important;
   }
 }
 
@@ -1483,16 +1483,16 @@ body {
 
 @media (max-width: 767px) {
   .hero-section-wrapper .paragraph-l {
-    font-size: 14px !important;
-    /* Smaller than title (28px) */
+    font-size: 16px !important;
+    /* Smaller than title (38px) */
     line-height: 1.5 !important;
   }
 }
 
 @media (max-width: 479px) {
   .hero-section-wrapper .paragraph-l {
-    font-size: 13px !important;
-    /* Smaller than title (24px) */
+    font-size: 16px !important;
+    /* Smaller than title (34px) */
     line-height: 1.5 !important;
   }
 }
@@ -1502,6 +1502,24 @@ body {
   /* 75% of 16px */
   padding: 10px !important;
   /* ~71% of 14px 30px */
+}
+
+/* Make CTA buttons bigger on mobile */
+@media (max-width: 767px) {
+  .hero-section-wrapper .button {
+    font-size: 16px !important;
+    padding: 14px 28px !important;
+  }
+}
+
+@media (max-width: 479px) {
+  .hero-section-wrapper .button {
+    font-size: 15px !important;
+    padding: 14px 24px !important;
+    width: 100% !important;
+    text-align: center !important;
+    margin-bottom: 10px !important;
+  }
 }
 
 /* Base size for large screens - larger text */
@@ -1522,8 +1540,8 @@ body {
 /* Mobile - smaller text */
 @media (max-width: 767px) {
   .hero-section-wrapper .title {
-    font-size: 18px !important;
-    /* Smaller for mobile */
+    font-size: 24px !important;
+    /* Larger for mobile */
     line-height: 1.4 !important;
   }
 }
@@ -1531,8 +1549,8 @@ body {
 /* Small mobile - keep small */
 @media (max-width: 479px) {
   .hero-section-wrapper .title {
-    font-size: 18px !important;
-    /* Keep 18px on small mobile */
+    font-size: 22px !important;
+    /* Larger on small mobile */
     line-height: 1.4 !important;
   }
 }
