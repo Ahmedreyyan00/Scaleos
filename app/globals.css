@@ -811,7 +811,7 @@ body {
 .blue-blur,
 .blue-blur-2-copy {
   overflow: visible !important;
-  position: absolute !important;
+  position: !important;
 }
 
 /* Hero blue blur specifically - ensure it can extend beyond hero-text-container */
@@ -1145,7 +1145,7 @@ body {
   .button-holder-features .button,
   .button-holder-features .w-button {
     width: 100% !important;
-    max-width: 300px !important;
+    max-width: 100% !important;
     margin-left: auto !important;
     margin-right: auto !important;
   }
@@ -1498,27 +1498,30 @@ body {
 }
 
 .hero-section-wrapper .button {
-  font-size: 12px !important;
-  /* 75% of 16px */
-  padding: 10px !important;
-  /* ~71% of 14px 30px */
+  font-size: 16px !important;
+  padding: 14px 40px !important;
+  min-width: 200px !important;
 }
 
 /* Make CTA buttons bigger on mobile */
 @media (max-width: 767px) {
   .hero-section-wrapper .button {
-    font-size: 16px !important;
-    padding: 14px 28px !important;
+    font-size: 18px !important;
+    padding: 16px 32px !important;
+    width: 70vw !important;
+    text-align: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
   }
 }
 
 @media (max-width: 479px) {
   .hero-section-wrapper .button {
-    font-size: 15px !important;
-    padding: 14px 24px !important;
+    font-size: 17px !important;
+    padding: 16px 24px !important;
     width: 100% !important;
     text-align: center !important;
-    margin-bottom: 10px !important;
+    margin-bottom: 12px !important;
   }
 }
 

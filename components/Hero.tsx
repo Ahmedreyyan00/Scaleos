@@ -156,6 +156,9 @@ export default function Hero() {
             const overlayEl = textSectionBackgroundRef.current;
             const blueEl = blueBlurRef.current;
             if (overlayEl && blueEl) {
+                const isMobile = window.matchMedia('(max-width: 768px)').matches;
+                const targetOpacity = isMobile ? 0.1 : BLUE_BLUR_OPACITY;
+
                 tl.to(overlayEl, {
                     opacity: 1,
                     y: 0,
@@ -168,7 +171,7 @@ export default function Hero() {
                     yPercent: -50,
                     scaleX: 1,
                     scaleY: 0.7785,
-                    opacity: BLUE_BLUR_OPACITY,
+                    opacity: targetOpacity,
                     duration: 0.65,
                     ease: 'power2.out',
                     force3D: true,
