@@ -612,7 +612,7 @@ const Features = () => {
                     <div className="cta-holder">
                         <div className="cta-content">
                             <div className="fade-in-on-scroll cta-heading-wrap">
-                                <h1 className="cta-heading">The #1 All-in-One System <br /> for Infopreneurs.
+                                <h1 className="cta-heading">The #1 All-in-One System <br /> <span className="whitespace-nowrap">for Infopreneurs.</span>
                                 </h1>
                             </div>
                             <div className="form"><a href="https://app.youform.com/forms/esb5dhlr"

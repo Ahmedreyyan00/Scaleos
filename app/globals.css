@@ -1428,6 +1428,20 @@ body {
   padding-right: 4rem !important;
 }
 
+@media (max-width: 767px) {
+  .hero-section-wrapper .container {
+    padding-left: 2rem !important;
+    padding-right: 2rem !important;
+  }
+}
+
+@media (max-width: 479px) {
+  .hero-section-wrapper .container {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+}
+
 /* Scale hero section text, buttons, and images to 80% */
 .hero-section-wrapper .hero-title {
   font-size: 56px !important;
@@ -1448,16 +1462,16 @@ body {
 
 @media (max-width: 767px) {
   .hero-section-wrapper .hero-title {
-    font-size: 48px !important;
-    /* Much larger on mobile */
+    font-size: clamp(32px, 8vw, 48px) !important;
+    /* Scale gracefully using vw on mobile */
     line-height: 1.2 !important;
   }
 }
 
 @media (max-width: 479px) {
   .hero-section-wrapper .hero-title {
-    font-size: 45px !important;
-    /* Much larger on small mobile */
+    font-size: clamp(26px, 9.5vw, 40px) !important;
+    /* Scale using vw on small mobile to prevent text overflow */
     line-height: 1.2 !important;
   }
 }
@@ -2743,7 +2757,7 @@ body {
   /* Scale heading with viewport on small screens so text fits */
   .cta-content h1,
   .cta-holder h1 {
-    font-size: clamp(20px, 5.5vw, 28px) !important;
+    font-size: clamp(28px, 6.5vw, 40px) !important;
     line-height: 1.3 !important;
     padding-left: 10px !important;
     padding-right: 10px !important;
@@ -2776,7 +2790,7 @@ body {
 
   .cta-content h1,
   .cta-holder h1 {
-    font-size: clamp(16px, 4.5vw, 24px) !important;
+    font-size: clamp(24px, 8vw, 32px) !important;
     line-height: 1.2 !important;
     padding-left: 5px !important;
     padding-right: 5px !important;
