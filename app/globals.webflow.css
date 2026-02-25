@@ -5751,14 +5751,25 @@ figcaption {
   background-color: transparent;
   border: 1px solid #5a5a5a;
   border-radius: 12px;
+  overflow: hidden !important;
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
 }
 
 .grid-image {
-  width: 100%;
+  width: 100% !important;
+  max-width: 100% !important;
+  height: auto !important;
+  display: block !important;
   transform: rotate(0);
   background-color: transparent;
   background: transparent;
   mix-blend-mode: normal;
+  border-top-left-radius: 11px !important;
+  border-top-right-radius: 11px !important;
+  margin: 0 !important;
 }
 
 .no-margins-2 {

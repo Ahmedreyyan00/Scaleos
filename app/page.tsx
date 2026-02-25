@@ -63,14 +63,14 @@ export default function Home() {
         <div className="container">
           <div className="grid-holder">
             <div className="w-layout-grid grid">
-              <div className="grid-item">
+              <div className="grid-item overflow-hidden">
                 <img className="grid-image" src="/chat1.png" alt="" sizes="(max-width: 1710px) 100vw, 1710px" loading="lazy" />
                 <div className="grid-content">
                   <div className="grid-title">Become a real CEO</div>
                   <p className="no-margins-2">Track cash collected, calls booked, leads, team KPIs, client LTV, and revenue per YouTube video — all in real time.</p>
                 </div>
               </div>
-              <div className="grid-item">
+              <div className="grid-item  overflow-hidden">
                 <img className="grid-image" src="/Des33.png" alt="" sizes="(max-width: 1710px) 100vw, 1710px" loading="lazy" />
                 <div className="grid-content">
                   <div className="grid-title">Built-in automations</div>
