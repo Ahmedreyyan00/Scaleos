@@ -242,7 +242,7 @@ export default function Hero() {
                                 ref={titleRef}
                                 className="hero-title animate-me lg:!mt-0"
                             >
-                                The #1 All-in-One System for Infopreneurs.
+                                The #1 All-in-One System <span className="whitespace-nowrap">for Infopreneurs.</span>
                             </h1>
                             {/* <h1
                                 ref={titleRef}

@@ -164,7 +164,7 @@ export default function Home() {
           <div className="cta-holder ">
             <div className="cta-content">
               <div className="fade-in-on-scroll">
-                <h1>The #1 All-in-One System <br /> for Infopreneurs.
+                <h1>The #1 All-in-One System <br /> <span className="whitespace-nowrap">for Infopreneurs.</span>
                 </h1>
               </div>
               <div className="form">
