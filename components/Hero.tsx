@@ -158,7 +158,6 @@ export default function Hero() {
             if (overlayEl && blueEl) {
                 const isMobile = window.matchMedia('(max-width: 768px)').matches;
                 const targetOpacity = isMobile ? 0.1 : BLUE_BLUR_OPACITY;
-                const targetScaleX = isMobile ? 2.5 : 1;
 
                 tl.to(overlayEl, {
                     opacity: 1,
@@ -170,7 +169,7 @@ export default function Hero() {
                 tl.to(blueEl, {
                     xPercent: -50,
                     yPercent: -50,
-                    scaleX: targetScaleX,
+                    scaleX: 1,
                     scaleY: 0.7785,
                     opacity: targetOpacity,
                     duration: 0.65,
