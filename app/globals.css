@@ -1428,20 +1428,6 @@ body {
   padding-right: 4rem !important;
 }
 
-@media (max-width: 767px) {
-  .hero-section-wrapper .container {
-    padding-left: 2rem !important;
-    padding-right: 2rem !important;
-  }
-}
-
-@media (max-width: 479px) {
-  .hero-section-wrapper .container {
-    padding-left: 1rem !important;
-    padding-right: 1rem !important;
-  }
-}
-
 /* Scale hero section text, buttons, and images to 80% */
 .hero-section-wrapper .hero-title {
   font-size: 56px !important;
@@ -1462,16 +1448,16 @@ body {
 
 @media (max-width: 767px) {
   .hero-section-wrapper .hero-title {
-    font-size: clamp(32px, 8vw, 48px) !important;
-    /* Scale gracefully using vw on mobile */
+    font-size: 48px !important;
+    /* Much larger on mobile */
     line-height: 1.2 !important;
   }
 }
 
 @media (max-width: 479px) {
   .hero-section-wrapper .hero-title {
-    font-size: clamp(26px, 9.5vw, 40px) !important;
-    /* Scale using vw on small mobile to prevent text overflow */
+    font-size: 45px !important;
+    /* Much larger on small mobile */
     line-height: 1.2 !important;
   }
 }
@@ -2720,9 +2706,10 @@ body {
   overflow-wrap: break-word;
   word-break: break-word;
   hyphens: auto;
-  overflow: hidden;
+  overflow: visible;
   font-size: 48px !important;
   line-height: 1.25 !important;
+  text-align: center;
 }
 
 /* Larger screens: fixed size (no vw). vw is used only in small-screen media queries below. */
@@ -2740,27 +2727,27 @@ body {
 
   /* Ensure CTA content container has proper padding and doesn't overflow */
   .cta-holder {
-    /* padding-left: 20px !important; */
-    /* padding-right: 20px !important; */
     padding-top: 30px !important;
-    /* padding-bottom: 30px !important; */
+    overflow: visible !important;
   }
 
   .cta-content {
     width: 100% !important;
     max-width: 100% !important;
-    padding-left: 10px !important;
-    padding-right: 10px !important;
+    padding-left: 16px !important;
+    padding-right: 16px !important;
     box-sizing: border-box !important;
+    overflow: visible !important;
   }
 
   /* Scale heading with viewport on small screens so text fits */
   .cta-content h1,
-  .cta-holder h1 {
-    font-size: clamp(28px, 6.5vw, 40px) !important;
+  .cta-holder h1,
+  .cta-heading {
+    font-size: clamp(18px, 5vw, 28px) !important;
     line-height: 1.3 !important;
-    padding-left: 10px !important;
-    padding-right: 10px !important;
+    padding-left: 12px !important;
+    padding-right: 12px !important;
     margin-left: 0 !important;
     margin-right: 0 !important;
     word-wrap: break-word !important;
@@ -2768,15 +2755,19 @@ body {
     hyphens: auto !important;
     max-width: 100% !important;
     box-sizing: border-box !important;
+    text-align: center !important;
+    overflow: visible !important;
   }
 
   /* Ensure the fade-in-on-scroll container doesn't cause overflow */
-  .cta-content .fade-in-on-scroll {
+  .cta-content .fade-in-on-scroll,
+  .cta-content .cta-heading-wrap {
     width: 100% !important;
     max-width: 100% !important;
     padding-left: 0 !important;
     padding-right: 0 !important;
     box-sizing: border-box !important;
+    overflow: visible !important;
   }
 
   /* Gap between last features block (e.g. Teamwork, Systemized) and CTA/footer section */
@@ -2789,24 +2780,28 @@ body {
 @media (max-width: 479px) {
 
   .cta-content h1,
-  .cta-holder h1 {
-    font-size: clamp(24px, 8vw, 32px) !important;
-    line-height: 1.2 !important;
-    padding-left: 5px !important;
-    padding-right: 5px !important;
+  .cta-holder h1,
+  .cta-heading {
+    font-size: clamp(14px, 4vw, 22px) !important;
+    line-height: 1.25 !important;
+    padding-left: 8px !important;
+    padding-right: 8px !important;
+    text-align: center !important;
+    overflow: visible !important;
   }
 
   .cta-holder {
-    /* padding-left: 15px !important; */
-    /* padding-right: 15px !important; */
+    overflow: visible !important;
   }
 
   .cta-content {
-    padding-left: 5px !important;
-    padding-right: 5px !important;
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+    overflow: visible !important;
   }
 
   .section.overflow-hidden:has(.cta-holder) {
     padding-top: 40px !important;
+    overflow: visible !important;
   }
 }

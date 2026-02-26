@@ -63,14 +63,14 @@ export default function Home() {
         <div className="container">
           <div className="grid-holder">
             <div className="w-layout-grid grid">
-              <div className="grid-item overflow-hidden">
+              <div className="grid-item">
                 <img className="grid-image" src="/chat1.png" alt="" sizes="(max-width: 1710px) 100vw, 1710px" loading="lazy" />
                 <div className="grid-content">
                   <div className="grid-title">Become a real CEO</div>
                   <p className="no-margins-2">Track cash collected, calls booked, leads, team KPIs, client LTV, and revenue per YouTube video — all in real time.</p>
                 </div>
               </div>
-              <div className="grid-item  overflow-hidden">
+              <div className="grid-item">
                 <img className="grid-image" src="/Des33.png" alt="" sizes="(max-width: 1710px) 100vw, 1710px" loading="lazy" />
                 <div className="grid-content">
                   <div className="grid-title">Built-in automations</div>
@@ -164,7 +164,7 @@ export default function Home() {
           <div className="cta-holder ">
             <div className="cta-content">
               <div className="fade-in-on-scroll">
-                <h1>The #1 All-in-One System <br /> <span className="whitespace-nowrap">for Infopreneurs.</span>
+                <h1>The #1 All-in-One System <br /> for Infopreneurs.
                 </h1>
               </div>
               <div className="form">
