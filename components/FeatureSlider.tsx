@@ -1,12 +1,21 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
-import { gsap } from 'gsap';
+import { useEffect, useRef, useState } from 'react';
+import gsap from 'gsap';
+import { Draggable } from 'gsap/all';
+
+// Register GSAP plugins on client side only
+if (typeof window !== 'undefined') {
+    gsap.registerPlugin(Draggable);
+}
 
 export default function FeatureSlider() {
     const sliderRef = useRef<HTMLDivElement>(null);
     const maskRef = useRef<HTMLDivElement>(null);
     const scrollAnimationRef = useRef<gsap.core.Tween | null>(null);
+    const [isHovered, setIsHovered] = useState(false);
+    const [isDragging, setIsDragging] = useState(false);
+    const draggableInstanceRef = useRef<Draggable[] | null>(null);
 
     useEffect(() => {
         // Function to update active slide blue light - only show on leftmost visible slide
@@ -68,7 +77,7 @@ export default function FeatureSlider() {
         };
 
         // Smooth continuous scrolling animation using GSAP with infinite loop
-        const startContinuousScroll = () => {
+        const startContinuousScroll = (speedMultiplier = 1) => {
             if (!maskRef.current || !sliderRef.current) return;
             
             // Get only the original slides (first set, before duplicates)
@@ -78,7 +87,7 @@ export default function FeatureSlider() {
             
             if (!slides || slides.length === 0) {
                 // Retry if slides aren't ready
-                setTimeout(startContinuousScroll, 200);
+                setTimeout(() => startContinuousScroll(speedMultiplier), 200);
                 return;
             }
 
@@ -94,7 +103,7 @@ export default function FeatureSlider() {
                 const slideWidthWithMargin = slideWidth + slideMargin;
                 
                 if (slideWidth === 0) {
-                    setTimeout(startContinuousScroll, 200);
+                    setTimeout(() => startContinuousScroll(speedMultiplier), 200);
                     return;
                 }
 
@@ -106,17 +115,14 @@ export default function FeatureSlider() {
                 // Calculate width of one complete set of slides (for seamless loop)
                 const oneSetWidth = slideWidthWithMargin * originalSlideCount;
                 
-                // Set initial transform
-                gsap.set(maskRef.current, { 
-                    x: 0, 
-                    force3D: true,
-                    transformOrigin: 'left center'
-                });
+                // Get current position to continue from where we are
+                const currentX = gsap.getProperty(maskRef.current, 'x') as number || 0;
 
-                // Create smooth infinite scroll with constant speed
-                // Scroll speed: 40px per second for smooth, readable speed
-                const scrollSpeed = 40; // pixels per second
-                const duration = oneSetWidth / scrollSpeed; // time to scroll one set
+                // Base scroll speed: 40px per second for smooth, readable speed
+                const baseScrollSpeed = 40; // pixels per second
+                const scrollSpeed = baseScrollSpeed * speedMultiplier;
+                const remainingDistance = oneSetWidth + currentX; // Distance to end of loop
+                const duration = remainingDistance / scrollSpeed; // time to scroll remaining distance
 
                 // Create smooth infinite scroll animation - like marquee
                 scrollAnimationRef.current = gsap.to(maskRef.current, {
@@ -124,23 +130,81 @@ export default function FeatureSlider() {
                     duration: duration,
                     ease: 'none', // Linear easing for constant speed
                     repeat: -1, // Infinite repeat
+                    onRepeat: () => {
+                        // Reset position seamlessly at the start of each loop
+                        gsap.set(maskRef.current, { x: 0 });
+                    },
                     onUpdate: () => {
-                        const currentX = gsap.getProperty(maskRef.current, 'x') as number;
-                        // Seamlessly loop: when we reach the end of first set, reset to 0
-                        // Since we have duplicates, this creates seamless infinite scroll
-                        if (currentX <= -oneSetWidth) {
-                            gsap.set(maskRef.current, { x: 0 });
-                        }
                         updateActiveSlide();
                     }
                 });
             }, 500);
         };
 
+        // Setup draggable functionality for manual scrolling
+        const setupDraggable = () => {
+            if (!maskRef.current || !sliderRef.current) return;
+
+            // Kill any existing draggable
+            if (draggableInstanceRef.current) {
+                draggableInstanceRef.current.forEach(d => d.kill());
+            }
+
+            const allSlides = sliderRef.current.querySelectorAll('.w-slide');
+            const originalSlideCount = 8;
+            const slides = Array.from(allSlides).slice(0, originalSlideCount) as HTMLElement[];
+            
+            if (!slides || slides.length === 0) {
+                setTimeout(setupDraggable, 200);
+                return;
+            }
+
+            const firstSlide = slides[0];
+            const slideRect = firstSlide.getBoundingClientRect();
+            const slideWidth = slideRect.width || firstSlide.offsetWidth || 300;
+            const slideMargin = 30;
+            const slideWidthWithMargin = slideWidth + slideMargin;
+            const oneSetWidth = slideWidthWithMargin * originalSlideCount;
+
+            draggableInstanceRef.current = Draggable.create(maskRef.current, {
+                type: 'x',
+                inertia: true,
+                bounds: { minX: -oneSetWidth * 2, maxX: 0 },
+                onDragStart: () => {
+                    setIsDragging(true);
+                    if (scrollAnimationRef.current) {
+                        scrollAnimationRef.current.pause();
+                    }
+                },
+                onDrag: function() {
+                    // Handle seamless looping during drag
+                    const currentX = this.x;
+                    if (currentX < -oneSetWidth) {
+                        gsap.set(maskRef.current, { x: currentX + oneSetWidth });
+                        this.update();
+                    } else if (currentX > 0) {
+                        gsap.set(maskRef.current, { x: currentX - oneSetWidth });
+                        this.update();
+                    }
+                    updateActiveSlide();
+                },
+                onDragEnd: () => {
+                    setIsDragging(false);
+                    // Resume auto-scroll after drag
+                    if (!isHovered) {
+                        startContinuousScroll(1);
+                    } else {
+                        startContinuousScroll(3);
+                    }
+                }
+            });
+        };
+
         // Initialize after a delay to ensure DOM is ready
         const initTimeout = setTimeout(() => {
             updateActiveSlide();
-            startContinuousScroll();
+            startContinuousScroll(1);
+            setupDraggable();
         }, 1000);
 
         // Update active slide periodically
@@ -160,18 +224,186 @@ export default function FeatureSlider() {
             if (maskRef.current) {
                 gsap.killTweensOf(maskRef.current);
             }
+            // Kill draggable
+            if (draggableInstanceRef.current) {
+                draggableInstanceRef.current.forEach(d => d.kill());
+            }
         };
     }, []);
+
+    // Handle hover/touch speed changes
+    useEffect(() => {
+        if (isDragging) return; // Don't change speed while dragging
+
+        if (isHovered) {
+            // Speed up to 3x on hover/touch
+            startContinuousScroll(3);
+        } else {
+            // Normal speed when not hovered
+            startContinuousScroll(1);
+        }
+    }, [isHovered, isDragging]);
+
+    const startContinuousScroll = (speedMultiplier: number) => {
+        if (!maskRef.current || !sliderRef.current) return;
+        
+        const allSlides = sliderRef.current.querySelectorAll('.w-slide');
+        const originalSlideCount = 8;
+        const slides = Array.from(allSlides).slice(0, originalSlideCount) as HTMLElement[];
+        
+        if (!slides || slides.length === 0) return;
+
+        const firstSlide = slides[0];
+        const slideRect = firstSlide.getBoundingClientRect();
+        const slideWidth = slideRect.width || firstSlide.offsetWidth || 300;
+        const slideMargin = 30;
+        const slideWidthWithMargin = slideWidth + slideMargin;
+        
+        if (slideWidth === 0) return;
+
+        if (scrollAnimationRef.current) {
+            scrollAnimationRef.current.kill();
+        }
+
+        const oneSetWidth = slideWidthWithMargin * originalSlideCount;
+        const currentX = gsap.getProperty(maskRef.current, 'x') as number || 0;
+        const baseScrollSpeed = 40;
+        const scrollSpeed = baseScrollSpeed * speedMultiplier;
+        const remainingDistance = oneSetWidth + currentX;
+        const duration = remainingDistance / scrollSpeed;
+
+        scrollAnimationRef.current = gsap.to(maskRef.current, {
+            x: -oneSetWidth,
+            duration: duration,
+            ease: 'none',
+            repeat: -1,
+            onRepeat: () => {
+                gsap.set(maskRef.current, { x: 0 });
+            },
+            onUpdate: () => {
+                updateActiveSlide();
+            }
+        });
+    };
+
+    const updateActiveSlide = () => {
+        if (!sliderRef.current) return;
+        
+        const slides = sliderRef.current.querySelectorAll('.w-slide');
+        const mask = sliderRef.current.querySelector('.w-slider-mask') as HTMLElement;
+        
+        if (!mask) return;
+        
+        const maskRect = mask.getBoundingClientRect();
+        const maskLeft = maskRect.left;
+        
+        let leftmostSlide: HTMLElement | null = null;
+        let leftmostDistance = Infinity;
+        
+        slides.forEach((slide) => {
+            const slideElement = slide as HTMLElement;
+            const slideRect = slideElement.getBoundingClientRect();
+            const slideLeft = slideRect.left;
+            const slideRight = slideRect.right;
+            
+            if (slideRight > maskLeft && slideLeft < maskRect.right) {
+                const distance = slideLeft - maskLeft;
+                
+                if (distance >= -50 && distance < leftmostDistance) {
+                    leftmostDistance = distance;
+                    leftmostSlide = slideElement;
+                }
+            }
+        });
+        
+        slides.forEach((slide) => {
+            const slideElement = slide as HTMLElement;
+            const blueLineWrapper = slideElement.querySelector('.blue-line-wrapper') as HTMLElement;
+            const blueLines = slideElement.querySelectorAll('.blue-line') as NodeListOf<HTMLElement>;
+            
+            if (blueLineWrapper) blueLineWrapper.style.opacity = '0';
+            blueLines.forEach(line => line.style.opacity = '0');
+        });
+        
+        if (leftmostSlide !== null) {
+            const slideElement: HTMLElement = leftmostSlide;
+            const blueLineWrapper = slideElement.querySelector('.blue-line-wrapper') as HTMLElement;
+            const blueLines = slideElement.querySelectorAll('.blue-line') as NodeListOf<HTMLElement>;
+            
+            if (blueLineWrapper) blueLineWrapper.style.opacity = '1';
+            blueLines.forEach(line => line.style.opacity = '1');
+        }
+    };
+
+    const setupDraggable = () => {
+        if (!maskRef.current || !sliderRef.current) return;
+
+        if (draggableInstanceRef.current) {
+            draggableInstanceRef.current.forEach(d => d.kill());
+        }
+
+        const allSlides = sliderRef.current.querySelectorAll('.w-slide');
+        const originalSlideCount = 8;
+        const slides = Array.from(allSlides).slice(0, originalSlideCount) as HTMLElement[];
+        
+        if (!slides || slides.length === 0) {
+            setTimeout(setupDraggable, 200);
+            return;
+        }
+
+        const firstSlide = slides[0];
+        const slideRect = firstSlide.getBoundingClientRect();
+        const slideWidth = slideRect.width || firstSlide.offsetWidth || 300;
+        const slideMargin = 30;
+        const slideWidthWithMargin = slideWidth + slideMargin;
+        const oneSetWidth = slideWidthWithMargin * originalSlideCount;
+
+        draggableInstanceRef.current = Draggable.create(maskRef.current, {
+            type: 'x',
+            inertia: true,
+            bounds: { minX: -oneSetWidth * 2, maxX: 0 },
+            onDragStart: () => {
+                setIsDragging(true);
+                if (scrollAnimationRef.current) {
+                    scrollAnimationRef.current.pause();
+                }
+            },
+            onDrag: function() {
+                const currentX = this.x;
+                if (currentX < -oneSetWidth) {
+                    gsap.set(maskRef.current, { x: currentX + oneSetWidth });
+                    this.update();
+                } else if (currentX > 0) {
+                    gsap.set(maskRef.current, { x: currentX - oneSetWidth });
+                    this.update();
+                }
+                updateActiveSlide();
+            },
+            onDragEnd: () => {
+                setIsDragging(false);
+                if (!isHovered) {
+                    startContinuousScroll(1);
+                } else {
+                    startContinuousScroll(3);
+                }
+            }
+        });
+    };
 
     return (
         <div 
             className="slider w-slider" 
             ref={sliderRef}
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+            onTouchStart={() => setIsHovered(true)}
+            onTouchEnd={() => setIsHovered(false)}
             style={{
                 position: 'relative',
                 overflow: 'hidden',
                 width: '100vw',
-                maxWidth: '100vw'
+                maxWidth: '100vw',
+                cursor: isDragging ? 'grabbing' : 'grab'
             }}
         >
             <div 
