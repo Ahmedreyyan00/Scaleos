@@ -2690,7 +2690,7 @@ body {
   /* padding-left: 24px;
   padding-right: 24px;
   padding-bottom: 30px; */
-  overflow: visible;
+  overflow: hidden;
   /* Ensure scrolling works properly on mobile */
   touch-action: pan-y !important;
   -webkit-overflow-scrolling: touch !important;
@@ -2720,6 +2720,7 @@ body {
 /* Fix blue blur on demo page - MOBILE ONLY - prevent independent movement */
 /* Simple fix: just disable animations on mobile so scrolling works normally */
 @media (max-width: 991px) {
+
   .demo .blue-blur-holder,
   .demo .blue-blur-blog {
     /* Disable any animations that cause weird dragging behavior */
