@@ -71,7 +71,7 @@ export default function Home() {
                 </div>
               </div>
               <div className="grid-item overflow-hidden">
-                <img className="grid-image" src="/Des33.png" alt="" sizes="(max-width: 1710px) 100vw, 1710px" loading="lazy" />
+                <img className="grid-image" src="/finalceo.png" alt="" sizes="(max-width: 1710px) 100vw, 1710px" loading="lazy" />
                 <div className="grid-content">
                   <div className="grid-title">Built-in automations</div>
                   <p className="no-margins-2">Sales pipeline automation : automated onboading, slack &amp; payments notifications</p>
